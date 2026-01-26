@@ -17,7 +17,7 @@ interface DocSection {
 export class OverviewComponent {
   foundations: DocSection = {
     title: 'Token-based foundations',
-    description: 'The visual foundation is derived from compiled, versioned tokens.',
+    description: 'The visual foundation is defined through compiled, versioned tokens.',
     items: ['Base and semantic color', 'Typography and hierarchy', 'States and contrast']
   };
 
