@@ -2,7 +2,7 @@
 
 **Percepta** is the design system for Giunti Psychometrics digital products.
 
-It provides a shared foundation to build consistent, accessible and scalable user interfaces across platforms.
+It provides a shared foundation to build consistent, accessible and scalable user interfaces, with a clear separation between **design decisions** and **technical implementation**.
 
 ---
 
@@ -11,12 +11,12 @@ It provides a shared foundation to build consistent, accessible and scalable use
 This repository contains the **technical implementation** of the Percepta design system.
 
 Here you will find:
-- Design tokens (semantic and technical)
-- Component implementations
-- Documentation for developers
-- Integration guidelines (Angular / PrimeNG)
+- Design tokens (JSON, semantic and technical)
+- Global styles and token consumption
+- An Angular-based documentation site
+- Implementation guidelines for frontend development
 
-This repo is intended primarily for **frontend developers**.
+This repository is primarily intended for **frontend developers**.
 
 ---
 
@@ -27,28 +27,22 @@ This repository does **not** contain:
 - Visual foundations (color, typography, spacing)
 - Design principles or UI decisions
 
-All design-related documentation lives here:
+All design-related documentation lives here and is the **single source of truth for design**:
 
 👉 **https://design.giuntipsy.com**
-
-That site is the **single source of truth for design**.
 
 ---
 
 ## Documentation
 
-The documentation site is structured as follows:
+The documentation site focuses on *how to use and implement* the system.
 
-- **Getting started**  
-  Overview of the system, scope, and design → code workflow.
+It is structured around:
+- **Getting started** – system overview, scope and design → code workflow
+- **Tokens** – token architecture, semantics and theming
+- **Components** – usage and implementation details
 
-- **Tokens**  
-  Token architecture, semantics, theming and platform mappings.
-
-- **Components**  
-  Component usage, APIs, states, and implementation details.
-
-Each section is focused on *how to use and implement* the system, not on visual design decisions.
+Visual design guidelines are always referenced externally.
 
 ---
 
@@ -57,7 +51,7 @@ Each section is focused on *how to use and implement* the system, not on visual 
 - Angular
 - PrimeNG
 - SCSS
-- Design tokens (JSON / CSS variables)
+- Design tokens (JSON)
 
 ---
 
@@ -65,7 +59,13 @@ Each section is focused on *how to use and implement* the system, not on visual 
 
 ```text
 apps/
-  docs/          → Documentation site
-packages/
-  tokens/        → Design tokens
-  components/    → Component implementations
+  docs/                → Angular documentation site
+    src/
+      app/              → Pages, layouts and routing
+      styles.scss       → Global styles
+      tokens.scss       → Token consumption
+tokens/
+  *.json                → Design tokens (implementation source of truth)
+
+.angular/               → Angular cache
+node_modules/           → Dependencies
