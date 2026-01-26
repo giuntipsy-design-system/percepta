@@ -1,27 +1,71 @@
 # Percepta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+**Percepta** is the design system for Giunti Psychometrics digital products.
 
-## Development server
+It provides a shared foundation to build consistent, accessible and scalable user interfaces across platforms.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## What this repository is
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repository contains the **technical implementation** of the Percepta design system.
 
-## Build
+Here you will find:
+- Design tokens (semantic and technical)
+- Component implementations
+- Documentation for developers
+- Integration guidelines (Angular / PrimeNG)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This repo is intended primarily for **frontend developers**.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## What this repository is NOT
 
-## Running end-to-end tests
+This repository does **not** contain:
+- Brand guidelines
+- Visual foundations (color, typography, spacing)
+- Design principles or UI decisions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+All design-related documentation lives here:
 
-## Further help
+👉 **https://design.giuntipsy.com**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+That site is the **single source of truth for design**.
+
+---
+
+## Documentation
+
+The documentation site is structured as follows:
+
+- **Getting started**  
+  Overview of the system, scope, and design → code workflow.
+
+- **Tokens**  
+  Token architecture, semantics, theming and platform mappings.
+
+- **Components**  
+  Component usage, APIs, states, and implementation details.
+
+Each section is focused on *how to use and implement* the system, not on visual design decisions.
+
+---
+
+## Tech stack
+
+- Angular
+- PrimeNG
+- SCSS
+- Design tokens (JSON / CSS variables)
+
+---
+
+## Project structure (high level)
+
+```text
+apps/
+  docs/          → Documentation site
+packages/
+  tokens/        → Design tokens
+  components/    → Component implementations
