@@ -1,0 +1,73 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="app-brand">
+        <a class="brand-link" routerLink="/overview">
+          <h1>Percepta Design System</h1>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a routerLink="/overview" routerLinkActive="active">Getting started</a>
+        <a routerLink="/components" routerLinkActive="active">Components</a>
+        <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
+        <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
+        <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+      </nav>
+      <div class="header-actions">
+        <p-button styleClass="gp-button gp-button--tertiary gp-button--icon" ariaLabel="Toggle theme">
+          <ng-template pTemplate="icon">
+            <svg class="gp-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M3 11.5066C3 16.7497 7.25034 21 12.4934 21C16.2209 21 19.4466 18.8518 21 15.7259C12.4934 15.7259 8.27411 11.5066 8.27411 3C5.14821 4.55344 3 7.77915 3 11.5066Z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </ng-template>
+        </p-button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout-shell">
+    <nav class="app-nav">
+      <ng-container *ngIf="isComponentsPage; else defaultNav">
+        <span class="nav-title">Components</span>
+        <a
+          *ngFor="let item of componentsNav.ready"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+        >
+          {{ item.label }}
+        </a>
+        <span class="nav-subtitle">Planned</span>
+        <span *ngFor="let item of componentsNav.planned" class="nav-item-disabled">
+          {{ item }}
+        </span>
+      </ng-container>
+      <ng-template #defaultNav>
+        <a routerLink="/overview" routerLinkActive="active">Overview</a>
+        <a routerLink="/tokens" routerLinkActive="active">Tokens</a>
+        <a routerLink="/components" routerLinkActive="active">Components</a>
+        <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
+        <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
+        <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+      </ng-template>
+    </nav>
+
+    <main class="app-content">
+      <div class="content-inner">
+        <router-outlet></router-outlet>
+        <footer class="app-footer">
+          <div class="footer-inner">
+            <span>Percepta Design System</span>
+            <span>Giunti Psychometrics</span>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</div>

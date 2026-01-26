@@ -1,0 +1,20 @@
+{
+  "spacing": {
+    "layout": {
+      "xs": { "value": "0.25rem" },
+      "sm": { "value": "0.5rem" },
+      "md": { "value": "0.75rem" },
+      "lg": { "value": "1rem" },
+      "xl": { "value": "1.5rem" },
+      "xxl": { "value": "2rem" }
+    },
+    "control": {
+      "y-sm": { "value": "0.35rem" },
+      "y-md": { "value": "0.5rem" },
+      "y-lg": { "value": "0.5rem" },
+      "x-sm": { "value": "0.5rem" },
+      "x-md": { "value": "0.6rem" },
+      "x-lg": { "value": "0.7rem" }
+    }
+  }
+}

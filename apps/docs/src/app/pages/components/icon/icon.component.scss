@@ -1,0 +1,129 @@
+@use '../../../../tokens.scss' as tokens;
+@use '../../../../typography.mixins.scss' as typography;
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
+}
+
+.docs-h1 {
+  margin: 4px 0 8px;
+}
+
+.overview-lead {
+  @include typography.typography-body-xl;
+  margin: 0;
+  color: tokens.$color-foreground-default;
+}
+
+.section {
+  margin-top: #{tokens.$spacing-layout-lg};
+}
+
+.docs-body {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.section .docs-h2 {
+  margin: #{tokens.$spacing-layout-lg} 0 10px;
+}
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-md};
+  margin: #{tokens.$spacing-layout-xs} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: #{tokens.$spacing-layout-sm} 0;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: #{tokens.$spacing-layout-lg};
+  width: 100%;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-md};
+  padding: #{tokens.$spacing-layout-md};
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.icon-item:hover {
+  border-color: tokens.$color-border-muted;
+  transform: translateY(-1px);
+}
+
+.icon-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px tokens.$color-border-focus;
+}
+
+.icon-item gp-icon .gp-icon--lg {
+  font-size: 32px;
+}
+
+.icon-label {
+  @include typography.typography-label-sm;
+  color: tokens.$color-foreground-subtle;
+}
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: #{tokens.$spacing-layout-md};
+  margin-bottom: #{tokens.$spacing-layout-lg};
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.mapping-table th,
+.mapping-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid tokens.$color-border-subtle;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.mapping-table thead th {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}

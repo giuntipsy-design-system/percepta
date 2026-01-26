@@ -1,0 +1,18 @@
+<section class="page">
+  <header>
+    <p class="eyebrow">Component</p>
+    <h2>Select</h2>
+    <p>Initial documentation for the Select component.</p>
+  </header>
+  <div class="demo">
+    <label for="demo-select">Base select</label>
+    <p-select
+      inputId="demo-select"
+      [options]="cities"
+      optionLabel="name"
+      placeholder="Choose a city"
+      [(ngModel)]="selectedCity"
+      styleClass="gp-select"
+    ></p-select>
+  </div>
+</section>

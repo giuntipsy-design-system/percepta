@@ -1,0 +1,27 @@
+<div class="gp-input-field">
+  <label *ngIf="label" [class]="labelClass" [attr.for]="resolvedId">{{ label }}</label>
+  <div
+    [class]="groupClass"
+    [class.is-disabled]="resolvedDisabled"
+    role="group"
+    [attr.aria-label]="ariaLabel || label"
+  >
+    <gp-icon *ngIf="leadingIcon" [name]="leadingIcon" [size]="iconSize" [decorative]="true"></gp-icon>
+    <input
+      [id]="resolvedId"
+      pInputText
+      [class]="inputClass"
+      [attr.placeholder]="placeholder"
+      [attr.aria-label]="ariaLabel || label"
+      [attr.aria-describedby]="describedBy"
+      [attr.aria-invalid]="isError"
+      [attr.type]="type"
+      [value]="internalValue ?? ''"
+      [disabled]="resolvedDisabled"
+      (input)="handleInput($event)"
+      (blur)="handleBlur()"
+    />
+  </div>
+  <p *ngIf="!isError && helperText" [id]="helperId" class="gp-input-helper">{{ helperText }}</p>
+  <p *ngIf="isError && errorText" [id]="errorId" class="gp-input-error" role="alert">{{ errorText }}</p>
+</div>

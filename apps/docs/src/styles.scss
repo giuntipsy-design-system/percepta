@@ -1,0 +1,344 @@
+@use './tokens.scss' as tokens;
+@use '../../shared/styles/iconoir.scss' as iconoir;
+@use './typography.mixins.scss' as typography;
+@use './docs-typography.scss';
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/NotoSans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/NotoSans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Saans Medium';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/SaansMedium.woff2') format('woff2'),
+    url('/assets/fonts/SaansMedium.woff') format('woff');
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: tokens.$font-family-primary;
+  color: tokens.$color-foreground-static-dark;
+  background: tokens.$color-background-subtle;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  @include typography.typography-heading-h1;
+  margin: 0 0 12px;
+}
+
+h2 {
+  @include typography.typography-heading-h2;
+}
+
+h3 {
+  @include typography.typography-heading-h3;
+}
+
+p {
+  @include typography.typography-body-md;
+}
+
+.gp-button {
+  @include typography.typography-label-control-md;
+  font-weight: tokens.$font-weight-regular;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gp-button-gap);
+  border-radius: var(--gp-button-radius);
+  padding: var(--gp-button-padding-y) var(--gp-button-padding-x);
+  border: 1px solid tokens.$color-border-subtle;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  --gp-button-padding-x: #{tokens.$spacing-control-x-md};
+  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
+  --gp-button-gap: #{tokens.$spacing-control-x-md};
+  --gp-button-radius: #{tokens.$radius-sm};
+  --gp-icon-size: #{tokens.$icon-md};
+}
+
+.gp-button--primary {
+  background: tokens.$color-accent-moderate;
+  color: tokens.$color-accent-on-accent;
+  border-color: transparent;
+}
+
+.gp-button--secondary {
+  background: tokens.$color-accent-subtle;
+  color: tokens.$color-accent-moderate;
+  border-color: transparent;
+}
+
+.gp-button--tertiary {
+  background: transparent;
+  color: tokens.$color-accent-vibrant;
+  border-color: tokens.$color-accent-moderate;
+}
+
+.gp-button--text {
+  background: transparent;
+  color: tokens.$color-accent-moderate;
+  border-color: transparent;
+}
+
+.gp-button--danger {
+  background: tokens.$color-background-danger-primary;
+  color: tokens.$color-accent-on-accent;
+  border-color: transparent;
+}
+
+.gp-button--primary.is-hover,
+.gp-button--primary:hover {
+  background: tokens.$color-accent-vibrant;
+}
+
+.gp-button--primary.is-active,
+.gp-button--primary:active {
+  background: tokens.$color-accent-bold;
+  color: tokens.$color-accent-on-accent;
+}
+
+.gp-button--secondary.is-hover,
+.gp-button--secondary:hover {
+  background: tokens.$color-accent-tinted;
+  color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--secondary.is-active,
+.gp-button--secondary:active {
+  background: tokens.$color-accent-muted;
+  color: tokens.$color-accent-bold;
+}
+
+.gp-button--tertiary.is-hover,
+.gp-button--tertiary:hover {
+  background: tokens.$color-accent-subtle;
+  color: tokens.$color-accent-vibrant;
+  border-color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--text.is-hover,
+.gp-button--text:hover {
+  background: tokens.$color-background-subtle;
+  color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--tertiary.is-active,
+.gp-button--tertiary:active {
+  background: tokens.$color-accent-tinted;
+  color: tokens.$color-accent-bold;
+  border-color: tokens.$color-accent-bold;
+}
+
+.gp-button--text.is-active,
+.gp-button--text:active {
+  background: transparent;
+  color: tokens.$color-accent-bold;
+}
+
+.gp-button--danger:hover {
+  background: tokens.$color-background-danger-secondary;
+}
+
+.gp-button--danger.is-active,
+.gp-button--danger:active {
+  background: tokens.$color-background-danger-tertiary;
+}
+
+.gp-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+}
+
+.gp-button.is-focus {
+  outline: none;
+  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+}
+
+.gp-button--secondary:focus-visible,
+.gp-button--secondary.is-focus {
+  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+  background: tokens.$color-accent-subtle;
+  color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--tertiary:focus-visible,
+.gp-button--tertiary.is-focus {
+  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+  background: tokens.$color-accent-subtle;
+  color: tokens.$color-accent-vibrant;
+  border-color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--text:focus-visible,
+.gp-button--text.is-focus {
+  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+  background: tokens.$color-accent-on-accent;
+  color: tokens.$color-accent-vibrant;
+}
+
+.gp-button--icon {
+  min-width: calc(var(--gp-icon-size) + (var(--gp-button-padding-y) * 2));
+  min-height: calc(var(--gp-icon-size) + (var(--gp-button-padding-y) * 2));
+}
+
+.gp-button--icon-right {
+  flex-direction: row-reverse;
+}
+
+.gp-icon {
+  width: var(--gp-icon-size);
+  height: var(--gp-icon-size);
+  display: block;
+  font-size: var(--gp-icon-size);
+}
+
+.demo-code {
+  margin-top: #{tokens.$spacing-layout-xs};
+}
+
+.demo-code-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-xs};
+  padding: #{tokens.$spacing-layout-xs} #{tokens.$spacing-layout-sm};
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+  color: tokens.$color-accent-moderate;
+  cursor: pointer;
+  @include typography.typography-label-sm;
+}
+
+.demo-code-label--open {
+  display: none;
+}
+
+.demo-code-toggle:hover {
+  background: tokens.$color-background-subtle;
+  color: tokens.$color-accent-vibrant;
+}
+
+.demo-code summary {
+  list-style: none;
+}
+
+.demo-code summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-code[open] .demo-code-toggle {
+  color: tokens.$color-accent-bold;
+}
+
+.demo-code[open] .demo-code-label--closed {
+  display: none;
+}
+
+.demo-code[open] .demo-code-label--open {
+  display: inline;
+}
+
+.demo-code-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 240ms ease, opacity 180ms ease;
+}
+
+.demo-code-panel .code-block {
+  margin-top: #{tokens.$spacing-layout-sm};
+}
+
+.demo-code[open] .demo-code-panel {
+  max-height: 480px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-code-panel {
+    transition: none;
+  }
+}
+
+.code-block {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: tokens.$color-background-subtle;
+}
+
+.code-block code {
+  white-space: pre-wrap;
+  font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  display: block;
+}
+
+.gp-button--sm {
+  @include typography.typography-label-control-sm;
+  font-weight: tokens.$font-weight-regular;
+  --gp-button-padding-x: #{tokens.$spacing-control-x-sm};
+  --gp-button-padding-y: #{tokens.$spacing-control-y-sm};
+  --gp-button-gap: #{tokens.$spacing-control-x-sm};
+  --gp-button-radius: #{tokens.$radius-sm};
+  --gp-icon-size: #{tokens.$icon-sm};
+}
+
+.gp-button--lg {
+  @include typography.typography-label-control-lg;
+  font-weight: tokens.$font-weight-regular;
+  --gp-button-padding-x: #{tokens.$spacing-control-x-lg};
+  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
+  --gp-button-gap: #{tokens.$spacing-control-x-md};
+  --gp-button-radius: #{tokens.$radius-sm};
+  --gp-icon-size: #{tokens.$icon-lg};
+}
+
+.gp-button.p-disabled,
+.gp-button:disabled,
+.gp-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: tokens.$color-background-disabled;
+  color: tokens.$color-foreground-disabled;
+  border-color: tokens.$color-border-disabled;
+  pointer-events: none;
+}
+
+.gp-button.p-button-loading {
+  pointer-events: none;
+  cursor: progress;
+}

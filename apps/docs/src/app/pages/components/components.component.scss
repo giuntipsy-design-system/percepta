@@ -1,0 +1,60 @@
+@use '../../../tokens.scss' as tokens;
+@use '../../../typography.mixins.scss' as typography;
+
+.page {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  background: tokens.$color-background-default;
+  border-radius: 16px;
+  border: none;
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+h2 {
+  @include typography.typography-heading-h2;
+  margin: 4px 0 8px;
+}
+
+p {
+  @include typography.typography-body-md;
+  margin: 0;
+  color: tokens.$color-gray-600;
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.component-card {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  text-decoration: none;
+  color: tokens.$color-foreground-static-dark;
+  background: tokens.$color-background-subtle;
+}
+
+.component-card:hover {
+  background: tokens.$color-background-subtle;
+}
+
+.card-title {
+  @include typography.typography-label-lg;
+}
+
+.card-desc {
+  @include typography.typography-body-sm;
+  color: tokens.$color-gray-600;
+}

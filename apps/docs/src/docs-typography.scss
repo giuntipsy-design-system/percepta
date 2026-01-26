@@ -1,0 +1,33 @@
+@use 'tokens' as tokens;
+@use 'typography.mixins' as typography;
+
+.docs-h1 {
+  @include typography.typography-display-display-2;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-h2 {
+  @include typography.typography-heading-h1;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-h3 {
+  @include typography.typography-heading-h2;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-body {
+  @include typography.typography-body-md;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-list {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  padding-left: 20px;
+  @include typography.typography-body-md;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-list li {
+  margin-bottom: #{tokens.$spacing-layout-xs};
+}

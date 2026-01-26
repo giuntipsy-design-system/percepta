@@ -1,0 +1,70 @@
+@use '../../../../tokens.scss' as tokens;
+@use '../../../../typography.mixins.scss' as typography;
+
+.page {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  background: tokens.$color-background-default;
+  border-radius: 16px;
+  border: none;
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+h2 {
+  @include typography.typography-heading-h2;
+  margin: 4px 0 8px;
+}
+
+p {
+  @include typography.typography-body-md;
+  margin: 0;
+  color: tokens.$color-gray-600;
+}
+
+.demo {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  @include typography.typography-label-md;
+  color: tokens.$color-gray-500;
+}
+
+:host ::ng-deep .gp-select {
+  width: 280px;
+}
+
+:host ::ng-deep .p-select {
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+}
+
+:host ::ng-deep .p-select-label {
+  @include typography.typography-label-control-md;
+  padding: #{tokens.$spacing-control-y-md} #{tokens.$spacing-control-x-md};
+  color: tokens.$color-foreground-default;
+}
+
+:host ::ng-deep .p-select:hover {
+  background: tokens.$color-background-subtle;
+}
+
+:host ::ng-deep .p-select:focus-within {
+  border-color: tokens.$color-accent-bold;
+}
+
+:host ::ng-deep .p-select.p-disabled {
+  background: tokens.$color-background-disabled;
+  color: tokens.$color-foreground-disabled;
+  border-color: tokens.$color-border-disabled;
+}

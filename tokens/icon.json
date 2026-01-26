@@ -1,0 +1,8 @@
+{
+  "icon": {
+    "xs": { "value": "0.825rem" },
+    "sm": { "value": "0.95rem" },
+    "md": { "value": "1.05rem" },
+    "lg": { "value": "1.15rem" }
+  }
+}

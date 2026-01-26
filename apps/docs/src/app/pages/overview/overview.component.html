@@ -1,0 +1,53 @@
+<section class="hero">
+  <div class="hero-copy">
+    <h2>Living documentation, not a production app.</h2>
+    <p>
+      Este es el site de Percepta, sistema de diseño de Giunti Psychometrics. Aquí se visualizan
+      los componentes, los tokens y foundations para conectar diseño con desarrollo frontend.
+    </p>
+  </div>
+  <div class="hero-panel">
+    <div class="panel-row">
+      <span class="panel-label">Tokens</span>
+      <span class="panel-value">dist/sass</span>
+    </div>
+    <div class="panel-row">
+      <span class="panel-label">Stack</span>
+      <span class="panel-value">Angular 21 + PrimeNG 21</span>
+    </div>
+    <div class="panel-row">
+      <span class="panel-label">Purpose</span>
+      <span class="panel-value">Visual and interaction reference</span>
+    </div>
+  </div>
+</section>
+
+<section class="doc-section">
+  <div class="section-head">
+    <h3>{{ foundations.title }}</h3>
+    <p>{{ foundations.description }}</p>
+  </div>
+  <div class="section-body">
+    <div class="pill" *ngFor="let item of foundations.items">{{ item }}</div>
+  </div>
+</section>
+
+<section class="doc-section">
+  <div class="section-head">
+    <h3>{{ components.title }}</h3>
+    <p>{{ components.description }}</p>
+  </div>
+  <div class="section-body">
+    <div class="pill" *ngFor="let item of components.items">{{ item }}</div>
+  </div>
+</section>
+
+<section class="doc-section">
+  <div class="section-head">
+    <h3>{{ patterns.title }}</h3>
+    <p>{{ patterns.description }}</p>
+  </div>
+  <div class="section-body">
+    <div class="pill" *ngFor="let item of patterns.items">{{ item }}</div>
+  </div>
+</section>

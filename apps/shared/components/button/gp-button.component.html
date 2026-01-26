@@ -1,0 +1,12 @@
+<p-button
+  [label]="label"
+  [styleClass]="buttonClass"
+  [disabled]="disabled || loading"
+  [loading]="loading"
+  [ariaLabel]="ariaLabel || label"
+  [type]="type"
+>
+  <ng-template pTemplate="icon" *ngIf="icon">
+    <gp-icon [name]="icon" [size]="iconSize" [decorative]="true"></gp-icon>
+  </ng-template>
+</p-button>

@@ -1,0 +1,24 @@
+@use '../../../dist/sass/tokens' as tokens;
+
+:host {
+  display: inline-flex;
+}
+
+.gp-icon {
+  display: inline-block;
+  line-height: 1;
+  color: currentColor;
+  font-size: var(--gp-icon-size, #{tokens.$icon-md});
+}
+
+.gp-icon--sm {
+  font-size: #{tokens.$icon-sm};
+}
+
+.gp-icon--md {
+  font-size: #{tokens.$icon-md};
+}
+
+.gp-icon--lg {
+  font-size: #{tokens.$icon-lg};
+}

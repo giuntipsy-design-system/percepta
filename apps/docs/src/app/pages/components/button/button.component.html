@@ -1,0 +1,656 @@
+<section class="page">
+  <header id="overview" class="doc-card doc-card--intro section-anchor">
+    <h2 class="docs-h1">Button</h2>
+    <p class="overview-lead">The primary way users take action in the interface.</p>
+  </header>
+
+  <nav class="section-tabs">
+    <a
+      href="#overview"
+      (click)="scrollToSection($event, 'overview')"
+      [class.active]="currentSection === 'overview'"
+    >
+      Overview
+    </a>
+    <a
+      href="#style"
+      (click)="scrollToSection($event, 'style')"
+      [class.active]="currentSection === 'style'"
+    >
+      Variants
+    </a>
+    <a
+      href="#state"
+      (click)="scrollToSection($event, 'state')"
+      [class.active]="currentSection === 'state'"
+    >
+      State
+    </a>
+    <a
+      href="#usage"
+      (click)="scrollToSection($event, 'usage')"
+      [class.active]="currentSection === 'usage'"
+    >
+      Usage
+    </a>
+    <a
+      href="#properties"
+      (click)="scrollToSection($event, 'properties')"
+      [class.active]="currentSection === 'properties'"
+    >
+      Properties
+    </a>
+    <a
+      href="#interaction"
+      (click)="scrollToSection($event, 'interaction')"
+      [class.active]="currentSection === 'interaction'"
+    >
+      Interaction mapping
+    </a>
+  </nav>
+
+  <section class="section doc-card overview-content">
+    <p class="section-lead">
+      The Button is a core interactive component used to trigger actions and guide user interactions
+      across the interface. It represents a clear call to action, enabling users to submit forms,
+      confirm decisions, navigate key flows, or initiate system processes.
+    </p>
+    <p class="section-lead">
+      Buttons provide visual emphasis, establish interaction hierarchy, and communicate intent
+      through their style, label, and state. Different button variants (such as primary, secondary,
+      or subtle) help prioritize actions and support consistent interaction patterns throughout the
+      product.
+    </p>
+    <p class="section-lead">
+      The component supports multiple states (default, hover, active, disabled, loading) and can be
+      combined with icons or contextual labels to improve clarity and accessibility. Buttons should
+      be used when an explicit user action is required, and their placement and prominence should
+      reflect the importance and impact of that action within the user journey.
+    </p>
+    <h3 class="docs-h2">Preview</h3>
+    <div class="demo-box demo-box--canonical">
+      <div class="demo-controls">
+        <div class="demo-toggle-block" role="group" aria-label="Variant">
+          <p class="demo-radio-label">Variant</p>
+          <div class="demo-button-group-wrapper">
+            <p-buttongroup class="demo-button-group" aria-label="Variant options">
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Primary"
+                  [styleClass]="selectedVariant === 'primary' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedVariant = 'primary'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Secondary"
+                  [styleClass]="selectedVariant === 'secondary' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedVariant = 'secondary'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Tertiary"
+                  [styleClass]="selectedVariant === 'tertiary' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedVariant = 'tertiary'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Text"
+                  [styleClass]="selectedVariant === 'text' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedVariant = 'text'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Danger"
+                  [styleClass]="selectedVariant === 'danger' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedVariant = 'danger'"
+                ></p-button>
+              </span>
+            </p-buttongroup>
+          </div>
+        </div>
+        <div class="demo-toggle-block" role="group" aria-label="Size">
+          <p class="demo-radio-label">Size</p>
+          <div class="demo-button-group-wrapper">
+            <p-buttongroup class="demo-button-group" aria-label="Size options">
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Small"
+                  [styleClass]="selectedSize === 'small' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedSize = 'small'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Medium"
+                  [styleClass]="selectedSize === 'medium' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedSize = 'medium'"
+                ></p-button>
+              </span>
+              <span class="demo-button-group-item">
+                <p-button
+                  label="Large"
+                  [styleClass]="selectedSize === 'large' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
+                  (onClick)="selectedSize = 'large'"
+                ></p-button>
+              </span>
+            </p-buttongroup>
+          </div>
+        </div>
+      </div>
+      <div class="demo-row canonical-demo">
+        <gp-button
+          label="Continue"
+          [variant]="selectedVariant"
+          [size]="selectedSize"
+        ></gp-button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card section--state">
+    <h3 id="style" class="section-anchor docs-h2">Variants</h3>
+    <p class="docs-body">
+      Button variants define the visual hierarchy and semantic meaning of actions. Each variant
+      communicates the importance and intent of an action, helping users understand what will happen
+      before interacting.
+    </p>
+    <h4 class="docs-h3">Primary</h4>
+    <p class="docs-body">
+      Used for the main or most important action on a screen. There should typically be only one
+      primary button per view.
+    </p>
+    <h4 class="docs-h3">Secondary</h4>
+    <p class="docs-body">Used for supporting actions that are important but not the main focus.</p>
+    <h4 class="docs-h3">Tertiary</h4>
+    <p class="docs-body">
+      Used for low-emphasis actions, often placed alongside content or in secondary contexts.
+    </p>
+    <h4 class="docs-h3">Text</h4>
+    <p class="docs-body">
+      Used for inline, low-priority actions where minimal emphasis is needed.
+    </p>
+    <h4 class="docs-h3">Danger</h4>
+    <p class="docs-body">
+      Used for destructive or irreversible actions, such as deleting data or removing content. This
+      variant should be used sparingly and with clear intent.
+    </p>
+    <div class="demo-box demo-box--states">
+      <div class="demo-row">
+        <gp-button label="Primary" variant="primary"></gp-button>
+        <gp-button label="Secondary" variant="secondary"></gp-button>
+        <gp-button label="Tertiary" variant="tertiary"></gp-button>
+        <gp-button label="Text" variant="text"></gp-button>
+        <gp-button label="Danger" variant="danger"></gp-button>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+      <pre class="code-block"><code>&lt;gp-button label=&quot;Primary&quot; variant=&quot;primary&quot; /&gt;
+&lt;gp-button label=&quot;Secondary&quot; variant=&quot;secondary&quot; /&gt;
+&lt;gp-button label=&quot;Tertiary&quot; variant=&quot;tertiary&quot; /&gt;
+&lt;gp-button label=&quot;Text&quot; variant=&quot;text&quot; /&gt;
+&lt;gp-button label=&quot;Danger&quot; variant=&quot;danger&quot; /&gt;</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="state" class="section-anchor docs-h2">State</h3>
+    <p class="docs-body">
+      Button states represent how the component responds to user interaction and system conditions.
+      They provide feedback, ensure accessibility, and communicate availability.
+    </p>
+    <h4 class="docs-h3">Hover</h4>
+    <p class="docs-body">
+      Indicates that the button is interactive when a pointing device is placed over it.
+    </p>
+    <div class="demo-box demo-box--states">
+      <div class="demo-row">
+        <gp-button label="Primary" variant="primary" state="hover" [demo]="true"></gp-button>
+        <gp-button label="Text" variant="text" state="hover" [demo]="true"></gp-button>
+      </div>
+    </div>
+    <h4 class="docs-h3">Focus</h4>
+    <p class="docs-body">
+      Shows that the button is focused, supporting keyboard navigation and accessibility.
+    </p>
+    <div class="demo-box demo-box--states">
+      <div class="demo-row">
+        <gp-button label="Primary" variant="primary" state="focus" [demo]="true"></gp-button>
+        <gp-button label="Text" variant="text" state="focus" [demo]="true"></gp-button>
+      </div>
+    </div>
+    <h4 class="docs-h3">Active</h4>
+    <p class="docs-body">Represents the pressed state while the user is interacting with the button.</p>
+    <div class="demo-box demo-box--states">
+      <div class="demo-row">
+        <gp-button label="Primary" variant="primary" state="active" [demo]="true"></gp-button>
+        <gp-button label="Text" variant="text" state="active" [demo]="true"></gp-button>
+      </div>
+    </div>
+    <h4 class="docs-h3">Disabled</h4>
+    <p class="docs-body">
+      Indicates that the action is currently unavailable and cannot be interacted with.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row">
+        <gp-button label="Primary" variant="primary" [disabled]="true"></gp-button>
+        <gp-button label="Text" variant="text" [disabled]="true"></gp-button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
+    <p class="docs-body">
+      Buttons are used to trigger actions, submit information, confirm decisions, or move users
+      forward within a flow. They represent intentional interactions and should be clearly
+      distinguishable from navigational links.
+    </p>
+    <p class="docs-body">
+      Use buttons when an explicit action is required from the user. For simple navigation, prefer
+      links instead of buttons.
+    </p>
+    <h4 class="docs-h3">Guidelines</h4>
+    <ul class="docs-list">
+      <li>
+        Use the Primary button for the main action on a screen. Limit its use to maintain a clear
+        visual hierarchy.
+      </li>
+      <li>
+        Use Secondary and Tertiary buttons for supporting or low-emphasis actions.
+      </li>
+      <li>
+        Use Text buttons for inline or lightweight actions where minimal emphasis is needed.
+      </li>
+      <li>
+        Use the Danger variant only for destructive or irreversible actions, such as deleting data
+        or removing content.
+      </li>
+      <li>
+        Label buttons with concise, action-oriented text that clearly describes the outcome of the
+        action.
+      </li>
+      <li>
+        Avoid placing too many high-emphasis buttons in the same view, as this reduces clarity and
+        increases cognitive load.
+      </li>
+      <li>
+        Ensure buttons are placed close to the content they affect and follow a logical order within
+        the layout.
+      </li>
+    </ul>
+    <p class="docs-body">
+      Buttons should always communicate intent through their variant, label and placement, helping
+      users understand what will happen before they interact.
+    </p>
+    <h4 class="docs-h3">Icon-only</h4>
+    <p class="docs-body">
+      Use icon-only buttons for compact actions where the meaning is universally recognized.
+      They work best in toolbars, tight layouts, or repeated actions.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row">
+        <gp-button variant="primary" icon="add" [iconOnly]="true" ariaLabel="Add"></gp-button>
+        <gp-button variant="secondary" icon="search" [iconOnly]="true" ariaLabel="Search"></gp-button>
+        <gp-button variant="tertiary" icon="filter" [iconOnly]="true" ariaLabel="Filter"></gp-button>
+        <gp-button variant="danger" icon="delete" [iconOnly]="true" ariaLabel="Delete"></gp-button>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+      <pre class="code-block"><code>&lt;gp-button variant=&quot;secondary&quot; icon=&quot;search&quot; [iconOnly]=&quot;true&quot; ariaLabel=&quot;Search&quot; /&gt;
+&lt;gp-button variant=&quot;tertiary&quot; icon=&quot;filter&quot; [iconOnly]=&quot;true&quot; ariaLabel=&quot;Filter&quot; /&gt;</code></pre>
+      </div>
+    </details>
+    <h4 class="docs-h3">Icon + label</h4>
+    <p class="docs-body">
+      Use icon + label when clarity is critical and the action benefits from both text and a visual cue.
+      This pattern improves recognition in mixed or complex interfaces.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row">
+        <gp-button label="Search" variant="secondary" icon="search"></gp-button>
+        <gp-button label="Filter" variant="tertiary" icon="filter" iconPosition="trailing"></gp-button>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+      <pre class="code-block"><code>&lt;gp-button label=&quot;Search&quot; variant=&quot;secondary&quot; icon=&quot;search&quot; /&gt;
+&lt;gp-button label=&quot;Filter&quot; variant=&quot;tertiary&quot; icon=&quot;filter&quot; iconPosition=&quot;trailing&quot; /&gt;</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Sizes</h3>
+    <p class="docs-body">
+      Button sizes ensure consistency across layouts and adapt to different interface densities and
+      contexts. Small: used in compact interfaces, dense layouts, or secondary actions. Medium: the
+      default size, suitable for most use cases across the interface. Large: used for high-emphasis
+      actions or touch-focused interfaces where larger hit areas are required.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row demo-row--center">
+        <gp-button label="Small" variant="primary" size="small" icon="arrow-right" iconPosition="trailing"></gp-button>
+        <gp-button label="Medium" variant="primary" size="medium" icon="arrow-right" iconPosition="trailing"></gp-button>
+        <gp-button label="Large" variant="primary" size="large" icon="arrow-right" iconPosition="trailing"></gp-button>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+      <pre class="code-block"><code>&lt;gp-button label=&quot;Small&quot; variant=&quot;primary&quot; size=&quot;small&quot; icon=&quot;arrow-right&quot; iconPosition=&quot;trailing&quot; /&gt;
+&lt;gp-button label=&quot;Medium&quot; variant=&quot;primary&quot; size=&quot;medium&quot; icon=&quot;arrow-right&quot; iconPosition=&quot;trailing&quot; /&gt;
+&lt;gp-button label=&quot;Large&quot; variant=&quot;primary&quot; size=&quot;large&quot; icon=&quot;arrow-right&quot; iconPosition=&quot;trailing&quot; /&gt;</code></pre>
+      </div>
+    </details>
+    <h4 class="docs-h3">Size mapping</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Padding role</th>
+          <th>Typography role</th>
+          <th>Icon role</th>
+          <th>Gap role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small</td>
+          <td>Padding · y: spacing.control.y-sm, x: spacing.control.x-sm</td>
+          <td>Label · control-sm · Regular</td>
+          <td>Icon · icon.sm</td>
+          <td>Gap · spacing.control.x-sm</td>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Padding · y: spacing.control.y-md, x: spacing.control.x-md</td>
+          <td>Label · control-md · Regular</td>
+          <td>Icon · icon.md</td>
+          <td>Gap · spacing.control.x-md</td>
+        </tr>
+        <tr>
+          <td>Large</td>
+          <td>Padding · y: spacing.control.y-md, x: spacing.control.x-lg</td>
+          <td>Label · control-lg · Regular</td>
+          <td>Icon · icon.lg</td>
+          <td>Gap · spacing.control.x-md</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Values</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>variant</td>
+          <td>primary | secondary | tertiary | text | danger</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>small | medium | large</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>icon</td>
+          <td>optional</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>iconPosition</td>
+          <td>leading | trailing</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>loading</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <p class="docs-body">
+      This section maps semantic design roles to button variants, states, and sizes without exposing
+      visual values or tokens.
+    </p>
+
+    <h4 class="docs-h3">Primary</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Foreground role</th>
+          <th>Border role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>Accent · Moderate</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Accent · Vibrant</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Accent · Moderate</td>
+          <td>Accent · On-accent</td>
+          <td>Border · Focus</td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td>Accent · Bold</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>Background · Disabled</td>
+          <td>Foreground · Disabled</td>
+          <td>Border · Disabled</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="docs-h3">Secondary</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Foreground role</th>
+          <th>Border role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>Accent · Subtle</td>
+          <td>Accent · Moderate</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Accent · Tinted</td>
+          <td>Accent · Vibrant</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Accent · Subtle</td>
+          <td>Accent · Vibrant</td>
+          <td>Border · Focus<br />Accent · Vibrant</td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td>Accent · Muted</td>
+          <td>Accent · Bold</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="docs-h3">Tertiary</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Foreground role</th>
+          <th>Border role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>None / Transparent</td>
+          <td>Accent · Vibrant</td>
+          <td>Accent · Moderate</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Accent · Subtle</td>
+          <td>Accent · Vibrant</td>
+          <td>Accent · Vibrant</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Accent · Subtle</td>
+          <td>Accent · Vibrant</td>
+          <td>Border · Focus</td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td>Accent · Tinted</td>
+          <td>Accent · Bold</td>
+          <td>Accent · Bold</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="docs-h3">Text</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Foreground role</th>
+          <th>Border role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>None / Transparent</td>
+          <td>Accent · Moderate</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Background · Subtle</td>
+          <td>Accent · Vibrant</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Accent · On-accent</td>
+          <td>Accent · Vibrant</td>
+          <td>Border · Focus</td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td>None / Transparent</td>
+          <td>Accent · Bold</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>Background · Disabled</td>
+          <td>Foreground · Disabled</td>
+          <td>Border · Disabled</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="docs-body">
+      Button group selection is handled by the group wrapper; Text buttons remain transparent and
+      only change foreground emphasis.
+    </p>
+
+    <h4 class="docs-h3">Danger</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Foreground role</th>
+          <th>Border role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>Danger · Primary</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Danger · Secondary</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Danger · Primary</td>
+          <td>Accent · On-accent</td>
+          <td>Border · Focus</td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td>Danger · Tertiary</td>
+          <td>Accent · On-accent</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="docs-body">
+      Disabled behavior is consistent across variants: Background · Disabled, Foreground · Disabled,
+      Border · Disabled.
+    </p>
+
+  </section>
+
+</section>

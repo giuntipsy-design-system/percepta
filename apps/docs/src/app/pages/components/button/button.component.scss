@@ -1,0 +1,389 @@
+@use '../../../../tokens.scss' as tokens;
+@use '../../../../typography.mixins.scss' as typography;
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-block {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.section-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+  padding: #{tokens.$spacing-layout-md} 0 0;
+  background: tokens.$color-background-default;
+  border-bottom: 2px solid tokens.$color-border-subtle;
+}
+
+.section-tabs a {
+  @include typography.typography-label-md;
+  text-decoration: none;
+  color: tokens.$color-foreground-default;
+  padding: 6px 4px 12px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-weight: tokens.$font-weight-regular;
+}
+
+.section-tabs a:hover {
+  color: tokens.$color-foreground-subtle;
+}
+
+.section-tabs a.active {
+  color: tokens.$color-accent-bold;
+  border-bottom-color: tokens.$color-accent-bold;
+  font-weight: tokens.$font-weight-bold;
+}
+
+.section-anchor {
+  scroll-margin-top: 0;
+}
+
+.section {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+.docs-h1 {
+  margin: 4px 0 8px;
+}
+
+.section-lead {
+  @include typography.typography-body-lg;
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.overview-lead {
+  @include typography.typography-body-xl;
+  margin: 0;
+  color: tokens.$color-foreground-default;
+}
+
+.section .docs-h2 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 10px;
+}
+
+.section .docs-h3 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 6px;
+}
+
+.overview-content + .section .docs-h2 {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.section--state .docs-h3 {
+  @include typography.typography-label-md;
+  font-weight: tokens.$font-weight-regular;
+  margin: #{tokens.$spacing-layout-lg} 0 6px;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: #{tokens.$spacing-layout-md} 0;
+}
+
+.demo-row--center {
+  justify-content: center;
+}
+
+.canonical-demo {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-md};
+  margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-box--canonical {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: #{tokens.$spacing-layout-lg};
+  align-items: start;
+  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-lg} calc(#{tokens.$spacing-layout-lg} * 3);
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0;
+  min-height: calc(#{tokens.$spacing-layout-lg} * 12);
+}
+
+.demo-box--canonical .demo-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: #{tokens.$spacing-layout-xl};
+  align-items: flex-start;
+  padding-top: #{tokens.$spacing-layout-xs};
+  padding-left: #{tokens.$spacing-layout-xs};
+}
+
+.demo-box--canonical .canonical-demo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+}
+
+@media (max-width: 720px) {
+  .demo-box--canonical {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-box--canonical .canonical-demo {
+    min-height: 140px;
+  }
+}
+
+.demo-box--states .gp-button {
+  pointer-events: none;
+  cursor: default;
+}
+
+.demo-controls {
+  margin-bottom: #{tokens.$spacing-layout-lg};
+}
+
+.demo-select {
+  @include typography.typography-body-md;
+  padding: 6px 8px;
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-toggle-block {
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-sm};
+  min-width: 220px;
+}
+
+.demo-radio-label {
+  margin: 0;
+  color: tokens.$color-foreground-subtle;
+  @include typography.typography-label-md;
+}
+
+.demo-button-group-wrapper {
+  display: inline-flex;
+  padding: #{tokens.$spacing-layout-xs};
+  border-radius: #{tokens.$radius-control};
+  background: tokens.$color-background-subtle;
+  border: 1px solid tokens.$color-border-subtle;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  column-gap: 0;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup {
+  display: inline-flex;
+  gap: 0 !important;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button {
+  display: inline-flex !important;
+  margin-right: 0 !important;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button:last-child {
+  margin-right: 0 !important;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button > button.p-button {
+  margin-right: 0 !important;
+}
+
+:host ::ng-deep .demo-button-group-item {
+  display: inline-flex;
+  margin-right: #{tokens.$spacing-layout-sm};
+}
+
+:host ::ng-deep .demo-button-group-item:last-child {
+  margin-right: 0;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup .p-button {
+  border-radius: #{tokens.$radius-sm};
+  border-color: transparent;
+  background: transparent;
+  color: tokens.$color-accent-moderate;
+}
+
+:host ::ng-deep .demo-button-group .gp-button.is-active {
+  background: tokens.$color-background-default !important;
+  color: tokens.$color-accent-bold !important;
+}
+
+:host ::ng-deep .demo-button-group .gp-button.is-active [data-pc-section='label'] {
+  color: tokens.$color-accent-bold !important;
+}
+
+:host ::ng-deep .demo-button-group.p-buttongroup .p-button:not(.is-active):hover {
+  background: transparent;
+  color: tokens.$color-accent-vibrant;
+}
+
+.contract-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.contract-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: #{tokens.$spacing-layout-md};
+  margin-bottom: #{tokens.$spacing-layout-lg};
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.mapping-table th,
+.mapping-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid tokens.$color-border-subtle;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.mapping-table thead th {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-code {
+  margin-top: #{tokens.$spacing-layout-xs};
+}
+
+.demo-code-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-xs};
+  padding: #{tokens.$spacing-layout-xs} #{tokens.$spacing-layout-sm};
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+  color: tokens.$color-accent-moderate;
+  cursor: pointer;
+  @include typography.typography-label-sm;
+}
+
+.demo-code-label--open {
+  display: none;
+}
+
+.demo-code-toggle:hover {
+  background: tokens.$color-background-subtle;
+  color: tokens.$color-accent-vibrant;
+}
+
+.demo-code summary {
+  list-style: none;
+}
+
+.demo-code summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-code[open] .demo-code-toggle {
+  color: tokens.$color-accent-bold;
+}
+
+.demo-code[open] .demo-code-label--closed {
+  display: none;
+}
+
+.demo-code[open] .demo-code-label--open {
+  display: inline;
+}
+
+.demo-code-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 240ms ease, opacity 180ms ease;
+}
+
+.demo-code-panel .code-block {
+  margin-top: #{tokens.$spacing-layout-sm};
+}
+
+.demo-code[open] .demo-code-panel {
+  max-height: 480px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-code-panel {
+    transition: none;
+  }
+}
+
+.code-block {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: tokens.$color-background-subtle;
+}
+
+.code-block code {
+  white-space: pre-wrap;
+  font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  display: block;
+}

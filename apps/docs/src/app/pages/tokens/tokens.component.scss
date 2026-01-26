@@ -1,0 +1,51 @@
+@use '../../../tokens.scss' as tokens;
+@use '../../../typography.mixins.scss' as typography;
+
+.page {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  background: tokens.$color-background-default;
+  border-radius: 16px;
+  border: 1px solid tokens.$color-gray-200;
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+h2 {
+  @include typography.typography-heading-h2;
+  margin: 4px 0 8px;
+}
+
+p {
+  @include typography.typography-body-md;
+  margin: 0;
+  color: tokens.$color-gray-600;
+}
+
+.callout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: tokens.$color-accent-subtle;
+  border: 1px solid tokens.$color-gray-300;
+}
+
+.callout span {
+  @include typography.typography-label-md;
+  color: tokens.$color-gray-500;
+}
+
+.callout a {
+  @include typography.typography-body-sm;
+  color: tokens.$color-accent-bold;
+  text-decoration: none;
+}

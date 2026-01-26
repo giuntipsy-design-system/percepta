@@ -1,0 +1,29 @@
+{
+  "font": {
+    "family": {
+      "primary": { "value": "Noto Sans" },
+      "secondary": { "value": "Saans Medium" }
+    },
+    "weight": {
+      "regular": { "value": 400 },
+      "bold": { "value": 700 }
+    },
+    "size": {
+      "2xs": { "value": "0.75rem" },
+      "xs": { "value": "0.875rem" },
+      "sm": { "value": "1rem" },
+      "md": { "value": "1.125rem" },
+      "lg": { "value": "1.25rem" },
+      "xl": { "value": "1.5rem" },
+      "2xl": { "value": "2rem" },
+      "3xl": { "value": "3.25rem" },
+      "4xl": { "value": "3.75rem" }
+    },
+    "lineHeight": {
+      "label": { "value": "120%" },
+      "label-control": { "value": "135%" },
+      "heading": { "value": "120%" },
+      "body": { "value": "140%" }
+    }
+  }
+}

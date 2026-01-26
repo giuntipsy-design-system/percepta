@@ -1,0 +1,116 @@
+<section class="page">
+  <header class="doc-card doc-card--intro">
+    <h2 class="docs-h1">Icon</h2>
+    <p class="overview-lead">
+      The Icon component (<span class="inline-code">gp-icon</span>) is the only supported way to render icons across the system.
+    </p>
+  </header>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Overview</h3>
+    <p class="docs-body">
+      Icons help clarify actions and improve scanability. Always render them with <span class="inline-code">gp-icon</span> to
+      keep the system consistent and accessible.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Usage</h3>
+    <p class="docs-body">
+      Use icons to reinforce meaning and improve scannability. Icons should support text and actions, not replace them,
+      especially when the meaning is not universally understood.
+    </p>
+    <p class="docs-body">
+      Do not rely on icons alone for critical actions or complex concepts. When clarity matters, always pair icons with
+      text labels or accessible descriptions.
+    </p>
+    <p class="docs-body">
+      Icons may be used on their own only when their meaning is widely recognized (such as search, close, or delete) and
+      appropriate accessibility labels are provided.
+    </p>
+    <p class="docs-body">
+      Use icons consistently across the interface to avoid ambiguity, and prefer a limited, system-defined set of icon names
+      rather than introducing new ones ad hoc.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row demo-row--center">
+        <gp-icon name="search" ariaLabel="Search"></gp-icon>
+        <gp-icon name="filter" ariaLabel="Filter"></gp-icon>
+        <gp-icon name="add" ariaLabel="Add"></gp-icon>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+        <pre class="code-block"><code>&lt;gp-icon name=&quot;search&quot; ariaLabel=&quot;Search&quot; /&gt;
+&lt;gp-icon name=&quot;filter&quot; ariaLabel=&quot;Filter&quot; /&gt;
+&lt;gp-icon name=&quot;add&quot; ariaLabel=&quot;Add&quot; /&gt;</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Icon names</h3>
+    <p class="docs-body">
+      Icon names are system-defined. Use only the supported names below (for example: add, search, filter, delete,
+      arrow-right, bell).
+    </p>
+    <div class="icon-grid">
+      <button class="icon-item" type="button" *ngFor="let iconName of iconNames" (click)="copySnippet(iconName)">
+        <gp-icon [name]="iconName" size="lg" [decorative]="true"></gp-icon>
+        <span class="icon-label">{{ iconName }}</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">API</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Values</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>System icon name</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>sm | md | lg</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>decorative</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>ariaLabel</td>
+          <td>string</td>
+          <td>Required when decorative = false</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Accessibility</h3>
+    <p class="docs-body">
+      Decorative icons must use <span class="inline-code">decorative=&quot;true&quot;</span>. If an icon conveys meaning,
+      provide <span class="inline-code">ariaLabel</span>. Do not rely on color alone to convey meaning.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Implementation note</h3>
+    <p class="docs-body">
+      Icons are currently implemented using Iconoir. This is an internal implementation detail and may change in the future.
+      The public API remains stable.
+    </p>
+  </section>
+</section>

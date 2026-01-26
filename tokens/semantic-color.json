@@ -1,0 +1,62 @@
+{
+  "color": {
+    "background": {
+      "default": { "value": "{color.white}" },
+      "subtle": { "value": "{color.gray.50}" },
+      "muted": { "value": "{color.gray.100}" },
+      "surface": { "value": "{color.gray.200}" },
+      "interactive-primary": { "value": "{color.gray.200}" },
+      "interactive-secondary": { "value": "{color.gray.300}" },
+      "interactive-tertiary": { "value": "{color.gray.400}" },
+      "success": { "value": "{color.green.100}" },
+      "success-contrast": { "value": "{color.green.600}" },
+      "error": { "value": "{color.red.50}" },
+      "error-contrast": { "value": "{color.red.600}" },
+      "warning": { "value": "{color.yellow.50}" },
+      "warning-contrast": { "value": "{color.yellow.300}" },
+      "info": { "value": "{color.blue.50}" },
+      "info-contrast": { "value": "{color.blue.600}" },
+      "notification": { "value": "{color.red.600}" },
+      "disabled": { "value": "{color.gray.100}" },
+      "overlay": { "value": "rgba(22,21,20,0.45)" },
+      "contrast": { "value": "{color.gray.900}" },
+      "danger-primary": { "value": "{color.red.500}" },
+      "danger-secondary": { "value": "{color.red.600}" },
+      "danger-tertiary": { "value": "{color.red.700}" }
+    },
+    "foreground": {
+      "default": { "value": "{color.gray.900}" },
+      "subtle": { "value": "{color.gray.500}" },
+      "muted": { "value": "{color.gray.600}" },
+      "link": { "value": "{color.brand.600}" },
+      "disabled": { "value": "{color.gray.400}" },
+      "contrast": { "value": "{color.white}" },
+      "static-light": { "value": "{color.white}" },
+      "static-dark": { "value": "{color.gray.800}" },
+      "danger": { "value": "{color.red.600}" },
+      "success": { "value": "{color.green.700}" },
+      "warning": { "value": "{color.yellow.700}" },
+      "error": { "value": "{color.red.600}" },
+      "info": { "value": "{color.blue.600}" }
+    },
+    "border": {
+      "subtle": { "value": "{color.gray.100}" },
+      "muted": { "value": "{color.gray.300}" },
+      "interactive-primary": { "value": "{color.gray.400}" },
+      "disabled": { "value": "{color.gray.400}" },
+      "error": { "value": "{color.red.400}" },
+      "focus": { "value": "rgba(114,87,255,0.30)" },
+      "contrast": { "value": "{color.gray.900}" }
+    },
+    "accent": {
+      "on-accent": { "value": "{color.brand.50}" },
+      "subtle": { "value": "{color.brand.100}" },
+      "tinted": { "value": "{color.brand.200}" },
+      "muted": { "value": "{color.brand.300}" },
+      "moderate": { "value": "{color.brand.600}" },
+      "vibrant": { "value": "{color.brand.700}" },
+      "bold": { "value": "{color.brand.800}" },
+      "intense": { "value": "{color.brand.900}" }
+    }
+  }
+}
