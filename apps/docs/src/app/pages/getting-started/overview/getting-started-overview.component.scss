@@ -15,7 +15,7 @@
 
 .doc-card--intro {
   background: transparent;
-  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
+  padding: calc(#{tokens.$spacing-layout-lg} * 3) 0 #{tokens.$spacing-layout-md};
 }
 
 .docs-h1 {
@@ -50,13 +50,13 @@
 }
 
 .content-block {
-  margin-top: calc(#{tokens.$spacing-layout-lg} * 2.5);
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 3);
   padding-top: 0;
   border-top: none;
 }
 
 .content-block:first-of-type {
-  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
 }
 
 .note-box {

@@ -15,7 +15,7 @@
 
 .doc-card--intro {
   background: transparent;
-  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
+  padding: calc(#{tokens.$spacing-layout-lg} * 3) 0 #{tokens.$spacing-layout-md};
 }
 
 .docs-h1 {
@@ -61,18 +61,18 @@
 }
 
 .content-block {
-  margin-top: calc(#{tokens.$spacing-layout-lg} * 2.5);
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 3);
 }
 
 .content-block:first-of-type {
-  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
 }
 
 .info-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: #{tokens.$spacing-layout-lg};
-  margin: #{tokens.$spacing-layout-md} 0 #{tokens.$spacing-layout-lg};
+  gap: calc(#{tokens.$spacing-layout-lg} * 1.5);
+  margin: #{tokens.$spacing-layout-lg} 0 calc(#{tokens.$spacing-layout-lg} * 1.5);
 }
 
 .info-card {
