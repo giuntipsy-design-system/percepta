@@ -13,6 +13,16 @@
   color: tokens.$color-foreground-static-dark;
 }
 
+.app-shell--home {
+  position: relative;
+  overflow: hidden;
+}
+
+.app-shell--home .layout-shell {
+  position: relative;
+  z-index: 1;
+}
+
 .app-header {
   position: fixed;
   inset: 0 0 auto 0;
