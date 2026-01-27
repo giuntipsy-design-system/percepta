@@ -336,10 +336,6 @@
   margin-bottom: 32px;
 }
 
-.who-visual--stack {
-  animation: drift 12s ease-in-out infinite;
-}
-
 .who-square,
 .who-frame {
   position: absolute;
@@ -357,13 +353,14 @@
   border: 2px solid tokens.$color-violet-400;
   border-radius: 999px;
   background: transparent;
-  animation: drift 12s ease-in-out infinite;
+  animation: drift 8s ease-in-out infinite;
 }
 
 .who-visual--stack .who-square {
   width: 56px;
   height: 56px;
   border-color: tokens.$color-gray-200;
+  animation: drift 7s ease-in-out infinite;
 }
 
 .who-visual--stack .who-square:nth-child(1) { border-color: tokens.$color-blue-100; }
@@ -382,8 +379,17 @@
 .who-visual--stack .who-square:nth-child(6) { top: 86px; left: 148px; }
 .who-visual--stack .who-square:nth-child(7) { top: 154px; left: 82px; }
 
+.who-visual--stack .who-square:nth-child(1) { animation-delay: 0s; }
+.who-visual--stack .who-square:nth-child(2) { animation-delay: 0.4s; }
+.who-visual--stack .who-square:nth-child(3) { animation-delay: 0.8s; }
+.who-visual--stack .who-square:nth-child(4) { animation-delay: 1.2s; }
+.who-visual--stack .who-square:nth-child(5) { animation-delay: 1.6s; }
+.who-visual--stack .who-square:nth-child(6) { animation-delay: 2s; }
+.who-visual--stack .who-square:nth-child(7) { animation-delay: 2.4s; }
+
 .who-square--accent {
   background: tokens.$color-brand-50;
+  animation: drift 6.5s ease-in-out infinite;
 }
 
 .who-square--accent-1 {
@@ -391,6 +397,7 @@
   left: 16px;
   border-color: tokens.$color-pink-400;
   background: tokens.$color-pink-50;
+  animation-delay: 0.2s;
 }
 
 .who-square--accent-2 {
@@ -398,6 +405,7 @@
   left: 82px;
   border-color: tokens.$color-violet-500;
   background: tokens.$color-violet-50;
+  animation-delay: 1s;
 }
 
 .who-visual--burst {
@@ -411,7 +419,7 @@
   height: 10px;
   border-radius: 999px;
   background: tokens.$color-gray-200;
-  animation: drift 10s ease-in-out infinite;
+  animation: drift 7.5s ease-in-out infinite;
 }
 
 .who-visual--overlap .who-frame {
@@ -419,7 +427,7 @@
   height: 96px;
   border-radius: 18px;
   border-color: tokens.$color-gray-200;
-  animation: drift 11s ease-in-out infinite;
+  animation: drift 8.5s ease-in-out infinite;
 }
 
 .who-card:nth-child(3) .who-frame {
@@ -436,6 +444,11 @@
 .who-visual--overlap .who-frame:nth-child(3) { border-color: tokens.$color-pink-100; }
 .who-visual--overlap .who-frame:nth-child(4) { border-color: tokens.$color-yellow-200; }
 
+.who-visual--overlap .who-frame:nth-child(1) { animation-delay: 0s; }
+.who-visual--overlap .who-frame:nth-child(2) { animation-delay: 0.5s; }
+.who-visual--overlap .who-frame:nth-child(3) { animation-delay: 1s; }
+.who-visual--overlap .who-frame:nth-child(4) { animation-delay: 1.5s; }
+
 .who-visual--rings .who-ring:nth-child(1) { top: 8px; left: 8px; }
 .who-visual--rings .who-ring:nth-child(2) { top: 28px; left: 68px; }
 .who-visual--rings .who-ring:nth-child(3) { top: 80px; left: 28px; }
@@ -445,6 +458,11 @@
 .who-visual--rings .who-ring:nth-child(2) { border-color: tokens.$color-blue-300; }
 .who-visual--rings .who-ring:nth-child(3) { border-color: tokens.$color-pink-300; }
 .who-visual--rings .who-ring:nth-child(4) { border-color: tokens.$color-brand-300; }
+
+.who-visual--rings .who-ring:nth-child(1) { animation-delay: 0s; }
+.who-visual--rings .who-ring:nth-child(2) { animation-delay: 0.6s; }
+.who-visual--rings .who-ring:nth-child(3) { animation-delay: 1.2s; }
+.who-visual--rings .who-ring:nth-child(4) { animation-delay: 1.8s; }
 
 .who-title {
   @include typography.typography-heading-h2;
