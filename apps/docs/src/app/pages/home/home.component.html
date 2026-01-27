@@ -7,8 +7,18 @@
       Giunti Psychometrics.
     </p>
     <div class="hero-actions">
-      <a class="gp-button gp-button--primary" routerLink="/getting-started">Get started</a>
-      <a class="gp-button gp-button--text" routerLink="/components">Browse components</a>
+      <gp-button
+        label="Get started"
+        variant="primary"
+        size="large"
+        (click)="goTo('/getting-started')"
+      ></gp-button>
+      <gp-button
+        label="Browse components"
+        variant="text"
+        size="large"
+        (click)="goTo('/components')"
+      ></gp-button>
     </div>
   </div>
 </section>

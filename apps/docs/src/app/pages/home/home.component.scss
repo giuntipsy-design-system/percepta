@@ -4,11 +4,10 @@
 .home {
   background: tokens.$color-background-default;
   border-radius: 20px;
-  border: 1px solid tokens.$color-gray-200;
-  padding: 48px;
-  min-height: 60vh;
+  border: none;
+  padding: 64px 48px 48px;
   display: grid;
-  align-items: center;
+  align-items: start;
 }
 
 .home-hero {
@@ -26,12 +25,12 @@
 }
 
 .hero-title {
-  @include typography.typography-heading-h1;
+  @include typography.typography-display-display-1;
   margin: 0;
 }
 
 .hero-copy {
-  @include typography.typography-body-lg;
+  @include typography.typography-body-xl;
   margin: 0;
   color: tokens.$color-gray-600;
 }
@@ -40,8 +39,4 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-.hero-actions .gp-button {
-  text-decoration: none;
 }
