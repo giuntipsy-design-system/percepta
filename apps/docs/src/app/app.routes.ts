@@ -6,6 +6,8 @@ import { ComponentsComponent } from './pages/components/components.component';
 import { IconComponent } from './pages/components/icon/icon.component';
 import { InputComponent } from './pages/components/input/input.component';
 import { SelectComponent } from './pages/components/select/select.component';
+import { GettingStartedDesignToCodeComponent } from './pages/getting-started/design-to-code/getting-started-design-to-code.component';
+import { GettingStartedOverviewComponent } from './pages/getting-started/overview/getting-started-overview.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
@@ -20,6 +22,27 @@ export const routes: Routes = [
     path: 'overview',
     component: OverviewComponent,
     title: 'Overview · Percepta'
+  },
+  {
+    path: 'getting-started',
+    title: 'Getting started · Percepta',
+    children: [
+      {
+        path: '',
+        component: GettingStartedOverviewComponent,
+        title: 'Getting started · Percepta'
+      },
+      {
+        path: 'overview',
+        component: GettingStartedOverviewComponent,
+        title: 'Getting started · Percepta'
+      },
+      {
+        path: 'how-percepta-works',
+        component: GettingStartedDesignToCodeComponent,
+        title: 'How Percepta works · Percepta'
+      }
+    ]
   },
   {
     path: 'tokens',

@@ -38,6 +38,15 @@ export class AppComponent {
     ]
   };
 
+  readonly gettingStartedNav = [
+    { label: 'Overview', route: '/getting-started/overview' },
+    { label: 'How Percepta works', route: '/getting-started/how-percepta-works' }
+  ];
+
+  get isGettingStartedPage(): boolean {
+    return this.router.url.startsWith('/getting-started');
+  }
+
   get isComponentsPage(): boolean {
     return this.router.url.startsWith('/components');
   }

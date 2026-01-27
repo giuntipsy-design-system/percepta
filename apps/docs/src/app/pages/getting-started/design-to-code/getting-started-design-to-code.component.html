@@ -1,0 +1,42 @@
+<section class="page">
+  <header>
+    <p class="eyebrow">Getting started</p>
+    <h2>How Percepta works</h2>
+    <p>
+      Percepta connects design decisions to production UI through tokens, shared components,
+      and documented usage patterns.
+    </p>
+  </header>
+  <div>
+    <h3 class="docs-h3">Design reference</h3>
+    <p>
+      Visual foundations and brand guidelines live at
+      <a href="https://design.giuntipsy.com" target="_blank" rel="noreferrer">design.giuntipsy.com</a>.
+      This repo only documents technical implementation.
+    </p>
+    <h3 class="docs-h3">Technical overview</h3>
+    <p>
+      Tokens are the single source of truth for colors, typography, spacing, and states. They are
+      compiled and consumed by shared Angular components.
+    </p>
+    <p>
+      PrimeNG provides the base primitives. Percepta reuses their structure and overrides styles,
+      tokens, and behaviors where needed.
+    </p>
+    <h3 class="docs-h3">Design → Code workflow</h3>
+    <ol class="docs-list">
+      <li>Design decision is made in the design reference.</li>
+      <li>Decision is translated into tokens in this repo.</li>
+      <li>Tokens are used by Angular components and documentation.</li>
+    </ol>
+    <h3 class="docs-h3">Governance &amp; contribution</h3>
+    <p>
+      The system evolves through controlled changes to tokens and shared components. Changes can be
+      proposed by the frontend team and reviewed before merging.
+    </p>
+    <p>
+      A breaking change alters component API, token meaning, or behavior in a way that requires
+      updates in consuming apps. Use the project issue tracker to report bugs or propose improvements.
+    </p>
+  </div>
+</section>
