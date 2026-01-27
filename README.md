@@ -1,27 +1,71 @@
 # Percepta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+**Percepta** is the design system for Giunti Psychometrics digital products.
 
-## Development server
+It provides a shared foundation to build consistent, accessible and scalable user interfaces, with a clear separation between **design decisions** and **technical implementation**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## What this repository is
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repository contains the **technical implementation** of the Percepta design system.
 
-## Build
+Here you will find:
+- Design tokens (JSON, semantic and technical)
+- Global styles and token consumption
+- An Angular-based documentation site
+- Implementation guidelines for frontend development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This repository is primarily intended for **frontend developers**.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## What this repository is NOT
 
-## Running end-to-end tests
+This repository does **not** contain:
+- Brand guidelines
+- Visual foundations (color, typography, spacing)
+- Design principles or UI decisions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+All design-related documentation lives here and is the **single source of truth for design**:
 
-## Further help
+👉 **https://design.giuntipsy.com**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## Documentation
+
+The documentation site focuses on *how to use and implement* the system.
+
+It is structured around:
+- **Getting started** – system overview, scope and design → code workflow
+- **Tokens** – token architecture, semantics and theming
+- **Components** – usage and implementation details
+
+Visual design guidelines are always referenced externally.
+
+---
+
+## Tech stack
+
+- Angular
+- PrimeNG
+- SCSS
+- Design tokens (JSON)
+
+---
+
+## Project structure (high level)
+
+```text
+apps/
+  docs/                → Angular documentation site
+    src/
+      app/              → Pages, layouts and routing
+      styles.scss       → Global styles
+      tokens.scss       → Token consumption
+tokens/
+  *.json                → Design tokens (implementation source of truth)
+
+.angular/               → Angular cache
+node_modules/           → Dependencies
