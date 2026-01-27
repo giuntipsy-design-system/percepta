@@ -18,6 +18,23 @@
   padding: calc(#{tokens.$spacing-layout-lg} * 3) 0 #{tokens.$spacing-layout-md};
 }
 
+.intro-split {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: #{tokens.$spacing-layout-lg};
+  align-items: center;
+}
+
+.intro-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: #{tokens.$radius-md};
+  background: transparent;
+  opacity: 0.88;
+  filter: drop-shadow(0 8px 22px rgba(tokens.$color-gray-900, 0.08));
+}
+
 .docs-h1 {
   margin: 4px 0 8px;
 }
@@ -88,4 +105,19 @@
 .note-box__text {
   margin: 0;
   @include typography.typography-body-sm;
+}
+
+@media (max-width: 960px) {
+  .intro-split {
+    grid-template-columns: 1fr;
+    gap: #{tokens.$spacing-layout-md};
+  }
+
+  .intro-media {
+    max-width: 320px;
+  }
+
+  .intro-media img {
+    margin: 0 auto;
+  }
 }
