@@ -95,6 +95,8 @@
 .layout-shell--no-nav {
   grid-template-columns: minmax(0, 1fr);
   column-gap: 0;
+  height: auto;
+  overflow: visible;
 }
 
 .app-nav {
@@ -159,6 +161,8 @@
 .app-content--home {
   padding: 4px 40px 32px;
   margin-right: 0;
+  height: auto;
+  overflow: visible;
 }
 
 .app-footer {
