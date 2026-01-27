@@ -62,39 +62,66 @@
   </section>
 
   <section class="home-section home-section--how">
-    <h2 class="section-title">How the system works</h2>
-    <div class="flow-line">Design → Tokens → Shared components → Applications</div>
-    <p class="section-text">
-      Design decisions are defined once and translated into tokens.
-      Tokens are consumed by shared components.
-      Applications reuse components without redefining UI rules.
-    </p>
-    <p class="section-text">
-      This ensures consistency, reduces drift, and makes UI changes predictable.
-    </p>
+    <div class="how-layout">
+      <div class="how-visual" aria-hidden="true">
+        <img src="/assets/ds_percepta.webp" alt="" />
+      </div>
+      <div class="how-content">
+        <h2 class="section-title">How the system works</h2>
+        <div class="flow-line">Design → Tokens → Shared components → Applications</div>
+        <p class="section-text">
+          Design decisions are defined once and translated into tokens.
+          Tokens are consumed by shared components.
+          Applications reuse components without redefining UI rules.
+        </p>
+        <p class="section-text">
+          This ensures consistency, reduces drift, and makes UI changes predictable.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section class="home-section">
+  <section class="home-section home-section--who">
     <h2 class="section-title">Who Percepta is for</h2>
-    <div class="three-col">
-      <div class="feature">
-        <span class="feature-marker" aria-hidden="true"></span>
-        <h3 class="feature-title">Frontend engineers</h3>
-        <p class="feature-text">
+    <div class="who-grid">
+      <div class="who-card">
+        <h3 class="who-title">Frontend engineers</h3>
+        <div class="who-visual who-visual--stack" aria-hidden="true">
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square who-square--accent who-square--accent-1"></span>
+          <span class="who-square who-square--accent who-square--accent-2"></span>
+        </div>
+        <p class="who-text">
           Building products for Giunti Psychometrics using Angular and PrimeNG.
         </p>
       </div>
-      <div class="feature">
-        <span class="feature-marker" aria-hidden="true"></span>
-        <h3 class="feature-title">Designers</h3>
-        <p class="feature-text">
+      <div class="who-card">
+        <h3 class="who-title">Designers</h3>
+        <div class="who-visual who-visual--rings" aria-hidden="true">
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+        </div>
+        <p class="who-text">
           Understanding how design decisions are implemented and constrained in code.
         </p>
       </div>
-      <div class="feature">
-        <span class="feature-marker" aria-hidden="true"></span>
-        <h3 class="feature-title">Product teams</h3>
-        <p class="feature-text">
+      <div class="who-card">
+        <h3 class="who-title">Product teams</h3>
+        <div class="who-visual who-visual--overlap" aria-hidden="true">
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+        </div>
+        <p class="who-text">
           Ensuring UI consistency across products without slowing down delivery.
         </p>
       </div>
