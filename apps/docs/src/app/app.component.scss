@@ -6,7 +6,10 @@
   --app-footer-height: 0px;
   --layout-max-width: 1640px;
   min-height: 100vh;
-  background: tokens.$color-background-default;
+  background-color: tokens.$color-background-default;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-400, 0.35) 1.2px, transparent 0);
+  background-size: 20px 20px;
   color: tokens.$color-foreground-static-dark;
 }
 
@@ -14,8 +17,12 @@
   position: fixed;
   inset: 0 0 auto 0;
   height: var(--app-header-height);
-  background: tokens.$color-background-default;
+  background-color: tokens.$color-background-default;
   z-index: 10;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-400, 0.35) 1.2px, transparent 0);
+  background-size: 20px 20px;
+  background-position: 0 0;
 }
 
 .header-inner {

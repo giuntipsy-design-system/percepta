@@ -2,12 +2,17 @@
 @use '../../../typography.mixins.scss' as typography;
 
 .home {
-  background: tokens.$color-background-default;
+  background: transparent;
   border-radius: 20px;
   border: none;
   padding: 64px 48px 48px;
+}
+
+.home-layout {
   display: grid;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
 }
 
 .home-hero {
@@ -39,4 +44,58 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.home-visual {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 84px;
+  gap: 16px;
+  align-content: start;
+  padding: 8px;
+}
+
+.shape {
+  border-radius: 18px;
+  background: tokens.$color-gray-100;
+  box-shadow: 0 8px 24px rgba(tokens.$color-gray-900, 0.08);
+}
+
+.shape--1 {
+  background: tokens.$color-brand-300;
+  grid-column: 1 / span 2;
+}
+
+.shape--2 {
+  background: tokens.$color-blue-200;
+}
+
+.shape--3 {
+  background: tokens.$color-violet-200;
+  grid-row: 2 / span 2;
+}
+
+.shape--4 {
+  background: tokens.$color-pink-200;
+  grid-column: 2 / span 2;
+}
+
+.shape--5 {
+  background: tokens.$color-green-200;
+}
+
+.shape--6 {
+  background: tokens.$color-yellow-200;
+  grid-column: 2 / span 2;
+}
+
+@media (max-width: 960px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .home-visual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

@@ -1,24 +1,34 @@
 <section class="home">
-  <div class="home-hero">
-    <p class="eyebrow">Percepta</p>
-    <h2 class="hero-title">Design system implementation guide</h2>
-    <p class="hero-copy">
-      Technical documentation for tokens, components, and the design-to-code workflow used by
-      Giunti Psychometrics.
-    </p>
-    <div class="hero-actions">
-      <gp-button
-        label="Get started"
-        variant="primary"
-        size="large"
-        (click)="goTo('/getting-started')"
-      ></gp-button>
-      <gp-button
-        label="Browse components"
-        variant="text"
-        size="large"
-        (click)="goTo('/components')"
-      ></gp-button>
+  <div class="home-layout">
+    <div class="home-hero">
+      <p class="eyebrow">Percepta</p>
+      <h2 class="hero-title">Design system implementation guide</h2>
+      <p class="hero-copy">
+        Technical documentation for tokens, components, and the design-to-code workflow used by
+        Giunti Psychometrics.
+      </p>
+      <div class="hero-actions">
+        <gp-button
+          label="Get started"
+          variant="primary"
+          size="large"
+          (click)="goTo('/getting-started')"
+        ></gp-button>
+        <gp-button
+          label="Browse components"
+          variant="text"
+          size="large"
+          (click)="goTo('/components')"
+        ></gp-button>
+      </div>
+    </div>
+    <div class="home-visual" aria-hidden="true">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+      <div class="shape shape--3"></div>
+      <div class="shape shape--4"></div>
+      <div class="shape shape--5"></div>
+      <div class="shape shape--6"></div>
     </div>
   </div>
 </section>
