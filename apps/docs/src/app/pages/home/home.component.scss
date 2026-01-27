@@ -81,13 +81,17 @@
 .shape--3 {
   background: tokens.$color-blue-50;
   grid-row: 2 / span 2;
-  background-image: url('/assets/owl_percepta_hero.webp');
+  background-image:
+    linear-gradient(
+      rgba(tokens.$color-blue-50, 0.62),
+      rgba(tokens.$color-blue-50, 0.62)
+    ),
+    url('/assets/owl_percepta_hero.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-blend-mode: normal;
-  opacity: 0.80;
-
+  background-blend-mode: multiply;
+  filter: saturate(0.78) contrast(0.9);
 }
 
 .shape--4 {
@@ -133,5 +137,128 @@
 
   .home-visual {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.home-section {
+  margin-top: 112px;
+}
+
+.section-title {
+  font-family: 'Saans Medium';
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0 0 20px;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.feature {
+  display: grid;
+  gap: 12px;
+}
+
+.home-section--provides .feature {
+  padding: 22px 20px;
+  border-radius: 18px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(tokens.$color-white, tokens.$color-white) padding-box,
+    linear-gradient(
+      120deg,
+      tokens.$color-brand-200,
+      tokens.$color-blue-100,
+      tokens.$color-pink-100
+    ) border-box;
+}
+
+.feature-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: tokens.$color-gray-200;
+  border: 1px solid tokens.$color-gray-300;
+}
+
+.home-section--provides .feature-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+  border: none;
+  transform: rotate(45deg);
+  background: tokens.$color-brand-200;
+}
+
+.home-section--provides .feature:nth-child(2) .feature-marker {
+  background: tokens.$color-green-100;
+  border-radius: 999px;
+  transform: none;
+}
+
+.home-section--provides .feature:nth-child(3) .feature-marker {
+  width: 20px;
+  height: 14px;
+  background: tokens.$color-yellow-100;
+  border-radius: 999px;
+  transform: none;
+}
+
+.feature-title {
+  @include typography.typography-heading-h3;
+  margin: 0;
+}
+
+.feature-text {
+  @include typography.typography-body-md;
+  margin: 0;
+  color: tokens.$color-gray-600;
+}
+
+.flow-line {
+  @include typography.typography-label-control-md;
+  color: tokens.$color-gray-600;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.section-text {
+  @include typography.typography-body-md;
+  margin: 0 0 12px;
+  color: tokens.$color-gray-600;
+  max-width: 720px;
+}
+
+.section-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-section--how {
+  text-align: center;
+}
+
+.home-section--how .flow-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-section--how .section-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .three-col {
+    grid-template-columns: 1fr;
   }
 }
