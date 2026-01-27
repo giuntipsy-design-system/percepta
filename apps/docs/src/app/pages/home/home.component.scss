@@ -18,6 +18,7 @@
   height: min(720px, 75vh);
   pointer-events: none;
   z-index: 0;
+  animation: mosaic-drift 18s ease-in-out infinite;
   background-image:
     linear-gradient(135deg, rgba(tokens.$color-blue-100, 0.28) 0 50%, transparent 50%),
     linear-gradient(315deg, rgba(tokens.$color-blue-50, 0.24) 0 50%, transparent 50%),
@@ -80,6 +81,38 @@
     86% 54%;
   background-repeat: no-repeat;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 85%);
+}
+
+@keyframes mosaic-drift {
+  0%,
+  100% {
+    background-position:
+      70% -10%,
+      75% 0%,
+      55% 20%,
+      62% 26%,
+      80% 35%,
+      66% 48%,
+      50% 12%,
+      58% 62%,
+      74% 68%,
+      38% 52%,
+      86% 54%;
+  }
+  50% {
+    background-position:
+      72% -6%,
+      78% 4%,
+      58% 16%,
+      60% 30%,
+      84% 40%,
+      62% 52%,
+      46% 16%,
+      54% 66%,
+      78% 62%,
+      42% 56%,
+      90% 50%;
+  }
 }
 
 .home-layout {
