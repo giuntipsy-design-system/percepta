@@ -23,6 +23,12 @@
     radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-300, 0.28) 1px, transparent 0);
   background-size: 22px 22px;
   background-position: 0 0;
+  box-shadow: none;
+  transition: box-shadow 200ms ease;
+}
+
+.app-header--scrolled {
+  box-shadow: 0 6px 16px rgba(tokens.$color-gray-900, 0.04);
 }
 
 .header-inner {
@@ -79,6 +85,22 @@
 .header-actions {
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.header-action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: #{tokens.$radius-sm};
+  color: tokens.$color-foreground-static-dark;
+  text-decoration: none;
+}
+
+.header-action-link:hover {
+  background: tokens.$color-background-subtle;
 }
 
 .layout-shell {
@@ -168,10 +190,11 @@
 .app-footer {
   position: static;
   width: 100%;
-  background: tokens.$color-background-subtle;
+  background: transparent;
   color: tokens.$color-foreground-default;
   padding: 24px;
   margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
+  border-top: 1px solid tokens.$color-border-subtle;
 }
 
 .footer-inner {
@@ -179,6 +202,25 @@
   justify-content: space-between;
   gap: 24px;
   @include typography.typography-body-sm;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: tokens.$color-foreground-subtle;
+}
+
+.footer-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: tokens.$color-foreground-subtle;
+}
+
+.footer-link:hover {
+  color: tokens.$color-foreground-default;
 }
 
 .content-inner {

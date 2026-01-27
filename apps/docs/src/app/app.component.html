@@ -1,5 +1,5 @@
 <div class="app-shell">
-  <header class="app-header">
+  <header class="app-header" [class.app-header--scrolled]="hasScrolled">
     <div class="header-inner">
       <div class="app-brand">
         <a class="brand-link" routerLink="/">
@@ -14,6 +14,15 @@
         <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
       </nav>
       <div class="header-actions">
+        <a
+          class="header-action-link"
+          href="https://github.com/giuntipsy-design-system/percepta"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Percepta on GitHub"
+        >
+          <gp-icon name="github" size="md" [decorative]="true"></gp-icon>
+        </a>
         <p-button styleClass="gp-button gp-button--tertiary gp-button--icon" ariaLabel="Toggle theme">
           <ng-template pTemplate="icon">
             <svg class="gp-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -81,13 +90,32 @@
       </ng-template>
     </nav>
 
-    <main class="app-content" [class.app-content--home]="isHomePage">
+    <main
+      class="app-content"
+      [class.app-content--home]="isHomePage"
+      (scroll)="onContentScroll($event)"
+      #appContent
+    >
       <div class="content-inner" [class.content-inner--home]="isHomePage">
         <router-outlet></router-outlet>
         <footer class="app-footer">
           <div class="footer-inner">
             <span>Percepta Design System</span>
-            <span>Giunti Psychometrics</span>
+            <span class="footer-meta">
+              2026
+              <a class="footer-link" href="https://giuntipsy.com" target="_blank" rel="noreferrer">
+                Giunti Psychometrics
+              </a>
+            </span>
+            <a
+              class="footer-link"
+              href="https://design.giuntipsy.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              design.giuntipsy.com
+              <gp-icon name="open-new-window" size="sm" [decorative]="true"></gp-icon>
+            </a>
           </div>
         </footer>
       </div>

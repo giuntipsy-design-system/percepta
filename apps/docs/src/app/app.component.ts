@@ -1,17 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { GpIconComponent } from '../../../shared/components/icon/gp-icon.component';
 
 @Component({
   selector: 'gp-root',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, ButtonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, ButtonModule, GpIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(private readonly router: Router) {}
+  @ViewChild('appContent') appContent?: ElementRef<HTMLElement>;
+
+  hasScrolled = false;
+
+  constructor(private readonly router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => this.updateScrollState(), 0);
+      }
+    });
+  }
 
   readonly componentsNav = {
     ready: [
@@ -61,5 +72,29 @@ export class AppComponent {
 
   get isComponentsPage(): boolean {
     return this.router.url.startsWith('/components');
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (!this.isHomePage) {
+      return;
+    }
+    this.hasScrolled = window.scrollY > 0;
+  }
+
+  onContentScroll(event: Event): void {
+    if (this.isHomePage) {
+      return;
+    }
+    const target = event.target as HTMLElement | null;
+    this.hasScrolled = (target?.scrollTop ?? 0) > 0;
+  }
+
+  private updateScrollState(): void {
+    if (this.isHomePage) {
+      this.hasScrolled = window.scrollY > 0;
+      return;
+    }
+    this.hasScrolled = (this.appContent?.nativeElement.scrollTop ?? 0) > 0;
   }
 }
