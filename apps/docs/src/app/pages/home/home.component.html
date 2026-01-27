@@ -61,14 +61,15 @@
       </div>
       <div class="how-content">
         <h2 class="section-title">How the system works</h2>
-        <div class="flow-line">Design → Tokens → Shared components → Applications</div>
+        <p class="section-text">Design decisions flow through a layered system.</p>
         <p class="section-text">
-          Design decisions are defined once and translated into tokens.
-          Tokens are consumed by shared components.
-          Applications reuse components without redefining UI rules.
+          Design intent is captured once and translated into tokens.
+          Tokens are then consumed by shared components, which expose a stable and documented API.
+          Applications integrate these components without redefining UI rules.
         </p>
         <p class="section-text">
-          This ensures consistency, reduces drift, and makes UI changes predictable.
+          This layered approach keeps visual and behavioral decisions centralized,
+          making UI changes consistent, controlled, and predictable over time.
         </p>
       </div>
     </div>
