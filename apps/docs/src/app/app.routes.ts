@@ -8,6 +8,7 @@ import { InputComponent } from './pages/components/input/input.component';
 import { SelectComponent } from './pages/components/select/select.component';
 import { GettingStartedDesignToCodeComponent } from './pages/getting-started/design-to-code/getting-started-design-to-code.component';
 import { GettingStartedOverviewComponent } from './pages/getting-started/overview/getting-started-overview.component';
+import { GettingStartedTypographyTokensComponent } from './pages/getting-started/typography-tokens/getting-started-typography-tokens.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
@@ -42,6 +43,11 @@ export const routes: Routes = [
         path: 'how-percepta-works',
         component: GettingStartedDesignToCodeComponent,
         title: 'How Percepta works · Percepta'
+      },
+      {
+        path: 'typography-tokens',
+        component: GettingStartedTypographyTokensComponent,
+        title: 'Typography tokens · Percepta'
       }
     ]
   },

@@ -40,11 +40,19 @@ export class AppComponent {
 
   readonly gettingStartedNav = [
     { label: 'Overview', route: '/getting-started/overview' },
-    { label: 'How Percepta works', route: '/getting-started/how-percepta-works' }
+    { label: 'How Percepta works', route: '/getting-started/how-percepta-works' },
+    { label: 'Typography tokens', route: '/getting-started/typography-tokens' }
   ];
 
   get isGettingStartedPage(): boolean {
     return this.router.url.startsWith('/getting-started');
+  }
+
+  get isGettingStartedOverview(): boolean {
+    return (
+      this.router.url === '/getting-started' ||
+      this.router.url === '/getting-started/overview'
+    );
   }
 
   get isHomePage(): boolean {

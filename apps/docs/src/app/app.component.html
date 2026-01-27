@@ -37,11 +37,22 @@
       <ng-container *ngIf="isGettingStartedPage; else nonGettingStartedNav">
         <span class="nav-title">Getting started</span>
         <a
-          *ngFor="let item of gettingStartedNav"
-          [routerLink]="item.route"
+          [routerLink]="gettingStartedNav[0].route"
+          [class.active]="isGettingStartedOverview"
+        >
+          {{ gettingStartedNav[0].label }}
+        </a>
+        <a
+          [routerLink]="gettingStartedNav[1].route"
           routerLinkActive="active"
         >
-          {{ item.label }}
+          {{ gettingStartedNav[1].label }}
+        </a>
+        <a
+          [routerLink]="gettingStartedNav[2].route"
+          routerLinkActive="active"
+        >
+          {{ gettingStartedNav[2].label }}
         </a>
       </ng-container>
       <ng-template #nonGettingStartedNav>
