@@ -79,8 +79,15 @@
 }
 
 .shape--3 {
-  background: tokens.$color-violet-100;
+  background: tokens.$color-blue-50;
   grid-row: 2 / span 2;
+  background-image: url('/assets/owl_percepta_hero.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: normal;
+  opacity: 0.80;
+
 }
 
 .shape--4 {
@@ -95,6 +102,11 @@
 .shape--6 {
   background: tokens.$color-yellow-100;
   grid-column: 2 / span 2;
+}
+
+.shape--owl {
+  grid-column: 2 / span 2;
+  background: tokens.$color-blue-100;
 }
 
 @keyframes float {
