@@ -56,7 +56,7 @@
               "outputHashing": "all"
             },
             "github": {
-              "baseHref": "/percepta-design-system/",
+              "baseHref": "/percepta/",
               "outputHashing": "all"
             },
             "development": {
