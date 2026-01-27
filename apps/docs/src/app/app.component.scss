@@ -85,6 +85,11 @@
   overflow: hidden;
 }
 
+.layout-shell--no-nav {
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0;
+}
+
 .app-nav {
   position: sticky;
   top: var(--app-header-height);
@@ -144,6 +149,11 @@
   overflow-y: auto;
 }
 
+.app-content--home {
+  padding: 24px 40px 32px;
+  margin-right: 0;
+}
+
 .app-footer {
   position: static;
   width: 100%;
@@ -164,6 +174,10 @@
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
+}
+
+.content-inner--home {
+  max-width: 1640px;
 }
 
 @media (max-width: 960px) {

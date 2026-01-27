@@ -2,12 +2,12 @@
   <header class="app-header">
     <div class="header-inner">
       <div class="app-brand">
-        <a class="brand-link" routerLink="/overview">
+        <a class="brand-link" routerLink="/">
           <h1>Percepta Design System</h1>
         </a>
       </div>
       <nav class="header-nav">
-        <a routerLink="/overview" routerLinkActive="active">Getting started</a>
+        <a routerLink="/getting-started" routerLinkActive="active">Getting started</a>
         <a routerLink="/components" routerLinkActive="active">Components</a>
         <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
         <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
@@ -32,34 +32,46 @@
     </div>
   </header>
 
-  <div class="layout-shell">
-    <nav class="app-nav">
-      <ng-container *ngIf="isComponentsPage; else defaultNav">
-        <span class="nav-title">Components</span>
+  <div class="layout-shell" [class.layout-shell--no-nav]="isHomePage">
+    <nav class="app-nav" *ngIf="!isHomePage">
+      <ng-container *ngIf="isGettingStartedPage; else nonGettingStartedNav">
+        <span class="nav-title">Getting started</span>
         <a
-          *ngFor="let item of componentsNav.ready"
+          *ngFor="let item of gettingStartedNav"
           [routerLink]="item.route"
           routerLinkActive="active"
         >
           {{ item.label }}
         </a>
-        <span class="nav-subtitle">Planned</span>
-        <span *ngFor="let item of componentsNav.planned" class="nav-item-disabled">
-          {{ item }}
-        </span>
       </ng-container>
-      <ng-template #defaultNav>
-        <a routerLink="/overview" routerLinkActive="active">Overview</a>
-        <a routerLink="/tokens" routerLinkActive="active">Tokens</a>
-        <a routerLink="/components" routerLinkActive="active">Components</a>
-        <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
-        <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
-        <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+      <ng-template #nonGettingStartedNav>
+        <ng-container *ngIf="isComponentsPage; else defaultNav">
+          <span class="nav-title">Components</span>
+          <a
+            *ngFor="let item of componentsNav.ready"
+            [routerLink]="item.route"
+            routerLinkActive="active"
+          >
+            {{ item.label }}
+          </a>
+          <span class="nav-subtitle">Planned</span>
+          <span *ngFor="let item of componentsNav.planned" class="nav-item-disabled">
+            {{ item }}
+          </span>
+        </ng-container>
+        <ng-template #defaultNav>
+          <a routerLink="/overview" routerLinkActive="active">Overview</a>
+          <a routerLink="/tokens" routerLinkActive="active">Tokens</a>
+          <a routerLink="/components" routerLinkActive="active">Components</a>
+          <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
+          <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
+          <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+        </ng-template>
       </ng-template>
     </nav>
 
-    <main class="app-content">
-      <div class="content-inner">
+    <main class="app-content" [class.app-content--home]="isHomePage">
+      <div class="content-inner" [class.content-inner--home]="isHomePage">
         <router-outlet></router-outlet>
         <footer class="app-footer">
           <div class="footer-inner">

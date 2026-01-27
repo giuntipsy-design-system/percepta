@@ -8,6 +8,7 @@ import { InputComponent } from './pages/components/input/input.component';
 import { SelectComponent } from './pages/components/select/select.component';
 import { GettingStartedDesignToCodeComponent } from './pages/getting-started/design-to-code/getting-started-design-to-code.component';
 import { GettingStartedOverviewComponent } from './pages/getting-started/overview/getting-started-overview.component';
+import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
@@ -15,8 +16,8 @@ import { TokensComponent } from './pages/tokens/tokens.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'overview',
-    pathMatch: 'full'
+    component: HomeComponent,
+    title: 'Percepta'
   },
   {
     path: 'overview',

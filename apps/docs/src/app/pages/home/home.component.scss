@@ -1,0 +1,47 @@
+@use '../../../tokens.scss' as tokens;
+@use '../../../typography.mixins.scss' as typography;
+
+.home {
+  background: tokens.$color-background-default;
+  border-radius: 20px;
+  border: 1px solid tokens.$color-gray-200;
+  padding: 48px;
+  min-height: 60vh;
+  display: grid;
+  align-items: center;
+}
+
+.home-hero {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+.hero-title {
+  @include typography.typography-heading-h1;
+  margin: 0;
+}
+
+.hero-copy {
+  @include typography.typography-body-lg;
+  margin: 0;
+  color: tokens.$color-gray-600;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-actions .gp-button {
+  text-decoration: none;
+}
