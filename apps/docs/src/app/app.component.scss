@@ -8,8 +8,8 @@
   min-height: 100vh;
   background-color: tokens.$color-background-default;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-400, 0.35) 1.2px, transparent 0);
-  background-size: 20px 20px;
+    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-300, 0.28) 1px, transparent 0);
+  background-size: 22px 22px;
   color: tokens.$color-foreground-static-dark;
 }
 
@@ -20,8 +20,8 @@
   background-color: tokens.$color-background-default;
   z-index: 10;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-400, 0.35) 1.2px, transparent 0);
-  background-size: 20px 20px;
+    radial-gradient(circle at 1px 1px, rgba(tokens.$color-gray-300, 0.28) 1px, transparent 0);
+  background-size: 22px 22px;
   background-position: 0 0;
 }
 
