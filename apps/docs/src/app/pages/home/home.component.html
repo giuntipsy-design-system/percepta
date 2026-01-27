@@ -1,0 +1,146 @@
+<section class="home">
+  <div class="hero-mosaic" aria-hidden="true"></div>
+  <div class="home-layout">
+    <div class="home-hero">
+      <h2 class="hero-title">Design decisions,<br />encoded as a system.</h2>
+      <p class="hero-copy">
+        Percepta turns design intent into tokens, components,
+        and documented patterns for consistent UI implementation.
+      </p>
+      <div class="hero-actions">
+        <gp-button
+          label="Get started"
+          variant="primary"
+          size="large"
+          (click)="goTo('/getting-started')"
+        ></gp-button>
+        <gp-button
+          label="Browse components"
+          variant="text"
+          size="large"
+          (click)="goTo('/components')"
+        ></gp-button>
+      </div>
+    </div>
+  </div>
+
+  <section class="home-section home-section--provides">
+    <h2 class="section-title">What Percepta provides</h2>
+    <div class="three-col">
+      <div class="feature">
+        <span class="feature-marker" aria-hidden="true"></span>
+        <h3 class="feature-title">Design tokens</h3>
+        <p class="feature-text">
+          A structured set of tokens defining color, typography, spacing, and interaction states.
+          Single source of truth, compiled and consumed by components.
+        </p>
+      </div>
+      <div class="feature">
+        <span class="feature-marker" aria-hidden="true"></span>
+        <h3 class="feature-title">Shared components</h3>
+        <p class="feature-text">
+          Reusable Angular components that encode visual and behavioral decisions.
+          Applications consume components, not styles.
+        </p>
+      </div>
+      <div class="feature">
+        <span class="feature-marker" aria-hidden="true"></span>
+        <h3 class="feature-title">Canonical documentation</h3>
+        <p class="feature-text">
+          Living documentation built with the same components used in production.
+          What you see is the real implementation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--how">
+    <div class="how-layout">
+      <div class="how-visual" aria-hidden="true">
+        <img src="/assets/ds_percepta.webp" alt="" />
+      </div>
+      <div class="how-content">
+        <h2 class="section-title">How the system works</h2>
+        <p class="section-text">Design decisions flow through a layered system.</p>
+        <p class="section-text">
+          Design intent is captured once and translated into tokens.
+          Tokens are then consumed by shared components, which expose a stable and documented API.
+          Applications integrate these components without redefining UI rules.
+        </p>
+        <p class="section-text">
+          This layered approach keeps visual and behavioral decisions centralized,
+          making UI changes consistent, controlled, and predictable over time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--who">
+    <h2 class="section-title">Who Percepta is for</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <h3 class="who-title">Frontend engineers</h3>
+        <div class="who-visual who-visual--stack" aria-hidden="true">
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square"></span>
+          <span class="who-square who-square--accent who-square--accent-1"></span>
+          <span class="who-square who-square--accent who-square--accent-2"></span>
+        </div>
+        <p class="who-text">
+          Building Giunti Psychometrics products using the Percepta system across stacks.
+        </p>
+      </div>
+      <div class="who-card">
+        <h3 class="who-title">Designers</h3>
+        <div class="who-visual who-visual--rings" aria-hidden="true">
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+          <span class="who-ring"></span>
+        </div>
+        <p class="who-text">
+          Understanding how design decisions are implemented and constrained in code.
+        </p>
+      </div>
+      <div class="who-card">
+        <h3 class="who-title">Product teams</h3>
+        <div class="who-visual who-visual--overlap" aria-hidden="true">
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+          <span class="who-frame"></span>
+        </div>
+        <p class="who-text">
+          Ensuring UI consistency across products without slowing down delivery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--explore">
+    <h2 class="section-title">Start exploring the system</h2>
+    <p class="section-text">
+      Percepta is best understood by exploring its foundations and shared components.
+      Start with the system overview, then dive into components to see how design decisions are applied in code.
+    </p>
+    <div class="link-row">
+      <gp-button
+        label="Getting started"
+        variant="primary"
+        size="medium"
+        (click)="goTo('/getting-started')"
+      ></gp-button>
+      <gp-button
+        label="Browse components"
+        variant="secondary"
+        size="medium"
+        (click)="goTo('/components')"
+      ></gp-button>
+    </div>
+  </section>
+</section>

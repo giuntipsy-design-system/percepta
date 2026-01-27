@@ -1,0 +1,157 @@
+<section class="page">
+  <header class="doc-card doc-card--intro">
+    <h2 class="docs-h1">How Percepta works</h2>
+    <p class="overview-lead">
+      Percepta defines how design decisions are translated into production-ready UI.
+      It connects design intent to frontend implementation through tokens, shared components,
+      and documented usage patterns, ensuring consistency across products.
+    </p>
+    <p class="overview-lead">
+      Rather than styling interfaces ad hoc, Percepta establishes a layered system where
+      responsibilities are clearly separated and changes are controlled.
+    </p>
+  </header>
+
+  <section class="section doc-card">
+    <div class="content-block">
+      <h3 class="docs-h2">Design reference</h3>
+      <p class="docs-body">
+        Visual foundations, brand guidelines, and design rationale live outside this repository at:
+      </p>
+      <div class="note-box" role="note">
+        <span class="note-box__icon" aria-hidden="true">i</span>
+        <p class="note-box__text">
+          <a href="https://design.giuntipsy.com" target="_blank" rel="noreferrer">design.giuntipsy.com</a>
+        </p>
+      </div>
+      <p class="docs-body">
+        Percepta does not define brand or visual strategy.
+        It focuses exclusively on the technical implementation of approved design decisions.
+      </p>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">Technical overview</h3>
+      <p class="docs-body">
+        Percepta is built around three core layers:
+      </p>
+      <h4 class="docs-h3">Design tokens</h4>
+      <p class="docs-body">
+        Design tokens are the single source of truth for:
+      </p>
+      <ul class="docs-list">
+        <li>Colors</li>
+        <li>Typography</li>
+        <li>Spacing</li>
+        <li>Border radius</li>
+        <li>Interaction states</li>
+      </ul>
+      <p class="docs-body">
+        Tokens are defined once and compiled into Sass, then consumed by shared components.
+        Application code should never hardcode these values.
+      </p>
+      <h4 class="docs-h3">Shared components</h4>
+      <p class="docs-body">
+        Shared Angular components (for example buttons, inputs, and icons) are the primary
+        integration point for applications.
+      </p>
+      <p class="docs-body">Components:</p>
+      <ul class="docs-list">
+        <li>Consume tokens</li>
+        <li>Encode interaction behavior</li>
+        <li>Expose a stable API to consuming apps</li>
+      </ul>
+      <p class="docs-body">
+        This ensures that visual and behavioral changes are centralized and predictable.
+      </p>
+      <h4 class="docs-h3">Documentation</h4>
+      <p class="docs-body">
+        The documentation site is built using the same shared components.
+        What you see in the docs is the real implementation, not mock examples.
+      </p>
+      <p class="docs-body">Documentation exists to:</p>
+      <ul class="docs-list">
+        <li>Explain usage and intent</li>
+        <li>Define interaction contracts</li>
+        <li>Prevent misinterpretation at application level.</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">Technology scope</h3>
+      <p class="docs-body">
+        Percepta is designed to be technology-agnostic at design system level.
+        Design tokens, interaction rules, and component intent are defined independently of any specific framework.
+      </p>
+      <p class="docs-body">
+        The current implementation uses Angular and PrimeNG as the primary frontend stack, but this represents one
+        concrete implementation, not a limitation of the system.
+      </p>
+      <p class="docs-body">
+        The same tokens and component definitions can be consumed by other technologies or frameworks by providing
+        an appropriate implementation layer.
+      </p>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">PrimeNG integration</h3>
+      <p class="docs-body">
+        PrimeNG provides the structural primitives used by Percepta components.
+      </p>
+      <p class="docs-body">Percepta:</p>
+      <ul class="docs-list">
+        <li>Reuses PrimeNG component structure</li>
+        <li>Overrides styles, tokens, and interaction behavior where needed</li>
+        <li>Avoids forking or reimplementing base components</li>
+      </ul>
+      <p class="docs-body">
+        This approach balances development speed with design control, while staying aligned
+        with Angular best practices.
+      </p>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">Design → Code workflow</h3>
+      <ol class="docs-list">
+        <li>A design decision is defined and validated in the design reference</li>
+        <li>The decision is translated into design tokens</li>
+        <li>Tokens are consumed by shared Angular components</li>
+        <li>Components and tokens are documented in this repository</li>
+        <li>Applications consume components without redefining styles</li>
+      </ol>
+      <p class="docs-body">
+        This ensures that changes propagate consistently and intentionally.
+      </p>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">Governance &amp; contribution</h3>
+      <p class="docs-body">
+        Percepta evolves through controlled changes to tokens and shared components.
+      </p>
+      <ul class="docs-list">
+        <li>Proposals can be raised by the frontend team</li>
+        <li>Changes are reviewed before merging</li>
+        <li>Documentation is updated alongside code changes</li>
+      </ul>
+      <p class="docs-body">
+        A breaking change is any modification that:
+      </p>
+      <ul class="docs-list">
+        <li>Alters a component API</li>
+        <li>Changes the meaning of an existing token</li>
+        <li>Modifies interaction behavior in a way that affects consuming applications</li>
+      </ul>
+      <p class="docs-body">
+        Breaking changes should be clearly documented and communicated.
+      </p>
+      <p class="docs-body">Use the project issue tracker to:</p>
+      <ul class="docs-list">
+        <li>Report bugs</li>
+        <li>Propose improvements</li>
+        <li>Discuss potential changes before implementation.</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <p class="docs-body">
+        Applications should consume Percepta components and tokens directly,
+        rather than redefining UI styles locally.
+      </p>
+    </div>
+  </section>
+</section>

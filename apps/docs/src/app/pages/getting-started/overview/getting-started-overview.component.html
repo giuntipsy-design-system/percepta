@@ -1,0 +1,98 @@
+<section class="page">
+  <header class="doc-card doc-card--intro intro-split">
+    <div class="intro-media">
+      <img src="assets/owl_percepta.webp" alt="Percepta owl" />
+    </div>
+    <div class="intro-text">
+      <h2 class="docs-h1">Getting started</h2>
+      <p class="overview-lead">
+        Percepta is the design system implementation layer for Giunti Psychometrics.
+        This repository documents how design decisions are translated into code, including tokens,
+        shared UI components, and canonical documentation.
+      </p>
+      <p class="overview-lead">
+        It is intended to be the single reference point for frontend implementation, ensuring
+        consistency, scalability, and long-term maintainability across products.
+      </p>
+    </div>
+  </header>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Overview</h3>
+    <p class="docs-body">
+      Percepta bridges the gap between design intent and frontend execution.
+      It defines a structured system of design tokens, reusable Angular components, and documented
+      interaction patterns that can be reliably consumed by applications.
+    </p>
+    <p class="docs-body">
+      Rather than prescribing visual styles ad hoc, Percepta establishes a contract between design
+      and code: design decisions are encoded once and reused everywhere.
+    </p>
+    <div class="content-block">
+      <h4 class="docs-h3">What Percepta solves</h4>
+      <p class="docs-body">
+        Percepta addresses common problems in large UI codebases:
+      </p>
+      <ul class="docs-list">
+        <li>Reduces drift between design and implementation over time</li>
+        <li>Standardizes UI behavior, spacing, typography, and interaction states</li>
+        <li>Avoids duplication and custom styling at application level</li>
+        <li>Provides a clear, shared source of truth for frontend teams</li>
+      </ul>
+      <p class="docs-body">
+        By centralizing these decisions, Percepta enables teams to move faster without sacrificing consistency.
+      </p>
+    </div>
+    <div class="content-block">
+      <h4 class="docs-h3">Who this is for</h4>
+      <p class="docs-body">
+        This documentation is primarily intended for:
+      </p>
+      <ul class="docs-list">
+        <li>Frontend engineers working on Giunti Psychometrics products</li>
+        <li>Teams building interfaces with Angular and PrimeNG</li>
+        <li>Developers consuming shared components and tokens</li>
+      </ul>
+      <p class="docs-body">
+        Designers may also find this useful as a reference for how design decisions are realized in code.
+      </p>
+    </div>
+    <div class="content-block">
+      <h4 class="docs-h3">Platforms and technologies</h4>
+      <p class="docs-body">
+        Percepta is currently built on:
+      </p>
+      <ul class="docs-list">
+        <li>Angular</li>
+        <li>PrimeNG</li>
+        <li>Sass-based design tokens</li>
+      </ul>
+      <p class="docs-body">
+        The system is designed to be technology-aware but not technology-bound, allowing future extensions if needed.
+      </p>
+    </div>
+    <div class="content-block">
+      <h4 class="docs-h3">Design reference</h4>
+      <p class="docs-body">
+        Percepta implements the visual and brand foundations defined elsewhere.
+        Design guidelines, brand assets, and visual principles are maintained at:
+      </p>
+      <div class="note-box" role="note">
+        <span class="note-box__icon" aria-hidden="true">i</span>
+        <p class="note-box__text">
+          <a href="https://design.giuntipsy.com" target="_blank" rel="noreferrer">design.giuntipsy.com</a>
+        </p>
+      </div>
+      <p class="docs-body">
+        This repository focuses on implementation, not on defining brand or visual strategy.
+      </p>
+    </div>
+    <div class="content-block">
+      <h4 class="docs-h3">How to use this documentation</h4>
+      <p class="docs-body">
+        Start by reviewing the token foundations, then explore shared components.
+        Application code should consume Percepta components and tokens directly, rather than redefining styles locally.
+      </p>
+    </div>
+  </section>
+</section>

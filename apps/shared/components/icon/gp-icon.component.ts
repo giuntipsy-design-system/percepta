@@ -28,7 +28,9 @@ type IconName =
   | 'upload'
   | 'notification'
   | 'help'
-  | 'bell';
+  | 'bell'
+  | 'github'
+  | 'open-new-window';
 type IconSize = 'sm' | 'md' | 'lg';
 
 @Component({
@@ -81,7 +83,9 @@ export class GpIconComponent implements OnChanges {
       upload: 'iconoir-upload',
       notification: 'iconoir-bell-notification',
       help: 'iconoir-help-circle',
-      bell: 'iconoir-bell'
+      bell: 'iconoir-bell',
+      github: 'iconoir-github',
+      'open-new-window': 'iconoir-open-new-window'
     };
     const iconName = this.name ? iconMap[this.name] : '';
     return ['gp-icon', `gp-icon--${this.size}`, iconName].filter(Boolean).join(' ');
