@@ -60,6 +60,14 @@
   margin-top: #{tokens.$spacing-layout-md};
 }
 
+.content-block {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2.5);
+}
+
+.content-block:first-of-type {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+}
+
 .info-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

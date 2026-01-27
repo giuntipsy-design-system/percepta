@@ -48,3 +48,11 @@
 .docs-h3 {
   margin: #{tokens.$spacing-layout-md} 0 8px;
 }
+
+.content-block {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2.5);
+}
+
+.content-block:first-of-type {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+}

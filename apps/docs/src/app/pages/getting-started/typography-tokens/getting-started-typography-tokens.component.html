@@ -8,119 +8,127 @@
   </header>
 
   <section class="section doc-card">
-    <h3 class="docs-h2">Introduction</h3>
-    <p class="docs-body">
-      Typography tokens define the foundational typographic rules of the Percepta design system.
-      They provide a single source of truth for font families, sizes, weights, and line heights used across all
-      components and applications.
-    </p>
-    <p class="docs-body">
-      These tokens are consumed by the compiled Sass token files and applied consistently through shared components.
-      They are not meant to be used as raw values in applications, but as semantic references that ensure visual and
-      behavioral consistency.
-    </p>
-    <h3 class="docs-h3">What this page is (and is not)</h3>
-    <div class="info-cards">
-      <div class="info-card">
-        <p class="info-card__title">This page is</p>
-        <ul class="docs-list">
-          <li>A reference for available typography tokens</li>
-          <li>A source of truth for typographic foundations</li>
-          <li>A guide to understanding how typography is structured in the system</li>
-        </ul>
+    <div class="content-block">
+      <h3 class="docs-h2">Introduction</h3>
+      <p class="docs-body">
+        Typography tokens define the foundational typographic rules of the Percepta design system.
+        They provide a single source of truth for font families, sizes, weights, and line heights used across all
+        components and applications.
+      </p>
+      <p class="docs-body">
+        These tokens are consumed by the compiled Sass token files and applied consistently through shared components.
+        They are not meant to be used as raw values in applications, but as semantic references that ensure visual and
+        behavioral consistency.
+      </p>
+      <h3 class="docs-h3">What this page is (and is not)</h3>
+      <div class="info-cards">
+        <div class="info-card">
+          <p class="info-card__title">This page is</p>
+          <ul class="docs-list">
+            <li>A reference for available typography tokens</li>
+            <li>A source of truth for typographic foundations</li>
+            <li>A guide to understanding how typography is structured in the system</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <p class="info-card__title">This page is not</p>
+          <ul class="docs-list">
+            <li>A typography style guide</li>
+            <li>A list of CSS rules to copy into applications</li>
+            <li>A replacement for component documentation</li>
+          </ul>
+        </div>
       </div>
-      <div class="info-card">
-        <p class="info-card__title">This page is not</p>
-        <ul class="docs-list">
-          <li>A typography style guide</li>
-          <li>A list of CSS rules to copy into applications</li>
-          <li>A replacement for component documentation</li>
-        </ul>
-      </div>
-    </div>
-    <p class="docs-body">
-      Typography decisions should always be applied through the system, not manually.
-    </p>
-    <h3 class="docs-h2">Base typefaces</h3>
-    <p class="docs-body">
-      Percepta uses two base typefaces, each with a clearly defined role:
-    </p>
-    <ul class="docs-list">
-      <li>Noto Sans is used for body text, UI labels, and general interface content.</li>
-      <li>Saans Medium is used for headings and display styles where stronger visual emphasis is required.</li>
-    </ul>
-    <p class="docs-body">
-      This separation helps maintain clarity and hierarchy while keeping the interface neutral and readable.
-    </p>
-    <h3 class="docs-h3">Why Noto Sans</h3>
-    <p class="docs-body">
-      Noto Sans is a global, Unicode-complete typeface designed to support a wide range of languages and scripts.
-      Using Noto Sans ensures consistent typography across all countries and markets where Giunti Psychometrics operates,
-      without fallback inconsistencies.
-    </p>
-    <h3 class="docs-h3">Why Saans Medium</h3>
-    <p class="docs-body">
-      Saans Medium is used selectively for headings and display elements to introduce contrast and emphasis without
-      compromising readability. It is not intended for long-form text or dense UI elements.
-    </p>
-    <h3 class="docs-h2">Typography tokens overview</h3>
-    <p class="docs-body">
-      The following table lists the typography-related design tokens available in the system.
-      These values are defined at token level and compiled into Sass for use in components.
-    </p>
-    <div class="note-box" role="note">
-      <span class="note-box__icon" aria-hidden="true">!</span>
-      <p class="note-box__text">
-        <strong>Important:</strong> Applications should not hardcode these values. Always rely on shared components
-        or semantic mixins instead.
+      <p class="docs-body">
+        Typography decisions should always be applied through the system, not manually.
       </p>
     </div>
-    <h3 class="docs-h3">Token table</h3>
-    <table class="mapping-table">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Value</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>font.family.primary</td><td>Noto Sans</td><td>Family</td></tr>
-        <tr><td>font.family.secondary</td><td>Saans Medium</td><td>Family</td></tr>
-        <tr><td>font.weight.regular</td><td>400</td><td>Weight</td></tr>
-        <tr><td>font.weight.bold</td><td>700</td><td>Weight</td></tr>
-        <tr><td>font.size.2xs</td><td>0.75rem</td><td>Size</td></tr>
-        <tr><td>font.size.xs</td><td>0.875rem</td><td>Size</td></tr>
-        <tr><td>font.size.sm</td><td>1rem</td><td>Size</td></tr>
-        <tr><td>font.size.md</td><td>1.125rem</td><td>Size</td></tr>
-        <tr><td>font.size.lg</td><td>1.25rem</td><td>Size</td></tr>
-        <tr><td>font.size.xl</td><td>1.5rem</td><td>Size</td></tr>
-        <tr><td>font.size.2xl</td><td>2rem</td><td>Size</td></tr>
-        <tr><td>font.size.3xl</td><td>3.25rem</td><td>Size</td></tr>
-        <tr><td>font.size.4xl</td><td>3.75rem</td><td>Size</td></tr>
-        <tr><td>font.lineHeight.label</td><td>120%</td><td>Line height</td></tr>
-        <tr><td>font.lineHeight.label-control</td><td>135%</td><td>Line height</td></tr>
-        <tr><td>font.lineHeight.heading</td><td>120%</td><td>Line height</td></tr>
-        <tr><td>font.lineHeight.body</td><td>140%</td><td>Line height</td></tr>
-      </tbody>
-    </table>
-    <h3 class="docs-h2">How these tokens are used</h3>
-    <p class="docs-body">
-      Typography tokens are not applied directly in application code. Instead, they are consumed through:
-    </p>
-    <ul class="docs-list">
-      <li>Shared components (e.g. gp-button, gp-input)</li>
-      <li>Semantic typography mixins (e.g. label-control, body, heading)</li>
-      <li>Component-level mappings that combine font size, line height, and spacing</li>
-    </ul>
-    <p class="docs-body">For example:</p>
-    <ul class="docs-list">
-      <li>Buttons and form controls use label-control typography to ensure proper vertical rhythm.</li>
-      <li>Body text uses body line height to optimize readability.</li>
-      <li>Headings use heading line height with secondary font family.</li>
-    </ul>
-    <p class="docs-body">
-      This approach allows typography to scale consistently across components without redefining values per use case.
-    </p>
+    <div class="content-block">
+      <h3 class="docs-h2">Base typefaces</h3>
+      <p class="docs-body">
+        Percepta uses two base typefaces, each with a clearly defined role:
+      </p>
+      <ul class="docs-list">
+        <li>Noto Sans is used for body text, UI labels, and general interface content.</li>
+        <li>Saans Medium is used for headings and display styles where stronger visual emphasis is required.</li>
+      </ul>
+      <p class="docs-body">
+        This separation helps maintain clarity and hierarchy while keeping the interface neutral and readable.
+      </p>
+      <h3 class="docs-h3">Why Noto Sans</h3>
+      <p class="docs-body">
+        Noto Sans is a global, Unicode-complete typeface designed to support a wide range of languages and scripts.
+        Using Noto Sans ensures consistent typography across all countries and markets where Giunti Psychometrics operates,
+        without fallback inconsistencies.
+      </p>
+      <h3 class="docs-h3">Why Saans Medium</h3>
+      <p class="docs-body">
+        Saans Medium is used selectively for headings and display elements to introduce contrast and emphasis without
+        compromising readability. It is not intended for long-form text or dense UI elements.
+      </p>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">Typography tokens overview</h3>
+      <p class="docs-body">
+        The following table lists the typography-related design tokens available in the system.
+        These values are defined at token level and compiled into Sass for use in components.
+      </p>
+      <div class="note-box" role="note">
+        <span class="note-box__icon" aria-hidden="true">!</span>
+        <p class="note-box__text">
+          <strong>Important:</strong> Applications should not hardcode these values. Always rely on shared components
+          or semantic mixins instead.
+        </p>
+      </div>
+      <h3 class="docs-h3">Token table</h3>
+      <table class="mapping-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Value</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>font.family.primary</td><td>Noto Sans</td><td>Family</td></tr>
+          <tr><td>font.family.secondary</td><td>Saans Medium</td><td>Family</td></tr>
+          <tr><td>font.weight.regular</td><td>400</td><td>Weight</td></tr>
+          <tr><td>font.weight.bold</td><td>700</td><td>Weight</td></tr>
+          <tr><td>font.size.2xs</td><td>0.75rem</td><td>Size</td></tr>
+          <tr><td>font.size.xs</td><td>0.875rem</td><td>Size</td></tr>
+          <tr><td>font.size.sm</td><td>1rem</td><td>Size</td></tr>
+          <tr><td>font.size.md</td><td>1.125rem</td><td>Size</td></tr>
+          <tr><td>font.size.lg</td><td>1.25rem</td><td>Size</td></tr>
+          <tr><td>font.size.xl</td><td>1.5rem</td><td>Size</td></tr>
+          <tr><td>font.size.2xl</td><td>2rem</td><td>Size</td></tr>
+          <tr><td>font.size.3xl</td><td>3.25rem</td><td>Size</td></tr>
+          <tr><td>font.size.4xl</td><td>3.75rem</td><td>Size</td></tr>
+          <tr><td>font.lineHeight.label</td><td>120%</td><td>Line height</td></tr>
+          <tr><td>font.lineHeight.label-control</td><td>135%</td><td>Line height</td></tr>
+          <tr><td>font.lineHeight.heading</td><td>120%</td><td>Line height</td></tr>
+          <tr><td>font.lineHeight.body</td><td>140%</td><td>Line height</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="content-block">
+      <h3 class="docs-h2">How these tokens are used</h3>
+      <p class="docs-body">
+        Typography tokens are not applied directly in application code. Instead, they are consumed through:
+      </p>
+      <ul class="docs-list">
+        <li>Shared components (e.g. gp-button, gp-input)</li>
+        <li>Semantic typography mixins (e.g. label-control, body, heading)</li>
+        <li>Component-level mappings that combine font size, line height, and spacing</li>
+      </ul>
+      <p class="docs-body">For example:</p>
+      <ul class="docs-list">
+        <li>Buttons and form controls use label-control typography to ensure proper vertical rhythm.</li>
+        <li>Body text uses body line height to optimize readability.</li>
+        <li>Headings use heading line height with secondary font family.</li>
+      </ul>
+      <p class="docs-body">
+        This approach allows typography to scale consistently across components without redefining values per use case.
+      </p>
+    </div>
   </section>
 </section>

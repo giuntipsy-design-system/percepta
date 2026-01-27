@@ -48,3 +48,44 @@
 .docs-h3 {
   margin: #{tokens.$spacing-layout-md} 0 8px;
 }
+
+.content-block {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2.5);
+  padding-top: 0;
+  border-top: none;
+}
+
+.content-block:first-of-type {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+}
+
+.note-box {
+  display: flex;
+  gap: #{tokens.$spacing-layout-sm};
+  align-items: flex-start;
+  padding: #{tokens.$spacing-layout-md};
+  margin: #{tokens.$spacing-layout-md} 0 #{tokens.$spacing-layout-lg};
+  border-radius: #{tokens.$radius-md};
+  border: 1px solid rgba(tokens.$color-border-subtle, 0.6);
+  background: tokens.$color-background-info;
+  color: tokens.$color-foreground-default;
+}
+
+.note-box__icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: tokens.$font-weight-bold;
+  background: tokens.$color-background-info-contrast;
+  color: tokens.$color-foreground-static-light;
+  flex: 0 0 auto;
+}
+
+.note-box__text {
+  margin: 0;
+  @include typography.typography-body-sm;
+}
