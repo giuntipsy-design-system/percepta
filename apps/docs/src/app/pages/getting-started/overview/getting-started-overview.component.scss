@@ -2,37 +2,49 @@
 @use '../../../../typography.mixins.scss' as typography;
 
 .page {
-  display: grid;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card {
   padding: 24px;
-  background: tokens.$color-background-default;
-  border-radius: 16px;
-  border: 1px solid tokens.$color-gray-200;
+  background: transparent;
+  border-radius: 0;
+  border: none;
 }
 
-.eyebrow {
-  @include typography.typography-label-md;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: tokens.$color-gray-500;
-  margin: 0;
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
 }
 
-h2 {
-  @include typography.typography-heading-h2;
+.docs-h1 {
   margin: 4px 0 8px;
 }
 
-p {
-  @include typography.typography-body-md;
+.overview-lead {
+  @include typography.typography-body-xl;
   margin: 0;
-  color: tokens.$color-gray-600;
+  color: tokens.$color-foreground-default;
 }
 
-.placeholder {
-  @include typography.typography-body-sm;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1px dashed tokens.$color-gray-300;
-  color: tokens.$color-gray-500;
+.section {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
+}
+
+.docs-body {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.section .docs-h2 {
+  margin: #{tokens.$spacing-layout-lg} 0 10px;
+}
+
+.section .docs-h2:not(:first-child) {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+}
+
+.docs-h3 {
+  margin: #{tokens.$spacing-layout-md} 0 8px;
 }
