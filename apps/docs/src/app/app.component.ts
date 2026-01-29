@@ -74,6 +74,10 @@ export class AppComponent {
     return this.router.url.startsWith('/components');
   }
 
+  get isPrimeBaseline(): boolean {
+    return this.router.url.startsWith('/prime-baseline');
+  }
+
   @HostListener('window:scroll')
   onWindowScroll(): void {
     if (!this.isHomePage) {

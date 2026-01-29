@@ -49,7 +49,6 @@ body {
 body {
   margin: 0;
   font-family: tokens.$font-family-primary;
-  color: tokens.$color-foreground-static-dark;
   background: tokens.$color-background-default;
 }
 
@@ -74,6 +73,10 @@ h3 {
 }
 
 // Documentation content body text and lists: increase readability
+.docs-content {
+  color: tokens.$color-foreground-static-dark;
+}
+
 .docs-content p,
 .docs-content li {
   @include typography.typography-body-md;

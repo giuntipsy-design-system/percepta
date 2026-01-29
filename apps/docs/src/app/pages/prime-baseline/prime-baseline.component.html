@@ -1,17 +1,17 @@
-<section class="baseline-page">
+<section class="baseline-page primeng-baseline">
   <header class="baseline-header">
-    <h2>PrimeNG Baseline</h2>
-    <p>Components below must render correctly without any Percepta overrides.</p>
+    <div class="baseline-title">PrimeNG Baseline</div>
+    <div class="baseline-description">Components below must render correctly without any Percepta overrides.</div>
   </header>
 
   <div class="baseline-grid">
     <div class="baseline-block">
-      <h3>Button</h3>
+      <span class="baseline-label">Button</span>
       <p-button label="Button"></p-button>
     </div>
 
     <div class="baseline-block">
-      <h3>Select</h3>
+      <span class="baseline-label">Select</span>
       <p-select
         [options]="options"
         optionLabel="label"
@@ -21,17 +21,17 @@
     </div>
 
     <div class="baseline-block">
-      <h3>Input Text</h3>
+      <span class="baseline-label">Input Text</span>
       <input pInputText type="text" placeholder="Type here" [(ngModel)]="textValue" />
     </div>
 
     <div class="baseline-block">
-      <h3>Date Picker</h3>
+      <span class="baseline-label">Date Picker</span>
       <p-datepicker placeholder="Pick a date" [(ngModel)]="dateValue"></p-datepicker>
     </div>
 
     <div class="baseline-block">
-      <h3>Tooltip</h3>
+      <span class="baseline-label">Tooltip</span>
       <button pButton type="button" label="Hover me" pTooltip="Tooltip"></button>
     </div>
   </div>

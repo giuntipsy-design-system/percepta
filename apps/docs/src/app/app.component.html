@@ -98,9 +98,12 @@
       #appContent
     >
       <div class="content-inner" [class.content-inner--home]="isHomePage">
-        <section class="docs-content">
+        <section class="docs-content" *ngIf="!isPrimeBaseline">
           <router-outlet></router-outlet>
         </section>
+        <ng-container *ngIf="isPrimeBaseline">
+          <router-outlet></router-outlet>
+        </ng-container>
         <footer class="app-footer">
           <div class="footer-inner">
             <span>Percepta Design System</span>
