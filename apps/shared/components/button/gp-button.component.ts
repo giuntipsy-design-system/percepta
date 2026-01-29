@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ContentChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { GpIconComponent } from '../icon/gp-icon.component';
 
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'text' | 'danger';
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'text' | 'danger' | 'ghost';
 type ButtonSize = 'small' | 'medium' | 'large';
 type ButtonState = 'default' | 'hover' | 'focus' | 'active';
-type ButtonIcon = 'add' | 'search' | 'filter' | 'delete' | 'arrow-right';
+type ButtonIcon = 'add' | 'search' | 'filter' | 'delete' | 'arrow-right' | 'half-moon';
 
 @Component({
   selector: 'gp-button',
@@ -29,20 +29,35 @@ export class GpButtonComponent implements OnChanges {
   @Input() iconOnly = false;
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
 
+  hasProjectedContent = false;
+
+  @ContentChild(GpIconComponent)
+  set projectedIcon(value: GpIconComponent | undefined) {
+    this.hasProjectedContent = !!value;
+  }
+
   get buttonClass(): string {
     let sizeClass = '';
+    const variantClass = this.variant === 'ghost' ? 'tertiary' : this.variant;
 
     if (this.size === 'small') {
       sizeClass = 'gp-button--sm';
     } else if (this.size === 'large') {
       sizeClass = 'gp-button--lg';
     }
-    const stateClass =
-      this.demo && this.state !== 'default' ? `is-${this.state}` : '';
-    const iconOnlyClass = this.icon && (this.iconOnly || !this.label) ? 'gp-button--icon' : '';
+    const stateClass = this.demo && this.state !== 'default' ? `is-${this.state}` : '';
+    const hasIcon = Boolean(this.icon) || this.hasProjectedContent;
+    const iconOnlyClass = hasIcon && (this.iconOnly || !this.label) ? 'gp-button--icon' : '';
     const iconRightClass =
       this.icon && !iconOnlyClass && this.iconPosition === 'trailing' ? 'gp-button--icon-right' : '';
-    return ['gp-button', `gp-button--${this.variant}`, sizeClass, iconOnlyClass, iconRightClass, stateClass]
+    return [
+      'gp-button',
+      `gp-button--${variantClass}`,
+      sizeClass,
+      iconOnlyClass,
+      iconRightClass,
+      stateClass
+    ]
       .filter(Boolean)
       .join(' ');
   }

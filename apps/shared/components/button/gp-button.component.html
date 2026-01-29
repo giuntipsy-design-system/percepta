@@ -6,7 +6,14 @@
   [ariaLabel]="ariaLabel || label"
   [type]="type"
 >
-  <ng-template pTemplate="icon" *ngIf="icon">
-    <gp-icon [name]="icon" [decorative]="true"></gp-icon>
+  <ng-container *ngIf="hasProjectedContent; else defaultIcon">
+    <ng-template pTemplate="icon">
+      <ng-content></ng-content>
+    </ng-template>
+  </ng-container>
+  <ng-template #defaultIcon>
+    <ng-template pTemplate="icon" *ngIf="icon">
+      <gp-icon [name]="icon" [decorative]="true"></gp-icon>
+    </ng-template>
   </ng-template>
 </p-button>

@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
+import { GpButtonComponent } from '../../../shared/components/button/gp-button.component';
 import { GpIconComponent } from '../../../shared/components/icon/gp-icon.component';
 
 @Component({
   selector: 'gp-root',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, ButtonModule, GpIconComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, GpButtonComponent, GpIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
