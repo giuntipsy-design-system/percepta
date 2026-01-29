@@ -223,58 +223,14 @@
   border: 1px solid tokens.$color-border-subtle;
 }
 
-:host ::ng-deep .demo-button-group.p-buttongroup {
+.demo-button-group {
   display: inline-flex;
-  flex-wrap: nowrap;
-  column-gap: 0;
+  flex-wrap: wrap;
+  gap: #{tokens.$spacing-layout-xs};
 }
 
-:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup {
+.demo-button-group-item {
   display: inline-flex;
-  gap: 0 !important;
-}
-
-:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button {
-  display: inline-flex !important;
-  margin-right: 0 !important;
-}
-
-:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button:last-child {
-  margin-right: 0 !important;
-}
-
-:host ::ng-deep .demo-button-group.p-buttongroup > span.p-buttongroup > p-button > button.p-button {
-  margin-right: 0 !important;
-}
-
-:host ::ng-deep .demo-button-group-item {
-  display: inline-flex;
-  margin-right: #{tokens.$spacing-layout-sm};
-}
-
-:host ::ng-deep .demo-button-group-item:last-child {
-  margin-right: 0;
-}
-
-:host ::ng-deep .demo-button-group.p-buttongroup .p-button {
-  border-radius: #{tokens.$radius-sm};
-  border-color: transparent;
-  background: transparent;
-  color: tokens.$color-accent-moderate;
-}
-
-:host ::ng-deep .demo-button-group .gp-button.is-active {
-  background: tokens.$color-background-default !important;
-  color: tokens.$color-accent-bold !important;
-}
-
-:host ::ng-deep .demo-button-group .gp-button.is-active [data-pc-section='label'] {
-  color: tokens.$color-accent-bold !important;
-}
-
-:host ::ng-deep .demo-button-group.p-buttongroup .p-button:not(.is-active):hover {
-  background: transparent;
-  color: tokens.$color-accent-vibrant;
 }
 
 .contract-grid {

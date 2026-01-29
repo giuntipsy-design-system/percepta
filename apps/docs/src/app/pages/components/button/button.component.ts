@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ButtonGroupModule } from 'primeng/buttongroup';
-import { ButtonModule } from 'primeng/button';
 import { GpButtonComponent } from '../../../../../../shared/components/button/gp-button.component';
 
 type GpVariant = 'primary' | 'secondary' | 'tertiary' | 'text' | 'danger';
@@ -9,7 +7,7 @@ type GpSize = 'small' | 'medium' | 'large';
 @Component({
   selector: 'gp-button-doc',
   standalone: true,
-  imports: [ButtonModule, ButtonGroupModule, GpButtonComponent],
+  imports: [GpButtonComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss'
 })
