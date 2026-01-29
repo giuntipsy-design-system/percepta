@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, Optional, Self, SimpleChanges, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { SelectModule } from 'primeng/select';
+import { GpIconComponent } from '../icon/gp-icon.component';
 
 type SelectSize = 'small' | 'medium' | 'large';
 type SelectState = 'default' | 'hover' | 'focus' | 'active' | 'error';
@@ -24,7 +25,7 @@ let nextId = 0;
 @Component({
   selector: 'gp-select',
   standalone: true,
-  imports: [CommonModule, FormsModule, SelectModule],
+  imports: [CommonModule, FormsModule, SelectModule, GpIconComponent],
   templateUrl: './gp-select.component.html',
   styleUrl: './gp-select.component.scss',
   providers: [
@@ -146,10 +147,10 @@ export class GpSelectComponent implements OnInit, OnChanges, ControlValueAccesso
 
   get sizeClass(): string {
     if (this.size === 'small') {
-      return 'gp-select--sm';
+      return 'gp-select-group--sm';
     }
     if (this.size === 'large') {
-      return 'gp-select--lg';
+      return 'gp-select-group--lg';
     }
     return '';
   }
@@ -164,12 +165,40 @@ export class GpSelectComponent implements OnInit, OnChanges, ControlValueAccesso
     return '';
   }
 
+  get groupClass(): string {
+    return ['gp-select-group', this.sizeClass, this.stateClass].filter(Boolean).join(' ');
+  }
+
+  get labelClass(): string {
+    let sizeClass = '';
+    if (this.size === 'small') {
+      sizeClass = 'gp-select-label--sm';
+    } else if (this.size === 'large') {
+      sizeClass = 'gp-select-label--lg';
+    }
+    return ['gp-select-label', sizeClass].filter(Boolean).join(' ');
+  }
+
   get selectClass(): string {
-    return ['gp-select', this.sizeClass, this.stateClass].filter(Boolean).join(' ');
+    return ['gp-select-control'].join(' ');
   }
 
   get nativeSelectClass(): string {
-    return ['gp-select-native', this.sizeClass, this.stateClass].filter(Boolean).join(' ');
+    return ['gp-select-control', 'gp-select-native'].join(' ');
+  }
+
+  get hasValue(): boolean {
+    return this.internalValue !== null && this.internalValue !== '';
+  }
+
+  get iconSize(): 'sm' | 'md' | 'lg' {
+    if (this.size === 'small') {
+      return 'sm';
+    }
+    if (this.size === 'large') {
+      return 'lg';
+    }
+    return 'md';
   }
 
   get helperId(): string {

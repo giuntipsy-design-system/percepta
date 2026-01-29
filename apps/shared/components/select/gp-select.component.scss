@@ -17,6 +17,16 @@
   @include typography.typography-label-md;
   color: tokens.$color-foreground-default;
   margin: 0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.gp-select-label--sm {
+  @include typography.typography-label-sm;
+}
+
+.gp-select-label--lg {
+  @include typography.typography-label-lg;
 }
 
 .gp-select-helper {
@@ -35,112 +45,235 @@
   text-align: left;
 }
 
-.gp-select-native {
+.gp-select-group {
   @include typography.typography-label-control-md;
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: #{tokens.$spacing-control-x-md};
+  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-md};
   border-radius: #{tokens.$radius-sm};
   border: 1px solid tokens.$color-border-subtle;
   background: tokens.$color-background-default;
-  color: tokens.$color-foreground-default;
-  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-md};
-  outline: none;
+  min-width: 100%;
   transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
-  appearance: auto;
+  cursor: pointer;
 }
 
-.gp-select-native.gp-select--sm {
+.gp-select-group .gp-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.gp-select-group--sm {
   @include typography.typography-label-control-sm;
   padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-sm};
 }
 
-.gp-select-native.gp-select--lg {
+.gp-select-group--lg {
   @include typography.typography-label-control-lg;
   padding: #{tokens.$spacing-control-y-md} #{tokens.$spacing-control-x-lg};
 }
 
-.gp-select-native:focus {
-  border-color: tokens.$color-border-focus;
-  box-shadow: 0 0 0 3px tokens.$color-border-focus;
-}
-
-.gp-select-native.is-hover {
+.gp-select-group.is-hover {
   background: tokens.$color-background-subtle;
   border-color: tokens.$color-border-muted;
 }
 
-.gp-select-native.is-focus,
-.gp-select-native.is-active {
+.gp-select-group.is-focus,
+.gp-select-group.is-active {
   border-color: tokens.$color-border-focus;
   box-shadow: 0 0 0 3px tokens.$color-border-focus;
 }
 
-.gp-select-native.is-error {
+.gp-select-group.is-error {
   border-color: tokens.$color-border-error;
   background: tokens.$color-background-error;
   box-shadow: 0 0 0 3px rgba(tokens.$color-border-error, 0.25);
+}
+
+.gp-select-group.is-error .gp-select-control,
+.gp-select-group.is-error .gp-select-control::placeholder {
   color: tokens.$color-foreground-error;
 }
 
-.gp-select-native:disabled {
+.gp-select-group:focus-within {
+  border-color: tokens.$color-border-focus;
+  box-shadow: 0 0 0 3px tokens.$color-border-focus;
+}
+
+.gp-select-group.is-disabled {
   background: tokens.$color-background-disabled;
-  color: tokens.$color-foreground-disabled;
   border-color: tokens.$color-border-disabled;
   cursor: not-allowed;
 }
 
-:host ::ng-deep .gp-select.p-select {
-  width: 100%;
-  border-radius: #{tokens.$radius-sm};
-  border: 1px solid tokens.$color-border-subtle;
-  background: tokens.$color-background-default;
-  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+.gp-select-group.is-disabled .gp-select-control {
+  color: tokens.$color-foreground-disabled;
 }
 
-:host ::ng-deep .gp-select.p-select .p-select-label {
+.gp-select-group.is-disabled .gp-icon {
+  color: tokens.$color-foreground-disabled;
+}
+
+.gp-select-control {
   @include typography.typography-label-control-md;
-  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-md};
+  color: tokens.$color-foreground-subtle;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  box-shadow: none;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.gp-select-control.has-value {
   color: tokens.$color-foreground-default;
 }
 
-:host ::ng-deep .gp-select.gp-select--sm.p-select .p-select-label {
+.gp-select-native {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  cursor: pointer;
+}
+
+.gp-select-control:disabled {
+  color: tokens.$color-foreground-disabled;
+  cursor: not-allowed;
+}
+
+.gp-select-group .gp-icon {
+  color: tokens.$color-foreground-subtle;
+  pointer-events: none;
+}
+
+:host ::ng-deep .gp-select-control.p-select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+:host ::ng-deep .gp-select-control.p-select * {
+  cursor: pointer;
+}
+
+:host ::ng-deep .gp-select-control.p-select *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .gp-select-control.p-select .p-select-dropdown,
+:host ::ng-deep .gp-select-control.p-select .p-select-dropdown-icon,
+:host ::ng-deep .gp-select-control.p-select svg,
+:host ::ng-deep .gp-select-control.p-select .gp-select-hidden-icon {
+  display: none;
+}
+
+:host ::ng-deep .gp-select-shell {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  display: block;
+  position: relative;
+}
+
+:host ::ng-deep .gp-select-control.p-select .p-select-label {
+  @include typography.typography-label-control-md;
+  padding: 0;
+  color: tokens.$color-foreground-subtle;
+}
+
+:host ::ng-deep .gp-select-group--sm .gp-select-control.p-select .p-select-label {
   @include typography.typography-label-control-sm;
-  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-sm};
 }
 
-:host ::ng-deep .gp-select.gp-select--lg.p-select .p-select-label {
+:host ::ng-deep .gp-select-group--lg .gp-select-control.p-select .p-select-label {
   @include typography.typography-label-control-lg;
-  padding: #{tokens.$spacing-control-y-md} #{tokens.$spacing-control-x-lg};
 }
 
-:host ::ng-deep .gp-select.p-select:hover,
-:host ::ng-deep .gp-select.is-hover.p-select {
-  background: tokens.$color-background-subtle;
-  border-color: tokens.$color-border-muted;
+:host ::ng-deep .gp-select-control.p-select .p-select-label:not(.p-placeholder) {
+  color: tokens.$color-foreground-default;
 }
 
-:host ::ng-deep .gp-select.p-select:focus-within,
-:host ::ng-deep .gp-select.is-focus.p-select,
-:host ::ng-deep .gp-select.is-active.p-select {
-  border-color: tokens.$color-border-focus;
-  box-shadow: 0 0 0 3px tokens.$color-border-focus;
+:host ::ng-deep .gp-select-control.p-select .p-select-label {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-:host ::ng-deep .gp-select.is-error.p-select {
-  border-color: tokens.$color-border-error;
-  background: tokens.$color-background-error;
-  box-shadow: 0 0 0 3px rgba(tokens.$color-border-error, 0.25);
+:host ::ng-deep .gp-select-control.p-select .p-select-label:focus,
+:host ::ng-deep .gp-select-control.p-select .p-select-label:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-:host ::ng-deep .gp-select.is-error.p-select .p-select-label {
+:host ::ng-deep .gp-select-group.is-error .gp-select-control.p-select .p-select-label {
   color: tokens.$color-foreground-error;
 }
 
-:host ::ng-deep .gp-select.p-select.p-disabled {
-  background: tokens.$color-background-disabled;
-  color: tokens.$color-foreground-disabled;
-  border-color: tokens.$color-border-disabled;
+:host ::ng-deep .gp-select-control.p-select .p-select-dropdown,
+:host ::ng-deep .gp-select-control.p-select .p-select-dropdown-icon {
+  display: none;
 }
 
-:host ::ng-deep .gp-select.p-select.p-disabled .p-select-label {
+:host ::ng-deep .gp-select-control.p-select.p-disabled .p-select-label {
+  color: tokens.$color-foreground-disabled;
+}
+
+:host ::ng-deep .gp-select-control.p-select.p-disabled {
+  cursor: not-allowed;
+}
+
+:host ::ng-deep .gp-select-control.p-select.p-disabled * {
+  cursor: not-allowed;
+}
+
+:host ::ng-deep .gp-select-panel {
+  background: tokens.$color-background-default;
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: #{tokens.$spacing-control-y-sm};
+  margin-top: #{tokens.$spacing-layout-xs};
+  width: 100%;
+}
+
+:host ::ng-deep .gp-select-panel .p-select-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:host ::ng-deep .gp-select-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:host ::ng-deep .gp-select-panel li {
+  list-style: none;
+}
+
+:host ::ng-deep .gp-select-panel .p-select-item,
+:host ::ng-deep .gp-select-panel .p-select-option {
+  @include typography.typography-label-control-md;
+  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-md};
+  border-radius: #{tokens.$radius-sm};
+  color: tokens.$color-foreground-default;
+}
+
+:host ::ng-deep .gp-select-panel .p-select-item.p-highlight,
+:host ::ng-deep .gp-select-panel .p-select-item:hover,
+:host ::ng-deep .gp-select-panel .p-select-option.p-highlight,
+:host ::ng-deep .gp-select-panel .p-select-option:hover {
+  background: tokens.$color-background-subtle;
+}
+
+:host ::ng-deep .gp-select-panel .p-select-item.p-disabled,
+:host ::ng-deep .gp-select-panel .p-select-option.p-disabled {
   color: tokens.$color-foreground-disabled;
 }
