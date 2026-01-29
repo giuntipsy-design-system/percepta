@@ -7,3 +7,18 @@
   --p-primary-active-color: #{tokens.$color-accent-bold};
   --p-primary-color-text: #{tokens.$color-accent-on-accent};
 }
+
+.p-input-icon-left {
+  position: relative;
+}
+
+.p-input-icon-left > .pi {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.p-input-icon-left > input {
+  padding-left: 2.25rem;
+}
