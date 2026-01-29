@@ -96,9 +96,6 @@
   box-shadow: 0 0 0 3px tokens.$color-border-focus;
 }
 
-.icon-item gp-icon .gp-icon--lg {
-  font-size: 32px;
-}
 
 .icon-label {
   @include typography.typography-label-sm;

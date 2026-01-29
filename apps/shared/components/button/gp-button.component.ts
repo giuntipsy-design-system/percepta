@@ -56,13 +56,4 @@ export class GpButtonComponent implements OnChanges {
     }
   }
 
-  get iconSize(): 'sm' | 'md' | 'lg' {
-    if (this.size === 'small') {
-      return 'sm';
-    }
-    if (this.size === 'large') {
-      return 'lg';
-    }
-    return 'md';
-  }
 }

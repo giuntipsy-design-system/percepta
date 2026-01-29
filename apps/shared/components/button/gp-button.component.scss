@@ -1,9 +1,3 @@
-@use '../../../../dist/sass/tokens' as tokens;
-
 :host {
   display: inline-flex;
-}
-
-:host ::ng-deep .gp-button--sm .gp-icon--sm {
-  font-size: #{tokens.$icon-xs};
 }

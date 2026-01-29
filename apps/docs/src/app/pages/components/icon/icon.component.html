@@ -2,7 +2,9 @@
   <header class="doc-card doc-card--intro">
     <h2 class="docs-h1">Icon</h2>
     <p class="overview-lead">
-      The Icon component (<span class="inline-code">gp-icon</span>) is the only supported way to render icons across the system.
+      The Icon component (<span class="inline-code">gp-icon</span>) is the system-supported way to render icons in
+      Percepta-owned UI components.
+      Framework components provided by PrimeNG may use their own icon system.
     </p>
   </header>
 
@@ -15,7 +17,31 @@
   </section>
 
   <section class="section doc-card">
+    <h3 class="docs-h2">Icon ownership</h3>
+    <p class="docs-body">
+      Percepta uses two icon systems with different responsibilities.
+    </p>
+    <p class="docs-body">
+      System-owned icons<br>
+      Use <span class="inline-code">gp-icon</span> for icons that belong to Percepta-owned UI components, such as buttons,
+      icon-only actions, and custom interface elements. These icons are part of the design system API and must use
+      system-defined names.
+    </p>
+    <p class="docs-body">
+      Framework-owned icons<br>
+      Components provided by PrimeNG (such as inputs, selects, date pickers, and overlays) use PrimeNG’s own icon system.
+      These icons are managed by the framework to ensure correct layout, alignment, and accessibility, and must not be
+      replaced by <span class="inline-code">gp-icon</span>.
+    </p>
+    <p class="docs-body">Do not mix icon systems within the same component.</p>
+  </section>
+
+  <section class="section doc-card">
     <h3 class="docs-h2">Usage</h3>
+    <p class="docs-body">
+      Use <span class="inline-code">gp-icon</span> only in system-owned components. Do not use <span class="inline-code">gp-icon</span> inside
+      PrimeNG components.
+    </p>
     <p class="docs-body">
       Use icons to reinforce meaning and improve scanning. They should support text and actions,
       not replace them.
@@ -56,7 +82,7 @@
     </p>
     <div class="icon-grid">
       <button class="icon-item" type="button" *ngFor="let iconName of iconNames" (click)="copySnippet(iconName)">
-        <gp-icon [name]="iconName" size="lg" [decorative]="true"></gp-icon>
+        <gp-icon [name]="iconName" [decorative]="true"></gp-icon>
         <span class="icon-label">{{ iconName }}</span>
       </button>
     </div>
@@ -110,6 +136,7 @@
     <p class="docs-body">
       Icons are implemented with Iconoir. This is an internal detail and may change in the future;
       the public API remains stable.
+      This implementation applies only to <span class="inline-code">gp-icon</span> and does not affect framework-owned icons.
     </p>
   </section>
 </section>

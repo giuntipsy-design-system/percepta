@@ -134,11 +134,12 @@ p {
   border: 1px solid tokens.$color-border-subtle;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  height: 44px;
+  line-height: 21.6px;
   --gp-button-padding-x: #{tokens.$spacing-control-x-md};
-  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
+  --gp-button-padding-y: 10px;
   --gp-button-gap: #{tokens.$spacing-control-x-md};
-  --gp-button-radius: #{tokens.$radius-sm};
-  --gp-icon-size: #{tokens.$icon-md};
+  --gp-button-radius: 6px;
 }
 
 .gp-button--primary {
@@ -231,24 +232,22 @@ p {
 
 .gp-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+  box-shadow: none;
 }
 
 .gp-button.is-focus {
   outline: none;
-  box-shadow: 0 0 0 4px tokens.$color-border-focus;
+  box-shadow: none;
 }
 
 .gp-button--secondary:focus-visible,
 .gp-button--secondary.is-focus {
-  box-shadow: 0 0 0 4px tokens.$color-border-focus;
   background: tokens.$color-accent-subtle;
   color: tokens.$color-accent-vibrant;
 }
 
 .gp-button--tertiary:focus-visible,
 .gp-button--tertiary.is-focus {
-  box-shadow: 0 0 0 4px tokens.$color-border-focus;
   background: tokens.$color-accent-subtle;
   color: tokens.$color-accent-vibrant;
   border-color: tokens.$color-accent-vibrant;
@@ -256,25 +255,19 @@ p {
 
 .gp-button--text:focus-visible,
 .gp-button--text.is-focus {
-  box-shadow: 0 0 0 4px tokens.$color-border-focus;
   background: tokens.$color-accent-on-accent;
   color: tokens.$color-accent-vibrant;
 }
 
 .gp-button--icon {
-  min-width: calc(var(--gp-icon-size) + (var(--gp-button-padding-y) * 2));
-  min-height: calc(var(--gp-icon-size) + (var(--gp-button-padding-y) * 2));
+  padding-left: 0;
+  padding-right: 0;
+  min-width: calc(1em + (var(--gp-button-padding-y) * 2));
+  min-height: calc(1em + (var(--gp-button-padding-y) * 2));
 }
 
 .gp-button--icon-right {
   flex-direction: row-reverse;
-}
-
-.gp-icon {
-  width: var(--gp-icon-size);
-  height: var(--gp-icon-size);
-  display: block;
-  font-size: var(--gp-icon-size);
 }
 
 .demo-code {
@@ -363,21 +356,19 @@ p {
 .gp-button--sm {
   @include typography.typography-label-control-sm;
   font-weight: tokens.$font-weight-regular;
-  --gp-button-padding-x: #{tokens.$spacing-control-x-sm};
-  --gp-button-padding-y: #{tokens.$spacing-control-y-sm};
-  --gp-button-gap: #{tokens.$spacing-control-x-sm};
-  --gp-button-radius: #{tokens.$radius-sm};
-  --gp-icon-size: #{tokens.$icon-sm};
+  --gp-button-padding-x: #{tokens.$spacing-control-x-md};
+  --gp-button-padding-y: 10px;
+  --gp-button-gap: #{tokens.$spacing-control-x-md};
+  --gp-button-radius: 6px;
 }
 
 .gp-button--lg {
   @include typography.typography-label-control-lg;
   font-weight: tokens.$font-weight-regular;
-  --gp-button-padding-x: #{tokens.$spacing-control-x-lg};
-  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
+  --gp-button-padding-x: #{tokens.$spacing-control-x-md};
+  --gp-button-padding-y: 10px;
   --gp-button-gap: #{tokens.$spacing-control-x-md};
-  --gp-button-radius: #{tokens.$radius-sm};
-  --gp-icon-size: #{tokens.$icon-lg};
+  --gp-button-radius: 6px;
 }
 
 .gp-button.p-disabled,

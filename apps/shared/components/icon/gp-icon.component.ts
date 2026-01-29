@@ -31,7 +31,6 @@ type IconName =
   | 'bell'
   | 'github'
   | 'open-new-window';
-type IconSize = 'sm' | 'md' | 'lg';
 
 @Component({
   selector: 'gp-icon',
@@ -41,7 +40,6 @@ type IconSize = 'sm' | 'md' | 'lg';
 })
 export class GpIconComponent implements OnChanges {
   @Input() name!: IconName;
-  @Input() size: IconSize = 'md';
   @Input() ariaLabel = '';
   @Input() decorative = false;
 
@@ -88,6 +86,6 @@ export class GpIconComponent implements OnChanges {
       'open-new-window': 'iconoir-open-new-window'
     };
     const iconName = this.name ? iconMap[this.name] : '';
-    return ['gp-icon', `gp-icon--${this.size}`, iconName].filter(Boolean).join(' ');
+    return ['gp-icon', iconName].filter(Boolean).join(' ');
   }
 }
