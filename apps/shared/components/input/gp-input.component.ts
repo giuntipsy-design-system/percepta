@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, Optional, Self, SimpleChanges, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { GpIconComponent } from '../icon/gp-icon.component';
 
 type InputSize = 'small' | 'medium' | 'large';
 type InputState = 'default' | 'hover' | 'focus' | 'active' | 'error';
@@ -13,7 +12,7 @@ let nextId = 0;
 @Component({
   selector: 'gp-input',
   standalone: true,
-  imports: [CommonModule, InputTextModule, GpIconComponent],
+  imports: [CommonModule, InputTextModule],
   templateUrl: './gp-input.component.html',
   styleUrl: './gp-input.component.scss',
   providers: [
@@ -123,35 +122,6 @@ export class GpInputComponent implements OnInit, OnChanges, ControlValueAccessor
     return ['gp-input', stateClass].filter(Boolean).join(' ');
   }
 
-  get groupClass(): string {
-    let sizeClass = '';
-
-    if (this.size === 'small') {
-      sizeClass = 'gp-input-group--sm';
-    } else if (this.size === 'large') {
-      sizeClass = 'gp-input-group--lg';
-    }
-
-    const stateClass =
-      this.isError
-        ? 'is-error'
-        : this.demo && this.state !== 'default'
-        ? `is-${this.state}`
-        : '';
-
-    return ['gp-input-group', sizeClass, stateClass].filter(Boolean).join(' ');
-  }
-
-  get iconSize(): 'sm' | 'md' | 'lg' {
-    if (this.size === 'small') {
-      return 'sm';
-    }
-    if (this.size === 'large') {
-      return 'lg';
-    }
-    return 'md';
-  }
-
   get labelClass(): string {
     let sizeClass = '';
 
@@ -161,6 +131,13 @@ export class GpInputComponent implements OnInit, OnChanges, ControlValueAccessor
       sizeClass = 'gp-input-label--lg';
     }
     return ['gp-input-label', sizeClass].filter(Boolean).join(' ');
+  }
+
+  get leadingIconClass(): string {
+    if (this.leadingIcon === 'bell') {
+      return 'pi-bell';
+    }
+    return 'pi-search';
   }
 
   get helperId(): string {

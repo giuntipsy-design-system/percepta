@@ -112,12 +112,14 @@
         </div>
       </div>
       <div class="demo-row demo-row--stack canonical-demo">
-        <gp-input
-          label="Label"
-          [size]="selectedSize"
-          placeholder="Type here"
-          ariaLabel="Preview input"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            label="Label"
+            [size]="selectedSize"
+            placeholder="Type here"
+            ariaLabel="Preview input"
+          ></gp-input>
+        </div>
       </div>
     </div>
   </section>
@@ -132,11 +134,13 @@
     <p class="docs-body">The standard input style used across most forms and interfaces.</p>
     <div class="demo-box">
       <div class="demo-row demo-row--left demo-row--stack">
-        <gp-input
-          label="Label"
-          placeholder="Default input"
-          ariaLabel="Default input"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            label="Label"
+            placeholder="Default input"
+            ariaLabel="Default input"
+          ></gp-input>
+        </div>
       </div>
     </div>
     <details class="demo-code">
@@ -156,42 +160,50 @@
     <h4 class="docs-h3">Hover</h4>
     <div class="demo-box demo-box--states">
       <div class="demo-row demo-row--left">
-        <gp-input
-          placeholder="Hover"
-          ariaLabel="Hover input"
-          state="hover"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            placeholder="Hover"
+            ariaLabel="Hover input"
+            state="hover"
+          ></gp-input>
+        </div>
       </div>
     </div>
     <h4 class="docs-h3">Focus</h4>
     <div class="demo-box demo-box--states">
       <div class="demo-row demo-row--left">
-        <gp-input
-          value="Focused"
-          ariaLabel="Focused input"
-          state="focus"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            value="Focused"
+            ariaLabel="Focused input"
+            state="focus"
+          ></gp-input>
+        </div>
       </div>
     </div>
     <h4 class="docs-h3">Error</h4>
     <div class="demo-box demo-box--states">
       <div class="demo-row demo-row--left demo-row--stack">
-        <gp-input
-          value="Invalid value"
-          ariaLabel="Error input"
-          state="error"
-          errorText="Please enter a valid value."
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            value="Invalid value"
+            ariaLabel="Error input"
+            state="error"
+            errorText="Please enter a valid value."
+          ></gp-input>
+        </div>
       </div>
     </div>
     <h4 class="docs-h3">Disabled</h4>
     <div class="demo-box demo-box--states">
       <div class="demo-row demo-row--left">
-        <gp-input
-          placeholder="Disabled"
-          ariaLabel="Disabled input"
-          [disabled]="true"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            placeholder="Disabled"
+            ariaLabel="Disabled input"
+            [disabled]="true"
+          ></gp-input>
+        </div>
       </div>
     </div>
   </section>
@@ -212,22 +224,26 @@
     <h4 class="docs-h3">With helper text</h4>
     <div class="demo-box">
       <div class="demo-row demo-row--left demo-row--stack">
-        <gp-input
-          label="Email"
-          placeholder="name@company.com"
-          ariaLabel="Email input"
-          helperText="We only use this for account updates."
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            label="Email"
+            placeholder="name@company.com"
+            ariaLabel="Email input"
+            helperText="We only use this for account updates."
+          ></gp-input>
+        </div>
       </div>
     </div>
     <h4 class="docs-h3">With leading icon</h4>
     <div class="demo-box">
       <div class="demo-row demo-row--left">
-        <gp-input
-          leadingIcon="search"
-          placeholder="Search"
-          ariaLabel="Search input"
-        ></gp-input>
+        <div class="demo-center">
+          <gp-input
+            leadingIcon="search"
+            placeholder="Search"
+            ariaLabel="Search input"
+          ></gp-input>
+        </div>
       </div>
     </div>
     <details class="demo-code">
@@ -238,6 +254,16 @@
 &lt;gp-input leadingIcon=&quot;search&quot; placeholder=&quot;Search&quot; /&gt;</code></pre>
       </div>
     </details>
+    <h4 class="docs-h3">Documentation layout note</h4>
+    <p class="docs-body">
+      In this documentation, components may appear centered or constrained for
+      presentation purposes. This layout is applied by the documentation and is not
+      part of the component itself.
+    </p>
+    <p class="docs-body">
+      Components remain layout-agnostic and do not define alignment or sizing beyond
+      their own content.
+    </p>
   </section>
 
   <section class="section doc-card">

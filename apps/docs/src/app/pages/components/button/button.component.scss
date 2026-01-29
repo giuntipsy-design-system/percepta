@@ -167,6 +167,13 @@
   min-height: 140px;
 }
 
+.demo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media (max-width: 720px) {
   .demo-box--canonical {
     grid-template-columns: 1fr;

@@ -48,57 +48,16 @@ body {
   background: tokens.$color-background-default;
 }
 
-/* PrimeNG select overlay and trigger overrides for shared gp-select. */
-.gp-select-control.p-select .p-select-dropdown,
-.gp-select-control.p-select .p-select-dropdown-icon,
-.gp-select-control.p-select svg[data-p-icon='chevron-down'] {
-  display: none;
+/* Select styles live with the shared component. */
+.p-input-icon-left > .pi {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.gp-select-control.p-select:focus,
-.gp-select-control.p-select.p-focus,
-.gp-select-control.p-select .p-select-label:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.gp-select-panel {
-  background: tokens.$color-background-default;
-  border: 1px solid tokens.$color-border-subtle;
-  border-radius: #{tokens.$radius-sm};
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: #{tokens.$spacing-control-y-sm};
-}
-
-.gp-select-panel ul,
-.gp-select-panel .p-select-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.gp-select-panel li {
-  list-style: none;
-}
-
-.gp-select-panel .p-select-item,
-.gp-select-panel .p-select-option {
-  @include typography.typography-label-control-md;
-  padding: #{tokens.$spacing-control-y-sm} #{tokens.$spacing-control-x-md};
-  border-radius: #{tokens.$radius-sm};
-  color: tokens.$color-foreground-default;
-}
-
-.gp-select-panel .p-select-item.p-highlight,
-.gp-select-panel .p-select-item:hover,
-.gp-select-panel .p-select-option.p-highlight,
-.gp-select-panel .p-select-option:hover {
-  background: tokens.$color-background-subtle;
-}
-
-.gp-select-panel .p-select-item.p-disabled,
-.gp-select-panel .p-select-option.p-disabled {
-  color: tokens.$color-foreground-disabled;
+.p-input-icon-left > input {
+  padding-left: 2.25rem;
 }
 
 a {

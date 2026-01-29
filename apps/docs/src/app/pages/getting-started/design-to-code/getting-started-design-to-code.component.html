@@ -74,6 +74,27 @@
         <li>Define interaction contracts</li>
         <li>Prevent misinterpretation at application level.</li>
       </ul>
+      <h4 class="docs-h3">Layout responsibility</h4>
+      <p class="docs-body">
+        Percepta separates component behavior from documentation layout.
+      </p>
+      <p class="docs-body">
+        Shared components (`gp-*`) are layout-agnostic. They do not center themselves,
+        define widths, or control page alignment. Components are designed to behave
+        correctly in any context and must not include layout assumptions.
+      </p>
+      <p class="docs-body">
+        All layout decisions related to centering, spacing, or presentation live
+        exclusively in the documentation layer.
+      </p>
+      <p class="docs-body">
+        In this documentation, components may appear centered or constrained for
+        clarity. This is handled by documentation wrappers and is not part of the
+        component implementation.
+      </p>
+      <p class="docs-body">
+        Components should never manage their own layout.
+      </p>
     </div>
     <div class="content-block">
       <h3 class="docs-h2">Technology scope</h3>

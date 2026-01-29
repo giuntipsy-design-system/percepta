@@ -136,11 +136,13 @@
         </div>
       </div>
       <div class="demo-row canonical-demo">
-        <gp-button
-          label="Continue"
-          [variant]="selectedVariant"
-          [size]="selectedSize"
-        ></gp-button>
+        <div class="demo-center">
+          <gp-button
+            label="Continue"
+            [variant]="selectedVariant"
+            [size]="selectedSize"
+          ></gp-button>
+        </div>
       </div>
     </div>
   </section>
@@ -318,6 +320,16 @@
 &lt;gp-button label=&quot;Filter&quot; variant=&quot;tertiary&quot; icon=&quot;filter&quot; iconPosition=&quot;trailing&quot; /&gt;</code></pre>
       </div>
     </details>
+    <h4 class="docs-h3">Documentation layout note</h4>
+    <p class="docs-body">
+      In this documentation, components may appear centered or constrained for
+      presentation purposes. This layout is applied by the documentation and is not
+      part of the component itself.
+    </p>
+    <p class="docs-body">
+      Components remain layout-agnostic and do not define alignment or sizing beyond
+      their own content.
+    </p>
   </section>
 
   <section class="section doc-card">
