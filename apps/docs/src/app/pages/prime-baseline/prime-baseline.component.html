@@ -1,0 +1,38 @@
+<section class="baseline-page">
+  <header class="baseline-header">
+    <h2>PrimeNG Baseline</h2>
+    <p>Components below must render correctly without any Percepta overrides.</p>
+  </header>
+
+  <div class="baseline-grid">
+    <div class="baseline-block">
+      <h3>Button</h3>
+      <p-button label="Button"></p-button>
+    </div>
+
+    <div class="baseline-block">
+      <h3>Select</h3>
+      <p-select
+        [options]="options"
+        optionLabel="label"
+        placeholder="Choose a city"
+        [(ngModel)]="selectedOption"
+      ></p-select>
+    </div>
+
+    <div class="baseline-block">
+      <h3>Input Text</h3>
+      <input pInputText type="text" placeholder="Type here" [(ngModel)]="textValue" />
+    </div>
+
+    <div class="baseline-block">
+      <h3>Date Picker</h3>
+      <p-datepicker placeholder="Pick a date" [(ngModel)]="dateValue"></p-datepicker>
+    </div>
+
+    <div class="baseline-block">
+      <h3>Tooltip</h3>
+      <button pButton type="button" label="Hover me" pTooltip="Tooltip"></button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+.baseline-page {
+  padding: 32px;
+}
+
+.baseline-header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.baseline-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.baseline-block {
+  display: grid;
+  gap: 12px;
+}
+
+.baseline-block h3 {
+  margin: 0;
+}

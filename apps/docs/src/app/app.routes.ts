@@ -12,6 +12,7 @@ import { GettingStartedTypographyTokensComponent } from './pages/getting-started
 import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
+import { PrimeBaselineComponent } from './pages/prime-baseline/prime-baseline.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
 
 export const routes: Routes = [
@@ -55,6 +56,11 @@ export const routes: Routes = [
     path: 'tokens',
     component: TokensComponent,
     title: 'Tokens · Percepta'
+  },
+  {
+    path: 'prime-baseline',
+    component: PrimeBaselineComponent,
+    title: 'PrimeNG Baseline · Percepta'
   },
   {
     path: 'components',
