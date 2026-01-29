@@ -154,6 +154,22 @@
   gap: #{tokens.$spacing-layout-xs};
 }
 
+.demo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.demo-field {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-xs};
+  align-items: flex-start;
+}
+
 .usage-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -180,4 +196,15 @@
 
 .usage-eyebrow--dont {
   color: tokens.$color-foreground-error;
+}
+
+label {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}
+
+.helper-text {
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-subtle;
+  margin: 0;
 }

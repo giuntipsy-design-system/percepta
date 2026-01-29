@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GpSelectComponent } from '../../../../../../shared/components/select/gp-select.component';
+import { FormsModule } from '@angular/forms';
+import { SelectModule } from 'primeng/select';
 
 interface SelectOption {
   label: string;
@@ -16,21 +17,14 @@ interface SelectGroup {
 @Component({
   selector: 'gp-select-doc',
   standalone: true,
-  imports: [GpSelectComponent],
+  imports: [FormsModule, SelectModule],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss'
 })
 export class SelectComponent {
   currentSection = 'overview';
 
-  nativeOptions: SelectOption[] = [
-    { label: 'Account settings', value: 'account' },
-    { label: 'Billing', value: 'billing' },
-    { label: 'Usage', value: 'usage' },
-    { label: 'Notifications', value: 'notifications', disabled: true }
-  ];
-
-  customOptions: SelectOption[] = [
+  options: SelectOption[] = [
     { label: 'Rome', value: 'rome' },
     { label: 'Madrid', value: 'madrid' },
     { label: 'Lisbon', value: 'lisbon' }
@@ -55,8 +49,7 @@ export class SelectComponent {
     }
   ];
 
-  selectedNative: string | null = null;
-  selectedCustom: string | null = null;
+  selectedDefault: string | null = null;
   selectedGrouped: string | null = null;
 
   scrollToSection(event: Event, id: string): void {

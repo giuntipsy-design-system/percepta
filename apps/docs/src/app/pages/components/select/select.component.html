@@ -15,13 +15,6 @@
       Overview
     </a>
     <a
-      href="#variants"
-      (click)="scrollToSection($event, 'variants')"
-      [class.active]="currentSection === 'variants'"
-    >
-      Variants
-    </a>
-    <a
       href="#grouping"
       (click)="scrollToSection($event, 'grouping')"
       [class.active]="currentSection === 'grouping'"
@@ -53,51 +46,25 @@
 
   <section class="section doc-card overview-content">
     <p class="section-lead">
-      Selects are ideal when the user must choose one value from a limited list. The interaction
-      changes based on how the dropdown is rendered, so document both the native and custom
-      experiences.
+      Selects are ideal when the user must choose one value from a limited list. Select relies on
+      PrimeNG’s native behavior and accessibility while Percepta customizes appearance through
+      tokens, not interaction.
     </p>
     <h3 class="docs-h2">Preview</h3>
     <div class="demo-box demo-box--canonical">
       <div class="demo-row demo-row--stack canonical-demo">
-        <gp-select
-          label="City"
-          placeholder="Choose a city"
-          [options]="customOptions"
-          ariaLabel="Preview select"
-        ></gp-select>
-      </div>
-    </div>
-  </section>
-
-  <section class="section doc-card">
-    <h3 id="variants" class="section-anchor docs-h2">Variants</h3>
-    <p class="docs-body">
-      The visual difference lives in the dropdown itself: native selects use the browser UI while
-      custom selects allow a fully styled list.
-    </p>
-    <h4 class="docs-h3">Native select</h4>
-    <div class="demo-box">
-      <div class="demo-row demo-row--left">
-        <gp-select
-          mode="native"
-          label="Section"
-          placeholder="Choose a section"
-          [options]="nativeOptions"
-          ariaLabel="Native select"
-        ></gp-select>
-      </div>
-    </div>
-    <h4 class="docs-h3">Custom select</h4>
-    <div class="demo-box">
-      <div class="demo-row demo-row--left">
-        <gp-select
-          mode="custom"
-          label="City"
-          placeholder="Choose a city"
-          [options]="customOptions"
-          ariaLabel="Custom select"
-        ></gp-select>
+        <div class="demo-center">
+          <div class="demo-field">
+            <label for="select-preview">City</label>
+            <p-select
+              inputId="select-preview"
+              [options]="options"
+              optionLabel="label"
+              placeholder="Choose a city"
+              [(ngModel)]="selectedDefault"
+            ></p-select>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -109,13 +76,21 @@
     </p>
     <div class="demo-box">
       <div class="demo-row demo-row--left">
-        <gp-select
-          mode="native"
-          label="Office"
-          placeholder="Select a city"
-          [groups]="groupedOptions"
-          ariaLabel="Grouped select"
-        ></gp-select>
+        <div class="demo-center">
+          <div class="demo-field">
+            <label for="select-grouped">Office</label>
+            <p-select
+              inputId="select-grouped"
+              [options]="groupedOptions"
+              optionLabel="label"
+              optionGroupLabel="label"
+              optionGroupChildren="options"
+              [group]="true"
+              placeholder="Select a city"
+              [(ngModel)]="selectedGrouped"
+            ></p-select>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -139,13 +114,19 @@
         <p class="docs-body">Provide context with a label and supporting helper text.</p>
         <div class="demo-box">
           <div class="demo-row demo-row--left">
-            <gp-select
-              label="Access level"
-              placeholder="Choose a level"
-              helperText="Applies to all team members."
-              [options]="nativeOptions"
-              ariaLabel="Access level select"
-            ></gp-select>
+            <div class="demo-center">
+              <div class="demo-field">
+                <label for="select-access">Access level</label>
+                <p-select
+                  inputId="select-access"
+                  [options]="options"
+                  optionLabel="label"
+                  placeholder="Choose a level"
+                  [(ngModel)]="selectedDefault"
+                ></p-select>
+                <p class="docs-body helper-text">Applies to all team members.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -154,27 +135,40 @@
         <p class="docs-body">Rely on placeholder text without a clear label.</p>
         <div class="demo-box">
           <div class="demo-row demo-row--left">
-            <gp-select
-              placeholder="Select"
-              [options]="customOptions"
-              ariaLabel="Select without visible label"
-            ></gp-select>
+            <div class="demo-center">
+              <div class="demo-field">
+                <p-select
+                  [options]="options"
+                  optionLabel="label"
+                  placeholder="Select"
+                ></p-select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <h4 class="docs-h3">Documentation layout note</h4>
+    <p class="docs-body">
+      In this documentation, components may appear centered or constrained for
+      presentation purposes. This layout is applied by the documentation and is not
+      part of the component itself.
+    </p>
+    <p class="docs-body">
+      Components remain layout-agnostic and do not define alignment or sizing beyond
+      their own content.
+    </p>
   </section>
 
   <section class="section doc-card">
     <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
     <p class="docs-body">
-      Custom selects must still behave like native listboxes. Follow these rules to keep them
-      accessible.
+      PrimeNG handles keyboard and ARIA behaviors. Keep visible labels and descriptive helper text
+      to preserve accessible navigation.
     </p>
     <ul class="docs-list">
       <li>Keyboard: Tab to focus, Space/Enter to open, arrows to move, Enter to select, Esc to close.</li>
-      <li>Use listbox roles and ensure the active option is announced.</li>
-      <li>Always provide a visible label; pair it with aria-label only when the label is hidden.</li>
+      <li>Always provide a visible label; use aria-label only when the label is hidden.</li>
       <li>Announce helper or error text when present.</li>
     </ul>
   </section>
@@ -190,11 +184,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>mode</td>
-          <td>native | custom</td>
-          <td>No</td>
-        </tr>
         <tr>
           <td>options</td>
           <td>SelectOption[]</td>
@@ -213,11 +202,6 @@
         <tr>
           <td>placeholder</td>
           <td>string</td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>size</td>
-          <td>small | medium | large</td>
           <td>No</td>
         </tr>
         <tr>
