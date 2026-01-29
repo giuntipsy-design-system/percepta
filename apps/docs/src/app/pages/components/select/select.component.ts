@@ -1,25 +1,83 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { SelectModule } from 'primeng/select';
+import { GpSelectComponent } from '../../../../../../shared/components/select/gp-select.component';
 
-interface CityOption {
-  name: string;
-  code: string;
+interface SelectOption {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+
+interface SelectGroup {
+  label: string;
+  options: SelectOption[];
+  disabled?: boolean;
 }
 
 @Component({
   selector: 'gp-select-doc',
   standalone: true,
-  imports: [FormsModule, SelectModule],
+  imports: [GpSelectComponent],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss'
 })
 export class SelectComponent {
-  cities: CityOption[] = [
-    { name: 'Rome', code: 'RM' },
-    { name: 'Madrid', code: 'MD' },
-    { name: 'Lisbon', code: 'LS' }
+  currentSection = 'overview';
+
+  nativeOptions: SelectOption[] = [
+    { label: 'Account settings', value: 'account' },
+    { label: 'Billing', value: 'billing' },
+    { label: 'Usage', value: 'usage' },
+    { label: 'Notifications', value: 'notifications', disabled: true }
   ];
 
-  selectedCity: CityOption | null = null;
+  customOptions: SelectOption[] = [
+    { label: 'Rome', value: 'rome' },
+    { label: 'Madrid', value: 'madrid' },
+    { label: 'Lisbon', value: 'lisbon' }
+  ];
+
+  groupedOptions: SelectGroup[] = [
+    {
+      label: 'Europe',
+      options: [
+        { label: 'Barcelona', value: 'barcelona' },
+        { label: 'Milan', value: 'milan' },
+        { label: 'Paris', value: 'paris' }
+      ]
+    },
+    {
+      label: 'Americas',
+      options: [
+        { label: 'Buenos Aires', value: 'buenos-aires' },
+        { label: 'Mexico City', value: 'mexico-city' },
+        { label: 'New York', value: 'new-york' }
+      ]
+    }
+  ];
+
+  selectedNative: string | null = null;
+  selectedCustom: string | null = null;
+  selectedGrouped: string | null = null;
+
+  scrollToSection(event: Event, id: string): void {
+    event.preventDefault();
+    this.currentSection = id;
+    const target = document.getElementById(id);
+    const container = document.querySelector<HTMLElement>('.app-content');
+    const tabs = document.querySelector<HTMLElement>('.section-tabs');
+    if (!target || !container) {
+      return;
+    }
+    if (id === 'overview') {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const targetRect = target.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const tabsHeight = tabs?.offsetHeight ?? 0;
+    const extraGap = 24;
+    const offset =
+      targetRect.top - containerRect.top + container.scrollTop - tabsHeight - extraGap;
+    container.scrollTo({ top: offset, behavior: 'smooth' });
+  }
 }

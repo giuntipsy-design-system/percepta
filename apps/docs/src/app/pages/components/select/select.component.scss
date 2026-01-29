@@ -2,69 +2,182 @@
 @use '../../../../typography.mixins.scss' as typography;
 
 .page {
-  display: grid;
-  gap: 20px;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+  padding: #{tokens.$spacing-layout-md} 0 0;
   background: tokens.$color-background-default;
-  border-radius: 16px;
+  border-bottom: 2px solid tokens.$color-border-subtle;
+}
+
+.section-tabs a {
+  @include typography.typography-label-md;
+  text-decoration: none;
+  color: tokens.$color-foreground-default;
+  padding: 6px 4px 12px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-weight: tokens.$font-weight-regular;
+}
+
+.section-tabs a:hover {
+  color: tokens.$color-foreground-subtle;
+}
+
+.section-tabs a.active {
+  color: tokens.$color-accent-bold;
+  border-bottom-color: tokens.$color-accent-bold;
+  font-weight: tokens.$font-weight-bold;
+}
+
+.section-anchor {
+  scroll-margin-top: 0;
+}
+
+.section {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
   border: none;
 }
 
-.eyebrow {
-  @include typography.typography-label-md;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: tokens.$color-gray-500;
-  margin: 0;
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
 }
 
-h2 {
-  @include typography.typography-heading-h2;
+.docs-h1 {
   margin: 4px 0 8px;
 }
 
-p {
-  @include typography.typography-body-md;
-  margin: 0;
-  color: tokens.$color-gray-600;
-}
-
-.demo {
-  display: grid;
-  gap: 8px;
-}
-
-label {
-  @include typography.typography-label-md;
-  color: tokens.$color-gray-500;
-}
-
-:host ::ng-deep .gp-select {
-  width: 280px;
-}
-
-:host ::ng-deep .p-select {
-  border-radius: #{tokens.$radius-sm};
-  border: 1px solid tokens.$color-border-subtle;
-  background: tokens.$color-background-default;
-}
-
-:host ::ng-deep .p-select-label {
-  @include typography.typography-label-control-md;
-  padding: #{tokens.$spacing-control-y-md} #{tokens.$spacing-control-x-md};
+.section-lead {
+  @include typography.typography-body-lg;
+  margin: 0 0 #{tokens.$spacing-layout-md};
   color: tokens.$color-foreground-default;
 }
 
-:host ::ng-deep .p-select:hover {
-  background: tokens.$color-background-subtle;
+.overview-lead {
+  @include typography.typography-body-xl;
+  margin: 0;
+  color: tokens.$color-foreground-default;
 }
 
-:host ::ng-deep .p-select:focus-within {
-  border-color: tokens.$color-accent-bold;
+.section .docs-h2 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 10px;
 }
 
-:host ::ng-deep .p-select.p-disabled {
-  background: tokens.$color-background-disabled;
-  color: tokens.$color-foreground-disabled;
-  border-color: tokens.$color-border-disabled;
+.section .docs-h3 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 6px;
+}
+
+.overview-content + .section .docs-h2 {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.docs-body {
+  @include typography.typography-body-md;
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.docs-list {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  padding-left: 18px;
+  @include typography.typography-body-md;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-md};
+  margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-box--canonical {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: #{tokens.$spacing-layout-lg};
+  align-items: start;
+  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-lg} calc(#{tokens.$spacing-layout-lg} * 2);
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0;
+  min-height: calc(#{tokens.$spacing-layout-lg} * 10);
+}
+
+.demo-box--canonical .canonical-demo {
+  width: 100%;
+  display: grid;
+  gap: #{tokens.$spacing-layout-xs};
+  justify-items: center;
+  align-content: start;
+  min-height: 120px;
+  padding-top: #{tokens.$spacing-layout-xs};
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: #{tokens.$spacing-layout-md} 0;
+}
+
+.demo-row--left {
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-row--stack {
+  flex-direction: column;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: #{tokens.$spacing-layout-lg};
+  margin-top: #{tokens.$spacing-layout-md};
+}
+
+.usage-card {
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.usage-eyebrow {
+  @include typography.typography-label-md;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.usage-eyebrow--do {
+  color: tokens.$color-accent-bold;
+}
+
+.usage-eyebrow--dont {
+  color: tokens.$color-foreground-error;
 }

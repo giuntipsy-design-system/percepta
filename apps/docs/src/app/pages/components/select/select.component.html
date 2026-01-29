@@ -1,18 +1,246 @@
 <section class="page">
-  <header>
-    <p class="eyebrow">Component</p>
-    <h2>Select</h2>
-    <p>Initial documentation for the Select component.</p>
+  <header id="overview" class="doc-card doc-card--intro section-anchor">
+    <h2 class="docs-h1">Select</h2>
+    <p class="overview-lead">
+      Dropdown choice for a short list of mutually exclusive options.
+    </p>
   </header>
-  <div class="demo">
-    <label for="demo-select">Base select</label>
-    <p-select
-      inputId="demo-select"
-      [options]="cities"
-      optionLabel="name"
-      placeholder="Choose a city"
-      [(ngModel)]="selectedCity"
-      styleClass="gp-select"
-    ></p-select>
-  </div>
+
+  <nav class="section-tabs">
+    <a
+      href="#overview"
+      (click)="scrollToSection($event, 'overview')"
+      [class.active]="currentSection === 'overview'"
+    >
+      Overview
+    </a>
+    <a
+      href="#variants"
+      (click)="scrollToSection($event, 'variants')"
+      [class.active]="currentSection === 'variants'"
+    >
+      Variants
+    </a>
+    <a
+      href="#grouping"
+      (click)="scrollToSection($event, 'grouping')"
+      [class.active]="currentSection === 'grouping'"
+    >
+      Grouping
+    </a>
+    <a
+      href="#usage"
+      (click)="scrollToSection($event, 'usage')"
+      [class.active]="currentSection === 'usage'"
+    >
+      Usage
+    </a>
+    <a
+      href="#accessibility"
+      (click)="scrollToSection($event, 'accessibility')"
+      [class.active]="currentSection === 'accessibility'"
+    >
+      Accessibility
+    </a>
+    <a
+      href="#properties"
+      (click)="scrollToSection($event, 'properties')"
+      [class.active]="currentSection === 'properties'"
+    >
+      Properties
+    </a>
+  </nav>
+
+  <section class="section doc-card overview-content">
+    <p class="section-lead">
+      Selects are ideal when the user must choose one value from a limited list. The interaction
+      changes based on how the dropdown is rendered, so document both the native and custom
+      experiences.
+    </p>
+    <h3 class="docs-h2">Preview</h3>
+    <div class="demo-box demo-box--canonical">
+      <div class="demo-row demo-row--stack canonical-demo">
+        <gp-select
+          label="City"
+          placeholder="Choose a city"
+          [options]="customOptions"
+          ariaLabel="Preview select"
+        ></gp-select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="variants" class="section-anchor docs-h2">Variants</h3>
+    <p class="docs-body">
+      The visual difference lives in the dropdown itself: native selects use the browser UI while
+      custom selects allow a fully styled list.
+    </p>
+    <h4 class="docs-h3">Native select</h4>
+    <div class="demo-box">
+      <div class="demo-row demo-row--left">
+        <gp-select
+          mode="native"
+          label="Section"
+          placeholder="Choose a section"
+          [options]="nativeOptions"
+          ariaLabel="Native select"
+        ></gp-select>
+      </div>
+    </div>
+    <h4 class="docs-h3">Custom select</h4>
+    <div class="demo-box">
+      <div class="demo-row demo-row--left">
+        <gp-select
+          mode="custom"
+          label="City"
+          placeholder="Choose a city"
+          [options]="customOptions"
+          ariaLabel="Custom select"
+        ></gp-select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="grouping" class="section-anchor docs-h2">Grouping (optgroups)</h3>
+    <p class="docs-body">
+      Use optgroups to organize long lists into meaningful clusters so users can scan faster.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row demo-row--left">
+        <gp-select
+          mode="native"
+          label="Office"
+          placeholder="Select a city"
+          [groups]="groupedOptions"
+          ariaLabel="Grouped select"
+        ></gp-select>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
+    <p class="docs-body">
+      Selects should be concise, labeled, and placed near the content they affect. Prefer a short
+      list; if the list is long or searchable, consider autocomplete instead.
+    </p>
+    <h4 class="docs-h3">Guidelines</h4>
+    <ul class="docs-list">
+      <li>Use a clear label that matches the content users expect.</li>
+      <li>Keep option labels short and parallel in tone.</li>
+      <li>Default to a placeholder when no choice is selected.</li>
+      <li>Group long lists with optgroups instead of adding more variants.</li>
+    </ul>
+    <div class="usage-grid">
+      <div class="usage-card">
+        <p class="usage-eyebrow usage-eyebrow--do">Do</p>
+        <p class="docs-body">Provide context with a label and supporting helper text.</p>
+        <div class="demo-box">
+          <div class="demo-row demo-row--left">
+            <gp-select
+              label="Access level"
+              placeholder="Choose a level"
+              helperText="Applies to all team members."
+              [options]="nativeOptions"
+              ariaLabel="Access level select"
+            ></gp-select>
+          </div>
+        </div>
+      </div>
+      <div class="usage-card">
+        <p class="usage-eyebrow usage-eyebrow--dont">Don’t</p>
+        <p class="docs-body">Rely on placeholder text without a clear label.</p>
+        <div class="demo-box">
+          <div class="demo-row demo-row--left">
+            <gp-select
+              placeholder="Select"
+              [options]="customOptions"
+              ariaLabel="Select without visible label"
+            ></gp-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
+    <p class="docs-body">
+      Custom selects must still behave like native listboxes. Follow these rules to keep them
+      accessible.
+    </p>
+    <ul class="docs-list">
+      <li>Keyboard: Tab to focus, Space/Enter to open, arrows to move, Enter to select, Esc to close.</li>
+      <li>Use listbox roles and ensure the active option is announced.</li>
+      <li>Always provide a visible label; pair it with aria-label only when the label is hidden.</li>
+      <li>Announce helper or error text when present.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Values</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>mode</td>
+          <td>native | custom</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>options</td>
+          <td>SelectOption[]</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>groups</td>
+          <td>SelectGroup[]</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>placeholder</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>small | medium | large</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>string | number | null</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>helperText</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>errorText</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </section>
