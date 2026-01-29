@@ -45,57 +45,5 @@
 }
 
 .gp-input {
-  font-family: tokens.$font-family-primary;
-  color: tokens.$color-foreground-subtle;
   width: 100%;
-  border-radius: 6px;
-}
-
-.gp-input::placeholder {
-  color: tokens.$color-foreground-subtle;
-}
-
-.gp-input:not(:placeholder-shown) {
-  color: tokens.$color-foreground-default;
-}
-
-.gp-input:disabled {
-  background: tokens.$color-background-disabled;
-  color: tokens.$color-foreground-disabled;
-  border-color: tokens.$color-border-disabled;
-  cursor: not-allowed;
-}
-
-.gp-input:disabled::placeholder {
-  color: tokens.$color-foreground-disabled;
-}
-
-.gp-input.is-hover {
-  background: tokens.$color-background-subtle;
-  border-color: tokens.$color-border-muted;
-}
-
-.gp-input.is-focus,
-.gp-input.is-active {
-  border-color: tokens.$color-border-focus;
-}
-
-.gp-input.is-error {
-  border-color: tokens.$color-border-error;
-  background: tokens.$color-background-error;
-  color: tokens.$color-foreground-error;
-}
-
-.gp-input.is-error::placeholder {
-  color: tokens.$color-foreground-error;
-}
-
-.p-input-icon-left {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.p-input-icon-left > .pi {
-  color: tokens.$color-foreground-subtle;
 }
