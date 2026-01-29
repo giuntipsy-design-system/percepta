@@ -98,7 +98,9 @@
       #appContent
     >
       <div class="content-inner" [class.content-inner--home]="isHomePage">
-        <router-outlet></router-outlet>
+        <section class="docs-content">
+          <router-outlet></router-outlet>
+        </section>
         <footer class="app-footer">
           <div class="footer-inner">
             <span>Percepta Design System</span>

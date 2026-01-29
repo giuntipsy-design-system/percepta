@@ -4,6 +4,10 @@
       "primary": { "value": "Noto Sans" },
       "secondary": { "value": "Saans Medium" }
     },
+    "file": {
+      "primary-regular": { "value": "'assets/fonts/NotoSans-Regular.woff2'" },
+      "primary-bold": { "value": "'assets/fonts/NotoSans-Bold.woff2'" }
+    },
     "weight": {
       "regular": { "value": 400 },
       "bold": { "value": 700 }

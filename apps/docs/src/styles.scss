@@ -1,14 +1,19 @@
 @use './tokens.scss' as tokens;
+@use './styles/primeng-overrides';
 @use '../../shared/styles/iconoir.scss' as iconoir;
 @use './typography.mixins.scss' as typography;
 @use './docs-typography.scss';
+
+// ----------------------------------------------------------------------------
+// Documentation-specific typography and spacing overrides
+// ----------------------------------------------------------------------------
 
 @font-face {
   font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('assets/fonts/NotoSans.woff2') format('woff2');
+  src: url('#{tokens.$font-file-primary-regular}') format('woff2');
 }
 
 @font-face {
@@ -16,7 +21,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('assets/fonts/NotoSans.woff2') format('woff2');
+  src: url('#{tokens.$font-file-primary-bold}') format('woff2');
 }
 
 @font-face {
@@ -48,37 +53,41 @@ body {
   background: tokens.$color-background-default;
 }
 
-/* Select styles live with the shared component. */
-.p-input-icon-left > .pi {
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.p-input-icon-left > input {
-  padding-left: 2.25rem;
-}
-
 a {
   color: inherit;
 }
 
+// Headings in documentation content: add consistent vertical rhythm
 h1 {
   @include typography.typography-heading-h1;
-  margin: 0 0 12px;
+  margin-bottom: 16px;
 }
 
 h2 {
   @include typography.typography-heading-h2;
+  margin: 32px 0 12px;
 }
 
 h3 {
   @include typography.typography-heading-h3;
+  margin: 24px 0 8px;
 }
 
-p {
+// Documentation content body text and lists: increase readability
+.docs-content p,
+.docs-content li {
   @include typography.typography-body-md;
+  line-height: 1.6;
+}
+
+// Documentation lists: readable spacing
+.docs-content ul,
+.docs-content ol {
+  padding-left: 1.25rem;
+  margin: 12px 0;
+}
+.docs-content li {
+  margin-bottom: 8px;
 }
 
 .gp-button {
@@ -129,11 +138,6 @@ p {
   background: tokens.$color-background-danger-primary;
   color: tokens.$color-accent-on-accent;
   border-color: transparent;
-}
-
-.gp-button--primary.is-hover,
-.gp-button--primary:hover {
-  background: tokens.$color-accent-vibrant;
 }
 
 .gp-button--primary.is-active,

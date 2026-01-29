@@ -1,0 +1,9 @@
+@use '../tokens' as tokens;
+
+/* PrimeNG primary mapping — Percepta */
+:root {
+  --p-primary-color: #{tokens.$color-accent-moderate};
+  --p-primary-hover-color: #{tokens.$color-accent-vibrant};
+  --p-primary-active-color: #{tokens.$color-accent-bold};
+  --p-primary-color-text: #{tokens.$color-accent-on-accent};
+}
