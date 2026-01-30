@@ -208,3 +208,26 @@ label {
   color: tokens.$color-foreground-subtle;
   margin: 0;
 }
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: #{tokens.$spacing-layout-md};
+  margin-bottom: #{tokens.$spacing-layout-lg};
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.mapping-table th,
+.mapping-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid tokens.$color-border-subtle;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.mapping-table thead th {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}

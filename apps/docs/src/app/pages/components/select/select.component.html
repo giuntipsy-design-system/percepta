@@ -29,6 +29,13 @@
       Usage
     </a>
     <a
+      href="#interaction"
+      (click)="scrollToSection($event, 'interaction')"
+      [class.active]="currentSection === 'interaction'"
+    >
+      Interaction
+    </a>
+    <a
       href="#accessibility"
       (click)="scrollToSection($event, 'accessibility')"
       [class.active]="currentSection === 'accessibility'"
@@ -158,6 +165,68 @@
       Components remain layout-agnostic and do not define alignment or sizing beyond
       their own content.
     </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <p class="docs-body">
+      This section maps semantic design roles to select states without exposing raw values.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Background role</th>
+          <th>Border role</th>
+          <th>Foreground role</th>
+          <th>Placeholder role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Label</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Foreground · Default</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Default</td>
+          <td>Background · Default</td>
+          <td>Border · Subtle</td>
+          <td>Foreground · Subtle</td>
+          <td>Foreground · Subtle</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Background · Default</td>
+          <td>Border · Muted</td>
+          <td>Foreground · Subtle</td>
+          <td>Foreground · Subtle</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Background · Default</td>
+          <td>Border · Focus</td>
+          <td>Foreground · Default</td>
+          <td>Foreground · Subtle</td>
+        </tr>
+        <tr>
+          <td>Error</td>
+          <td>Background · Error</td>
+          <td>Border · Error</td>
+          <td>Foreground · Subtle</td>
+          <td>Foreground · Subtle</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>Background · Disabled</td>
+          <td>Border · Disabled</td>
+          <td>Foreground · Disabled</td>
+          <td>Foreground · Disabled</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="section doc-card">
