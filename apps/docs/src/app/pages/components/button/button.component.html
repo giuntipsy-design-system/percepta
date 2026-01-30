@@ -63,102 +63,12 @@
     </p>
     <h3 class="docs-h2">Preview</h3>
     <div class="demo-box demo-box--canonical">
-      <div class="demo-controls">
-        <div class="demo-toggle-block" role="group" aria-label="Variant">
-          <p class="demo-radio-label">Variant</p>
-          <div class="demo-button-group-wrapper">
-            <div class="demo-button-group" role="group" aria-label="Variant options">
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Primary"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedVariant === 'primary' ? 'active' : 'default'"
-                  (click)="selectedVariant = 'primary'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Secondary"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedVariant === 'secondary' ? 'active' : 'default'"
-                  (click)="selectedVariant = 'secondary'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Tertiary"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedVariant === 'tertiary' ? 'active' : 'default'"
-                  (click)="selectedVariant = 'tertiary'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Text"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedVariant === 'text' ? 'active' : 'default'"
-                  (click)="selectedVariant = 'text'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Danger"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedVariant === 'danger' ? 'active' : 'default'"
-                  (click)="selectedVariant = 'danger'"
-                ></gp-button>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="demo-toggle-block" role="group" aria-label="Size">
-          <p class="demo-radio-label">Size</p>
-          <div class="demo-button-group-wrapper">
-            <div class="demo-button-group" role="group" aria-label="Size options">
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Small"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedSize === 'small' ? 'active' : 'default'"
-                  (click)="selectedSize = 'small'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Medium"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedSize === 'medium' ? 'active' : 'default'"
-                  (click)="selectedSize = 'medium'"
-                ></gp-button>
-              </span>
-              <span class="demo-button-group-item">
-                <gp-button
-                  label="Large"
-                  variant="text"
-                  [demo]="true"
-                  [state]="selectedSize === 'large' ? 'active' : 'default'"
-                  (click)="selectedSize = 'large'"
-                ></gp-button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="demo-row canonical-demo">
-        <div class="demo-center">
-          <gp-button
-            label="Continue"
-            [variant]="selectedVariant"
-            [size]="selectedSize"
-          ></gp-button>
-        </div>
+        <gp-button label="Primary" variant="primary"></gp-button>
+        <gp-button label="Secondary" variant="secondary"></gp-button>
+        <gp-button label="Tertiary" variant="tertiary"></gp-button>
+        <gp-button label="Text" variant="text"></gp-button>
+        <gp-button label="Danger" variant="danger"></gp-button>
       </div>
     </div>
   </section>

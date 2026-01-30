@@ -233,6 +233,14 @@
   display: inline-flex;
 }
 
+.demo-active {
+  font-weight: tokens.$font-weight-bold;
+}
+
+.demo-active .gp-button {
+  text-decoration: underline;
+}
+
 .contract-grid {
   display: grid;
   gap: 20px;
