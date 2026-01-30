@@ -10,7 +10,7 @@ interface SelectOption {
 
 interface SelectGroup {
   label: string;
-  options: SelectOption[];
+  items: SelectOption[];
   disabled?: boolean;
 }
 
@@ -33,7 +33,7 @@ export class SelectComponent {
   groupedOptions: SelectGroup[] = [
     {
       label: 'Europe',
-      options: [
+      items: [
         { label: 'Barcelona', value: 'barcelona' },
         { label: 'Milan', value: 'milan' },
         { label: 'Paris', value: 'paris' }
@@ -41,7 +41,7 @@ export class SelectComponent {
     },
     {
       label: 'Americas',
-      options: [
+      items: [
         { label: 'Buenos Aires', value: 'buenos-aires' },
         { label: 'Mexico City', value: 'mexico-city' },
         { label: 'New York', value: 'new-york' }

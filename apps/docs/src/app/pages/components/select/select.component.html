@@ -53,9 +53,13 @@
 
   <section class="section doc-card overview-content">
     <p class="section-lead">
-      Selects are ideal when the user must choose one value from a limited list. Select relies on
-      PrimeNG’s native behavior and accessibility while Percepta customizes appearance through
-      tokens, not interaction.
+      Selects are ideal when the user must choose one value from a limited list. They rely on
+      PrimeNG’s native behavior and accessibility, while Percepta customizes visual appearance
+      through design tokens.
+    </p>
+    <p class="section-lead">
+      Interaction, keyboard behavior, and option grouping are owned by the framework. Percepta
+      does not redefine select semantics; it ensures visual consistency across the interface.
     </p>
     <h3 class="docs-h2">Preview</h3>
     <div class="demo-box demo-box--canonical">
@@ -69,6 +73,7 @@
               [options]="options"
               optionLabel="label"
               placeholder="Choose a city"
+              [checkmark]="true"
               [(ngModel)]="selectedDefault"
             ></p-select>
           </div>
@@ -82,6 +87,32 @@
     <p class="docs-body">
       Use optgroups to organize long lists into meaningful clusters so users can scan faster.
     </p>
+    <h4 class="docs-h3">Native select (HTML)</h4>
+    <p class="docs-body">
+      This example shows the native HTML select with optgroup semantics, which can be compared
+      against the PrimeNG select behavior below.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row demo-row--left">
+        <div class="demo-center">
+          <div class="demo-field">
+            <label for="native-select-grouped">Office</label>
+            <select id="native-select-grouped" class="demo-control demo-control--native">
+              <optgroup label="Europe">
+                <option>Barcelona</option>
+                <option>Milan</option>
+                <option>Paris</option>
+              </optgroup>
+              <optgroup label="Americas">
+                <option>Buenos Aires</option>
+                <option>Mexico City</option>
+                <option>New York</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="demo-box">
       <div class="demo-row demo-row--left">
         <div class="demo-center">
@@ -93,15 +124,21 @@
               [options]="groupedOptions"
               optionLabel="label"
               optionGroupLabel="label"
-              optionGroupChildren="options"
+              optionGroupChildren="items"
               [group]="true"
               placeholder="Select a city"
+              [checkmark]="true"
               [(ngModel)]="selectedGrouped"
             ></p-select>
           </div>
         </div>
       </div>
     </div>
+    <p class="docs-body">
+      Both examples use the same grouping semantics. The difference lies in presentation and
+      customization: native selects rely on browser rendering, while PrimeNG enables a custom dropdown
+      panel styled by the design system.
+    </p>
   </section>
 
   <section class="section doc-card">
@@ -109,6 +146,10 @@
     <p class="docs-body">
       Selects should be concise, labeled, and placed near the content they affect. Prefer a short
       list; if the list is long or searchable, consider autocomplete instead.
+    </p>
+    <p class="docs-body">
+      Selects should be used sparingly. When the list grows large, requires filtering, or supports free
+      text input, consider alternative components such as autocomplete.
     </p>
     <h4 class="docs-h3">Guidelines</h4>
     <ul class="docs-list">
@@ -132,6 +173,7 @@
                   [options]="options"
                   optionLabel="label"
                   placeholder="Choose a level"
+                  [checkmark]="true"
                   [(ngModel)]="selectedDefault"
                 ></p-select>
                 <p class="docs-body helper-text">Applies to all team members.</p>
@@ -152,6 +194,7 @@
                   [options]="options"
                   optionLabel="label"
                   placeholder="Select"
+                  [checkmark]="true"
                 ></p-select>
               </div>
             </div>
@@ -175,6 +218,10 @@
     <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
     <p class="docs-body">
       This section maps semantic design roles to select states without exposing raw values.
+    </p>
+    <p class="docs-body">
+      Select states are consistent with other form controls. Percepta does not introduce custom
+      interaction states and maps semantic roles to framework-owned behavior.
     </p>
     <table class="mapping-table">
       <thead>
@@ -244,6 +291,10 @@
       <li>Always provide a visible label; use aria-label only when the label is hidden.</li>
       <li>Announce helper or error text when present.</li>
     </ul>
+    <p class="docs-body">
+      Percepta does not override accessibility behavior and relies on native semantics and the
+      framework implementation.
+    </p>
   </section>
 
   <section class="section doc-card">

@@ -93,6 +93,17 @@ h3 {
   margin-bottom: 8px;
 }
 
+/* Prevent docs typography styles from affecting PrimeNG option lists */
+.docs-content .p-select-list {
+  padding-left: 0;
+  margin: 0;
+}
+
+.docs-content .p-select-list li {
+  margin: 0;
+  line-height: normal;
+}
+
 .gp-button {
   @include typography.typography-label-control-md;
   font-weight: tokens.$font-weight-regular;
