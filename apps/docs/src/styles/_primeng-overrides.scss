@@ -1,38 +1,25 @@
 @use '../tokens' as tokens;
 
-/* PrimeNG primary mapping — Percepta */
 :root {
-  //--p-primary-color: #{tokens.$color-accent-moderate};
-  //--p-primary-hover-color: #{tokens.$color-accent-vibrant};
-  //--p-primary-active-color: #{tokens.$color-accent-bold};
-  //--p-primary-color-text: #{tokens.$color-accent-on-accent};
-
   /* Form field — Percepta interaction mapping */
-
-  /* Default */
   --p-form-field-background: #{tokens.$color-background-default};
   --p-form-field-border-color: #{tokens.$color-border-subtle};
   --p-form-field-color: #{tokens.$color-foreground-subtle};
   --p-form-field-placeholder-color: #{tokens.$color-foreground-subtle};
 
-  /* Hover */
   --p-form-field-hover-border-color: #{tokens.$color-border-muted} !important;
 
-  /* Focus */
   --p-form-field-focus-border-color: #{tokens.$color-border-focus} !important;
   --p-form-field-focus-ring-shadow: none !important;
 
-  /* Error */
   --p-form-field-filled-background: #{tokens.$color-background-error};
   --p-form-field-invalid-border-color: #{tokens.$color-border-error};
   --p-form-field-invalid-placeholder-color: #{tokens.$color-foreground-subtle};
 
-  /* Disabled */
   --p-form-field-disabled-background: #{tokens.$color-background-disabled};
   --p-form-field-disabled-color: #{tokens.$color-foreground-disabled};
 
   /* InputText */
-
   --p-inputtext-background: #{tokens.$color-background-default};
   --p-inputtext-border-color: #{tokens.$color-border-subtle};
   --p-inputtext-color: #{tokens.$color-foreground-subtle};
@@ -57,25 +44,20 @@
   ) !important;
 
   /* InputText — Sizes (Percepta) */
-
-  /* Default (md) */
   --p-inputtext-padding-x: #{tokens.$spacing-control-x-md};
   --p-inputtext-padding-y: #{tokens.$spacing-control-y-md};
   --p-inputtext-font-size: #{tokens.$font-size-md};
   --p-inputtext-border-radius: #{tokens.$radius-sm};
 
-  /* Small */
   --p-inputtext-sm-padding-x: #{tokens.$spacing-control-x-sm};
   --p-inputtext-sm-padding-y: #{tokens.$spacing-control-y-sm};
   --p-inputtext-sm-font-size: #{tokens.$font-size-sm};
 
-  /* Large */
   --p-inputtext-lg-padding-x: #{tokens.$spacing-control-x-lg};
   --p-inputtext-lg-padding-y: #{tokens.$spacing-control-y-md};
   --p-inputtext-lg-font-size: #{tokens.$font-size-lg};
 
   /* Button — Primary */
-
   --p-button-primary-background: #{tokens.$color-accent-moderate} !important;
   --p-button-primary-color: #{tokens.$color-accent-on-accent} !important;
   --p-button-primary-border-color: transparent !important;
@@ -94,9 +76,7 @@
   --p-button-primary-disabled-color: #{tokens.$color-foreground-disabled} !important;
   --p-button-primary-disabled-border-color: #{tokens.$color-border-disabled} !important;
 
-
   /* Button — Secondary */
-
   --p-button-secondary-background: #{tokens.$color-accent-subtle} !important;
   --p-button-secondary-color: #{tokens.$color-accent-moderate} !important;
   --p-button-secondary-border-color: transparent !important;
@@ -111,9 +91,7 @@
 
   --p-button-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
 
-
   /* Button — Tertiary */
-
   --p-button-tertiary-background: transparent !important;
   --p-button-tertiary-color: #{tokens.$color-accent-vibrant} !important;
   --p-button-tertiary-border-color: #{tokens.$color-accent-moderate} !important;
@@ -129,7 +107,6 @@
   --p-button-tertiary-focus-border-color: #{tokens.$color-border-focus} !important;
 
   /* Button — Tertiary (PrimeNG outlined secondary runtime) */
-
   --p-button-outlined-secondary-background: transparent !important;
   --p-button-outlined-secondary-color: #{tokens.$color-accent-vibrant} !important;
   --p-button-outlined-secondary-border-color: #{tokens.$color-accent-moderate} !important;
@@ -144,9 +121,7 @@
 
   --p-button-outlined-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
 
-
   /* Button — Text */
-
   --p-button-text-background: transparent !important;
   --p-button-text-color: #{tokens.$color-accent-moderate} !important;
   --p-button-text-border-color: transparent !important;
@@ -162,7 +137,6 @@
   --p-button-text-focus-border-color: #{tokens.$color-border-focus} !important;
 
   /* Button — Text (PrimeNG text secondary runtime) */
-
   --p-button-text-secondary-background: transparent !important;
   --p-button-text-secondary-color: #{tokens.$color-accent-moderate} !important;
   --p-button-text-secondary-border-color: transparent !important;
@@ -178,7 +152,6 @@
   --p-button-text-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
 
   /* Button — Danger */
-
   --p-button-danger-background: #{tokens.$color-background-danger-primary} !important;
   --p-button-danger-color: #{tokens.$color-foreground-contrast} !important;
   --p-button-danger-border-color: transparent !important;
@@ -203,25 +176,22 @@
   --p-togglebutton-checked-color: #{tokens.$color-foreground-default} !important;
 
   /* Button — Sizes (Percepta) */
-
-  /* Default (md) */
   --p-button-padding-x: #{tokens.$spacing-control-x-md};
   --p-button-padding-y: #{tokens.$spacing-control-y-md};
   --p-button-font-size: #{tokens.$font-size-md};
   --p-button-gap: #{tokens.$spacing-layout-xs};
   --p-button-border-radius: #{tokens.$radius-sm};
 
-  /* Small */
   --p-button-sm-padding-x: #{tokens.$spacing-control-x-sm};
   --p-button-sm-padding-y: #{tokens.$spacing-control-y-sm};
   --p-button-sm-font-size: #{tokens.$font-size-sm};
 
-  /* Large */
   --p-button-lg-padding-x: #{tokens.$spacing-control-x-lg};
   --p-button-lg-padding-y: #{tokens.$spacing-control-y-md};
   --p-button-lg-font-size: #{tokens.$font-size-lg};
 }
 
+/* PrimeNG input icon layout (Lara preset) */
 .p-input-icon-left {
   position: relative;
   width: 100%;
