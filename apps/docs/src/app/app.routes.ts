@@ -5,6 +5,7 @@ import { ButtonComponent } from './pages/components/button/button.component';
 import { ComponentsComponent } from './pages/components/components.component';
 import { IconComponent } from './pages/components/icon/icon.component';
 import { InputComponent } from './pages/components/input/input.component';
+import { RadioComponent } from './pages/components/radio/radio.component';
 import { SelectComponent } from './pages/components/select/select.component';
 import { GettingStartedDesignToCodeComponent } from './pages/getting-started/design-to-code/getting-started-design-to-code.component';
 import { GettingStartedOverviewComponent } from './pages/getting-started/overview/getting-started-overview.component';
@@ -84,6 +85,11 @@ export const routes: Routes = [
         path: 'input',
         component: InputComponent,
         title: 'Input Text · Percepta'
+      },
+      {
+        path: 'radio',
+        component: RadioComponent,
+        title: 'Radio Button · Percepta'
       },
       {
         path: 'select',
