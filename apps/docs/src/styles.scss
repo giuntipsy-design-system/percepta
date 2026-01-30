@@ -105,10 +105,8 @@ h3 {
   border: 1px solid tokens.$color-border-subtle;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  height: 44px;
-  line-height: 21.6px;
   --gp-button-padding-x: #{tokens.$spacing-control-x-md};
-  --gp-button-padding-y: 10px;
+  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
   --gp-button-gap: #{tokens.$spacing-control-x-md};
   --gp-button-radius: 6px;
 }
@@ -229,7 +227,6 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   min-width: calc(1em + (var(--gp-button-padding-y) * 2));
-  min-height: calc(1em + (var(--gp-button-padding-y) * 2));
 }
 
 .gp-button--icon-right {
@@ -322,17 +319,17 @@ h3 {
 .gp-button--sm {
   @include typography.typography-label-control-sm;
   font-weight: tokens.$font-weight-regular;
-  --gp-button-padding-x: #{tokens.$spacing-control-x-md};
-  --gp-button-padding-y: 10px;
-  --gp-button-gap: #{tokens.$spacing-control-x-md};
+  --gp-button-padding-x: #{tokens.$spacing-control-x-sm};
+  --gp-button-padding-y: #{tokens.$spacing-control-y-sm};
+  --gp-button-gap: #{tokens.$spacing-control-x-sm};
   --gp-button-radius: 6px;
 }
 
 .gp-button--lg {
   @include typography.typography-label-control-lg;
   font-weight: tokens.$font-weight-regular;
-  --gp-button-padding-x: #{tokens.$spacing-control-x-md};
-  --gp-button-padding-y: 10px;
+  --gp-button-padding-x: #{tokens.$spacing-control-x-lg};
+  --gp-button-padding-y: #{tokens.$spacing-control-y-md};
   --gp-button-gap: #{tokens.$spacing-control-x-md};
   --gp-button-radius: 6px;
 }
