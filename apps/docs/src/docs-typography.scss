@@ -16,6 +16,12 @@
   color: tokens.$color-foreground-default;
 }
 
+.docs-variant-title {
+  @include typography.typography-heading-h2;
+  font-family: tokens.$font-family-secondary;
+  color: tokens.$color-foreground-default;
+}
+
 .docs-body {
   @include typography.typography-body-md;
   color: tokens.$color-foreground-default;
