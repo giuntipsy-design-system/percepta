@@ -133,12 +133,13 @@
 .demo-box--canonical .demo-controls {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   gap: #{tokens.$spacing-layout-xl};
-  align-items: flex-start;
+  align-items: center;
   padding-top: #{tokens.$spacing-layout-xs};
-  padding-left: #{tokens.$spacing-layout-xs};
+  padding-left: 0;
+  margin-bottom: #{tokens.$spacing-layout-xl};
 }
 
 .demo-box--canonical .canonical-demo {
@@ -205,6 +206,11 @@
   flex-direction: column;
   gap: #{tokens.$spacing-layout-xs};
 }
+
+.demo-toggle-block--center {
+  align-items: center;
+}
+
 
 .demo-radio-label {
   margin: 0;

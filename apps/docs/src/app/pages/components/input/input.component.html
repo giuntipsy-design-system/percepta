@@ -69,46 +69,14 @@
     <h3 class="docs-h2">Preview</h3>
     <div class="demo-box demo-box--canonical">
       <div class="demo-controls">
-        <div class="demo-toggle-block" role="group" aria-label="Variant">
-          <p class="demo-radio-label">Variant</p>
-          <div class="demo-button-group-wrapper">
-            <p-buttongroup class="demo-button-group" aria-label="Variant options">
-              <span class="demo-button-group-item">
-                <p-button
-                  label="Default"
-                  styleClass="gp-button gp-button--text is-active"
-                ></p-button>
-              </span>
-            </p-buttongroup>
-          </div>
-        </div>
-        <div class="demo-toggle-block" role="group" aria-label="Size">
-          <p class="demo-radio-label">Size</p>
-          <div class="demo-button-group-wrapper">
-            <p-buttongroup class="demo-button-group" aria-label="Size options">
-              <span class="demo-button-group-item">
-                <p-button
-                  label="Small"
-                  [styleClass]="selectedSize === 'small' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
-                  (onClick)="selectedSize = 'small'"
-                ></p-button>
-              </span>
-              <span class="demo-button-group-item">
-                <p-button
-                  label="Medium"
-                  [styleClass]="selectedSize === 'medium' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
-                  (onClick)="selectedSize = 'medium'"
-                ></p-button>
-              </span>
-              <span class="demo-button-group-item">
-                <p-button
-                  label="Large"
-                  [styleClass]="selectedSize === 'large' ? 'gp-button gp-button--text is-active' : 'gp-button gp-button--text'"
-                  (onClick)="selectedSize = 'large'"
-                ></p-button>
-              </span>
-            </p-buttongroup>
-          </div>
+        <div class="demo-toggle-block demo-toggle-block--center" role="group" aria-label="Size">
+          <p-selectButton
+            [options]="sizes"
+            [(ngModel)]="selectedSize"
+            optionLabel="label"
+            optionValue="value"
+            class="demo-select"
+          ></p-selectButton>
         </div>
       </div>
       <div class="demo-row demo-row--stack canonical-demo">
@@ -274,7 +242,7 @@
     <div class="demo-box">
       <div class="demo-row demo-row--center demo-row--sizes">
         <gp-input size="small" placeholder="Small" ariaLabel="Small input"></gp-input>
-        <gp-input size="medium" placeholder="Medium" ariaLabel="Medium input"></gp-input>
+        <gp-input placeholder="Default" ariaLabel="Default input"></gp-input>
         <gp-input size="large" placeholder="Large" ariaLabel="Large input"></gp-input>
       </div>
     </div>
@@ -282,7 +250,7 @@
       <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
       <div class="demo-code-panel">
       <pre class="code-block"><code>&lt;gp-input size=&quot;small&quot; placeholder=&quot;Small&quot; /&gt;
-&lt;gp-input size=&quot;medium&quot; placeholder=&quot;Medium&quot; /&gt;
+&lt;gp-input placeholder=&quot;Default&quot; /&gt;
 &lt;gp-input size=&quot;large&quot; placeholder=&quot;Large&quot; /&gt;</code></pre>
       </div>
     </details>
@@ -293,7 +261,6 @@
           <th>Size</th>
           <th>Padding role</th>
           <th>Typography role</th>
-          <th>Icon role</th>
           <th>Gap role</th>
         </tr>
       </thead>
@@ -302,21 +269,18 @@
           <td>Small</td>
           <td>Padding · y: spacing.control.y-sm, x: spacing.control.x-sm</td>
           <td>Label · control-sm · Regular</td>
-          <td>Icon · icon.sm</td>
           <td>Gap · spacing.control.x-sm</td>
         </tr>
         <tr>
           <td>Medium</td>
           <td>Padding · y: spacing.control.y-md, x: spacing.control.x-md</td>
           <td>Label · control-md · Regular</td>
-          <td>Icon · icon.md</td>
           <td>Gap · spacing.control.x-md</td>
         </tr>
         <tr>
           <td>Large</td>
           <td>Padding · y: spacing.control.y-md, x: spacing.control.x-lg</td>
           <td>Label · control-lg · Regular</td>
-          <td>Icon · icon.lg</td>
           <td>Gap · spacing.control.x-md</td>
         </tr>
       </tbody>
