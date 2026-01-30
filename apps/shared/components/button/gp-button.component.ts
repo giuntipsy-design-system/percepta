@@ -42,9 +42,9 @@ export class GpButtonComponent implements OnChanges {
     const variantClass = this.variant === 'ghost' ? 'tertiary' : this.variant;
 
     if (this.size === 'small') {
-      sizeClass = 'gp-button--sm';
+      sizeClass = 'gp-button--sm p-button-sm';
     } else if (this.size === 'large') {
-      sizeClass = 'gp-button--lg';
+      sizeClass = 'gp-button--lg p-button-lg';
     }
     const stateClass = this.demo && this.state !== 'default' ? `is-${this.state}` : '';
     const hasIcon = Boolean(this.icon) || this.hasProjectedContent;
