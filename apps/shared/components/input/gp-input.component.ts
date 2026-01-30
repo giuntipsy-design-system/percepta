@@ -119,7 +119,14 @@ export class GpInputComponent implements OnInit, OnChanges, ControlValueAccessor
         ? `is-${this.state}`
         : '';
 
-    return ['gp-input', stateClass].filter(Boolean).join(' ');
+    const primeSizeClass =
+      this.size === 'small'
+        ? 'p-inputtext-sm'
+        : this.size === 'large'
+        ? 'p-inputtext-lg'
+        : '';
+
+    return ['gp-input', stateClass, primeSizeClass].filter(Boolean).join(' ');
   }
 
   get labelClass(): string {
