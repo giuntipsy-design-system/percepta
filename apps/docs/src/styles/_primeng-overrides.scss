@@ -31,7 +31,7 @@
   --p-form-field-disabled-background: #{tokens.$color-background-disabled};
   --p-form-field-disabled-color: #{tokens.$color-foreground-disabled};
 
-  /* InputText — runtime mapping (PrimeNG does not re-chain form-field) */
+  /* InputText */
 
   --p-inputtext-background: #{tokens.$color-background-default};
   --p-inputtext-border-color: #{tokens.$color-border-subtle};
