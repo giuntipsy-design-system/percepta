@@ -2,14 +2,135 @@
 
 /* PrimeNG primary mapping — Percepta */
 :root {
-  --p-primary-color: #{tokens.$color-accent-moderate};
-  --p-primary-hover-color: #{tokens.$color-accent-vibrant};
-  --p-primary-active-color: #{tokens.$color-accent-bold};
-  --p-primary-color-text: #{tokens.$color-accent-on-accent};
+  //--p-primary-color: #{tokens.$color-accent-moderate};
+  //--p-primary-hover-color: #{tokens.$color-accent-vibrant};
+  //--p-primary-active-color: #{tokens.$color-accent-bold};
+  //--p-primary-color-text: #{tokens.$color-accent-on-accent};
+
+  /* Form field — Percepta interaction mapping */
+
+  /* Default */
+  --p-form-field-background: #{tokens.$color-background-default};
+  --p-form-field-border-color: #{tokens.$color-border-subtle};
+  --p-form-field-color: #{tokens.$color-foreground-subtle};
+  --p-form-field-placeholder-color: #{tokens.$color-foreground-subtle};
+
+  /* Hover */
+  --p-form-field-hover-border-color: #{tokens.$color-border-muted} !important;
+
+  /* Focus */
+  --p-form-field-focus-border-color: #{tokens.$color-border-focus} !important;
+  --p-form-field-focus-ring-shadow: none !important;
+
+  /* Error */
+  --p-form-field-filled-background: #{tokens.$color-background-error};
+  --p-form-field-invalid-border-color: #{tokens.$color-border-error};
+  --p-form-field-invalid-placeholder-color: #{tokens.$color-foreground-subtle};
+
+  /* Disabled */
+  --p-form-field-disabled-background: #{tokens.$color-background-disabled};
+  --p-form-field-disabled-color: #{tokens.$color-foreground-disabled};
+
+  /* InputText — runtime mapping (PrimeNG does not re-chain form-field) */
+
+  --p-inputtext-background: #{tokens.$color-background-default};
+  --p-inputtext-border-color: #{tokens.$color-border-subtle};
+  --p-inputtext-color: #{tokens.$color-foreground-subtle};
+  --p-inputtext-placeholder-color: #{tokens.$color-foreground-subtle};
+
+  --p-inputtext-hover-border-color: #{tokens.$color-border-muted} !important;
+  --p-inputtext-focus-border-color: #{tokens.$color-border-subtle} !important;
+  --p-inputtext-invalid-border-color: #{tokens.$color-border-error};
+
+  --p-inputtext-disabled-background: #{tokens.$color-background-disabled};
+  --p-inputtext-disabled-color: #{tokens.$color-foreground-disabled};
+
+  --p-inputtext-focus-ring-color: #{tokens.$color-border-focus} !important;
+  --p-inputtext-focus-ring-width: 1px !important;
+  --p-inputtext-focus-ring-style: solid !important;
+  --p-inputtext-focus-ring-offset: 0 !important;
+  --p-inputtext-focus-ring-shadow: 0 0 0 2px rgba(
+    #{red(tokens.$color-border-focus)},
+    #{green(tokens.$color-border-focus)},
+    #{blue(tokens.$color-border-focus)},
+    0.2
+  ) !important;
+
+  /* Button — Primary */
+
+  --p-button-primary-background: #{tokens.$color-accent-moderate} !important;
+  --p-button-primary-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-primary-border-color: transparent !important;
+
+  --p-button-primary-hover-background: #{tokens.$color-accent-vibrant} !important;
+  --p-button-primary-hover-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-primary-hover-border-color: transparent !important;
+
+  --p-button-primary-active-background: #{tokens.$color-accent-bold} !important;
+  --p-button-primary-active-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-primary-active-border-color: transparent !important;
+
+  --p-button-primary-focus-border-color: #{tokens.$color-border-focus} !important;
+
+  --p-button-primary-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-button-primary-disabled-color: #{tokens.$color-foreground-disabled} !important;
+  --p-button-primary-disabled-border-color: #{tokens.$color-border-disabled} !important;
+
+
+  /* Button — Secondary */
+
+  --p-button-secondary-background: #{tokens.$color-accent-subtle} !important;
+  --p-button-secondary-color: #{tokens.$color-accent-moderate} !important;
+  --p-button-secondary-border-color: transparent !important;
+
+  --p-button-secondary-hover-background: #{tokens.$color-accent-tinted} !important;
+  --p-button-secondary-hover-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-secondary-hover-border-color: transparent !important;
+
+  --p-button-secondary-active-background: #{tokens.$color-accent-muted} !important;
+  --p-button-secondary-active-color: #{tokens.$color-accent-bold} !important;
+  --p-button-secondary-active-border-color: transparent !important;
+
+  --p-button-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
+
+
+  /* Button — Tertiary */
+
+  --p-button-tertiary-background: transparent !important;
+  --p-button-tertiary-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-tertiary-border-color: #{tokens.$color-accent-moderate} !important;
+
+  --p-button-tertiary-hover-background: #{tokens.$color-accent-subtle} !important;
+  --p-button-tertiary-hover-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-tertiary-hover-border-color: #{tokens.$color-accent-vibrant} !important;
+
+  --p-button-tertiary-active-background: #{tokens.$color-accent-tinted} !important;
+  --p-button-tertiary-active-color: #{tokens.$color-accent-bold} !important;
+  --p-button-tertiary-active-border-color: #{tokens.$color-accent-bold} !important;
+
+  --p-button-tertiary-focus-border-color: #{tokens.$color-border-focus} !important;
+
+
+  /* Button — Text */
+
+  --p-button-text-background: transparent !important;
+  --p-button-text-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-text-border-color: transparent !important;
+
+  --p-button-text-hover-background: #{tokens.$color-accent-subtle} !important;
+  --p-button-text-hover-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-text-hover-border-color: transparent !important;
+
+  --p-button-text-active-background: #{tokens.$color-accent-tinted} !important;
+  --p-button-text-active-color: #{tokens.$color-accent-bold} !important;
+  --p-button-text-active-border-color: transparent !important;
+
+  --p-button-text-focus-border-color: #{tokens.$color-border-focus} !important;
 }
 
 .p-input-icon-left {
   position: relative;
+  width: 100%;
 }
 
 .p-input-icon-left > .pi {
