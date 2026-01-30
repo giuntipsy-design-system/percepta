@@ -146,7 +146,7 @@
   @include typography.typography-body-sm;
   text-decoration: none;
   color: tokens.$color-foreground-static-dark;
-  padding: 6px 8px;
+  padding: 10px 8px;
   border-radius: 8px;
 }
 
@@ -157,8 +157,6 @@
 .app-nav a.active {
   background: tokens.$color-background-subtle;
   color: tokens.$color-accent-bold;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .nav-title {
