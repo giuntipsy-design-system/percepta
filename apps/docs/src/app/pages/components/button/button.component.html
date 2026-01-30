@@ -62,13 +62,21 @@
       improve clarity and accessibility.
     </p>
     <h3 class="docs-h2">Preview</h3>
-    <div class="demo-box demo-box--canonical">
-      <div class="demo-row canonical-demo">
-        <gp-button label="Primary" variant="primary"></gp-button>
-        <gp-button label="Secondary" variant="secondary"></gp-button>
-        <gp-button label="Tertiary" variant="tertiary"></gp-button>
-        <gp-button label="Text" variant="text"></gp-button>
-        <gp-button label="Danger" variant="danger"></gp-button>
+    <div class="demo-box demo-box--preview">
+      <p-selectButton
+        [options]="variants"
+        [(ngModel)]="selectedVariant"
+        optionLabel="label"
+        optionValue="value"
+        class="demo-select"
+      ></p-selectButton>
+
+      <div class="demo-preview">
+        <gp-button
+          label="Continue"
+          [variant]="selectedVariant"
+          size="large"
+        ></gp-button>
       </div>
     </div>
   </section>

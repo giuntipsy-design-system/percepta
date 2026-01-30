@@ -194,11 +194,14 @@
 }
 
 .demo-select {
-  @include typography.typography-body-md;
+  font-family: tokens.$font-family-primary;
+  font-size: #{tokens.$font-size-md};
+  font-weight: tokens.$font-weight-regular;
+  line-height: #{tokens.$font-line-height-body};
   padding: 6px 8px;
-  border-radius: #{tokens.$radius-sm};
-  border: 1px solid tokens.$color-border-subtle;
-  background: tokens.$color-background-default;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   color: tokens.$color-foreground-default;
 }
 
@@ -231,6 +234,49 @@
 
 .demo-button-group-item {
   display: inline-flex;
+}
+
+.demo-box--preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-xl};
+  padding: #{tokens.$spacing-layout-xl} 0;
+  margin: #{tokens.$spacing-layout-md} 0;
+}
+
+.demo-select {
+  max-width: 100%;
+  width: auto;
+}
+
+:host ::ng-deep .demo-box--preview .p-selectbutton {
+  display: inline-flex;
+}
+
+:host ::ng-deep .demo-box--preview .p-selectbutton .p-button {
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+:host ::ng-deep .demo-box--preview .p-selectbutton .p-button .p-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  width: 100%;
+  text-align: center;
+}
+
+.demo-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: #{tokens.$spacing-layout-lg};
 }
 
 .demo-active {
