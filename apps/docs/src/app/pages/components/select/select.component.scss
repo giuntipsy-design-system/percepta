@@ -1,3 +1,4 @@
+@use 'sass:string';
 @use '../../../../tokens.scss' as tokens;
 @use '../../../../typography.mixins.scss' as typography;
 
@@ -175,7 +176,7 @@
 }
 
 .demo-control--native {
-  $native-chevron-color: str-slice("#{tokens.$color-foreground-subtle}", 2);
+  $native-chevron-color: string.slice("#{tokens.$color-foreground-subtle}", 2);
   font-family: tokens.$font-family-primary;
   font-size: tokens.$font-size-md;
   font-weight: tokens.$font-weight-regular;
