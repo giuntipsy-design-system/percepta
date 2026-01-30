@@ -63,21 +63,33 @@
     </p>
     <h3 class="docs-h2">Preview</h3>
     <div class="demo-box demo-box--preview">
-      <p-selectButton
-        [options]="variants"
-        [(ngModel)]="selectedVariant"
-        optionLabel="label"
-        optionValue="value"
-        class="demo-select"
-      ></p-selectButton>
+
+      <div class="demo-row demo-row--center demo-row--controls">
+        <p-selectButton
+          [options]="variants"
+          [(ngModel)]="selectedVariant"
+          optionLabel="label"
+          optionValue="value"
+          class="demo-select"
+        ></p-selectButton>
+
+        <p-selectButton
+          [options]="sizes"
+          [(ngModel)]="selectedSize"
+          optionLabel="label"
+          optionValue="value"
+          class="demo-select"
+        ></p-selectButton>
+      </div>
 
       <div class="demo-preview">
         <gp-button
           label="Continue"
           [variant]="selectedVariant"
-          size="large"
+          [size]="selectedSize"
         ></gp-button>
       </div>
+
     </div>
   </section>
 
@@ -275,10 +287,30 @@
       actions or touch-focused interfaces where larger hit areas are required.
     </p>
     <div class="demo-box">
-      <div class="demo-row demo-row--center">
-        <gp-button label="Small" variant="primary" size="small" icon="arrow-right" iconPosition="trailing"></gp-button>
-        <gp-button label="Medium" variant="primary" size="medium" icon="arrow-right" iconPosition="trailing"></gp-button>
-        <gp-button label="Large" variant="primary" size="large" icon="arrow-right" iconPosition="trailing"></gp-button>
+      <div class="demo-row demo-row--center demo-row--sizes">
+        <gp-button
+          label="Small"
+          variant="primary"
+          size="small"
+          icon="arrow-right"
+          iconPosition="trailing"
+        ></gp-button>
+
+        <gp-button
+          label="Medium"
+          variant="primary"
+          size="medium"
+          icon="arrow-right"
+          iconPosition="trailing"
+        ></gp-button>
+
+        <gp-button
+          label="Large"
+          variant="primary"
+          size="large"
+          icon="arrow-right"
+          iconPosition="trailing"
+        ></gp-button>
       </div>
     </div>
     <details class="demo-code">

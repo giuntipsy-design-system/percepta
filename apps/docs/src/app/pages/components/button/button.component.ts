@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { GpButtonComponent } from '../../../../../../shared/components/button/gp-button.component';
 
 type GpVariant = 'primary' | 'secondary' | 'tertiary' | 'text' | 'danger';
@@ -7,12 +9,27 @@ type GpSize = 'small' | 'medium' | 'large';
 @Component({
   selector: 'gp-button-doc',
   standalone: true,
-  imports: [GpButtonComponent],
+  imports: [GpButtonComponent, FormsModule, SelectButtonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
   currentSection = 'overview';
+
+  variants = [
+    { label: 'Primary', value: 'primary' },
+    { label: 'Secondary', value: 'secondary' },
+    { label: 'Tertiary', value: 'tertiary' },
+    { label: 'Text', value: 'text' },
+    { label: 'Danger', value: 'danger' }
+  ];
+
+  sizes = [
+    { label: 'Small', value: 'small' },
+    { label: 'Medium', value: 'medium' },
+    { label: 'Large', value: 'large' }
+  ];
+
   selectedVariant: GpVariant = 'primary';
   selectedSize: GpSize = 'large';
 
