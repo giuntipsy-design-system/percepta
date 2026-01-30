@@ -56,6 +56,24 @@
     0.2
   ) !important;
 
+  /* InputText — Sizes (Percepta) */
+
+  /* Default (md) */
+  --p-inputtext-padding-x: #{tokens.$spacing-control-x-md};
+  --p-inputtext-padding-y: #{tokens.$spacing-control-y-md};
+  --p-inputtext-font-size: #{tokens.$font-size-md};
+  --p-inputtext-border-radius: #{tokens.$radius-sm};
+
+  /* Small */
+  --p-inputtext-sm-padding-x: #{tokens.$spacing-control-x-sm};
+  --p-inputtext-sm-padding-y: #{tokens.$spacing-control-y-sm};
+  --p-inputtext-sm-font-size: #{tokens.$font-size-sm};
+
+  /* Large */
+  --p-inputtext-lg-padding-x: #{tokens.$spacing-control-x-lg};
+  --p-inputtext-lg-padding-y: #{tokens.$spacing-control-y-md};
+  --p-inputtext-lg-font-size: #{tokens.$font-size-lg};
+
   /* Button — Primary */
 
   --p-button-primary-background: #{tokens.$color-accent-moderate} !important;
@@ -110,6 +128,22 @@
 
   --p-button-tertiary-focus-border-color: #{tokens.$color-border-focus} !important;
 
+  /* Button — Tertiary (PrimeNG outlined secondary runtime) */
+
+  --p-button-outlined-secondary-background: transparent !important;
+  --p-button-outlined-secondary-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-outlined-secondary-border-color: #{tokens.$color-accent-moderate} !important;
+
+  --p-button-outlined-secondary-hover-background: #{tokens.$color-accent-subtle} !important;
+  --p-button-outlined-secondary-hover-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-outlined-secondary-hover-border-color: #{tokens.$color-accent-vibrant} !important;
+
+  --p-button-outlined-secondary-active-background: #{tokens.$color-accent-tinted} !important;
+  --p-button-outlined-secondary-active-color: #{tokens.$color-accent-bold} !important;
+  --p-button-outlined-secondary-active-border-color: #{tokens.$color-accent-bold} !important;
+
+  --p-button-outlined-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
+
 
   /* Button — Text */
 
@@ -127,18 +161,34 @@
 
   --p-button-text-focus-border-color: #{tokens.$color-border-focus} !important;
 
+  /* Button — Text (PrimeNG text secondary runtime) */
+
+  --p-button-text-secondary-background: transparent !important;
+  --p-button-text-secondary-color: #{tokens.$color-accent-moderate} !important;
+  --p-button-text-secondary-border-color: transparent !important;
+
+  --p-button-text-secondary-hover-background: #{tokens.$color-accent-subtle} !important;
+  --p-button-text-secondary-hover-color: #{tokens.$color-accent-vibrant} !important;
+  --p-button-text-secondary-hover-border-color: transparent !important;
+
+  --p-button-text-secondary-active-background: transparent !important;
+  --p-button-text-secondary-active-color: #{tokens.$color-accent-bold} !important;
+  --p-button-text-secondary-active-border-color: transparent !important;
+
+  --p-button-text-secondary-focus-border-color: #{tokens.$color-border-focus} !important;
+
   /* Button — Danger */
 
-  --p-button-danger-background: #{tokens.$color-accent-bold} !important;
-  --p-button-danger-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-danger-background: #{tokens.$color-background-danger-primary} !important;
+  --p-button-danger-color: #{tokens.$color-foreground-contrast} !important;
   --p-button-danger-border-color: transparent !important;
 
-  --p-button-danger-hover-background: #{tokens.$color-accent-vibrant} !important;
-  --p-button-danger-hover-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-danger-hover-background: #{tokens.$color-background-danger-secondary} !important;
+  --p-button-danger-hover-color: #{tokens.$color-foreground-contrast} !important;
   --p-button-danger-hover-border-color: transparent !important;
 
-  --p-button-danger-active-background: #{tokens.$color-accent-moderate} !important;
-  --p-button-danger-active-color: #{tokens.$color-accent-on-accent} !important;
+  --p-button-danger-active-background: #{tokens.$color-background-danger-tertiary} !important;
+  --p-button-danger-active-color: #{tokens.$color-foreground-contrast} !important;
   --p-button-danger-active-border-color: transparent !important;
 
   --p-button-danger-focus-border-color: #{tokens.$color-border-focus} !important;
@@ -151,6 +201,25 @@
   --p-togglebutton-checked-background: #{tokens.$color-background-subtle} !important;
   --p-togglebutton-checked-border-color: #{tokens.$color-border-subtle} !important;
   --p-togglebutton-checked-color: #{tokens.$color-foreground-default} !important;
+
+  /* Button — Sizes (Percepta) */
+
+  /* Default (md) */
+  --p-button-padding-x: #{tokens.$spacing-control-x-md};
+  --p-button-padding-y: #{tokens.$spacing-control-y-md};
+  --p-button-font-size: #{tokens.$font-size-md};
+  --p-button-gap: #{tokens.$spacing-layout-xs};
+  --p-button-border-radius: #{tokens.$radius-sm};
+
+  /* Small */
+  --p-button-sm-padding-x: #{tokens.$spacing-control-x-sm};
+  --p-button-sm-padding-y: #{tokens.$spacing-control-y-sm};
+  --p-button-sm-font-size: #{tokens.$font-size-sm};
+
+  /* Large */
+  --p-button-lg-padding-x: #{tokens.$spacing-control-x-lg};
+  --p-button-lg-padding-y: #{tokens.$spacing-control-y-md};
+  --p-button-lg-font-size: #{tokens.$font-size-lg};
 }
 
 .p-input-icon-left {
