@@ -199,12 +199,19 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: #{tokens.$spacing-layout-lg};
   margin-top: #{tokens.$spacing-layout-md};
+  padding-top: #{tokens.$spacing-layout-lg};
+  align-items: stretch;
 }
 
 .usage-card {
   display: flex;
   flex-direction: column;
   gap: #{tokens.$spacing-layout-xs};
+  height: 100%;
+}
+
+.usage-card .demo-box {
+  flex: 1;
 }
 
 .usage-eyebrow {
