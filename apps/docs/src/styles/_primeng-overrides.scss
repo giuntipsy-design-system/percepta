@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../tokens' as tokens;
 
 :root {
@@ -37,9 +38,9 @@
   --p-inputtext-focus-ring-style: solid !important;
   --p-inputtext-focus-ring-offset: 0 !important;
   --p-inputtext-focus-ring-shadow: 0 0 0 2px rgba(
-    #{red(tokens.$color-border-focus)},
-    #{green(tokens.$color-border-focus)},
-    #{blue(tokens.$color-border-focus)},
+    #{color.channel(tokens.$color-border-focus, "red", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "green", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "blue", $space: rgb)},
     0.2
   ) !important;
 
