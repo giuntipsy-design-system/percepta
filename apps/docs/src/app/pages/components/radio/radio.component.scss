@@ -99,7 +99,7 @@
 .demo-box {
   border: 1px solid tokens.$color-border-subtle;
   border-radius: #{tokens.$radius-sm};
-  padding: #{tokens.$spacing-layout-md};
+  padding: #{tokens.$spacing-layout-lg};
   margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
   background-color: tokens.$color-background-default;
   background-image:
@@ -109,6 +109,11 @@
     linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
   background-size: 16px 16px;
   background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-box--states {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 
 .demo-box--preview {
@@ -137,10 +142,26 @@
   margin-top: #{tokens.$spacing-layout-md};
 }
 
+.demo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .demo-radio-group {
   display: flex;
   flex-direction: column;
   gap: #{tokens.$spacing-layout-xs};
+}
+
+.demo-radio-group--inline {
+  flex-direction: row;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.demo-radio-group--static {
+  pointer-events: none;
 }
 
 .demo-radio-option {
@@ -150,8 +171,8 @@
 }
 
 .demo-stack {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: #{tokens.$spacing-layout-md};
 }
 

@@ -103,16 +103,18 @@
         ></p-selectButton>
       </div>
       <div class="demo-preview">
-        <div class="demo-radio-group" role="radiogroup" aria-label="Work model">
-          <div class="demo-radio-option" *ngFor="let option of previewOptions">
-            <p-radioButton
-              [inputId]="'preview-' + option.value"
-              name="work-model"
-              [value]="option.value"
-              [(ngModel)]="previewValue"
-              [size]="selectedSize === 'default' ? undefined : selectedSize"
-            ></p-radioButton>
-            <label [for]="'preview-' + option.value">{{ option.label }}</label>
+        <div class="demo-center">
+          <div class="demo-radio-group" role="radiogroup" aria-label="Work model">
+            <div class="demo-radio-option" *ngFor="let option of previewOptions">
+              <p-radioButton
+                [inputId]="'preview-' + option.value"
+                name="work-model"
+                [value]="option.value"
+                [(ngModel)]="previewValue"
+                [size]="selectedSize === 'default' ? undefined : selectedSize"
+              ></p-radioButton>
+              <label [for]="'preview-' + option.value">{{ option.label }}</label>
+            </div>
           </div>
         </div>
       </div>
@@ -138,49 +140,51 @@
       Sizes align radio controls with surrounding text density. Default is the standard choice,
       small is for compact layouts, and large improves touch targets.
     </p>
-    <div class="demo-box">
-      <div class="demo-stack">
-        <div class="demo-size">
-          <p class="demo-meta">Small</p>
-          <div class="demo-radio-group" role="radiogroup" aria-label="Small radio group">
-            <div class="demo-radio-option" *ngFor="let option of previewOptions">
-              <p-radioButton
-                [inputId]="'size-sm-' + option.value"
-                name="size-small"
-                [value]="option.value"
-                [(ngModel)]="sizeSmallValue"
-                size="small"
-              ></p-radioButton>
-              <label [for]="'size-sm-' + option.value">{{ option.label }}</label>
+    <div class="demo-box demo-box--states">
+      <div class="demo-center">
+        <div class="demo-stack">
+          <div class="demo-size">
+            <p class="demo-meta">Small</p>
+            <div class="demo-radio-group" role="radiogroup" aria-label="Small radio group">
+              <div class="demo-radio-option" *ngFor="let option of previewOptions">
+                <p-radioButton
+                  [inputId]="'size-sm-' + option.value"
+                  name="size-small"
+                  [value]="option.value"
+                  [(ngModel)]="sizeSmallValue"
+                  size="small"
+                ></p-radioButton>
+                <label [for]="'size-sm-' + option.value">{{ option.label }}</label>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="demo-size">
-          <p class="demo-meta">Default</p>
-          <div class="demo-radio-group" role="radiogroup" aria-label="Default radio group">
-            <div class="demo-radio-option" *ngFor="let option of previewOptions">
-              <p-radioButton
-                [inputId]="'size-md-' + option.value"
-                name="size-default"
-                [value]="option.value"
-                [(ngModel)]="sizeDefaultValue"
-              ></p-radioButton>
-              <label [for]="'size-md-' + option.value">{{ option.label }}</label>
+          <div class="demo-size">
+            <p class="demo-meta">Default</p>
+            <div class="demo-radio-group" role="radiogroup" aria-label="Default radio group">
+              <div class="demo-radio-option" *ngFor="let option of previewOptions">
+                <p-radioButton
+                  [inputId]="'size-md-' + option.value"
+                  name="size-default"
+                  [value]="option.value"
+                  [(ngModel)]="sizeDefaultValue"
+                ></p-radioButton>
+                <label [for]="'size-md-' + option.value">{{ option.label }}</label>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="demo-size">
-          <p class="demo-meta">Large</p>
-          <div class="demo-radio-group" role="radiogroup" aria-label="Large radio group">
-            <div class="demo-radio-option" *ngFor="let option of previewOptions">
-              <p-radioButton
-                [inputId]="'size-lg-' + option.value"
-                name="size-large"
-                [value]="option.value"
-                [(ngModel)]="sizeLargeValue"
-                size="large"
-              ></p-radioButton>
-              <label [for]="'size-lg-' + option.value">{{ option.label }}</label>
+          <div class="demo-size">
+            <p class="demo-meta">Large</p>
+            <div class="demo-radio-group" role="radiogroup" aria-label="Large radio group">
+              <div class="demo-radio-option" *ngFor="let option of previewOptions">
+                <p-radioButton
+                  [inputId]="'size-lg-' + option.value"
+                  name="size-large"
+                  [value]="option.value"
+                  [(ngModel)]="sizeLargeValue"
+                  size="large"
+                ></p-radioButton>
+                <label [for]="'size-lg-' + option.value">{{ option.label }}</label>
+              </div>
             </div>
           </div>
         </div>
@@ -225,34 +229,46 @@
       Hover and focus states appear on interaction. Checked and disabled are shown below.
     </p>
     <div class="demo-box">
-      <div class="demo-radio-group" role="radiogroup" aria-label="Radio states">
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="state-default"
-            name="states"
-            value="default"
-            [(ngModel)]="stateValue"
-          ></p-radioButton>
-          <label for="state-default">Default</label>
-        </div>
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="state-checked"
-            name="states"
-            value="checked"
-            [(ngModel)]="stateValue"
-          ></p-radioButton>
-          <label for="state-checked">Checked</label>
-        </div>
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="state-disabled"
-            name="states"
-            value="disabled"
-            [(ngModel)]="stateValue"
-            [disabled]="true"
-          ></p-radioButton>
-          <label for="state-disabled">Disabled</label>
+      <div class="demo-center">
+        <div class="demo-radio-group demo-radio-group--inline demo-radio-group--static" role="radiogroup" aria-label="Radio states">
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="state-default"
+              name="states-default"
+              [binary]="true"
+              [ngModel]="false"
+            ></p-radioButton>
+            <label for="state-default">Default</label>
+          </div>
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="state-checked"
+              name="states-checked"
+              [binary]="true"
+              [ngModel]="true"
+            ></p-radioButton>
+            <label for="state-checked">Checked</label>
+          </div>
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="state-disabled"
+              name="states-disabled"
+              [binary]="true"
+              [ngModel]="false"
+              [disabled]="true"
+            ></p-radioButton>
+            <label for="state-disabled">Disabled</label>
+          </div>
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="state-disabled-checked"
+              name="states-disabled"
+              [binary]="true"
+              [ngModel]="true"
+              [disabled]="true"
+            ></p-radioButton>
+            <label for="state-disabled-checked">Disabled (checked)</label>
+          </div>
         </div>
       </div>
     </div>
@@ -265,33 +281,35 @@
       shares the same name so the selection is mutually exclusive.
     </p>
     <div class="demo-box">
-      <div class="demo-radio-group" role="radiogroup" aria-label="Release channel">
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="group-alpha"
-            name="release-channel"
-            value="alpha"
-            [(ngModel)]="groupingValue"
-          ></p-radioButton>
-          <label for="group-alpha">Alpha</label>
-        </div>
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="group-beta"
-            name="release-channel"
-            value="beta"
-            [(ngModel)]="groupingValue"
-          ></p-radioButton>
-          <label for="group-beta">Beta</label>
-        </div>
-        <div class="demo-radio-option">
-          <p-radioButton
-            inputId="group-stable"
-            name="release-channel"
-            value="stable"
-            [(ngModel)]="groupingValue"
-          ></p-radioButton>
-          <label for="group-stable">Stable</label>
+      <div class="demo-center">
+        <div class="demo-radio-group" role="radiogroup" aria-label="Release channel">
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="group-alpha"
+              name="release-channel"
+              value="alpha"
+              [(ngModel)]="groupingValue"
+            ></p-radioButton>
+            <label for="group-alpha">Alpha</label>
+          </div>
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="group-beta"
+              name="release-channel"
+              value="beta"
+              [(ngModel)]="groupingValue"
+            ></p-radioButton>
+            <label for="group-beta">Beta</label>
+          </div>
+          <div class="demo-radio-option">
+            <p-radioButton
+              inputId="group-stable"
+              name="release-channel"
+              value="stable"
+              [(ngModel)]="groupingValue"
+            ></p-radioButton>
+            <label for="group-stable">Stable</label>
+          </div>
         </div>
       </div>
     </div>
