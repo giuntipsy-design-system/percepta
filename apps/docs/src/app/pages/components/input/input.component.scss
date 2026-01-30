@@ -145,7 +145,7 @@
   width: 100%;
   display: grid;
   gap: #{tokens.$spacing-layout-xs};
-  justify-items: center;
+  justify-items: stretch;
   align-content: start;
   min-height: 120px;
   padding-top: #{tokens.$spacing-layout-xs};
@@ -160,19 +160,29 @@
   padding: #{tokens.$spacing-layout-md} 0;
 }
 
+.demo-row:not(.demo-row--sizes) gp-input {
+  width: 320px;
+}
+
 .demo-row--center {
   justify-content: center;
 }
 
 .demo-row--left {
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
 }
 
 .demo-row--stack {
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: #{tokens.$spacing-layout-xs};
+  width: 100%;
+}
+
+.demo-row--sizes > gp-input {
+  width: 220px;
 }
 
 .demo-center {
@@ -183,10 +193,8 @@
 }
 
 .demo-center > * {
-  max-width: 320px;
   width: 100%;
 }
-
 
 .demo-controls {
   margin-bottom: #{tokens.$spacing-layout-lg};
