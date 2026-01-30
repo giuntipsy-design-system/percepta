@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChild, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { GpIconComponent } from '../icon/gp-icon.component';
 
@@ -28,6 +28,7 @@ export class GpButtonComponent implements OnChanges {
   @Input() iconPosition: 'leading' | 'trailing' = 'leading';
   @Input() iconOnly = false;
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  @Output() clicked = new EventEmitter<void>();
 
   hasProjectedContent = false;
 
@@ -62,6 +63,33 @@ export class GpButtonComponent implements OnChanges {
       .join(' ');
   }
 
+  get severity(): 'primary' | 'secondary' | 'danger' | undefined {
+    switch (this.variant) {
+      case 'primary':
+        return 'primary';
+      case 'secondary':
+        return 'secondary';
+      case 'danger':
+        return 'danger';
+      // PrimeNG "text" and "outlined" are modifiers on top of a severity.
+      // Use secondary as the non-primary base for these Percepta variants.
+      case 'tertiary':
+      case 'text':
+      case 'ghost':
+        return 'secondary';
+      default:
+        return undefined;
+    }
+  }
+
+  get isText(): boolean {
+    return this.variant === 'text' || this.variant === 'ghost';
+  }
+
+  get isOutlined(): boolean {
+    return this.variant === 'tertiary';
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.state !== 'default' && !this.demo) {
       console.warn('[gp-button] The "state" input is for documentation only. Avoid using it in product code.');
@@ -69,6 +97,14 @@ export class GpButtonComponent implements OnChanges {
     if (this.iconOnly && !this.ariaLabel) {
       console.warn('[gp-button] iconOnly=true requires ariaLabel for accessibility.');
     }
+  }
+
+  @HostListener('click')
+  handleClick(): void {
+    if (this.disabled || this.loading) {
+      return;
+    }
+    this.clicked.emit();
   }
 
 }
