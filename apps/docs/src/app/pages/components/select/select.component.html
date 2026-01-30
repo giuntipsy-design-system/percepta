@@ -54,7 +54,7 @@
   <section class="section doc-card overview-content">
     <p class="section-lead">
       Selects are ideal when the user must choose one value from a limited list. They rely on
-      PrimeNG’s native behavior and accessibility, while Percepta customizes visual appearance
+      native select behavior and accessibility, while Percepta customizes visual appearance
       through design tokens.
     </p>
     <p class="section-lead">
@@ -83,14 +83,14 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="grouping" class="section-anchor docs-h2">Grouping (optgroups)</h3>
+    <h3 id="grouping" class="section-anchor docs-h2">Grouping options</h3>
     <p class="docs-body">
       Use optgroups to organize long lists into meaningful clusters so users can scan faster.
     </p>
     <h4 class="docs-h3">Native select (HTML)</h4>
     <p class="docs-body">
-      This example shows the native HTML select with optgroup semantics, which can be compared
-      against the PrimeNG select behavior below.
+      This example shows the native HTML select using optgroup semantics, rendered by the browser
+      without visual customization.
     </p>
     <div class="demo-box">
       <div class="demo-row demo-row--left">
@@ -113,6 +113,11 @@
         </div>
       </div>
     </div>
+    <h4 class="docs-h3">Custom select</h4>
+    <p class="docs-body">
+      This example shows a custom select rendered by the framework, using the same grouping semantics
+      while allowing visual customization through design tokens.
+    </p>
     <div class="demo-box">
       <div class="demo-row demo-row--left">
         <div class="demo-center">
@@ -136,82 +141,44 @@
     </div>
     <p class="docs-body">
       Both examples use the same grouping semantics. The difference lies in presentation and
-      customization: native selects rely on browser rendering, while PrimeNG enables a custom dropdown
-      panel styled by the design system.
+      customization: native selects rely on browser rendering, while custom implementations enable
+      a dropdown panel styled by the design system.
     </p>
   </section>
 
   <section class="section doc-card">
     <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
+
     <p class="docs-body">
-      Selects should be concise, labeled, and placed near the content they affect. Prefer a short
-      list; if the list is long or searchable, consider autocomplete instead.
+      Selects are best used when the user needs to make a deliberate choice from a known set of options.
+      They introduce a moment of decision, so they should be clear, intentional, and easy to scan.
     </p>
+
     <p class="docs-body">
-      Selects should be used sparingly. When the list grows large, requires filtering, or supports free
-      text input, consider alternative components such as autocomplete.
+      A well-designed select helps users understand what they are choosing, why it matters, and what
+      will happen next.
     </p>
-    <h4 class="docs-h3">Guidelines</h4>
+
+    <h4 class="docs-h3">Do</h4>
     <ul class="docs-list">
-      <li>Use a clear label that matches the content users expect.</li>
-      <li>Keep option labels short and parallel in tone.</li>
-      <li>Default to a placeholder when no choice is selected.</li>
-      <li>Group long lists with optgroups instead of adding more variants.</li>
+      <li>Make the purpose obvious at a glance through clear labels and surrounding context.</li>
+      <li>Use labels as anchors, not placeholders, to provide stable meaning.</li>
+      <li>Structure options so relevant choices are easy to find and compare.</li>
+      <li>Preselect a value only when it reflects a likely or previously known choice.</li>
+      <li>Leave the field empty when the decision requires explicit user intent.</li>
+      <li>Use helper text to clarify consequences, scope, or constraints when needed.</li>
+      <li>Introduce filtering or search when option lists grow beyond quick scanning.</li>
+      <li>Use selects to drive navigation or state changes when the selection directly affects the UI.</li>
     </ul>
-    <div class="usage-grid">
-      <div class="usage-card">
-        <p class="usage-eyebrow usage-eyebrow--do">Do</p>
-        <p class="docs-body">Provide context with a label and supporting helper text.</p>
-        <div class="demo-box">
-          <div class="demo-row demo-row--left">
-            <div class="demo-center">
-              <div class="demo-field">
-                <label for="select-access">Access level</label>
-                <p-select
-                  inputId="select-access"
-                  styleClass="demo-control"
-                  [options]="options"
-                  optionLabel="label"
-                  placeholder="Choose a level"
-                  [checkmark]="true"
-                  [(ngModel)]="selectedDefault"
-                ></p-select>
-                <p class="docs-body helper-text">Applies to all team members.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="usage-card">
-        <p class="usage-eyebrow usage-eyebrow--dont">Don’t</p>
-        <p class="docs-body">Rely on placeholder text without a clear label.</p>
-        <div class="demo-box">
-          <div class="demo-row demo-row--left">
-            <div class="demo-center">
-              <div class="demo-field">
-                <p-select
-                  styleClass="demo-control"
-                  [options]="options"
-                  optionLabel="label"
-                  placeholder="Select"
-                  [checkmark]="true"
-                ></p-select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h4 class="docs-h3">Documentation layout note</h4>
-    <p class="docs-body">
-      In this documentation, components may appear centered or constrained for
-      presentation purposes. This layout is applied by the documentation and is not
-      part of the component itself.
-    </p>
-    <p class="docs-body">
-      Components remain layout-agnostic and do not define alignment or sizing beyond
-      their own content.
-    </p>
+
+    <h4 class="docs-h3">Don’t</h4>
+    <ul class="docs-list">
+      <li>Don’t use selects for trivial or highly familiar data.</li>
+      <li>Don’t rely on placeholder text to explain the purpose of the field.</li>
+      <li>Don’t force instructional defaults that add noise instead of clarity.</li>
+      <li>Don’t present long, unstructured lists that slow down decision-making.</li>
+      <li>Don’t assume context when the meaning is not immediately clear.</li>
+    </ul>
   </section>
 
   <section class="section doc-card">
@@ -283,8 +250,8 @@
   <section class="section doc-card">
     <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
     <p class="docs-body">
-      PrimeNG handles keyboard and ARIA behaviors. Keep visible labels and descriptive helper text
-      to preserve accessible navigation.
+      The underlying framework handles keyboard and ARIA behaviors. Keep visible labels and
+      descriptive helper text to preserve accessible navigation.
     </p>
     <ul class="docs-list">
       <li>Keyboard: Tab to focus, Space/Enter to open, arrows to move, Enter to select, Esc to close.</li>

@@ -194,6 +194,12 @@
   background-position: right 12px center;
   background-size: 14px 14px;
 }
+
+:host ::ng-deep .demo-control .p-select-option-group {
+  font-size: #{tokens.$font-size-sm};
+  color: #{tokens.$color-foreground-subtle};
+  font-weight: #{tokens.$font-weight-regular};
+}
 .usage-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
