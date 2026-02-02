@@ -116,8 +116,10 @@
     linear-gradient(135deg, rgba(tokens.$color-green-100, 0.6), transparent 55%),
     linear-gradient(315deg, rgba(tokens.$color-yellow-100, 0.5), transparent 60%),
     linear-gradient(200deg, rgba(tokens.$color-blue-100, 0.45), transparent 70%);
-  transform: rotate(-6deg);
+  --mosaic-rotate: -6deg;
   opacity: 0.9;
+  animation: mosaic-float 15s ease-in-out infinite;
+  animation-delay: -5s;
 }
 
 .hero-mosaic .hero-mosaic-piece {
@@ -201,22 +203,6 @@
   opacity: 0.95;
   animation: mosaic-float 13s ease-in-out infinite;
   animation-delay: -3s;
-}
-
-.hero-mosaic-accent {
-  position: absolute;
-  right: 6%;
-  top: 58%;
-  width: 220px;
-  height: 140px;
-  border-radius: 28px;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    linear-gradient(135deg, rgba(tokens.$color-brand-200, 0.85), transparent 60%),
-    linear-gradient(315deg, rgba(tokens.$color-yellow-100, 0.6), transparent 70%);
-  box-shadow: 0 16px 30px rgba(tokens.$color-blue-100, 0.3);
-  transform: rotate(-4deg);
 }
 
 @keyframes mosaic-drift {
