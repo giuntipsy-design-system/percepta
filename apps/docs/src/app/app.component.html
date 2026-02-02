@@ -30,8 +30,8 @@
     </div>
   </header>
 
-  <div class="layout-shell" [class.layout-shell--no-nav]="isHomePage || isChangelogPage">
-    <nav class="app-nav" *ngIf="!isHomePage && !isChangelogPage">
+  <div class="layout-shell" [class.layout-shell--no-nav]="isHomePage || isChangelogPage || isAccessibilityPage">
+    <nav class="app-nav" *ngIf="!isHomePage && !isChangelogPage && !isAccessibilityPage">
       <ng-container *ngIf="isGettingStartedPage; else nonGettingStartedNav">
         <span class="nav-title">Getting started</span>
         <a

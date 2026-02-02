@@ -36,6 +36,14 @@
   color: tokens.$color-foreground-default;
 }
 
+.section {
+  margin-top: #{tokens.$spacing-layout-md};
+}
+
+.section .docs-h2 {
+  margin: #{tokens.$spacing-layout-sm} 0 10px;
+}
+
 .docs-body {
   margin: 0 0 #{tokens.$spacing-layout-md};
   color: tokens.$color-foreground-default;
@@ -43,6 +51,10 @@
 
 .docs-h3 {
   margin: #{tokens.$spacing-layout-md} 0 8px;
+}
+
+.docs-body + .docs-h2 {
+  margin-top: #{tokens.$spacing-layout-md};
 }
 
 .docs-list {

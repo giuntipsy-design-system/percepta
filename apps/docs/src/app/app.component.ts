@@ -83,6 +83,10 @@ export class AppComponent {
     return this.router.url.startsWith('/changelog');
   }
 
+  get isAccessibilityPage(): boolean {
+    return this.router.url.startsWith('/accessibility');
+  }
+
   get isComponentsPage(): boolean {
     return this.router.url.startsWith('/components');
   }
