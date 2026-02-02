@@ -54,7 +54,7 @@
         </a>
       </ng-container>
       <ng-template #nonGettingStartedNav>
-        <ng-container *ngIf="isComponentsPage; else defaultNav">
+        <ng-container *ngIf="isComponentsPage; else nonComponentsNav">
           <span class="nav-title">Components</span>
           <a
             *ngFor="let item of componentsNav.ready"
@@ -68,14 +68,26 @@
             {{ item }}
           </span>
         </ng-container>
-        <ng-template #defaultNav>
-          <a routerLink="/overview" routerLinkActive="active">Overview</a>
-          <a routerLink="/tokens" routerLinkActive="active">Tokens</a>
-          <a routerLink="/prime-baseline" routerLinkActive="active">PrimeNG baseline</a>
-          <a routerLink="/components" routerLinkActive="active">Components</a>
-          <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
-          <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
-          <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+        <ng-template #nonComponentsNav>
+          <ng-container *ngIf="isPatternsPage; else defaultNav">
+            <span class="nav-title">Patterns</span>
+            <a
+              *ngFor="let item of patternsNav"
+              [routerLink]="item.route"
+              routerLinkActive="active"
+            >
+              {{ item.label }}
+            </a>
+          </ng-container>
+          <ng-template #defaultNav>
+            <a routerLink="/overview" routerLinkActive="active">Overview</a>
+            <a routerLink="/tokens" routerLinkActive="active">Tokens</a>
+            <a routerLink="/prime-baseline" routerLinkActive="active">PrimeNG baseline</a>
+            <a routerLink="/components" routerLinkActive="active">Components</a>
+            <a routerLink="/patterns" routerLinkActive="active">Patterns</a>
+            <a routerLink="/accessibility" routerLinkActive="active">Accessibility</a>
+            <a routerLink="/changelog" routerLinkActive="active">Changelog</a>
+          </ng-template>
         </ng-template>
       </ng-template>
     </nav>

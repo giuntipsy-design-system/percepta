@@ -55,6 +55,10 @@ export class AppComponent {
     { label: 'Typography tokens', route: '/getting-started/typography-tokens' }
   ];
 
+  readonly patternsNav = [
+    { label: 'Form layout & validation', route: '/patterns/form-layout-validation' }
+  ];
+
   get isGettingStartedPage(): boolean {
     return this.router.url.startsWith('/getting-started');
   }
@@ -76,6 +80,10 @@ export class AppComponent {
 
   get isComponentsPage(): boolean {
     return this.router.url.startsWith('/components');
+  }
+
+  get isPatternsPage(): boolean {
+    return this.router.url.startsWith('/patterns');
   }
 
   get isPrimeBaseline(): boolean {

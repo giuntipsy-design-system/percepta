@@ -15,6 +15,7 @@ import { GettingStartedOverviewComponent } from './pages/getting-started/overvie
 import { GettingStartedTypographyTokensComponent } from './pages/getting-started/typography-tokens/getting-started-typography-tokens.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
+import { FormLayoutValidationComponent } from './pages/patterns/form-layout-validation/form-layout-validation.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
 import { PrimeBaselineComponent } from './pages/prime-baseline/prime-baseline.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
@@ -118,8 +119,19 @@ export const routes: Routes = [
   },
   {
     path: 'patterns',
-    component: PatternsComponent,
-    title: 'Patterns · Percepta'
+    title: 'Patterns · Percepta',
+    children: [
+      {
+        path: '',
+        component: PatternsComponent,
+        title: 'Patterns · Percepta'
+      },
+      {
+        path: 'form-layout-validation',
+        component: FormLayoutValidationComponent,
+        title: 'Form layout & validation · Percepta'
+      }
+    ]
   },
   {
     path: 'accessibility',
