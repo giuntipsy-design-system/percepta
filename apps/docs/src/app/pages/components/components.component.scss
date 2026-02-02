@@ -160,10 +160,13 @@
 }
 
 .card-visual--select span:last-child {
-  width: 14px;
-  height: 14px;
-  transform: rotate(45deg);
-  border-radius: 2px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid tokens.$color-foreground-subtle;
+  background: transparent;
+  border-radius: 0;
 }
 
 .card-visual--switch span:first-child {
@@ -179,7 +182,7 @@
   border-radius: 999px;
   background: tokens.$color-accent-moderate;
   border: none;
-  margin-left: -14px;
+  margin-left: -25px;
 }
 
 .card-visual--textarea span:first-child {
