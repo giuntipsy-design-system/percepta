@@ -27,13 +27,13 @@ export class AppComponent {
   readonly componentsNav = {
     ready: [
       { label: 'Button', route: '/components/button' },
+      { label: 'Checkbox', route: '/components/checkbox' },
       { label: 'Icon', route: '/components/icon' },
       { label: 'Input Text', route: '/components/input' },
       { label: 'Radio Button', route: '/components/radio' },
       { label: 'Select', route: '/components/select' }
     ],
     planned: [
-      'Checkbox',
       'Switch',
       'Textarea',
       'Datepicker',

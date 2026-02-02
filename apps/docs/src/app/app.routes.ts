@@ -3,6 +3,7 @@ import { AccessibilityComponent } from './pages/accessibility/accessibility.comp
 import { ChangelogComponent } from './pages/changelog/changelog.component';
 import { ButtonComponent } from './pages/components/button/button.component';
 import { ComponentsComponent } from './pages/components/components.component';
+import { CheckboxComponent } from './pages/components/checkbox/checkbox.component';
 import { IconComponent } from './pages/components/icon/icon.component';
 import { InputComponent } from './pages/components/input/input.component';
 import { RadioComponent } from './pages/components/radio/radio.component';
@@ -75,6 +76,11 @@ export const routes: Routes = [
         path: 'button',
         component: ButtonComponent,
         title: 'Button · Percepta'
+      },
+      {
+        path: 'checkbox',
+        component: CheckboxComponent,
+        title: 'Checkbox · Percepta'
       },
       {
         path: 'icon',
