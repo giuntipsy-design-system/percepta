@@ -13,13 +13,230 @@
   </header>
 
   <section class="section doc-card">
-    <h3 class="docs-h2">Core guidance</h3>
-    <ul class="docs-list">
-      <li>Group related fields and label each group clearly.</li>
-      <li>Keep labels visible and aligned with their inputs.</li>
-      <li>Use spacing to show hierarchy between sections and fields.</li>
-      <li>Place validation messages near the field and use concise language.</li>
-      <li>Only validate on submit unless immediate feedback is required.</li>
-    </ul>
+    <h3 class="docs-h2">Basic form layout</h3>
+    <p class="docs-body">
+      Forms follow a vertical flow by default. Use one field per line, consistent spacing between
+      inputs, and a shared width so fields align as a single unit.
+    </p>
+    <p class="docs-body">
+      In this pattern, spacing between fields uses <strong>spacing.layout.md</strong>, and the
+      actions block is separated from the last field with <strong>spacing.layout.lg</strong>.
+    </p>
+    <div class="demo-box">
+      <div class="form-demo">
+        <form class="demo-form">
+          <gp-input
+            label="Full name"
+            placeholder="Enter full name"
+            ariaLabel="Full name"
+          ></gp-input>
+          <div class="demo-field">
+            <label for="basic-role">Role</label>
+            <p-select
+              inputId="basic-role"
+              [options]="roleOptions"
+              optionLabel="label"
+              optionValue="value"
+              [checkmark]="true"
+              [(ngModel)]="selectedRole"
+              name="basic-role"
+            ></p-select>
+          </div>
+          <div class="demo-field">
+            <label for="basic-notes">Notes</label>
+            <textarea
+              id="basic-notes"
+              pInputTextarea
+              [(ngModel)]="notesValue"
+              name="basic-notes"
+              placeholder="Add observations"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="form-actions">
+            <gp-button label="Submit" variant="primary"></gp-button>
+            <gp-button label="Cancel" variant="secondary"></gp-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Field grouping</h3>
+    <p class="docs-body">
+      Group related fields under a shared heading to signal structure. Grouping can be visual or
+      semantic, but both should help users understand how fields relate to each other.
+    </p>
+    <p class="docs-body">
+      Use <strong>spacing.layout.md</strong> between the group title and its fields, and
+      <strong>spacing.layout.lg</strong> between groups. Within choice lists, use
+      <strong>spacing.layout.xs</strong> between options.
+    </p>
+    <div class="demo-box">
+      <div class="form-demo">
+        <div class="demo-group">
+          <h4 class="docs-h3">Personal information</h4>
+          <gp-input
+            label="Candidate name"
+            placeholder="Enter name"
+            ariaLabel="Candidate name"
+          ></gp-input>
+          <gp-input
+            label="Email"
+            placeholder="name@company.com"
+            ariaLabel="Email"
+          ></gp-input>
+        </div>
+        <div class="demo-group">
+          <h4 class="docs-h3">Preferences</h4>
+          <div class="demo-field">
+            <label for="pref-contact">Preferred contact</label>
+            <div class="demo-option-row">
+              <p-radioButton
+                inputId="pref-email"
+                name="pref-contact"
+                value="email"
+                [(ngModel)]="contactMethod"
+              ></p-radioButton>
+              <label for="pref-email">Email</label>
+            </div>
+            <div class="demo-option-row">
+              <p-radioButton
+                inputId="pref-phone"
+                name="pref-contact"
+                value="phone"
+                [(ngModel)]="contactMethod"
+              ></p-radioButton>
+              <label for="pref-phone">Phone</label>
+            </div>
+          </div>
+          <div class="demo-field">
+            <label for="pref-updates">Updates</label>
+            <div class="demo-option-row" *ngFor="let option of preferenceOptions">
+              <p-checkbox
+                [inputId]="'pref-' + option.value"
+                [value]="option.value"
+                [(ngModel)]="preferenceValues"
+                name="pref-updates"
+              ></p-checkbox>
+              <label [for]="'pref-' + option.value">{{ option.label }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Labels and helper text</h3>
+    <p class="docs-body">
+      Labels describe the purpose of a field. Helper text adds context and guidance but never
+      replaces a visible label. Place helper text directly below the field.
+    </p>
+    <div class="demo-box">
+      <div class="demo-form">
+        <gp-input
+          label="Assessment context"
+          placeholder="e.g. Clinical intake"
+          helperText="Use the same label shown to candidates."
+          ariaLabel="Assessment context"
+        ></gp-input>
+        <div class="demo-field">
+          <label for="label-notes">Notes</label>
+          <textarea
+            id="label-notes"
+            pInputTextarea
+            placeholder="Optional notes"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Validation and error handling</h3>
+    <p class="docs-body">
+      Errors should appear at the field level with clear, actionable messages. Avoid showing errors
+      before users have interacted with a field.
+    </p>
+    <div class="demo-box">
+      <div class="demo-form demo-form--two-col">
+        <gp-input
+          label="Reference ID"
+          placeholder="e.g. GP-3921"
+          ariaLabel="Reference ID"
+        ></gp-input>
+        <gp-input
+          label="Session code"
+          value="12A-77"
+          ariaLabel="Session code"
+          state="error"
+          errorText="This code is expired."
+        ></gp-input>
+      </div>
+      <div class="demo-field">
+        <label for="validation-notes">Notes</label>
+        <textarea
+          id="validation-notes"
+          pInputTextarea
+          [invalid]="true"
+          [(ngModel)]="validationNotes"
+          name="validation-notes"
+          rows="3"
+        ></textarea>
+        <p class="demo-help demo-help--error">Please add the missing details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Required fields</h3>
+    <p class="docs-body">
+      Required fields should be marked clearly. The indicator supplements error messaging but does
+      not replace it. Use required fields sparingly.
+    </p>
+    <div class="demo-box">
+      <div class="demo-form demo-form--two-col">
+        <gp-input
+          label="Email *"
+          placeholder="name@company.com"
+          ariaLabel="Email required"
+        ></gp-input>
+        <gp-input
+          label="Company (optional)"
+          placeholder="Company"
+          ariaLabel="Company optional"
+        ></gp-input>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Form actions</h3>
+    <p class="docs-body">
+      Emphasize the primary action and separate secondary actions visually. Avoid multiple primary
+      actions and disable actions while submitting.
+    </p>
+    <p class="docs-body">
+      Keep actions aligned with the form width and separated from fields using
+      <strong>spacing.layout.lg</strong>.
+    </p>
+    <div class="demo-box">
+      <div class="demo-actions">
+        <gp-button label="Submit" variant="primary"></gp-button>
+        <gp-button label="Cancel" variant="secondary"></gp-button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Accessibility considerations</h3>
+    <p class="docs-body">
+      Ensure labels are properly associated with inputs and that error messages are accessible to
+      assistive technologies. Maintain a logical tab order and avoid relying on color alone to
+      communicate state.
+    </p>
   </section>
 </section>

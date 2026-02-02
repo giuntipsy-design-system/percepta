@@ -67,3 +67,90 @@
 .docs-list li + li {
   margin-top: 6px;
 }
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-xl};
+  margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-form {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.form-demo {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: #{tokens.$spacing-layout-lg};
+}
+
+.demo-form--two-col {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.demo-field {
+  display: grid;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.demo-field label {
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-group {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.demo-group + .demo-group {
+  margin-top: #{tokens.$spacing-layout-lg};
+}
+
+.demo-option-row {
+  display: flex;
+  align-items: center;
+  gap: #{tokens.$spacing-control-x-md};
+}
+
+.demo-field .demo-option-row + .demo-option-row {
+  margin-top: #{tokens.$spacing-layout-xs};
+}
+
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.demo-help {
+  @include typography.typography-body-sm;
+  margin: 0;
+  color: tokens.$color-foreground-subtle;
+}
+
+.demo-help--error {
+  color: tokens.$color-foreground-error;
+}
+
+@media (max-width: 900px) {
+  .demo-box {
+    padding: #{tokens.$spacing-layout-md};
+  }
+}

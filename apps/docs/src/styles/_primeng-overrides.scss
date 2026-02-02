@@ -73,6 +73,17 @@
   --p-textarea-disabled-background: #{tokens.$color-background-disabled} !important;
   --p-textarea-disabled-color: #{tokens.$color-foreground-subtle} !important;
 
+  /* Select — option hover/focus */
+  --p-select-option-focus-background: #{tokens.$color-background-subtle} !important;
+  --p-select-option-focus-color: #{tokens.$color-foreground-default} !important;
+  --p-select-option-hover-background: #{tokens.$color-background-subtle} !important;
+  --p-select-option-hover-color: #{tokens.$color-foreground-default} !important;
+  --p-select-option-selected-background: #{tokens.$color-background-subtle} !important;
+  --p-select-option-selected-color: #{tokens.$color-foreground-default} !important;
+  --p-select-option-selected-focus-background: #{tokens.$color-background-subtle} !important;
+  --p-select-option-selected-focus-color: #{tokens.$color-foreground-default} !important;
+  --p-select-checkmark-color: #{tokens.$color-foreground-default} !important;
+
   /* Checkbox — Percepta interaction mapping */
   --p-checkbox-border-color: #{tokens.$color-border-subtle} !important;
 

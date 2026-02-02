@@ -78,6 +78,10 @@
             >
               {{ item.label }}
             </a>
+            <span class="nav-subtitle">Planned</span>
+            <span *ngFor="let item of patternsPlanned" class="nav-item-disabled">
+              {{ item }}
+            </span>
           </ng-container>
           <ng-template #defaultNav>
             <a routerLink="/overview" routerLinkActive="active">Overview</a>

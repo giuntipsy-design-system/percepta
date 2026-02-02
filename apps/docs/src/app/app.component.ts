@@ -59,6 +59,11 @@ export class AppComponent {
     { label: 'Form layout & validation', route: '/patterns/form-layout-validation' }
   ];
 
+  readonly patternsPlanned = [
+    'Empty states',
+    'Confirmation & destructive actions'
+  ];
+
   get isGettingStartedPage(): boolean {
     return this.router.url.startsWith('/getting-started');
   }

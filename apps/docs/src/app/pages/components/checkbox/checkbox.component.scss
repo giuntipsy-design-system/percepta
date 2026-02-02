@@ -179,6 +179,10 @@
   gap: #{tokens.$spacing-control-x-md};
 }
 
+.demo-checkbox-group:not(.demo-checkbox-group--inline) .demo-checkbox-option + .demo-checkbox-option {
+  margin-top: #{tokens.$spacing-layout-xs};
+}
+
 .demo-stack {
   display: grid;
   grid-template-columns: 1fr;

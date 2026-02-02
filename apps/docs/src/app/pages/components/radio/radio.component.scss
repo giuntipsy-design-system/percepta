@@ -170,6 +170,10 @@
   gap: #{tokens.$spacing-control-x-md};
 }
 
+.demo-radio-group:not(.demo-radio-group--inline) .demo-radio-option + .demo-radio-option {
+  margin-top: #{tokens.$spacing-layout-xs};
+}
+
 .demo-stack {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
