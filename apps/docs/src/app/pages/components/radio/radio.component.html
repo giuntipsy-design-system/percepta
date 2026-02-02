@@ -124,13 +124,42 @@
   <section class="section doc-card">
     <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
     <p class="docs-body">
-      Use radio buttons when the full set of choices should be visible and the user must select
-      exactly one. Radios encourage quick comparison and make the selection state explicit.
+      Radio buttons are designed for explicit, visible choices. They are best suited for situations
+      where all available options should remain visible and the user must commit to exactly one
+      selection.
     </p>
+    <p class="docs-body">
+      Radios support quick comparison and make the selected state explicit at all times, helping
+      users understand the decision they are making before interacting.
+    </p>
+    <h4 class="docs-h3">When to use radio buttons</h4>
     <ul class="docs-list">
-      <li>Use radios for short sets of mutually exclusive options.</li>
-      <li>Use a select when the list is long or can be collapsed.</li>
-      <li>Use checkboxes when multiple selections are allowed.</li>
+      <li>Options are mutually exclusive. Only one value can be selected within the group.</li>
+      <li>Comparison matters. Seeing all options at once helps users evaluate differences.</li>
+      <li>The set of options is limited. Radio buttons work best with short, manageable lists.</li>
+      <li>A sensible default exists. Preselect an option when it reflects a safe or known choice.</li>
+      <li>Structure improves clarity. Vertical layouts work best for groups with more than two options.</li>
+    </ul>
+    <h4 class="docs-h3">When to consider alternatives</h4>
+    <ul class="docs-list">
+      <li>
+        Use a checkbox for binary decisions. On/off or yes/no choices are communicated more clearly
+        with checkboxes.
+      </li>
+      <li>
+        Use a segmented control for short sets. When space is limited and options are few,
+        segmented controls provide a compact alternative.
+      </li>
+      <li>
+        Use a select for longer lists. As option sets grow, collapsed or searchable controls scale
+        better.
+      </li>
+      <li>Avoid radios for large sets. Long lists reduce scanability and slow decision-making.</li>
+    </ul>
+    <h4 class="docs-h3">Labeling guidelines</h4>
+    <ul class="docs-list">
+      <li>Keep labels concise and specific. Radio labels should be short and easy to scan.</li>
+      <li>Avoid ambiguity. Each option should be self-explanatory without relying on external context.</li>
     </ul>
   </section>
 
