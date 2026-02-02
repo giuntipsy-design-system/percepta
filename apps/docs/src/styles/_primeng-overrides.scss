@@ -44,6 +44,37 @@
     0.2
   ) !important;
 
+  /* Checkbox — Percepta interaction mapping */
+  --p-checkbox-border-color: #{tokens.$color-border-subtle} !important;
+
+  --p-checkbox-checked-border-color: #{tokens.$color-accent-moderate} !important;
+  --p-checkbox-checked-background: #{tokens.$color-accent-moderate} !important;
+  --p-checkbox-checked-color: #{tokens.$color-accent-on-accent} !important;
+
+  --p-checkbox-checked-hover-border-color: #{tokens.$color-accent-vibrant} !important;
+  --p-checkbox-checked-hover-background: #{tokens.$color-accent-vibrant} !important;
+  --p-checkbox-checked-hover-color: #{tokens.$color-accent-on-accent} !important;
+
+  --p-checkbox-disabled-border-color: #{tokens.$color-border-disabled} !important;
+  --p-checkbox-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-checkbox-disabled-color: #{tokens.$color-foreground-disabled} !important;
+
+  --p-checkbox-indeterminate-border-color: #{tokens.$color-border-subtle} !important;
+  --p-checkbox-indeterminate-background: transparent !important;
+  --p-checkbox-indeterminate-color: #{tokens.$color-foreground-default} !important;
+
+  --p-checkbox-focus-border-color: #{tokens.$color-border-focus} !important;
+  --p-checkbox-focus-ring-color: #{tokens.$color-border-focus} !important;
+  --p-checkbox-focus-ring-width: 1px !important;
+  --p-checkbox-focus-ring-style: solid !important;
+  --p-checkbox-focus-ring-offset: 0 !important;
+  --p-checkbox-focus-ring-shadow: 0 0 0 2px rgba(
+    #{color.channel(tokens.$color-border-focus, "red", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "green", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "blue", $space: rgb)},
+    0.2
+  ) !important;
+
   /* InputText — Sizes (Percepta) */
   --p-inputtext-padding-x: #{tokens.$spacing-control-x-md};
   --p-inputtext-padding-y: #{tokens.$spacing-control-y-md};
