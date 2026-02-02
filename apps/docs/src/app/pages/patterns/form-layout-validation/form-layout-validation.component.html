@@ -135,21 +135,23 @@
       replaces a visible label. Place helper text directly below the field.
     </p>
     <div class="demo-box">
-      <div class="demo-form">
-        <gp-input
-          label="Assessment context"
-          placeholder="e.g. Clinical intake"
-          helperText="Use the same label shown to candidates."
-          ariaLabel="Assessment context"
-        ></gp-input>
-        <div class="demo-field">
-          <label for="label-notes">Notes</label>
-          <textarea
-            id="label-notes"
-            pInputTextarea
-            placeholder="Optional notes"
-            rows="3"
-          ></textarea>
+      <div class="form-demo">
+        <div class="demo-form">
+          <gp-input
+            label="Assessment context"
+            placeholder="e.g. Clinical intake"
+            helperText="Use the same label shown to candidates."
+            ariaLabel="Assessment context"
+          ></gp-input>
+          <div class="demo-field">
+            <label for="label-notes">Notes</label>
+            <textarea
+              id="label-notes"
+              pInputTextarea
+              placeholder="Optional notes"
+              rows="3"
+            ></textarea>
+          </div>
         </div>
       </div>
     </div>
@@ -162,31 +164,33 @@
       before users have interacted with a field.
     </p>
     <div class="demo-box">
-      <div class="demo-form demo-form--two-col">
-        <gp-input
-          label="Reference ID"
-          placeholder="e.g. GP-3921"
-          ariaLabel="Reference ID"
-        ></gp-input>
-        <gp-input
-          label="Session code"
-          value="12A-77"
-          ariaLabel="Session code"
-          state="error"
-          errorText="This code is expired."
-        ></gp-input>
-      </div>
-      <div class="demo-field">
-        <label for="validation-notes">Notes</label>
-        <textarea
-          id="validation-notes"
-          pInputTextarea
-          [invalid]="true"
-          [(ngModel)]="validationNotes"
-          name="validation-notes"
-          rows="3"
-        ></textarea>
-        <p class="demo-help demo-help--error">Please add the missing details.</p>
+      <div class="form-demo">
+        <div class="demo-form demo-form--two-col">
+          <gp-input
+            label="Reference ID"
+            placeholder="e.g. GP-3921"
+            ariaLabel="Reference ID"
+          ></gp-input>
+          <gp-input
+            label="Session code"
+            value="12A-77"
+            ariaLabel="Session code"
+            state="error"
+            errorText="This code is expired."
+          ></gp-input>
+        </div>
+        <div class="demo-field">
+          <label for="validation-notes">Notes</label>
+          <textarea
+            id="validation-notes"
+            pInputTextarea
+            [invalid]="true"
+            [(ngModel)]="validationNotes"
+            name="validation-notes"
+            rows="3"
+          ></textarea>
+          <p class="demo-help demo-help--error">Please add the missing details.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -194,21 +198,57 @@
   <section class="section doc-card">
     <h3 class="docs-h2">Required fields</h3>
     <p class="docs-body">
-      Required fields should be marked clearly. The indicator supplements error messaging but does
-      not replace it. Use required fields sparingly.
+      Whenever possible, communicate required fields through structure rather than symbols.
+      Placing mandatory fields first helps users understand what is expected without additional
+      visual markers.
+    </p>
+    <p class="docs-body">
+      Optional fields can be grouped separately, introduced under a clear heading, or hidden
+      behind an expandable section such as “Advanced options”. This reduces visual noise and keeps
+      the primary task focused.
+    </p>
+    <p class="docs-body">
+      Use explicit indicators only when structural separation is not feasible. In those cases,
+      prefer marking optional fields clearly. Asterisks may be used as a fallback, but should not be
+      the primary mechanism for conveying requirement.
     </p>
     <div class="demo-box">
-      <div class="demo-form demo-form--two-col">
-        <gp-input
-          label="Email *"
-          placeholder="name@company.com"
-          ariaLabel="Email required"
-        ></gp-input>
-        <gp-input
-          label="Company (optional)"
-          placeholder="Company"
-          ariaLabel="Company optional"
-        ></gp-input>
+      <div class="form-demo">
+        <div class="demo-form">
+          <gp-input
+            label="Email"
+            placeholder="name@company.com"
+            ariaLabel="Email"
+          ></gp-input>
+          <div class="demo-group">
+            <h4 class="docs-h3">Optional information</h4>
+            <gp-input
+              label="Company"
+              placeholder="Company"
+              ariaLabel="Company optional"
+            ></gp-input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="docs-body">
+      When a form has very few fields and there is no space for an optional section title, note
+      optionality directly in the label.
+    </p>
+    <div class="demo-box">
+      <div class="form-demo">
+        <div class="demo-form">
+          <gp-input
+            label="Email"
+            placeholder="name@company.com"
+            ariaLabel="Email"
+          ></gp-input>
+          <gp-input
+            label="Company (optional)"
+            placeholder="Company"
+            ariaLabel="Company optional"
+          ></gp-input>
+        </div>
       </div>
     </div>
   </section>
