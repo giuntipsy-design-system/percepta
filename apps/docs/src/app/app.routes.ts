@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AccessibilityComponent } from './pages/accessibility/accessibility.component';
 import { ChangelogComponent } from './pages/changelog/changelog.component';
 import { ButtonComponent } from './pages/components/button/button.component';
+import { SwitchComponent } from './pages/components/switch/switch.component';
 import { ComponentsComponent } from './pages/components/components.component';
 import { CheckboxComponent } from './pages/components/checkbox/checkbox.component';
 import { IconComponent } from './pages/components/icon/icon.component';
@@ -101,6 +102,11 @@ export const routes: Routes = [
         path: 'select',
         component: SelectComponent,
         title: 'Select · Percepta'
+      },
+      {
+        path: 'switch',
+        component: SwitchComponent,
+        title: 'Switch · Percepta'
       }
     ]
   },

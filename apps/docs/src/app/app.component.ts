@@ -31,10 +31,10 @@ export class AppComponent {
       { label: 'Icon', route: '/components/icon' },
       { label: 'Input Text', route: '/components/input' },
       { label: 'Radio Button', route: '/components/radio' },
-      { label: 'Select', route: '/components/select' }
+      { label: 'Select', route: '/components/select' },
+      { label: 'Switch', route: '/components/switch' }
     ],
     planned: [
-      'Switch',
       'Textarea',
       'Datepicker',
       'Table',

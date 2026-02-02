@@ -1,0 +1,274 @@
+<section class="page">
+  <header id="overview" class="doc-card doc-card--intro section-anchor">
+    <h2 class="docs-h1">Switch</h2>
+    <p class="overview-lead">
+      Switches represent a binary decision that turns a setting on or off.
+    </p>
+  </header>
+
+  <nav class="section-tabs">
+    <a
+      href="#overview"
+      (click)="scrollToSection($event, 'overview')"
+      [class.active]="currentSection === 'overview'"
+    >
+      Overview
+    </a>
+    <a
+      href="#preview"
+      (click)="scrollToSection($event, 'preview')"
+      [class.active]="currentSection === 'preview'"
+    >
+      Preview
+    </a>
+    <a
+      href="#usage"
+      (click)="scrollToSection($event, 'usage')"
+      [class.active]="currentSection === 'usage'"
+    >
+      Usage
+    </a>
+    <a
+      href="#states"
+      (click)="scrollToSection($event, 'states')"
+      [class.active]="currentSection === 'states'"
+    >
+      States
+    </a>
+    <a
+      href="#interaction"
+      (click)="scrollToSection($event, 'interaction')"
+      [class.active]="currentSection === 'interaction'"
+    >
+      Interaction mapping
+    </a>
+    <a
+      href="#keyboard"
+      (click)="scrollToSection($event, 'keyboard')"
+      [class.active]="currentSection === 'keyboard'"
+    >
+      Keyboard
+    </a>
+    <a
+      href="#accessibility"
+      (click)="scrollToSection($event, 'accessibility')"
+      [class.active]="currentSection === 'accessibility'"
+    >
+      Accessibility
+    </a>
+    <a
+      href="#properties"
+      (click)="scrollToSection($event, 'properties')"
+      [class.active]="currentSection === 'properties'"
+    >
+      Properties
+    </a>
+  </nav>
+
+  <section class="section doc-card overview-content">
+    <p class="section-lead">
+      Switches communicate an immediate on/off decision. They are best used for settings that take
+      effect as soon as the user toggles the control.
+    </p>
+    <p class="section-lead">
+      Use a checkbox when the user is selecting items in a list or making multiple independent
+      selections.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="preview" class="section-anchor docs-h2">Preview</h3>
+    <p class="docs-body">
+      Switches toggle immediately between on and off. Labels should always clarify the outcome.
+    </p>
+    <div class="demo-box demo-box--preview">
+      <div class="demo-preview">
+        <div class="demo-switch-group">
+          <div class="demo-switch-option">
+            <p-toggleSwitch
+              inputId="preview-enabled"
+              [(ngModel)]="previewEnabled"
+            ></p-toggleSwitch>
+            <label for="preview-enabled">Enable real-time scoring</label>
+          </div>
+          <div class="demo-switch-option">
+            <p-toggleSwitch
+              inputId="preview-disabled"
+              [(ngModel)]="previewDisabled"
+            ></p-toggleSwitch>
+            <label for="preview-disabled">Share results with reviewers</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
+    <p class="docs-body">
+      Switches represent immediate, binary changes. They are designed for situations where a
+      setting takes effect as soon as the user toggles it, without requiring an additional
+      confirmation step.
+    </p>
+    <p class="docs-body">
+      A switch communicates an active or inactive state at a glance and is best suited for
+      persistent preferences, modes, or features that can be safely enabled or disabled
+      instantly.
+    </p>
+    <h4 class="docs-h3">When to use switches</h4>
+    <ul class="docs-list">
+      <li>
+        For settings that apply immediately. The effect of the change should be visible as soon
+        as the switch is toggled.
+      </li>
+      <li>For enabling or disabling a single feature, mode, or behavior.</li>
+      <li>For independent binary decisions that do not affect other options.</li>
+      <li>When the control reflects a persistent state rather than a one-time action.</li>
+      <li>When a concise label can clearly describe the affected property.</li>
+    </ul>
+    <h4 class="docs-h3">When to use something else</h4>
+    <ul class="docs-list">
+      <li>Use a checkbox when a change requires an explicit confirmation or submission.</li>
+      <li>Use checkboxes for multiple independent selections within a group.</li>
+      <li>Use radio buttons for mutually exclusive choices.</li>
+      <li>Use a button when an action is destructive or should not be applied immediately.</li>
+      <li>Avoid switches when an intermediate or mixed state is required.</li>
+    </ul>
+    <h4 class="docs-h3">Labeling guidelines</h4>
+    <ul class="docs-list">
+      <li>Describe the feature or behavior being controlled, not the current state.</li>
+      <li>Keep labels short and unambiguous, ideally one or two words.</li>
+      <li>Avoid labels that require the user to infer what “on” or “off” means.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="states" class="section-anchor docs-h2">States</h3>
+    <p class="docs-body">
+      Hover and focus appear on interaction. Off, on, and disabled are shown below.
+    </p>
+    <div class="demo-box">
+      <div class="demo-center">
+        <div class="demo-switch-group demo-switch-group--inline demo-switch-group--static" role="group" aria-label="Switch states">
+          <div class="demo-switch-option">
+            <p-toggleSwitch
+              inputId="state-off"
+              [(ngModel)]="stateOff"
+            ></p-toggleSwitch>
+            <label for="state-off">Off</label>
+          </div>
+          <div class="demo-switch-option">
+            <p-toggleSwitch
+              inputId="state-on"
+              [(ngModel)]="stateOn"
+            ></p-toggleSwitch>
+            <label for="state-on">On</label>
+          </div>
+          <div class="demo-switch-option">
+            <p-toggleSwitch
+              inputId="state-disabled"
+              [(ngModel)]="stateDisabled"
+              [disabled]="true"
+            ></p-toggleSwitch>
+            <label for="state-disabled">Disabled</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <p class="docs-body">
+      This section maps semantic design roles to switch states without exposing raw values.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Control role</th>
+          <th>Label role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Off</td>
+          <td>Control · Background Interactive Primary / Handle On-accent</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Off Hover</td>
+          <td>Control · Background Interactive Secondary / Handle On-accent</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>On</td>
+          <td>Control · Accent Moderate / Handle On-accent</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>On Hover</td>
+          <td>Control · Accent Bold / Handle On-accent</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Focus</td>
+          <td>Control · Border Focus</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>Control · Background Disabled / Handle Foreground Disabled</td>
+          <td>Label · Foreground Disabled</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="keyboard" class="section-anchor docs-h2">Keyboard support</h3>
+    <ul class="docs-list">
+      <li>Tab moves focus to the switch.</li>
+      <li>Space toggles the switch on or off.</li>
+      <li>The state changes immediately on toggle.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
+    <p class="docs-body">
+      Provide a visible, descriptive label for every switch. Native binary semantics and ARIA are
+      handled by the framework.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Values</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>label</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>checked</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

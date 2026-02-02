@@ -75,6 +75,43 @@
     0.2
   ) !important;
 
+  /* Switch (ToggleSwitch) — Percepta interaction mapping */
+  --p-inputswitch-background: #{tokens.$color-background-interactive-primary} !important;
+  --p-inputswitch-checked-background: #{tokens.$color-accent-moderate} !important;
+  --p-inputswitch-hover-background: #{tokens.$color-background-interactive-secondary} !important;
+  --p-inputswitch-handle-background: #{tokens.$color-accent-on-accent} !important;
+
+  --p-inputswitch-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-inputswitch-disabled-handle-background: #{tokens.$color-foreground-disabled} !important;
+
+  --p-inputswitch-focus-ring-color: #{tokens.$color-border-focus} !important;
+  --p-inputswitch-focus-ring-shadow: 0 0 0 2px rgba(
+    #{color.channel(tokens.$color-border-focus, "red", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "green", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "blue", $space: rgb)},
+    0.2
+  ) !important;
+
+  --p-toggleswitch-background: #{tokens.$color-background-interactive-primary} !important;
+  --p-toggleswitch-checked-background: #{tokens.$color-accent-moderate} !important;
+  --p-toggleswitch-hover-background: #{tokens.$color-background-interactive-secondary} !important;
+  --p-toggleswitch-checked-hover-background: #{tokens.$color-accent-bold} !important;
+  --p-toggleswitch-handle-background: #{tokens.$color-accent-on-accent} !important;
+  --p-toggleswitch-handle-checked-background: #{tokens.$color-accent-on-accent} !important;
+  --p-toggleswitch-handle-hover-background: #{tokens.$color-accent-on-accent} !important;
+  --p-toggleswitch-handle-checked-hover-background: #{tokens.$color-accent-on-accent} !important;
+
+  --p-toggleswitch-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-toggleswitch-handle-disabled-background: #{tokens.$color-foreground-disabled} !important;
+
+  --p-toggleswitch-focus-ring-color: #{tokens.$color-border-focus} !important;
+  --p-toggleswitch-focus-ring-shadow: 0 0 0 2px rgba(
+    #{color.channel(tokens.$color-border-focus, "red", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "green", $space: rgb)},
+    #{color.channel(tokens.$color-border-focus, "blue", $space: rgb)},
+    0.2
+  ) !important;
+
   /* InputText — Sizes (Percepta) */
   --p-inputtext-padding-x: #{tokens.$spacing-control-x-md};
   --p-inputtext-padding-y: #{tokens.$spacing-control-y-md};
