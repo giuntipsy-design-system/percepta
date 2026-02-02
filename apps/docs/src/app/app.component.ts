@@ -70,6 +70,10 @@ export class AppComponent {
     return this.router.url === '/' || this.router.url === '';
   }
 
+  get isChangelogPage(): boolean {
+    return this.router.url.startsWith('/changelog');
+  }
+
   get isComponentsPage(): boolean {
     return this.router.url.startsWith('/components');
   }
