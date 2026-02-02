@@ -44,6 +44,35 @@
     0.2
   ) !important;
 
+  /* Textarea — Percepta interaction mapping */
+  --p-inputtextarea-border-color: #{tokens.$color-border-subtle} !important;
+  --p-inputtextarea-hover-border-color: #{tokens.$color-border-muted} !important;
+  --p-inputtextarea-background: #{tokens.$color-background-default} !important;
+  --p-inputtextarea-color: #{tokens.$color-foreground-default} !important;
+  --p-inputtextarea-placeholder-color: #{tokens.$color-foreground-subtle} !important;
+
+  --p-inputtextarea-invalid-border-color: #{tokens.$color-border-error} !important;
+  --p-inputtextarea-invalid-background: #{tokens.$color-background-error} !important;
+  --p-inputtextarea-invalid-color: #{tokens.$color-foreground-error} !important;
+
+  --p-inputtextarea-disabled-border-color: #{tokens.$color-border-disabled} !important;
+  --p-inputtextarea-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-inputtextarea-disabled-color: #{tokens.$color-foreground-subtle} !important;
+
+  --p-textarea-border-color: #{tokens.$color-border-subtle} !important;
+  --p-textarea-hover-border-color: #{tokens.$color-border-muted} !important;
+  --p-textarea-background: #{tokens.$color-background-default} !important;
+  --p-textarea-color: #{tokens.$color-foreground-default} !important;
+  --p-textarea-placeholder-color: #{tokens.$color-foreground-subtle} !important;
+
+  --p-textarea-invalid-border-color: #{tokens.$color-border-error} !important;
+  --p-textarea-invalid-background: #{tokens.$color-background-error} !important;
+  --p-textarea-invalid-color: #{tokens.$color-foreground-error} !important;
+
+  --p-textarea-disabled-border-color: #{tokens.$color-border-disabled} !important;
+  --p-textarea-disabled-background: #{tokens.$color-background-disabled} !important;
+  --p-textarea-disabled-color: #{tokens.$color-foreground-subtle} !important;
+
   /* Checkbox — Percepta interaction mapping */
   --p-checkbox-border-color: #{tokens.$color-border-subtle} !important;
 

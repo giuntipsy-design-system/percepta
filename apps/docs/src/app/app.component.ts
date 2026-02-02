@@ -32,10 +32,10 @@ export class AppComponent {
       { label: 'Input Text', route: '/components/input' },
       { label: 'Radio Button', route: '/components/radio' },
       { label: 'Select', route: '/components/select' },
-      { label: 'Switch', route: '/components/switch' }
+      { label: 'Switch', route: '/components/switch' },
+      { label: 'Textarea', route: '/components/textarea' }
     ],
     planned: [
-      'Textarea',
       'Datepicker',
       'Table',
       'Dialog',

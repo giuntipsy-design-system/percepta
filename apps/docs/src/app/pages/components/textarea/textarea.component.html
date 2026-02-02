@@ -1,0 +1,307 @@
+<section class="page">
+  <header id="overview" class="doc-card doc-card--intro section-anchor">
+    <h2 class="docs-h1">Textarea</h2>
+    <p class="overview-lead">
+      Multi-line text entry for longer responses, notes, and free-form input.
+    </p>
+  </header>
+
+  <nav class="section-tabs">
+    <a
+      href="#overview"
+      (click)="scrollToSection($event, 'overview')"
+      [class.active]="currentSection === 'overview'"
+    >
+      Overview
+    </a>
+    <a
+      href="#preview"
+      (click)="scrollToSection($event, 'preview')"
+      [class.active]="currentSection === 'preview'"
+    >
+      Preview
+    </a>
+    <a
+      href="#usage"
+      (click)="scrollToSection($event, 'usage')"
+      [class.active]="currentSection === 'usage'"
+    >
+      Usage
+    </a>
+    <a
+      href="#states"
+      (click)="scrollToSection($event, 'states')"
+      [class.active]="currentSection === 'states'"
+    >
+      States
+    </a>
+    <a
+      href="#interaction"
+      (click)="scrollToSection($event, 'interaction')"
+      [class.active]="currentSection === 'interaction'"
+    >
+      Interaction mapping
+    </a>
+    <a
+      href="#keyboard"
+      (click)="scrollToSection($event, 'keyboard')"
+      [class.active]="currentSection === 'keyboard'"
+    >
+      Keyboard
+    </a>
+    <a
+      href="#accessibility"
+      (click)="scrollToSection($event, 'accessibility')"
+      [class.active]="currentSection === 'accessibility'"
+    >
+      Accessibility
+    </a>
+    <a
+      href="#properties"
+      (click)="scrollToSection($event, 'properties')"
+      [class.active]="currentSection === 'properties'"
+    >
+      Properties
+    </a>
+  </nav>
+
+  <section class="section doc-card overview-content">
+    <p class="section-lead">
+      Textareas support longer, multi-line input where users need space to explain, draft, or review
+      content. They signal that longer responses are expected.
+    </p>
+    <p class="section-lead">
+      Use a textarea for multi-line text and a single-line input for short, predictable values.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="preview" class="section-anchor docs-h2">Preview</h3>
+    <p class="docs-body">
+      Textareas are used for longer responses. Labels should remain visible to keep context clear.
+    </p>
+    <div class="demo-box demo-box--preview">
+      <div class="demo-preview">
+        <div class="demo-stack">
+          <div class="demo-field">
+            <label for="preview-empty">Notes</label>
+            <textarea
+              id="preview-empty"
+              pInputTextarea
+              [(ngModel)]="previewEmpty"
+              class="demo-textarea"
+              placeholder="Add notes for the evaluator"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="demo-field">
+            <label for="preview-filled">Summary</label>
+            <textarea
+              id="preview-filled"
+              pInputTextarea
+              [(ngModel)]="previewFilled"
+              class="demo-textarea"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="demo-field">
+            <label for="preview-error">Concerns</label>
+            <textarea
+              id="preview-error"
+              pInputTextarea
+              [(ngModel)]="previewError"
+              [invalid]="true"
+              class="demo-textarea"
+              rows="4"
+            ></textarea>
+            <p class="demo-help demo-help--error">Please add the missing details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="usage" class="section-anchor docs-h2">Usage</h3>
+    <p class="docs-body">
+      Textareas are designed for longer, free-form text input. They are best suited for
+      content that requires multiple lines, editing, or review.
+    </p>
+    <p class="docs-body">
+      Use a textarea when the amount of text cannot be predicted or when users need
+      space to structure their thoughts. For short or predictable input, a single-line
+      input provides a clearer and more efficient interaction.
+    </p>
+    <h4 class="docs-h3">Guidelines</h4>
+    <ul class="docs-list">
+      <li>Use a clear, descriptive label that explains what the field captures.</li>
+      <li>Place validation messages close to the textarea and tie them to the field.</li>
+      <li>Use textareas intentionally to avoid overwhelming dense interfaces.</li>
+      <li>Provide context when a textarea appears without a visible label.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="states" class="section-anchor docs-h2">States</h3>
+    <p class="docs-body">
+      Hover and focus appear on interaction. Default, filled, error, and disabled are shown below.
+    </p>
+    <div class="demo-box">
+      <div class="demo-stack demo-stack--states">
+        <div class="demo-field">
+          <label for="state-default">Default</label>
+          <textarea
+            id="state-default"
+            pInputTextarea
+            [(ngModel)]="stateDefault"
+            class="demo-textarea"
+            placeholder="Default"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="demo-field">
+          <label for="state-filled">Filled</label>
+          <textarea
+            id="state-filled"
+            pInputTextarea
+            [(ngModel)]="stateFilled"
+            class="demo-textarea"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="demo-field">
+          <label for="state-error">Error</label>
+          <textarea
+            id="state-error"
+            pInputTextarea
+            [(ngModel)]="stateError"
+            [invalid]="true"
+            class="demo-textarea"
+            rows="3"
+          ></textarea>
+          <p class="demo-help demo-help--error">This field is required.</p>
+        </div>
+        <div class="demo-field">
+          <label for="state-disabled">Disabled</label>
+          <textarea
+            id="state-disabled"
+            pInputTextarea
+            [(ngModel)]="stateDisabled"
+            [disabled]="true"
+            class="demo-textarea"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <p class="docs-body">
+      This section maps semantic design roles to textarea states without exposing raw values.
+    </p>
+    <p class="docs-body">
+      Placeholder text uses the subtle foreground role, while entered text uses the default
+      foreground role.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Control role</th>
+          <th>Label role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>Border · Subtle / Background · Default / Foreground · Subtle</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Border · Muted / Background · Default / Foreground · Subtle</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Filled</td>
+          <td>Border · Subtle / Background · Default / Foreground · Default</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Error</td>
+          <td>Border · Error / Background · Error / Foreground · Error</td>
+          <td>Label · Foreground Default</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>Border · Disabled / Background · Disabled / Foreground · Subtle</td>
+          <td>Label · Foreground Disabled</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="keyboard" class="section-anchor docs-h2">Keyboard support</h3>
+    <ul class="docs-list">
+      <li>Tab moves focus to the textarea.</li>
+      <li>Enter creates new lines inside the field.</li>
+      <li>Text editing follows native multiline input behavior.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
+    <p class="docs-body">
+      Ensure each textarea has a visible label and accessible error messaging. Native semantics and
+      ARIA are handled by the framework.
+    </p>
+  </section>
+
+  <section class="section doc-card">
+    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Values</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>label</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>placeholder</td>
+          <td>string</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>required</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td>boolean</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

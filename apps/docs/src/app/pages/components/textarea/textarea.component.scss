@@ -1,0 +1,196 @@
+@use '../../../../tokens.scss' as tokens;
+@use '../../../../typography.mixins.scss' as typography;
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+  padding: #{tokens.$spacing-layout-md} 0 0;
+  background: tokens.$color-background-default;
+  border-bottom: 2px solid tokens.$color-border-subtle;
+}
+
+.section-tabs a {
+  @include typography.typography-label-md;
+  text-decoration: none;
+  color: tokens.$color-foreground-default;
+  padding: 6px 4px 12px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-weight: tokens.$font-weight-regular;
+}
+
+.section-tabs a:hover {
+  color: tokens.$color-foreground-subtle;
+}
+
+.section-tabs a.active {
+  color: tokens.$color-accent-bold;
+  border-bottom-color: tokens.$color-accent-bold;
+  font-weight: tokens.$font-weight-bold;
+}
+
+.section-anchor {
+  scroll-margin-top: 0;
+}
+
+.section {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 4) 0 #{tokens.$spacing-layout-md};
+}
+
+.docs-h1 {
+  margin: 4px 0 8px;
+}
+
+.section-lead {
+  @include typography.typography-body-lg;
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.overview-lead {
+  @include typography.typography-body-xl;
+  margin: 0;
+  color: tokens.$color-foreground-default;
+}
+
+.section .docs-h2 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 10px;
+}
+
+.section .docs-h3 {
+  margin: calc(#{tokens.$spacing-layout-lg} * 2) 0 6px;
+}
+
+.overview-content + .section .docs-h2 {
+  margin-top: #{tokens.$spacing-layout-xl};
+}
+
+.docs-body {
+  @include typography.typography-body-md;
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.docs-list {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  padding-left: 18px;
+  @include typography.typography-body-md;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-lg};
+  margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.demo-box--preview {
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-md};
+  padding: #{tokens.$spacing-layout-lg} #{tokens.$spacing-layout-md};
+}
+
+.demo-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: #{tokens.$spacing-layout-md};
+}
+
+.demo-stack {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+  width: min(720px, 100%);
+}
+
+.demo-stack--states {
+  width: min(840px, 100%);
+}
+
+.demo-field {
+  display: grid;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.demo-field label {
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.demo-help {
+  @include typography.typography-body-sm;
+  margin: 0;
+  color: tokens.$color-foreground-subtle;
+}
+
+.demo-help--error {
+  color: tokens.$color-foreground-error;
+}
+
+.demo-textarea {
+  resize: vertical;
+}
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: #{tokens.$spacing-layout-md};
+  margin-bottom: #{tokens.$spacing-layout-lg};
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-default;
+}
+
+.mapping-table th,
+.mapping-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid tokens.$color-border-subtle;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.mapping-table thead th {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}
+
+@media (max-width: 900px) {
+  .section-tabs {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .demo-box--preview {
+    padding: #{tokens.$spacing-layout-md};
+  }
+}
