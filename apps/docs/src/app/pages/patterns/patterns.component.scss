@@ -72,6 +72,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  justify-content: start;
 }
 
 .pattern-card {
@@ -86,6 +87,8 @@
   border: 1px solid rgba(tokens.$color-border-subtle, 0.7);
   box-shadow: 0 4px 12px rgba(tokens.$color-gray-900, 0.04);
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  max-width: 320px;
+  width: 100%;
 }
 
 .pattern-card:hover {
