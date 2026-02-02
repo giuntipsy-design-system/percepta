@@ -71,7 +71,7 @@
 .pattern-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
 .pattern-card {
@@ -82,15 +82,62 @@
   border: none;
   text-decoration: none;
   color: tokens.$color-foreground-static-dark;
-  background: tokens.$color-background-subtle;
+  background: tokens.$color-background-default;
+  border: 1px solid rgba(tokens.$color-border-subtle, 0.7);
+  box-shadow: 0 4px 12px rgba(tokens.$color-gray-900, 0.04);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .pattern-card:hover {
-  background: tokens.$color-background-subtle;
+  background: tokens.$color-background-default;
+  border-color: tokens.$color-accent-moderate;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(tokens.$color-gray-900, 0.07);
+}
+
+.card-visual {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  height: 42px;
+  margin-bottom: 6px;
+}
+
+.card-visual span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: tokens.$color-background-default;
+  border: 1px solid tokens.$color-border-subtle;
+  box-shadow: 0 3px 8px rgba(tokens.$color-gray-900, 0.06);
+}
+
+.card-visual--pattern span:nth-child(1) {
+  width: 48px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.card-visual--pattern span:nth-child(2) {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: tokens.$color-accent-moderate;
+  border: none;
+}
+
+.card-visual--pattern span:nth-child(3) {
+  width: 32px;
+  height: 10px;
+  border-radius: 999px;
 }
 
 .card-title {
-  @include typography.typography-label-lg;
+  @include typography.typography-heading-h3;
+  margin: 0 0 2px;
 }
 
 .card-desc {

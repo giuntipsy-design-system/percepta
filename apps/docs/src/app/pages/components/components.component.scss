@@ -2,12 +2,8 @@
 @use '../../../typography.mixins.scss' as typography;
 
 .page {
-  display: grid;
-  gap: 20px;
-  padding: 24px;
-  background: tokens.$color-background-default;
-  border-radius: 16px;
-  border: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .eyebrow {
@@ -18,21 +14,46 @@
   margin: 0;
 }
 
-h2 {
-  @include typography.typography-heading-h2;
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 3) 0 #{tokens.$spacing-layout-md};
+}
+
+.docs-h1 {
   margin: 4px 0 8px;
 }
 
-p {
-  @include typography.typography-body-md;
+.overview-lead {
+  @include typography.typography-body-xl;
   margin: 0;
-  color: tokens.$color-gray-600;
+  color: tokens.$color-foreground-default;
+}
+
+.section {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
+}
+
+.docs-h2 {
+  @include typography.typography-heading-h3;
+  margin: 0 0 10px;
+}
+
+.docs-body {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
 }
 
 .component-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
 .component-card {
@@ -43,15 +64,139 @@ p {
   border: none;
   text-decoration: none;
   color: tokens.$color-foreground-static-dark;
-  background: tokens.$color-background-subtle;
+  background: tokens.$color-background-default;
+  border: 1px solid rgba(tokens.$color-border-subtle, 0.7);
+  box-shadow: 0 4px 12px rgba(tokens.$color-gray-900, 0.04);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .component-card:hover {
+  background: tokens.$color-background-default;
+  border-color: tokens.$color-accent-moderate;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(tokens.$color-gray-900, 0.07);
+}
+
+.card-visual {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  height: 42px;
+  margin-bottom: 6px;
+}
+
+.card-visual span {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: tokens.$color-background-default;
+  border: 1px solid tokens.$color-border-subtle;
+  box-shadow: 0 3px 8px rgba(tokens.$color-gray-900, 0.06);
+}
+
+.card-visual--button span:first-child {
+  width: 60px;
+  height: 18px;
+  border-radius: 999px;
+  background: tokens.$color-accent-tinted;
+  border-color: transparent;
+}
+
+.card-visual--button span:last-child {
+  width: 40px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.card-visual--checkbox span:first-child {
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(tokens.$color-accent-moderate, 0.2), transparent),
+    tokens.$color-background-default;
+}
+
+.card-visual--checkbox span:last-child {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background: tokens.$color-accent-moderate;
+  border: none;
+}
+
+.card-visual--icon span:first-child {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: tokens.$color-accent-tinted;
+  border-color: transparent;
+}
+
+.card-visual--icon span:last-child {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+}
+
+.card-visual--input span:first-child {
+  width: 72px;
+  height: 16px;
+  border-radius: 999px;
+}
+
+.card-visual--input span:last-child {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
   background: tokens.$color-background-subtle;
 }
 
+.card-visual--select span:first-child {
+  width: 66px;
+  height: 16px;
+  border-radius: 999px;
+}
+
+.card-visual--select span:last-child {
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.card-visual--switch span:first-child {
+  width: 52px;
+  height: 18px;
+  border-radius: 999px;
+  background: tokens.$color-background-default;
+}
+
+.card-visual--switch span:last-child {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: tokens.$color-accent-moderate;
+  border: none;
+  margin-left: -14px;
+}
+
+.card-visual--textarea span:first-child {
+  width: 76px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.card-visual--textarea span:last-child {
+  width: 50px;
+  height: 8px;
+  border-radius: 999px;
+}
+
 .card-title {
-  @include typography.typography-label-lg;
+  @include typography.typography-heading-h3;
+  margin: 0 0 2px;
 }
 
 .card-desc {
