@@ -143,13 +143,20 @@
 .app-shell--prototype .layout-shell {
   padding: 0;
   max-width: none;
+  height: 100vh;
 }
 
 .app-shell--prototype .app-content {
   padding: 0;
   margin-right: 0;
-  height: auto;
+  height: 100vh;
   overflow: visible;
+}
+
+.app-shell--prototype .content-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
 }
 
 .app-nav {

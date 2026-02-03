@@ -1,29 +1,41 @@
 <!-- vol-login.component.html -->
 <div class="vol-login">
-
-  <header class="vol-login__header">
+  <section class="vol-login__media" aria-hidden="true">
+    <div class="vol-login__media-heading">
+      <h2 class="vol-login__media-title">Where science meets people.</h2>
+    </div>
     <img
-      src="assets/vol/logo-vol.svg"
-      alt="VOL"
-      class="vol-login__logo"
+      src="assets/vol/login-star.webp"
+      alt=""
+      class="vol-login__media-image"
+      loading="lazy"
+      decoding="async"
     />
-  </header>
+  </section>
 
-  <main class="vol-login__card">
-    <div class="vol-login__form">
-      <gp-input
-        label="Usuário"
-        placeholder="Digite seu usuário"
-      ></gp-input>
+  <section class="vol-login__panel">
+    <header class="vol-login__header">
+      <img
+        src="assets/vol/logo-vol.svg"
+        alt="VOL"
+        class="vol-login__logo"
+      />
+    </header>
 
-      <gp-input
-        label="Senha"
-        type="password"
-        placeholder="Digite sua senha"
-      ></gp-input>
+    <main class="vol-login__card">
+      <div class="vol-login__form">
+        <h3 class="vol-login__intro">Acesse sua conta</h3>
+        <gp-input
+          label="Usuário"
+          size="large"
+        ></gp-input>
 
-      <div class="vol-login__actions">
-        <gp-button class="vol-login__submit" label="Entrar"></gp-button>
+        <gp-input
+          label="Senha"
+          type="password"
+          size="large"
+        ></gp-input>
+
         <div class="vol-login__links">
           <a href="#" class="vol-login__link">
             Esqueceu seu usuário?
@@ -32,8 +44,25 @@
             Esqueceu sua senha?
           </a>
         </div>
-      </div>
-    </div>
-  </main>
 
+        <div class="vol-login__actions">
+          <gp-button class="vol-login__submit" label="Entrar" size="large"></gp-button>
+        </div>
+      </div>
+    </main>
+
+    <div class="vol-login__footer">
+      <p>
+        VOL é um produto da Vetor Editora,<br />
+        empresa do grupo
+        <a
+          href="https://corporate.giuntipsy.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Giunti Psychometrics
+        </a>
+      </p>
+    </div>
+  </section>
 </div>

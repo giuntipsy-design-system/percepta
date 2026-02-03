@@ -1,24 +1,73 @@
 /* vol-login.component.scss */
 @use '../../../../../tokens.scss' as tokens;
+@use '../../../../../typography.mixins.scss' as typography;
 
 .vol-login {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: #{tokens.$spacing-layout-md};
-  background: var(--background-subtle);
-  padding: 24px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 0;
+  padding: #{tokens.$spacing-layout-lg} 0 #{tokens.$spacing-layout-lg} #{tokens.$spacing-layout-lg};
+  box-sizing: border-box;
 }
 
 .vol-login__header {
-  margin-bottom: #{tokens.$spacing-layout-xs};
+  position: static;
   text-align: center;
 }
 
 .vol-login__logo {
-  height: 104px;
+  height: 88px;
+}
+
+.vol-login__media {
+  position: relative;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.vol-login__media-heading {
+  position: absolute;
+  top: 6rem;
+  left: #{tokens.$spacing-layout-lg};
+  right: #{tokens.$spacing-layout-lg};
+  color: tokens.$color-foreground-static-light;
+  text-align: center;
+}
+
+.vol-login__media-title {
+  @include typography.typography-heading-h3;
+  font-size: clamp(1.4rem, 2.2vw + 0.6rem, 3.2rem);
+  line-height: 1.05;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1200px) {
+  .vol-login__media-title {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+.vol-login__media-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.vol-login__panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: stretch;
+  padding: #{tokens.$spacing-layout-xl};
+  height: 100%;
 }
 
 .vol-login__card {
@@ -28,17 +77,18 @@
   background: var(--surface-default);
   border-radius: 12px;
   box-shadow: var(--shadow-elevation-1);
+  margin: 0 auto;
+  align-self: center;
 }
 
 .vol-login__actions {
   display: grid;
-  gap: #{tokens.$spacing-layout-md};
   margin-top: #{tokens.$spacing-layout-lg};
 }
 
 .vol-login__link {
   font-size: 0.875rem;
-  color: var(--accent-primary);
+  color: tokens.$color-accent-moderate;
   text-decoration: none;
 }
 
@@ -49,6 +99,13 @@
 .vol-login__form {
   display: grid;
   gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-login__intro {
+  margin: 0 0 #{tokens.$spacing-layout-lg};
+  @include typography.typography-heading-h2;
+  color: tokens.$color-foreground-default;
+  text-align: center;
 }
 
 .vol-login__submit {
@@ -63,7 +120,72 @@
 
 .vol-login__links {
   display: flex;
-  flex-direction: column;
-  gap: #{tokens.$spacing-layout-xs};
-  align-items: flex-end;
+  justify-content: space-between;
+  gap: #{tokens.$spacing-layout-sm};
+  width: 100%;
+  margin-top: #{tokens.$spacing-layout-sm};
+}
+
+.vol-login__footer {
+  border-top: 1px solid tokens.$color-border-subtle;
+  padding-top: #{tokens.$spacing-layout-md};
+  text-align: center;
+  color: tokens.$color-foreground-subtle;
+  align-self: stretch;
+}
+
+.vol-login__footer p {
+  margin: 0;
+  @include typography.typography-body-sm;
+}
+
+.vol-login__footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .vol-login {
+    grid-template-columns: 1fr;
+    padding: #{tokens.$spacing-layout-lg};
+  }
+
+  .vol-login__media {
+    display: none;
+  }
+
+  .vol-login__panel {
+    padding: 0;
+    width: 100%;
+  }
+
+  .vol-login__media-heading {
+    top: 2.5rem;
+  }
+
+  .vol-login__media-title {
+    font-size: clamp(1.35rem, 3.2vw, 2.2rem);
+    max-width: 360px;
+  }
+
+  .vol-login__card {
+    margin: 0 auto;
+  }
+
+  .vol-login__footer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .vol-login__media-heading {
+    top: 2rem;
+    left: #{tokens.$spacing-layout-md};
+    right: #{tokens.$spacing-layout-md};
+  }
+
+  .vol-login__media-title {
+    font-size: clamp(1.25rem, 4.2vw, 1.9rem);
+    max-width: 300px;
+  }
 }
