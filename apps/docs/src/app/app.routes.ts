@@ -152,6 +152,13 @@ export const routes: Routes = [
           import('./pages/prototypes/VOL/login/vol-login.component')
             .then(m => m.VolLoginComponent),
         title: 'VOL Login Prototype · Percepta'
+      },
+      {
+        path: 'vol/home',
+        loadComponent: () =>
+          import('./pages/prototypes/VOL/home/vol-home.component')
+            .then(m => m.VolHomeComponent),
+        title: 'VOL Home Prototype · Percepta'
       }
     ]
   }

@@ -1,0 +1,187 @@
+@use '../../../../../tokens.scss' as tokens;
+@use '../../../../../typography.mixins.scss' as typography;
+
+.vol-home {
+  background: tokens.$color-background-default;
+  color: tokens.$color-foreground-default;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.vol-home__container {
+  max-width: 1728px;
+  margin: 0 auto;
+  width: 100%;
+  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-lg};
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-xl};
+  flex: 1 1 auto;
+}
+
+.vol-home__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__logo {
+  height: 56px;
+}
+
+.vol-home__header-actions {
+  display: flex;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__user {
+  display: flex;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
+.vol-home__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: tokens.$color-background-subtle;
+  color: tokens.$color-foreground-default;
+  display: grid;
+  place-items: center;
+  font-weight: tokens.$font-weight-bold;
+}
+
+.vol-home__user-name {
+  @include typography.typography-body-md;
+}
+
+.vol-home__layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: #{tokens.$spacing-layout-xl};
+  align-items: start;
+  flex: 1 1 auto;
+}
+
+.vol-home__sidebar {
+  position: sticky;
+  top: #{tokens.$spacing-layout-xl};
+}
+
+.vol-home__nav {
+  display: grid;
+  gap: #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__nav-group {
+  display: grid;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
+.vol-home__nav a {
+  @include typography.typography-body-sm;
+  text-decoration: none;
+  color: tokens.$color-foreground-subtle;
+  padding: #{tokens.$spacing-layout-xs} #{tokens.$spacing-layout-sm};
+  border-radius: #{tokens.$radius-sm};
+}
+
+.vol-home__nav a:hover {
+  background: tokens.$color-background-subtle;
+  color: tokens.$color-foreground-default;
+}
+
+.vol-home__content {
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-xl};
+}
+
+.vol-home__modules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__module {
+  background: tokens.$color-background-default;
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-md};
+  padding: #{tokens.$spacing-layout-lg};
+  box-shadow: 0 6px 16px rgba(tokens.$color-gray-900, 0.06);
+  min-height: 220px;
+}
+
+.vol-home__module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__module-header h2 {
+  @include typography.typography-heading-h4;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vol-home__module-body {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__placeholder {
+  height: 120px;
+  border-radius: #{tokens.$radius-sm};
+  border: 1px dashed tokens.$color-border-subtle;
+  background: tokens.$color-background-subtle;
+}
+
+.vol-home__banner {
+  border-radius: #{tokens.$radius-md};
+  border: 1px solid tokens.$color-border-subtle;
+  background: linear-gradient(120deg, rgba(tokens.$color-brand-200, 0.3), rgba(tokens.$color-brand-100, 0.6));
+  min-height: 160px;
+}
+
+.vol-home__banner-media {
+  height: 100%;
+}
+
+.vol-home__footer {
+  border-top: 1px solid tokens.$color-border-subtle;
+  padding: #{tokens.$spacing-layout-md} #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__footer-inner {
+  max-width: 1728px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-subtle;
+}
+
+@media (max-width: 1200px) {
+  .vol-home__layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .vol-home__modules {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .vol-home__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vol-home__sidebar {
+    position: static;
+  }
+}
