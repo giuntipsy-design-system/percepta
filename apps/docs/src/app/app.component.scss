@@ -18,6 +18,15 @@
   overflow: hidden;
 }
 
+.app-shell--prototype {
+  --app-header-height: 0px;
+}
+
+.app-shell--prototype {
+  background-color: transparent;
+  background-image: none;
+}
+
 .app-shell--home .layout-shell {
   position: relative;
   z-index: 1;
@@ -127,6 +136,18 @@
 .layout-shell--no-nav {
   grid-template-columns: minmax(0, 1fr);
   column-gap: 0;
+  height: auto;
+  overflow: visible;
+}
+
+.app-shell--prototype .layout-shell {
+  padding: 0;
+  max-width: none;
+}
+
+.app-shell--prototype .app-content {
+  padding: 0;
+  margin-right: 0;
   height: auto;
   overflow: visible;
 }

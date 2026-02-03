@@ -1,5 +1,13 @@
-<div class="app-shell" [class.app-shell--home]="isHomePage">
-  <header class="app-header" [class.app-header--scrolled]="hasScrolled">
+<div
+  class="app-shell"
+  [class.app-shell--home]="isHomePage"
+  [class.app-shell--prototype]="isPrototypePage"
+>
+  <header
+    *ngIf="!isPrototypePage"
+    class="app-header"
+    [class.app-header--scrolled]="hasScrolled"
+  >
     <div class="header-inner">
       <div class="app-brand">
         <a class="brand-link" routerLink="/">
@@ -30,8 +38,11 @@
     </div>
   </header>
 
-  <div class="layout-shell" [class.layout-shell--no-nav]="isHomePage || isChangelogPage || isAccessibilityPage">
-    <nav class="app-nav" *ngIf="!isHomePage && !isChangelogPage && !isAccessibilityPage">
+  <div
+    class="layout-shell"
+    [class.layout-shell--no-nav]="isHomePage || isChangelogPage || isAccessibilityPage || isPrototypePage"
+  >
+    <nav class="app-nav" *ngIf="!isHomePage && !isChangelogPage && !isAccessibilityPage && !isPrototypePage">
       <ng-container *ngIf="isGettingStartedPage; else nonGettingStartedNav">
         <span class="nav-title">Getting started</span>
         <a
@@ -109,7 +120,7 @@
         <ng-container *ngIf="isPrimeBaseline">
           <router-outlet></router-outlet>
         </ng-container>
-        <footer class="app-footer">
+        <footer class="app-footer" *ngIf="!isPrototypePage">
           <div class="footer-inner">
             <span>Percepta Design System</span>
             <span class="footer-meta">

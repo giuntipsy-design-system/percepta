@@ -1,0 +1,69 @@
+/* vol-login.component.scss */
+@use '../../../../../tokens.scss' as tokens;
+
+.vol-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: #{tokens.$spacing-layout-md};
+  background: var(--background-subtle);
+  padding: 24px;
+}
+
+.vol-login__header {
+  margin-bottom: #{tokens.$spacing-layout-xs};
+  text-align: center;
+}
+
+.vol-login__logo {
+  height: 104px;
+}
+
+.vol-login__card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 32px 32px;
+  background: var(--surface-default);
+  border-radius: 12px;
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.vol-login__actions {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+  margin-top: #{tokens.$spacing-layout-lg};
+}
+
+.vol-login__link {
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.vol-login__link:hover {
+  text-decoration: underline;
+}
+
+.vol-login__form {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-login__submit {
+  display: block;
+  width: 100%;
+}
+
+.vol-login__submit ::ng-deep .p-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.vol-login__links {
+  display: flex;
+  flex-direction: column;
+  gap: #{tokens.$spacing-layout-xs};
+  align-items: flex-end;
+}

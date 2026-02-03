@@ -142,5 +142,17 @@ export const routes: Routes = [
     path: 'changelog',
     component: ChangelogComponent,
     title: 'Changelog · Percepta'
+  },
+  {
+    path: 'prototypes',
+    children: [
+      {
+        path: 'vol/login',
+        loadComponent: () =>
+          import('./pages/prototypes/VOL/login/vol-login.component')
+            .then(m => m.VolLoginComponent),
+        title: 'VOL Login Prototype · Percepta'
+      }
+    ]
   }
 ];

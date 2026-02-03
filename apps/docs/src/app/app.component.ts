@@ -99,6 +99,10 @@ export class AppComponent {
     return this.router.url.startsWith('/prime-baseline');
   }
 
+  get isPrototypePage(): boolean {
+    return this.router.url.startsWith('/prototypes');
+  }
+
   @HostListener('window:scroll')
   onWindowScroll(): void {
     if (!this.isHomePage) {
