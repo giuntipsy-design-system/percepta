@@ -130,7 +130,7 @@
   border-top: 1px solid tokens.$color-border-subtle;
   padding-top: #{tokens.$spacing-layout-md};
   text-align: center;
-  color: tokens.$color-foreground-subtle;
+  color: tokens.$color-foreground-default;
   align-self: stretch;
 }
 
@@ -140,8 +140,8 @@
 }
 
 .vol-login__footer a {
-  color: inherit;
-  text-decoration: underline;
+  color: tokens.$color-accent-moderate;
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {
