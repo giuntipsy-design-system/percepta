@@ -234,14 +234,104 @@ h3 {
   color: tokens.$color-accent-vibrant;
 }
 
-.gp-button--icon {
-  padding-left: 0;
-  padding-right: 0;
-  min-width: calc(1em + (var(--gp-button-padding-y) * 2));
-}
-
 .gp-button--icon-right {
   flex-direction: row-reverse;
+}
+
+/* Icon + label sizing per button size */
+.gp-button.gp-button--sm:not(.button--icon-only) .gp-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.gp-button.gp-button--sm:not(.button--icon-only) .gp-icon {
+  width: #{tokens.$icon-size-sm};
+  height: #{tokens.$icon-size-sm};
+}
+
+.gp-button:not(.button--icon-only) .gp-icon {
+  width: #{tokens.$icon-size-md};
+  height: #{tokens.$icon-size-md};
+}
+
+.gp-button.gp-button--lg:not(.button--icon-only) .gp-icon {
+  width: #{tokens.$icon-size-lg};
+  height: #{tokens.$icon-size-lg};
+}
+
+/* Icon + label gap (fixed per size) */
+.gp-button:not(.button--icon-only) {
+  --gp-button-gap: #{tokens.$spacing-control-icon-gap-md};
+}
+
+.gp-button.gp-button--sm:not(.button--icon-only) {
+  --gp-button-gap: #{tokens.$spacing-control-icon-gap-sm};
+}
+
+/* =====================================================
+   ICON-ONLY BUTTONS — FINAL TUNING
+   ===================================================== */
+/* Base: icon-only buttons are square and centered */
+.button--icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-width: 0;
+  line-height: 0;
+}
+
+/* -------------------------------
+   Button sizes (fixed)
+   ------------------------------- */
+
+/* LARGE */
+.button--icon-only.button--large {
+  width: #{tokens.$spacing-control-icon-only-lg};
+  height: #{tokens.$spacing-control-icon-only-lg};
+}
+
+.button--icon-only.button--large .gp-icon {
+  width: #{tokens.$icon-size-xl};
+  height: #{tokens.$icon-size-xl};
+}
+
+/* MEDIUM */
+.button--icon-only.button--medium {
+  width: #{tokens.$spacing-control-icon-only-md};
+  height: #{tokens.$spacing-control-icon-only-md};
+}
+
+.button--icon-only.button--medium .gp-icon {
+  width: #{tokens.$icon-size-lg};
+  height: #{tokens.$icon-size-lg};
+}
+
+/* SMALL */
+.button--icon-only.button--small {
+  width: #{tokens.$spacing-control-icon-only-sm};
+  height: #{tokens.$spacing-control-icon-only-sm};
+}
+
+.button--icon-only.button--small .gp-icon {
+  width: #{tokens.$icon-size-md};
+  height: #{tokens.$icon-size-md};
+}
+
+/* -------------------------------
+   Optical alignment
+   ------------------------------- */
+.button--icon-only gp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.button--icon-only .gp-icon {
+  display: block;
+  line-height: 0;
+  transform: translateY(0);
 }
 
 .demo-code {

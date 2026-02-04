@@ -3,6 +3,12 @@
     "xs": { "value": "0.825rem" },
     "sm": { "value": "0.95rem" },
     "md": { "value": "1.05rem" },
-    "lg": { "value": "1.15rem" }
+    "lg": { "value": "1.15rem" },
+    "size": {
+      "sm": { "value": "0.875rem" },
+      "md": { "value": "1rem" },
+      "lg": { "value": "1.125rem" },
+      "xl": { "value": "1.375rem" }
+    }
   }
 }

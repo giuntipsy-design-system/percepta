@@ -228,6 +228,25 @@
     <p class="docs-body">
       Buttons should make the outcome obvious through variant, label, and placement.
     </p>
+    <h4 class="docs-h3">Icon-only sizes</h4>
+    <p class="docs-body">
+      Icon-only buttons follow the same sizing scale as standard buttons.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row">
+        <gp-button size="small" variant="secondary" icon="search" [iconOnly]="true" ariaLabel="Search small"></gp-button>
+        <gp-button size="medium" variant="secondary" icon="search" [iconOnly]="true" ariaLabel="Search medium"></gp-button>
+        <gp-button size="large" variant="secondary" icon="search" [iconOnly]="true" ariaLabel="Search large"></gp-button>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
+      <div class="demo-code-panel">
+      <pre class="code-block"><code>&lt;gp-button size=&quot;small&quot; variant=&quot;secondary&quot; icon=&quot;search&quot; [iconOnly]=&quot;true&quot; ariaLabel=&quot;Search small&quot; /&gt;
+&lt;gp-button size=&quot;medium&quot; variant=&quot;secondary&quot; icon=&quot;search&quot; [iconOnly]=&quot;true&quot; ariaLabel=&quot;Search medium&quot; /&gt;
+&lt;gp-button size=&quot;large&quot; variant=&quot;secondary&quot; icon=&quot;search&quot; [iconOnly]=&quot;true&quot; ariaLabel=&quot;Search large&quot; /&gt;</code></pre>
+      </div>
+    </details>
     <h4 class="docs-h3">Icon-only</h4>
     <p class="docs-body">
       Use icon-only buttons for compact actions where the meaning is universally recognized.
@@ -353,6 +372,41 @@
           <td>Label · control-lg · Regular</td>
           <td>Icon · icon.lg</td>
           <td>Gap · spacing.control.x-md</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4 class="docs-h3">Icon and gap sizing</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Icon + label icon</th>
+          <th>Icon + label gap</th>
+          <th>Icon-only button</th>
+          <th>Icon-only icon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small</td>
+          <td>14px (icon.size.sm)</td>
+          <td>6px (spacing.control.iconGap.sm)</td>
+          <td>32px (spacing.control.iconOnly.sm)</td>
+          <td>16px (icon.size.md)</td>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>16px (icon.size.md)</td>
+          <td>8px (spacing.control.iconGap.md)</td>
+          <td>40px (spacing.control.iconOnly.md)</td>
+          <td>18px (icon.size.lg)</td>
+        </tr>
+        <tr>
+          <td>Large</td>
+          <td>18px (icon.size.lg)</td>
+          <td>8px (spacing.control.iconGap.md)</td>
+          <td>48px (spacing.control.iconOnly.lg)</td>
+          <td>22px (icon.size.xl)</td>
         </tr>
       </tbody>
     </table>

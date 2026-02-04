@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, ContentChild, EventEmitter, HostBinding, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { GpIconComponent } from '../icon/gp-icon.component';
 
@@ -32,23 +32,43 @@ export class GpButtonComponent implements OnChanges {
 
   hasProjectedContent = false;
 
+  @HostBinding('class.button--small')
+  get isSmall(): boolean {
+    return this.size === 'small';
+  }
+
+  @HostBinding('class.button--medium')
+  get isMedium(): boolean {
+    return this.size === 'medium';
+  }
+
+  @HostBinding('class.button--large')
+  get isLarge(): boolean {
+    return this.size === 'large';
+  }
+
+  @HostBinding('class.button--icon-only')
+  get isIconOnly(): boolean {
+    return this.iconOnly;
+  }
+
   @ContentChild(GpIconComponent)
   set projectedIcon(value: GpIconComponent | undefined) {
     this.hasProjectedContent = !!value;
   }
 
   get buttonClass(): string {
-    let sizeClass = '';
+    let sizeClass = 'button--medium';
     const variantClass = this.variant === 'ghost' ? 'tertiary' : this.variant;
 
     if (this.size === 'small') {
-      sizeClass = 'gp-button--sm p-button-sm';
+      sizeClass = 'gp-button--sm p-button-sm button--small';
     } else if (this.size === 'large') {
-      sizeClass = 'gp-button--lg p-button-lg';
+      sizeClass = 'gp-button--lg p-button-lg button--large';
     }
     const stateClass = this.demo && this.state !== 'default' ? `is-${this.state}` : '';
     const hasIcon = Boolean(this.icon) || this.hasProjectedContent;
-    const iconOnlyClass = hasIcon && (this.iconOnly || !this.label) ? 'gp-button--icon' : '';
+    const iconOnlyClass = hasIcon && (this.iconOnly || !this.label) ? 'button--icon-only' : '';
     const iconRightClass =
       this.icon && !iconOnlyClass && this.iconPosition === 'trailing' ? 'gp-button--icon-right' : '';
     return [
