@@ -14,6 +14,7 @@
 .vol-login__header {
   position: static;
   text-align: center;
+  margin-top: #{tokens.$spacing-layout-lg};
 }
 
 .vol-login__logo {
