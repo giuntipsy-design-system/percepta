@@ -138,6 +138,7 @@
 .vol-login__footer p {
   margin: 0;
   @include typography.typography-body-sm;
+  white-space: nowrap;
 }
 
 .vol-login__footer a {
@@ -175,6 +176,10 @@
 
   .vol-login__footer {
     width: 100%;
+  }
+
+  .vol-login__footer p {
+    white-space: normal;
   }
 }
 
