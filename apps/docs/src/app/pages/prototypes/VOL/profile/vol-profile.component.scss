@@ -31,6 +31,15 @@
   height: 72px;
 }
 
+.vol-profile__logo-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .vol-profile__header-actions {
   display: flex;
   align-items: center;

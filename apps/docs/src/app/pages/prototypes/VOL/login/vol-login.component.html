@@ -46,7 +46,12 @@
         </div>
 
         <div class="vol-login__actions">
-          <gp-button class="vol-login__submit" label="Entrar" size="large"></gp-button>
+          <gp-button
+            class="vol-login__submit"
+            label="Entrar"
+            size="large"
+            (clicked)="goToHome()"
+          ></gp-button>
         </div>
       </div>
     </main>

@@ -6,6 +6,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SelectModule } from 'primeng/select';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { Router } from '@angular/router';
 import { GpButtonComponent } from '../../../../../../../shared/components/button/gp-button.component';
 import { GpIconComponent } from '../../../../../../../shared/components/icon/gp-icon.component';
 import { GpInputComponent } from '../../../../../../../shared/components/input/gp-input.component';
@@ -28,6 +29,12 @@ import { GpInputComponent } from '../../../../../../../shared/components/input/g
   styleUrls: ['./vol-profile.component.scss']
 })
 export class VolProfileComponent {
+  constructor(private readonly router: Router) {}
+
+  goToHome(): void {
+    this.router.navigateByUrl('/prototypes/vol/home');
+  }
+
   userTypeOptions = [
     { label: 'Profissional', value: 'Profissional' },
     { label: 'Profissional Responsável', value: 'Profissional Responsável' }

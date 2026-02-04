@@ -3,11 +3,18 @@
 <section class="vol-profile">
   <div class="vol-profile__container">
     <header class="vol-profile__header">
-      <img
-        src="assets/vol/logo-vol.svg"
-        alt="VOL"
-        class="vol-profile__logo"
-      />
+      <button
+        type="button"
+        class="vol-profile__logo-button"
+        aria-label="Ir para a home"
+        (click)="goToHome()"
+      >
+        <img
+          src="assets/vol/logo-vol.svg"
+          alt="VOL"
+          class="vol-profile__logo"
+        />
+      </button>
       <div class="vol-profile__header-actions">
         <gp-button
           variant="text"
