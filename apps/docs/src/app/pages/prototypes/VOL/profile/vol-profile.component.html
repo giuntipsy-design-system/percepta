@@ -1,0 +1,219 @@
+<!-- vol-profile.component.html -->
+
+<section class="vol-profile">
+  <div class="vol-profile__container">
+    <header class="vol-profile__header">
+      <img
+        src="assets/vol/logo-vol.svg"
+        alt="VOL"
+        class="vol-profile__logo"
+      />
+      <div class="vol-profile__header-actions">
+        <gp-button
+          variant="text"
+          [iconOnly]="true"
+          ariaLabel="Ajuda"
+          size="large"
+        >
+          <gp-icon name="help" [decorative]="true"></gp-icon>
+        </gp-button>
+        <gp-button
+          variant="text"
+          [iconOnly]="true"
+          ariaLabel="Notificações"
+          size="large"
+        >
+          <gp-icon name="bell" [decorative]="true"></gp-icon>
+        </gp-button>
+        <div class="vol-profile__user">
+          <div class="vol-profile__user-meta">
+            <div class="vol-profile__user-name">Mariana Lopes</div>
+            <div class="vol-profile__user-role">Profissional Responsável</div>
+          </div>
+          <gp-icon name="chevron-down" [decorative]="true"></gp-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="vol-profile__layout">
+      <aside class="vol-profile__sidebar">
+        <nav class="vol-profile__nav">
+          <div class="vol-profile__nav-group">
+            <span class="vol-profile__nav-label">Pessoas e Acesso</span>
+            <a href="#">Usuários</a>
+            <a href="#">Licenças</a>
+          </div>
+          <div class="vol-profile__nav-group">
+            <span class="vol-profile__nav-label">Organizações</span>
+            <a href="#">Empresas</a>
+            <a href="#">Cargos</a>
+            <a href="#">Avaliações</a>
+            <a href="#">Avaliados</a>
+          </div>
+          <div class="vol-profile__nav-group">
+            <span class="vol-profile__nav-label">Conteúdo Avaliativo</span>
+            <a href="#">Baterias</a>
+            <a href="#">Guias e Modelos</a>
+          </div>
+          <div class="vol-profile__nav-group">
+            <span class="vol-profile__nav-label">Resultados e Dados</span>
+            <a href="#">Importar respostas</a>
+            <a href="#">Exportar resultados</a>
+          </div>
+          <div class="vol-profile__nav-group vol-profile__nav-group--help">
+            <a href="#">Ajuda</a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="vol-profile__content">
+        <div class="vol-profile__content-header">
+          <h1>Perfil do usuário</h1>
+          <div class="vol-profile__primary-action">
+            <gp-button variant="primary" size="medium" label="Salvar alterações"></gp-button>
+          </div>
+        </div>
+
+        <section class="vol-card vol-section">
+          <div class="vol-section__intro">
+            <header class="vol-card__header">
+              <h2>Identidade pessoal</h2>
+            </header>
+            <p class="vol-section__description">
+              Estes são os dados pessoais do usuário. Você pode atualizar seu login,
+              que é o identificador usado para acessar a plataforma.
+            </p>
+          </div>
+          <div class="vol-section__body">
+            <div class="vol-form-grid vol-form-grid--2">
+              <gp-input label="Nome" value="Sergio"></gp-input>
+              <gp-input label="E-mail" value="sortegasa@gmail.com"></gp-input>
+              <gp-input label="Login" value="sortegasa"></gp-input>
+              <gp-input label="Telefone"></gp-input>
+            </div>
+          </div>
+        </section>
+
+        <section class="vol-card vol-section">
+          <div class="vol-section__intro">
+            <header class="vol-card__header">
+              <h2>Perfil profissional</h2>
+            </header>
+            <p class="vol-section__description">
+              Defina o papel profissional e o vínculo com a região. Essas informações
+              ajudam a configurar permissões e relatórios.
+            </p>
+          </div>
+          <div class="vol-section__body">
+            <div class="vol-form-grid vol-form-grid--2">
+            <div class="vol-field">
+              <div class="vol-radio-group" role="radiogroup" aria-label="Tipo de usuário">
+                <div class="vol-radio-option">
+                  <p-radioButton
+                    inputId="profile-user-type-prof"
+                    name="userType"
+                    value="Profissional"
+                    [(ngModel)]="userType"
+                  ></p-radioButton>
+                  <label for="profile-user-type-prof">Profissional</label>
+                </div>
+                <div class="vol-radio-option">
+                  <p-radioButton
+                    inputId="profile-user-type-resp"
+                    name="userType"
+                    value="Profissional Responsável"
+                    [(ngModel)]="userType"
+                  ></p-radioButton>
+                  <label for="profile-user-type-resp">Profissional Responsável</label>
+                </div>
+              </div>
+            </div>
+            <div class="vol-field">
+              <label class="vol-field__label" for="profile-region">Região</label>
+              <p-select
+                inputId="profile-region"
+                styleClass="vol-select"
+                [options]="regionOptions"
+                optionLabel="label"
+                [(ngModel)]="region"
+              ></p-select>
+            </div>
+            <gp-input label="CRP" value="123456789"></gp-input>
+            <div class="vol-field">
+              <div class="vol-checkbox-row">
+                <p-checkbox
+                  inputId="profile-psychologist"
+                  binary="true"
+                  [(ngModel)]="psychologist"
+                ></p-checkbox>
+                <label for="profile-psychologist">Sou psicólogo</label>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <section class="vol-card vol-section">
+          <div class="vol-section__intro">
+            <header class="vol-card__header">
+              <h2>Segurança</h2>
+            </header>
+            <p class="vol-section__description">
+              Atualize sua senha quando necessário. Ao salvar, será preciso entrar
+              novamente na plataforma.
+            </p>
+          </div>
+          <div class="vol-section__body">
+            <div class="vol-form-grid vol-form-grid--2">
+              <gp-input type="password" label="Alterar senha"></gp-input>
+
+              <gp-input type="password" label="Confirmar senha"></gp-input>
+            </div>
+          </div>
+        </section>
+
+        <section class="vol-card vol-section">
+          <div class="vol-section__intro">
+            <header class="vol-card__header">
+              <h2>Configurações avançadas</h2>
+            </header>
+            <p class="vol-section__description">
+              Ajustes opcionais para integrações técnicas. Use apenas se sua equipe
+              indicar necessidade.
+            </p>
+          </div>
+          <div class="vol-section__body">
+            <div class="vol-form-grid vol-form-grid--2">
+              <gp-input label="API Endpoint"></gp-input>
+              <div class="vol-field">
+                <div class="vol-switch-row">
+                  <p-toggleSwitch
+                    inputId="profile-endpoint-auto"
+                    [(ngModel)]="endpointAuto"
+                  ></p-toggleSwitch>
+                  <label for="profile-endpoint-auto">
+                    Acionar endpoint automaticamente
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="vol-profile__primary-action vol-profile__primary-action--bottom">
+          <gp-button variant="primary" size="medium" label="Salvar alterações"></gp-button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="vol-profile__footer">
+    <div class="vol-profile__footer-inner">
+      <span>VOL · Vetor Online</span>
+      <div class="vol-profile__footer-links">
+        <a href="#">TCLE da VOL</a>
+        <a href="#">Política de privacidade</a>
+      </div>
+      <span>© 2026 Giunti Psychometrics</span>
+    </div>
+  </footer>
+</section>
