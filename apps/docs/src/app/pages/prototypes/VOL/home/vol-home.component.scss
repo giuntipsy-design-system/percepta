@@ -13,7 +13,7 @@
   max-width: 1728px;
   margin: 0 auto;
   width: 100%;
-  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-lg};
+  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-xxl};
   display: flex;
   flex-direction: column;
   gap: #{tokens.$spacing-layout-xl};
@@ -41,6 +41,10 @@
   display: flex;
   align-items: center;
   gap: #{tokens.$spacing-layout-sm};
+  padding: #{tokens.$spacing-layout-xs} #{tokens.$spacing-layout-sm};
+  border-radius: #{tokens.$radius-sm};
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .vol-home__avatar {
@@ -56,6 +60,15 @@
 
 .vol-home__user-name {
   @include typography.typography-body-md;
+}
+
+.vol-home__user:hover {
+  background: tokens.$color-background-muted;
+}
+
+.vol-home__user:focus-visible {
+  outline: 2px solid tokens.$color-accent-moderate;
+  outline-offset: 2px;
 }
 
 .vol-home__layout {
@@ -81,11 +94,27 @@
   gap: #{tokens.$spacing-layout-sm};
 }
 
-.vol-home__nav a {
-  @include typography.typography-body-sm;
-  text-decoration: none;
+.vol-home__nav-group--help {
+  padding-top: #{tokens.$spacing-layout-md};
+  border-top: 1px solid tokens.$color-border-subtle;
+}
+
+.vol-home__nav-label {
+  @include typography.typography-label-md;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: tokens.$color-foreground-subtle;
   padding: #{tokens.$spacing-layout-xs} #{tokens.$spacing-layout-sm};
+  border-top: 1px solid tokens.$color-border-subtle;
+  margin-top: #{tokens.$spacing-layout-md};
+  padding-top: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__nav a {
+  @include typography.typography-body-md;
+  text-decoration: none;
+  color: tokens.$color-foreground-default;
+  padding: #{tokens.$spacing-layout-sm} #{tokens.$spacing-layout-md};
   border-radius: #{tokens.$radius-sm};
 }
 
@@ -162,8 +191,19 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   @include typography.typography-body-sm;
   color: tokens.$color-foreground-subtle;
+}
+
+.vol-home__footer-links {
+  display: flex;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__footer-links a {
+  color: tokens.$color-accent-moderate;
+  text-decoration: none;
 }
 
 @media (max-width: 1200px) {
