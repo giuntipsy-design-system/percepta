@@ -28,7 +28,7 @@
 }
 
 .vol-home__logo {
-  height: 56px;
+  height: 72px;
 }
 
 .vol-home__header-actions {
@@ -47,23 +47,22 @@
   transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 
-.vol-home__avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: tokens.$color-background-subtle;
-  color: tokens.$color-foreground-default;
+.vol-home__user-meta {
   display: grid;
-  place-items: center;
-  font-weight: tokens.$font-weight-bold;
+  gap: 2px;
 }
 
 .vol-home__user-name {
   @include typography.typography-body-md;
 }
 
+.vol-home__user-role {
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-subtle;
+}
+
 .vol-home__user:hover {
-  background: tokens.$color-background-muted;
+  background: tokens.$color-background-subtle;
 }
 
 .vol-home__user:focus-visible {
@@ -129,6 +128,11 @@
   gap: #{tokens.$spacing-layout-xl};
 }
 
+.vol-home__content-header h1 {
+  @include typography.typography-heading-h2;
+  margin: 0;
+}
+
 .vol-home__modules {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -183,7 +187,7 @@
 
 .vol-home__footer {
   border-top: 1px solid tokens.$color-border-subtle;
-  padding: #{tokens.$spacing-layout-md} #{tokens.$spacing-layout-lg};
+  padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-lg};
 }
 
 .vol-home__footer-inner {
