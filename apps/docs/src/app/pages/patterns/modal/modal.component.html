@@ -1,0 +1,141 @@
+<section class="page">
+  <header class="doc-card doc-card--intro">
+    <p class="eyebrow">Pattern</p>
+    <h2 class="docs-h1">Modal</h2>
+    <p class="overview-lead">
+      A modal interrupts the primary flow to demand attention and an explicit decision.
+    </p>
+    <p class="overview-lead">
+      It should be used with intention and moderation because it changes hierarchy, focus, and the
+      perception of risk.
+    </p>
+    <p class="overview-lead">
+      Modals also support error prevention for actions that could trigger irreversible outcomes
+      without a possible rollback.
+    </p>
+  </header>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">When to use a modal</h3>
+    <p class="docs-body">
+      Use a modal when an action requires immediate attention or a focused decision.
+    </p>
+    <ul class="docs-list">
+      <li>Confirmation of important actions.</li>
+      <li>Critical information that requires immediate attention.</li>
+      <li>Brief, self-contained flows.</li>
+      <li>Actions that do not justify full navigation.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">When not to use a modal</h3>
+    <p class="docs-body">
+      Avoid modals when the content demands space, depth, or exploration.
+    </p>
+    <ul class="docs-list">
+      <li>Long or complex forms.</li>
+      <li>Content that requires exploration.</li>
+      <li>Multi-step flows.</li>
+      <li>Cases where a page or panel is more appropriate.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Modal types</h3>
+    <p class="docs-body">Percepta supports three modal types with distinct expectations.</p>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="risk-header">
+          <span class="risk-badge risk-badge--low">Informational</span>
+          <span class="risk-title">Low risk</span>
+        </div>
+        <p class="docs-body">
+          Presents critical information. Expect a simple acknowledgment action.
+        </p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-header">
+          <span class="risk-badge risk-badge--medium">Confirmation</span>
+          <span class="risk-title">Moderate risk</span>
+        </div>
+        <p class="docs-body">
+          Confirms a decision that changes state. Expect explicit confirmation wording.
+        </p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-header">
+          <span class="risk-badge risk-badge--high">Destructive</span>
+          <span class="risk-title">High risk</span>
+        </div>
+        <p class="docs-body">
+          Irreversible or high-impact actions. Expect a clear cancel path and strong language.
+        </p>
+      </div>
+    </div>
+    <div class="demo-box">
+      <div class="modal-demo">
+        <div class="modal-shell" aria-hidden="true">
+          <div class="modal-header">
+            <span class="modal-title">Archive project?</span>
+            <span class="modal-close"></span>
+          </div>
+          <div class="modal-body">
+            <span class="modal-line"></span>
+            <span class="modal-line modal-line--short"></span>
+          </div>
+          <div class="modal-actions">
+            <span class="modal-action modal-action--ghost"></span>
+            <span class="modal-action modal-action--primary"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Structure and hierarchy</h3>
+    <p class="docs-body">Every modal follows the same structural contract.</p>
+    <ul class="docs-list">
+      <li>Header with a clear, concise title (required).</li>
+      <li>Body with brief, direct content.</li>
+      <li>Footer with a fixed action structure.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Actions and intent</h3>
+    <p class="docs-body">
+      Actions communicate intent and risk through hierarchy and tone.
+    </p>
+    <ul class="docs-list">
+      <li>Exactly one primary action.</li>
+      <li>Secondary action is optional and must be visually subordinate.</li>
+      <li>Use normal or danger tone based on risk.</li>
+      <li>Never include multiple primary actions.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Behavior and dismissal</h3>
+    <p class="docs-body">
+      Behavior depends on the modal type and its level of risk.
+    </p>
+    <ul class="docs-list">
+      <li>Informational: Escape and backdrop dismissal are allowed.</li>
+      <li>Destructive: Escape and backdrop dismissal are disabled by default.</li>
+      <li>Return focus to the element that opened the modal.</li>
+      <li>Block interaction with the background while open.</li>
+    </ul>
+  </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Accessibility considerations</h3>
+    <ul class="docs-list">
+      <li>Manage focus correctly inside the modal.</li>
+      <li>Associate the title with the modal content.</li>
+      <li>Do not rely on color alone to communicate risk.</li>
+      <li>The modal must be understandable without visual context.</li>
+    </ul>
+  </section>
+</section>

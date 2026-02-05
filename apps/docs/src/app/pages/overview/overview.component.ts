@@ -30,6 +30,6 @@ export class OverviewComponent {
   patterns: DocSection = {
     title: 'Interface patterns',
     description: 'Composition rules for frequent flows.',
-    items: ['Forms', 'Feedback', 'Navigation']
+    items: ['Forms', 'Modals', 'Feedback']
   };
 }

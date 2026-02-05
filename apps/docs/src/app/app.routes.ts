@@ -16,6 +16,7 @@ import { GettingStartedTypographyTokensComponent } from './pages/getting-started
 import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { FormLayoutValidationComponent } from './pages/patterns/form-layout-validation/form-layout-validation.component';
+import { ModalComponent } from './pages/patterns/modal/modal.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
 import { PrimeBaselineComponent } from './pages/prime-baseline/prime-baseline.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
@@ -130,6 +131,11 @@ export const routes: Routes = [
         path: 'form-layout-validation',
         component: FormLayoutValidationComponent,
         title: 'Form layout & validation · Percepta'
+      },
+      {
+        path: 'modal',
+        component: ModalComponent,
+        title: 'Modal · Percepta'
       }
     ]
   },

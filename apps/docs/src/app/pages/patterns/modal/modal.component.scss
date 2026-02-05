@@ -1,0 +1,235 @@
+@use '../../../../tokens.scss' as tokens;
+@use '../../../../typography.mixins.scss' as typography;
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card {
+  padding: 24px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.doc-card--intro {
+  background: transparent;
+  padding: calc(#{tokens.$spacing-layout-lg} * 3) 0 #{tokens.$spacing-layout-md};
+}
+
+.eyebrow {
+  @include typography.typography-label-md;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: tokens.$color-gray-500;
+  margin: 0;
+}
+
+.docs-h1 {
+  margin: 4px 0 8px;
+}
+
+.overview-lead {
+  @include typography.typography-body-xl;
+  margin: 0;
+  color: tokens.$color-foreground-default;
+}
+
+.section {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
+}
+
+.docs-body {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  color: tokens.$color-foreground-default;
+}
+
+.section .docs-h2 {
+  margin: #{tokens.$spacing-layout-lg} 0 10px;
+}
+
+.section .docs-h2:not(:first-child) {
+  margin-top: calc(#{tokens.$spacing-layout-lg} * 1.5);
+}
+
+.docs-h3 {
+  margin: #{tokens.$spacing-layout-md} 0 8px;
+}
+
+.docs-list {
+  margin: 0 0 #{tokens.$spacing-layout-md};
+  padding-left: 18px;
+  @include typography.typography-body-md;
+  color: tokens.$color-foreground-default;
+}
+
+.docs-list li + li {
+  margin-top: 6px;
+}
+
+.demo-box {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-xl};
+  margin: #{tokens.$spacing-layout-sm} 0 #{tokens.$spacing-layout-md};
+  background-color: tokens.$color-background-default;
+  background-image:
+    linear-gradient(45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(tokens.$color-border-subtle, 0.16) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(tokens.$color-border-subtle, 0.16) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.modal-demo {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+}
+
+.modal-shell {
+  width: min(460px, 100%);
+  background: tokens.$color-background-default;
+  border-radius: 16px;
+  border: 1px solid tokens.$color-border-subtle;
+  box-shadow: 0 24px 48px rgba(tokens.$color-gray-900, 0.18);
+  padding: #{tokens.$spacing-layout-lg};
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.modal-title {
+  width: 60%;
+  height: 14px;
+  border-radius: 999px;
+  background: tokens.$color-gray-200;
+}
+
+.modal-close {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid tokens.$color-border-subtle;
+  position: relative;
+}
+
+.modal-close::before,
+.modal-close::after {
+  content: '';
+  position: absolute;
+  inset: 9px 5px;
+  background: tokens.$color-gray-500;
+  border-radius: 2px;
+}
+
+.modal-close::before {
+  transform: rotate(45deg);
+}
+
+.modal-close::after {
+  transform: rotate(-45deg);
+}
+
+.modal-body {
+  display: grid;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.modal-line {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: tokens.$color-gray-100;
+}
+
+.modal-line--short {
+  width: 70%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
+.modal-action {
+  height: 34px;
+  border-radius: 999px;
+}
+
+.modal-action--ghost {
+  width: 90px;
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+}
+
+.modal-action--primary {
+  width: 130px;
+  background: tokens.$color-accent-moderate;
+}
+
+.risk-grid {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: #{tokens.$spacing-layout-md};
+}
+
+.risk-card {
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: #{tokens.$radius-sm};
+  padding: #{tokens.$spacing-layout-md};
+  background: tokens.$color-background-default;
+  display: grid;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: #{tokens.$spacing-layout-xs};
+}
+
+.risk-title {
+  @include typography.typography-label-md;
+  color: tokens.$color-foreground-default;
+}
+
+.risk-badge {
+  @include typography.typography-label-sm;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.risk-badge--low {
+  background: tokens.$color-background-success;
+  color: tokens.$color-foreground-success;
+}
+
+.risk-badge--medium {
+  background: tokens.$color-background-warning;
+  color: tokens.$color-foreground-warning;
+}
+
+.risk-badge--high {
+  background: rgba(tokens.$color-background-danger-primary, 0.14);
+  color: tokens.$color-foreground-danger;
+}
+
+@media (max-width: 900px) {
+  .demo-box {
+    padding: #{tokens.$spacing-layout-md};
+  }
+}
