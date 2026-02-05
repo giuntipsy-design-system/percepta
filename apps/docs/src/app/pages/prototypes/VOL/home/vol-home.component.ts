@@ -14,7 +14,7 @@ import { GpIconComponent } from '../../../../../../../shared/components/icon/gp-
 export class VolHomeComponent {
   constructor(private readonly router: Router) {}
 
-  goToLogin(): void {
-    this.router.navigateByUrl('/prototypes/vol/login');
+  goToProfile(): void {
+    this.router.navigateByUrl('/prototypes/vol/profile');
   }
 }
