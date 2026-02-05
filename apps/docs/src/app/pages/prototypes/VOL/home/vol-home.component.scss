@@ -136,6 +136,20 @@
   margin-top: #{tokens.$spacing-layout-lg};
 }
 
+.vol-home__content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: #{tokens.$spacing-layout-lg};
+  flex-wrap: wrap;
+}
+
+.vol-home__content-actions {
+  display: flex;
+  align-items: center;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
 .vol-home__content-header h1 {
   @include typography.typography-heading-h2;
   margin: 0;
@@ -173,6 +187,28 @@
 .vol-home__module-body {
   display: grid;
   gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__search {
+  display: grid;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
+.vol-home__status-list {
+  display: grid;
+  gap: #{tokens.$spacing-layout-sm};
+}
+
+.vol-home__status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: #{tokens.$spacing-layout-sm} #{tokens.$spacing-layout-md};
+  @include typography.typography-body-md;
+}
+
+.vol-home__status-item + .vol-home__status-item {
+  border-top: 1px solid tokens.$color-border-subtle;
 }
 
 .vol-home__placeholder {

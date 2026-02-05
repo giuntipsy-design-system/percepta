@@ -74,6 +74,18 @@
       <main class="vol-home__content">
         <div class="vol-home__content-header">
           <h1>Visão geral da plataforma</h1>
+          <div class="vol-home__content-actions">
+            <gp-button
+              label="Cadastrar em lote"
+              variant="secondary"
+              size="small"
+            ></gp-button>
+            <gp-button
+              label="Nova avaliação"
+              variant="primary"
+              size="small"
+            ></gp-button>
+          </div>
         </div>
         <div class="vol-home__modules">
           <section class="vol-home__module">
@@ -81,7 +93,32 @@
               <h2>Aplicar</h2>
             </div>
             <div class="vol-home__module-body">
-              <div class="vol-home__placeholder"></div>
+              <div class="vol-home__search">
+                <gp-input label="Por instrumento"></gp-input>
+                <gp-input label="Por avaliado"></gp-input>
+              </div>
+              <div class="vol-home__status-list">
+                <div class="vol-home__status-item">
+                  <span>Aplicações pendentes</span>
+                  <gp-button
+                    variant="text"
+                    [iconOnly]="true"
+                    ariaLabel="Abrir aplicações pendentes"
+                    size="small"
+                    icon="arrow-right"
+                  ></gp-button>
+                </div>
+                <div class="vol-home__status-item">
+                  <span>Aplicações concluídas</span>
+                  <gp-button
+                    variant="text"
+                    [iconOnly]="true"
+                    ariaLabel="Abrir aplicações concluídas"
+                    size="small"
+                    icon="arrow-right"
+                  ></gp-button>
+                </div>
+              </div>
             </div>
           </section>
           <section class="vol-home__module">
@@ -89,7 +126,32 @@
               <h2>Corrigir</h2>
             </div>
             <div class="vol-home__module-body">
-              <div class="vol-home__placeholder"></div>
+              <div class="vol-home__search">
+                <gp-input label="Por instrumento"></gp-input>
+                <gp-input label="Por avaliado"></gp-input>
+              </div>
+              <div class="vol-home__status-list">
+                <div class="vol-home__status-item">
+                  <span>Correções pendentes</span>
+                  <gp-button
+                    variant="text"
+                    [iconOnly]="true"
+                    ariaLabel="Abrir correções pendentes"
+                    size="small"
+                    icon="arrow-right"
+                  ></gp-button>
+                </div>
+                <div class="vol-home__status-item">
+                  <span>Correções concluídas</span>
+                  <gp-button
+                    variant="text"
+                    [iconOnly]="true"
+                    ariaLabel="Abrir correções concluídas"
+                    size="small"
+                    icon="arrow-right"
+                  ></gp-button>
+                </div>
+              </div>
             </div>
           </section>
         </div>
