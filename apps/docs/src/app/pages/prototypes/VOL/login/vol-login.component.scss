@@ -26,6 +26,7 @@
   height: 100%;
   border-radius: 24px;
   overflow: hidden;
+  background: tokens.$color-gray-900;
 }
 
 .vol-login__media-heading {
@@ -35,6 +36,7 @@
   right: #{tokens.$spacing-layout-lg};
   color: tokens.$color-foreground-static-light;
   text-align: center;
+  z-index: 2;
 }
 
 .vol-login__media-title {
@@ -54,12 +56,119 @@
   }
 }
 
+.vol-login__media-slides {
+  position: absolute;
+  inset: 0;
+}
+
 .vol-login__media-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center 85%;
   display: block;
+  opacity: 0;
+  animation: vol-login-slide 18s linear infinite;
+}
+
+.vol-login__media-image:nth-child(1) {
+  animation-delay: 0s;
+  object-position: center 65%;
+}
+
+.vol-login__media-image:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.vol-login__media-image:nth-child(3) {
+  animation-delay: 12s;
+}
+
+.vol-login__media-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(#{tokens.$spacing-layout-xl} + #{tokens.$spacing-layout-sm});
+  display: flex;
+  gap: #{tokens.$spacing-layout-xs};
+  width: 180px;
+  z-index: 1;
+}
+
+.vol-login__progress-bar {
+  height: 6px;
+  width: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+  position: relative;
+}
+
+.vol-login__progress-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: vol-login-progress 18s linear infinite;
+  animation-fill-mode: both;
+}
+
+.vol-login__progress-bar:nth-child(1)::after {
+  animation-delay: 0s;
+}
+
+.vol-login__progress-bar:nth-child(2)::after {
+  animation-delay: 6s;
+}
+
+.vol-login__progress-bar:nth-child(3)::after {
+  animation-delay: 12s;
+}
+
+@keyframes vol-login-slide {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes vol-login-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  30% {
+    transform: scaleX(1);
+  }
+  36%,
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vol-login__media-image,
+  .vol-login__progress-bar::after {
+    animation: none;
+  }
+
+  .vol-login__media-image {
+    opacity: 1;
+  }
 }
 
 .vol-login__panel {
