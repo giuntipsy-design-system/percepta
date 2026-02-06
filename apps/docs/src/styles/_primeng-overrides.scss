@@ -298,6 +298,10 @@
   --p-button-lg-padding-x: #{tokens.$spacing-control-x-lg};
   --p-button-lg-padding-y: #{tokens.$spacing-control-y-md};
   --p-button-lg-font-size: #{tokens.$font-size-lg};
+
+  /* Overlay layers */
+  --gp-overlay-z: 1000;
+  --gp-overlay-modal-z: 1001;
 }
 
 /* PrimeNG input icon layout (Lara preset) */
@@ -315,4 +319,49 @@
 
 .p-input-icon-left > input {
   padding-left: 2.25rem;
+}
+
+/* Percepta modal overlay */
+.gp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: tokens.$color-background-overlay;
+  z-index: var(--gp-overlay-z);
+}
+
+.gp-modal {
+  z-index: var(--gp-overlay-modal-z);
+  background: tokens.$color-background-default;
+  border: 1px solid tokens.$color-border-subtle;
+  border-radius: tokens.$radius-md;
+}
+
+.gp-modal__title {
+  color: tokens.$color-foreground-default;
+}
+
+.gp-modal__description {
+  color: tokens.$color-foreground-subtle;
+}
+
+.gp-modal__body {
+  color: tokens.$color-foreground-default;
+}
+
+.gp-modal__action--primary {
+  background: tokens.$color-accent-moderate;
+  color: tokens.$color-accent-on-accent;
+  border: 1px solid transparent;
+}
+
+.gp-modal__action--secondary {
+  background: transparent;
+  color: tokens.$color-accent-vibrant;
+  border: 1px solid tokens.$color-accent-moderate;
+}
+
+.gp-modal[data-type='destructive'] .gp-modal__action--primary {
+  background: tokens.$color-background-danger-primary;
+  color: tokens.$color-accent-on-accent;
+  border-color: transparent;
 }

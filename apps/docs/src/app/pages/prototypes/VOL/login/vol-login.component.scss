@@ -29,9 +29,18 @@
   background: tokens.$color-gray-900;
 }
 
+.vol-login__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 30%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .vol-login__media-heading {
   position: absolute;
-  top: 6rem;
+  top: 4.5rem;
   left: #{tokens.$spacing-layout-lg};
   right: #{tokens.$spacing-layout-lg};
   color: tokens.$color-foreground-static-light;
@@ -54,11 +63,16 @@
     max-width: none;
     white-space: nowrap;
   }
+
+  .vol-login__media-image {
+    object-position: center center;
+  }
 }
 
 .vol-login__media-slides {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
 .vol-login__media-image {
@@ -67,7 +81,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 85%;
+  object-position: center center;
   display: block;
   opacity: 0;
   animation: vol-login-slide 18s linear infinite;
@@ -75,7 +89,6 @@
 
 .vol-login__media-image:nth-child(1) {
   animation-delay: 0s;
-  object-position: center 65%;
 }
 
 .vol-login__media-image:nth-child(2) {

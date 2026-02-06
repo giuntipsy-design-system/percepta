@@ -1,0 +1,86 @@
+@use '../../../../dist/sass/typography.mixins' as typography;
+@use '../../../../dist/sass/tokens' as tokens;
+
+:host {
+  display: block;
+}
+
+.gp-modal-backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gp-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  position: relative;
+}
+
+.gp-modal--sm {
+  width: min(360px, calc(100vw - 48px));
+}
+
+.gp-modal--md {
+  width: min(480px, calc(100vw - 48px));
+}
+
+.gp-modal--lg {
+  width: min(640px, calc(100vw - 48px));
+}
+
+.gp-modal__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.gp-modal__body {
+  display: block;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.gp-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.gp-modal__title {
+  @include typography.typography-heading-h3;
+  margin: 0;
+}
+
+.gp-modal__description {
+  @include typography.typography-body-sm;
+  margin: 4px 0 0;
+}
+
+.gp-modal__body,
+.gp-modal__body p {
+  @include typography.typography-body-md;
+}
+
+.gp-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: tokens.$color-foreground-muted;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gp-modal__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

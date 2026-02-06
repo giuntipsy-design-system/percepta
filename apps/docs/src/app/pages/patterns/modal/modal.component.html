@@ -1,7 +1,7 @@
 <section class="page">
   <header class="doc-card doc-card--intro">
     <p class="eyebrow">Pattern</p>
-    <h2 class="docs-h1">Modal</h2>
+    <h2 class="docs-h1">Modal usage &amp; behavior</h2>
     <p class="overview-lead">
       A modal interrupts the primary flow to demand attention and an explicit decision.
     </p>
@@ -73,23 +73,22 @@
         </p>
       </div>
     </div>
-    <div class="demo-box">
-      <div class="modal-demo">
-        <div class="modal-shell" aria-hidden="true">
-          <div class="modal-header">
-            <span class="modal-title">Archive project?</span>
-            <span class="modal-close"></span>
-          </div>
-          <div class="modal-body">
-            <span class="modal-line"></span>
-            <span class="modal-line modal-line--short"></span>
-          </div>
-          <div class="modal-actions">
-            <span class="modal-action modal-action--ghost"></span>
-            <span class="modal-action modal-action--primary"></span>
-          </div>
-        </div>
-      </div>
+    <div class="modal-demo-row">
+      <gp-button
+        label="Open informational modal"
+        variant="tertiary"
+        (clicked)="openInfo()"
+      ></gp-button>
+      <gp-button
+        label="Open confirmation modal"
+        variant="tertiary"
+        (clicked)="openConfirm()"
+      ></gp-button>
+      <gp-button
+        label="Open destructive modal"
+        variant="tertiary"
+        (clicked)="openDestructive()"
+      ></gp-button>
     </div>
   </section>
 
@@ -119,11 +118,46 @@
   <section class="section doc-card">
     <h3 class="docs-h2">Behavior and dismissal</h3>
     <p class="docs-body">
-      Behavior depends on the modal type and its level of risk.
+      Dismissal refers to closing the modal without triggering an explicit action.
+      This includes pressing the ESC key or clicking on the backdrop.
+    </p>
+    <p class="docs-body">
+      Dismissal behavior is defined by the modal type and should not be overridden
+      arbitrarily by consumers. If a different dismissal behavior is required,
+      a different modal type should be used.
+    </p>
+    <h4 class="docs-h3">Dismissal behavior by modal type</h4>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th scope="col">Modal type</th>
+          <th scope="col">ESC key</th>
+          <th scope="col">Backdrop click</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Informational</td>
+          <td>Allowed</td>
+          <td>Allowed</td>
+        </tr>
+        <tr>
+          <td>Confirmation</td>
+          <td>Allowed</td>
+          <td>Configurable</td>
+        </tr>
+        <tr>
+          <td>Destructive</td>
+          <td>Not allowed</td>
+          <td>Not allowed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="docs-body">
+      Destructive modals require an explicit user action and cannot be dismissed
+      accidentally via keyboard or backdrop interaction.
     </p>
     <ul class="docs-list">
-      <li>Informational: Escape and backdrop dismissal are allowed.</li>
-      <li>Destructive: Escape and backdrop dismissal are disabled by default.</li>
       <li>Return focus to the element that opened the modal.</li>
       <li>Block interaction with the background while open.</li>
     </ul>
@@ -138,4 +172,156 @@
       <li>The modal must be understandable without visual context.</li>
     </ul>
   </section>
+
+  <section class="section doc-card">
+    <h3 class="docs-h2">Modal API</h3>
+    <p class="docs-body">
+      <strong>Selector:</strong> &lt;gp-modal&gt;&lt;/gp-modal&gt;
+    </p>
+    <p class="docs-body">
+      <strong>Inputs (props)</strong>
+    </p>
+    <ul class="docs-list">
+      <li><strong>open</strong>: boolean. Controls visibility; state is managed externally.</li>
+      <li>
+        <strong>type</strong>: 'informational' | 'confirmation' | 'destructive'. Defines intent and
+        sets behavior defaults.
+      </li>
+      <li><strong>title</strong>: string (required). Modals cannot be title-less.</li>
+      <li><strong>description</strong>: string (optional). Brief supporting text under the title.</li>
+      <li><strong>primaryLabel</strong>: string (required). Primary action label.</li>
+      <li><strong>secondaryLabel</strong>: string (optional). Secondary action label.</li>
+      <li>
+        <strong>tone</strong>: 'default' | 'danger' (optional). If omitted, derived from type.
+      </li>
+      <li>
+        <strong>dismissible</strong>: boolean (optional). Allows ESC/backdrop close; default depends
+        on type.
+      </li>
+      <li><strong>loading</strong>: boolean (optional). Loading state for primary action.</li>
+      <li><strong>disabled</strong>: boolean (optional). Disables actions without hiding the modal.</li>
+      <li><strong>width</strong>: 'sm' | 'md' | 'lg' (optional). Suggested size, not freeform.</li>
+    </ul>
+
+    <p class="docs-body">
+      <strong>Slots</strong>
+    </p>
+    <ul class="docs-list">
+      <li><strong>gpModalBody</strong> (required). Main modal content.</li>
+      <li>
+        <strong>gpModalFooter</strong> (optional). Custom actions for advanced cases. If omitted,
+        the system renders the standard footer.
+      </li>
+    </ul>
+    <div class="demo-box demo-box--plain">
+      <pre class="code-sample">
+<code>&lt;gp-modal
+  [open]="isOpen"
+  type="confirmation"
+  title="Archive project?"
+  description="You can restore it later from settings."
+  primaryLabel="Archive"
+  secondaryLabel="Cancel"
+&gt;
+  &lt;ng-template gpModalBody&gt;
+    Modal content goes here.
+  &lt;/ng-template&gt;
+&lt;/gp-modal&gt;</code>
+      </pre>
+    </div>
+
+    <p class="docs-body">
+      <strong>Events (outputs)</strong>
+    </p>
+    <ul class="docs-list">
+      <li><strong>primary</strong>: fired on primary action.</li>
+      <li><strong>secondary</strong>: fired on secondary action.</li>
+      <li><strong>closed</strong>: fired when the modal closes by any means.</li>
+    </ul>
+
+    <p class="docs-body">
+      <strong>Behavior by type</strong>
+    </p>
+    <ul class="docs-list">
+      <li>
+        <strong>Informational</strong>: dismissible true; can have only a primary action; ESC and
+        backdrop dismissal allowed.
+      </li>
+      <li>
+        <strong>Confirmation</strong>: dismissible true; primary + secondary recommended; ESC
+        allowed; backdrop configurable.
+      </li>
+      <li>
+        <strong>Destructive</strong>: tone danger; dismissible false by default; ESC and backdrop
+        dismissal disabled; requires explicit action.
+      </li>
+    </ul>
+
+    <p class="docs-body">
+      <strong>System rules</strong>
+    </p>
+    <ul class="docs-list">
+      <li>Modals must have a title.</li>
+      <li>Only one primary action is allowed.</li>
+      <li>The footer structure is system-controlled.</li>
+      <li>The modal is not a generic layout container.</li>
+    </ul>
+
+    <p class="docs-body">
+      <strong>Accessibility at the API level</strong>
+    </p>
+    <ul class="docs-list">
+      <li>The title acts as the accessible heading.</li>
+      <li>Initial focus is placed predictably based on type.</li>
+      <li>On close, focus returns to the element that opened the modal.</li>
+      <li>The modal blocks interaction with background content.</li>
+    </ul>
+  </section>
+
+  <gp-modal
+    [open]="isInfoOpen"
+    type="informational"
+    title="Session updated"
+    description="Your changes are now active."
+    primaryLabel="Got it"
+    (primary)="closeInfo()"
+    (closed)="closeInfo()"
+  >
+    <ng-template gpModalBody>
+      The system applied your updates successfully.
+    </ng-template>
+  </gp-modal>
+
+  <gp-modal
+    [open]="isConfirmOpen"
+    type="confirmation"
+    title="Archive project?"
+    description="You can restore it later from settings."
+    primaryLabel="Archive"
+    secondaryLabel="Cancel"
+    (primary)="closeConfirm()"
+    (secondary)="closeConfirm()"
+    (closed)="closeConfirm()"
+  >
+    <ng-template gpModalBody>
+      Archiving will remove this project from active lists.
+    </ng-template>
+  </gp-modal>
+
+  <gp-modal
+    [open]="isDestructiveOpen"
+    type="destructive"
+    title="Delete record?"
+    description="This action cannot be undone."
+    primaryLabel="Delete"
+    secondaryLabel="Cancel"
+    (primary)="closeDestructive()"
+    (secondary)="closeDestructive()"
+    (closed)="closeDestructive()"
+  >
+    <ng-template gpModalBody>
+      All associated data will be permanently removed.
+    </ng-template>
+  </gp-modal>
+
 </section>

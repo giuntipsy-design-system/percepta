@@ -1,0 +1,59 @@
+<div class="gp-modal-backdrop" *ngIf="open" (click)="onBackdropClick($event)">
+  <div
+    #modalRoot
+    class="gp-modal"
+    [class.gp-modal--sm]="width === 'sm'"
+    [class.gp-modal--md]="width === 'md'"
+    [class.gp-modal--lg]="width === 'lg'"
+    [attr.data-type]="type"
+    [attr.data-tone]="effectiveTone"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-labelledby]="titleId"
+    [attr.aria-describedby]="description ? descriptionId : null"
+    (click)="$event.stopPropagation()"
+  >
+    <header class="gp-modal__header">
+      <h2 class="gp-modal__title" [id]="titleId">{{ title }}</h2>
+      <p class="gp-modal__description" *ngIf="description" [id]="descriptionId">
+        {{ description }}
+      </p>
+      <button
+        *ngIf="isBackdropDismissible"
+        type="button"
+        class="gp-modal__close"
+        aria-label="Close"
+        (click)="requestClose()"
+      >
+        <gp-icon name="close" [decorative]="true"></gp-icon>
+      </button>
+    </header>
+
+    <div class="gp-modal__body">
+      <ng-container *ngTemplateOutlet="bodyTemplate?.templateRef"></ng-container>
+    </div>
+
+    <footer class="gp-modal__footer">
+      <ng-container *ngIf="footerTemplate; else systemFooter">
+        <ng-container *ngTemplateOutlet="footerTemplate.templateRef"></ng-container>
+      </ng-container>
+      <ng-template #systemFooter>
+        <gp-button
+          *ngIf="showSecondaryAction"
+          [label]="secondaryLabel || ''"
+          [variant]="secondaryVariant"
+          [disabled]="disabled"
+          (clicked)="onSecondaryClick()"
+        ></gp-button>
+        <gp-button
+          #primaryButton
+          [label]="primaryLabel"
+          [variant]="primaryVariant"
+          [disabled]="disabled"
+          [loading]="loading"
+          (clicked)="onPrimaryClick()"
+        ></gp-button>
+      </ng-template>
+    </footer>
+  </div>
+</div>

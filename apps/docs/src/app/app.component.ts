@@ -57,7 +57,7 @@ export class AppComponent {
 
   readonly patternsNav = [
     { label: 'Form layout & validation', route: '/patterns/form-layout-validation' },
-    { label: 'Modal', route: '/patterns/modal' }
+    { label: 'Modal usage & behavior', route: '/patterns/modal' }
   ];
 
   readonly patternsPlanned = [

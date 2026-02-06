@@ -104,6 +104,18 @@ h3 {
   line-height: normal;
 }
 
+.mapping-table thead th {
+  color: tokens.$color-foreground-muted;
+  font-weight: tokens.$font-weight-bold;
+}
+
+/* Enforce consistent table header styling across docs pages */
+.docs-content .mapping-table thead th,
+.page .mapping-table thead th {
+  color: tokens.$color-foreground-muted !important;
+  font-weight: tokens.$font-weight-bold !important;
+}
+
 .gp-button {
   @include typography.typography-label-control-md;
   font-weight: tokens.$font-weight-regular;
