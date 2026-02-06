@@ -43,7 +43,10 @@
 
   <section class="section doc-card">
     <h3 class="docs-h2">Modal types</h3>
-    <p class="docs-body">Percepta supports three modal types with distinct expectations.</p>
+    <p class="docs-body">
+      Percepta supports three modal types with distinct expectations.
+      Each type expresses a different level of risk and expected user commitment.
+    </p>
     <div class="risk-grid">
       <div class="risk-card">
         <div class="risk-header">
@@ -53,6 +56,11 @@
         <p class="docs-body">
           Presents critical information. Expect a simple acknowledgment action.
         </p>
+        <gp-button
+          label="Open informational modal"
+          variant="text"
+          (clicked)="openInfo()"
+        ></gp-button>
       </div>
       <div class="risk-card">
         <div class="risk-header">
@@ -62,6 +70,11 @@
         <p class="docs-body">
           Confirms a decision that changes state. Expect explicit confirmation wording.
         </p>
+        <gp-button
+          label="Open confirmation modal"
+          variant="text"
+          (clicked)="openConfirm()"
+        ></gp-button>
       </div>
       <div class="risk-card">
         <div class="risk-header">
@@ -71,24 +84,12 @@
         <p class="docs-body">
           Irreversible or high-impact actions. Expect a clear cancel path and strong language.
         </p>
+        <gp-button
+          label="Open destructive modal"
+          variant="text"
+          (clicked)="openDestructive()"
+        ></gp-button>
       </div>
-    </div>
-    <div class="modal-demo-row">
-      <gp-button
-        label="Open informational modal"
-        variant="tertiary"
-        (clicked)="openInfo()"
-      ></gp-button>
-      <gp-button
-        label="Open confirmation modal"
-        variant="tertiary"
-        (clicked)="openConfirm()"
-      ></gp-button>
-      <gp-button
-        label="Open destructive modal"
-        variant="tertiary"
-        (clicked)="openDestructive()"
-      ></gp-button>
     </div>
   </section>
 
@@ -252,8 +253,8 @@
         allowed; backdrop configurable.
       </li>
       <li>
-        <strong>Destructive</strong>: tone danger; dismissible false by default; ESC and backdrop
-        dismissal disabled; requires explicit action.
+        <strong>Destructive</strong>: tone danger; dismissible false by default; ESC disabled;
+        backdrop is present but does not dismiss the modal; requires explicit action.
       </li>
     </ul>
 
