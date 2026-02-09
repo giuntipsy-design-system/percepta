@@ -198,17 +198,34 @@
 }
 
 .card-visual--modal span:first-child {
-  width: 54px;
-  height: 26px;
-  border-radius: 10px;
+  width: 56px;
+  height: 32px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card-visual--modal span:first-child::before,
+.card-visual--modal span:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.card-visual--modal span:first-child::before {
+  right: 18px;
+  background: tokens.$color-accent-tinted;
+}
+
+.card-visual--modal span:first-child::after {
+  right: 6px;
+  background: tokens.$color-accent-moderate;
 }
 
 .card-visual--modal span:last-child {
-  width: 14px;
-  height: 14px;
-  border-radius: 6px;
-  background: tokens.$color-accent-moderate;
-  border: none;
+  display: none;
 }
 
 .card-title {

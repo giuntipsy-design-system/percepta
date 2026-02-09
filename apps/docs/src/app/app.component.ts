@@ -39,7 +39,6 @@ export class AppComponent {
     planned: [
       'Datepicker',
       'Table',
-      'Dialog',
       'Tabs',
       'Tooltip',
       'Toast',
