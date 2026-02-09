@@ -45,6 +45,8 @@ It is structured around:
 
 Visual design guidelines are always referenced externally.
 
+All documentation is written in **English** due to the company’s international scope and to avoid misunderstandings across interdisciplinary teams.
+
 ---
 
 ## Recent additions
@@ -52,6 +54,19 @@ Visual design guidelines are always referenced externally.
 - **Modal component** (system-owned) and **Modal usage & behavior** pattern
 - **Modal documentation page** under Components
 - **VOL profile prototype** with unsaved changes confirmation flow
+
+---
+
+## Prototype layout & scroll behavior
+
+For prototype pages (e.g., VOL flows), we use **window/page scroll** as the single scroll container.
+This avoids nested scroll areas and keeps the footer behavior predictable. As a result:
+
+- Headers in prototypes can use `position: sticky` and apply a subtle shadow when `window.scrollY > 0`.
+- Sidebars are `position: sticky` and may have their own `overflow-y: auto` only when they exceed the viewport.
+- Prototype layouts should avoid wrapping content in scrollable containers unless strictly necessary.
+
+This behavior is enforced by the prototype layout shell styles.
 
 ---
 
