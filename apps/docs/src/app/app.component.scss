@@ -165,8 +165,8 @@
 .app-nav {
   position: sticky;
   top: var(--app-header-height);
-  height: auto;
-  overflow: visible;
+  max-height: calc(100vh - var(--app-header-height));
+  overflow-y: auto;
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
@@ -217,6 +217,11 @@
   margin-right: calc(var(--layout-gutter) * -1);
   height: auto;
   overflow: visible;
+}
+
+/* Keep section tabs sticky below the fixed header. */
+.app-content .section-tabs {
+  top: var(--app-header-height);
 }
 
 .app-content--home {

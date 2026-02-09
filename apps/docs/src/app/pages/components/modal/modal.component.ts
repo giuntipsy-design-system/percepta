@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -24,7 +24,7 @@ import {
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
-export class ModalComponent {
+export class ModalComponent implements AfterViewInit {
   currentSection = 'overview';
 
   isInfoOpen = false;
@@ -45,6 +45,15 @@ export class ModalComponent {
     { label: 'Large', value: 'lg' },
     { label: 'Extra large', value: 'xl' }
   ];
+
+  ngAfterViewInit(): void {
+    this.updateCurrentSection();
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateCurrentSection();
+  }
 
   openInfo(): void {
     this.isInfoOpen = true;
@@ -90,21 +99,40 @@ export class ModalComponent {
     event.preventDefault();
     this.currentSection = id;
     const target = document.getElementById(id);
-    const container = document.querySelector<HTMLElement>('.app-content');
     const tabs = document.querySelector<HTMLElement>('.section-tabs');
-    if (!target || !container) {
+    const header = document.querySelector<HTMLElement>('.app-header');
+    if (!target) {
       return;
     }
     if (id === 'overview') {
-      container.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     const targetRect = target.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
     const tabsHeight = tabs?.offsetHeight ?? 0;
     const extraGap = 24;
-    const offset =
-      targetRect.top - containerRect.top + container.scrollTop - tabsHeight - extraGap;
-    container.scrollTo({ top: offset, behavior: 'smooth' });
+    const offset = targetRect.top + window.scrollY - headerHeight - tabsHeight - extraGap;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  }
+
+  private updateCurrentSection(): void {
+    const anchors = Array.from(document.querySelectorAll<HTMLElement>('.section-anchor'));
+    if (!anchors.length) {
+      return;
+    }
+    const tabs = document.querySelector<HTMLElement>('.section-tabs');
+    const header = document.querySelector<HTMLElement>('.app-header');
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
+    const tabsHeight = tabs?.offsetHeight ?? 0;
+    const extraGap = 24;
+    const position = window.scrollY + headerHeight + tabsHeight + extraGap + 1;
+    let active = anchors[0].id || 'overview';
+    for (const anchor of anchors) {
+      if (anchor.offsetTop <= position) {
+        active = anchor.id;
+      }
+    }
+    this.currentSection = active || 'overview';
   }
 }

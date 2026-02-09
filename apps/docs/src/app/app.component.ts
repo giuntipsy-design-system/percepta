@@ -106,18 +106,12 @@ export class AppComponent {
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
-    if (!this.isHomePage) {
-      return;
-    }
     this.hasScrolled = window.scrollY > 0;
   }
 
-  onContentScroll(event: Event): void {
-    if (this.isHomePage) {
-      return;
-    }
-    const target = event.target as HTMLElement | null;
-    this.hasScrolled = (target?.scrollTop ?? 0) > 0;
+  onContentScroll(): void {
+    // Legacy hook kept for template compatibility after moving to window scroll.
+    this.hasScrolled = window.scrollY > 0;
   }
 
   private updateScrollState(): void {
