@@ -7,6 +7,7 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnChanges,
@@ -20,7 +21,7 @@ import { GpButtonComponent } from '../button/gp-button.component';
 
 type ModalType = 'informational' | 'confirmation' | 'destructive';
 type ModalTone = 'default' | 'danger';
-type ModalWidth = 'sm' | 'md' | 'lg';
+type ModalWidth = 'sm' | 'md' | 'lg' | 'xl';
 
 let modalIdCounter = 0;
 
@@ -48,6 +49,8 @@ export class GpModalFooterDirective {
   styleUrl: './gp-modal.component.scss'
 })
 export class GpModalComponent implements OnChanges, AfterViewInit, AfterContentInit {
+  @HostBinding('attr.title') hostTitle: string | null = null;
+
   @Input() open = false;
   @Input() type: ModalType = 'informational';
   @Input() title = '';

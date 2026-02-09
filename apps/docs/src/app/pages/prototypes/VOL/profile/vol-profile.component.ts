@@ -1,6 +1,6 @@
 // vol-profile.component.ts
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -34,10 +34,11 @@ import {
   templateUrl: './vol-profile.component.html',
   styleUrls: ['./vol-profile.component.scss']
 })
-export class VolProfileComponent {
+export class VolProfileComponent implements AfterViewInit {
   hasUnsavedChanges = false;
   isLeaveModalOpen = false;
   pendingRoute: string | null = null;
+  headerHasShadow = false;
 
   constructor(private readonly router: Router) {}
 
@@ -69,6 +70,19 @@ export class VolProfileComponent {
 
   markDirty(): void {
     this.hasUnsavedChanges = true;
+  }
+
+  ngAfterViewInit(): void {
+    this.updateHeaderShadow();
+  }
+
+  @HostListener('window:scroll')
+  handleWindowScroll(): void {
+    this.updateHeaderShadow();
+  }
+
+  private updateHeaderShadow(): void {
+    this.headerHasShadow = window.scrollY > 0;
   }
 
   saveChanges(): void {

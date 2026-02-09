@@ -31,7 +31,7 @@ export class ModalComponent {
   isConfirmOpen = false;
   isDestructiveOpen = false;
   selectedType: 'informational' | 'confirmation' | 'destructive' = 'informational';
-  selectedSize: 'sm' | 'md' | 'lg' = 'md';
+  selectedSize: 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
   readonly typeOptions = [
     { label: 'Informational', value: 'informational' },
@@ -42,7 +42,8 @@ export class ModalComponent {
   readonly sizeOptions = [
     { label: 'Small', value: 'sm' },
     { label: 'Medium', value: 'md' },
-    { label: 'Large', value: 'lg' }
+    { label: 'Large', value: 'lg' },
+    { label: 'Extra large', value: 'xl' }
   ];
 
   openInfo(): void {
@@ -81,7 +82,7 @@ export class ModalComponent {
     this.openDestructive();
   }
 
-  get modalWidth(): 'sm' | 'md' | 'lg' {
+  get modalWidth(): 'sm' | 'md' | 'lg' | 'xl' {
     return this.selectedSize;
   }
 

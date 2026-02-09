@@ -143,13 +143,15 @@
 .app-shell--prototype .layout-shell {
   padding: 0;
   max-width: none;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
 }
 
 .app-shell--prototype .app-content {
   padding: 0;
   margin-right: 0;
-  height: 100vh;
+  height: auto;
   overflow: visible;
 }
 
@@ -320,4 +322,18 @@
     gap: 8px;
   }
 
+}
+
+/* Ensure prototype pages use window scroll (avoid nested scroll containers). */
+.app-shell--prototype .layout-shell {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.app-shell--prototype .app-content {
+  padding: 0;
+  margin-right: 0;
+  height: auto;
+  overflow: visible;
 }

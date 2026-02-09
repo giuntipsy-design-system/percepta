@@ -16,7 +16,7 @@
   padding: #{tokens.$spacing-layout-xl} #{tokens.$spacing-layout-xxl};
   display: flex;
   flex-direction: column;
-  gap: #{tokens.$spacing-layout-xl};
+  gap: #{tokens.$spacing-layout-xxl};
   flex: 1 1 auto;
 }
 
@@ -25,6 +25,16 @@
   justify-content: space-between;
   align-items: center;
   gap: #{tokens.$spacing-layout-lg};
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: tokens.$color-background-default;
+  transition: box-shadow 180ms ease;
+}
+
+.vol-profile__header--shadow {
+  box-shadow: 0 8px 16px -14px rgba(0, 0, 0, 0.22);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .vol-profile__logo {
@@ -89,8 +99,9 @@
 
 .vol-profile__sidebar {
   position: sticky;
-  top: #{tokens.$spacing-layout-xl};
-  padding-top: #{tokens.$spacing-layout-xl};
+  top: calc(#{tokens.$spacing-layout-xl} + 88px);
+  max-height: calc(100vh - #{tokens.$spacing-layout-xl} * 2 - 88px);
+  overflow-y: auto;
 }
 
 .vol-profile__nav {
@@ -137,7 +148,6 @@
   display: flex;
   flex-direction: column;
   gap: #{tokens.$spacing-layout-xl};
-  margin-top: #{tokens.$spacing-layout-lg};
 }
 
 .vol-profile__content-header {
@@ -339,6 +349,8 @@
 
   .vol-profile__sidebar {
     position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .vol-section {

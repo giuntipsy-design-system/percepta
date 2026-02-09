@@ -165,6 +165,67 @@
   min-height: 220px;
 }
 
+.vol-home__modal {
+  display: grid;
+  gap: #{tokens.$spacing-layout-lg};
+}
+
+.vol-home__modal-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__modal-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: #{tokens.$spacing-layout-sm};
+  align-items: center;
+  padding: #{tokens.$spacing-layout-sm} #{tokens.$spacing-layout-md};
+  border-radius: #{tokens.$radius-sm};
+  border: 1px solid tokens.$color-border-subtle;
+  background: tokens.$color-background-default;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.vol-home__modal-option:hover {
+  background: tokens.$color-background-subtle;
+}
+
+.vol-home__modal-option.is-selected {
+  border-color: tokens.$color-accent-moderate;
+  background: rgba(tokens.$color-accent-subtle, 0.55);
+}
+
+.vol-home__modal-option-text {
+  display: grid;
+  gap: 4px;
+}
+
+.vol-home__modal-option-text span {
+  @include typography.typography-body-md;
+  font-weight: tokens.$font-weight-medium;
+}
+
+.vol-home__modal-option-text small {
+  @include typography.typography-body-sm;
+  color: tokens.$color-foreground-subtle;
+}
+
+.vol-home__modal-fields {
+  display: grid;
+  gap: #{tokens.$spacing-layout-md};
+}
+
+.vol-home__modal-fields--apply {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vol-home__modal-fields--correct {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .vol-home__module-header {
   display: flex;
   justify-content: space-between;
@@ -258,6 +319,10 @@
   .vol-home__modules {
     grid-template-columns: 1fr;
   }
+
+  .vol-home__modal-fields--apply {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 960px) {
@@ -267,5 +332,14 @@
 
   .vol-home__sidebar {
     position: static;
+  }
+
+  .vol-home__modal-options {
+    grid-template-columns: 1fr;
+  }
+
+  .vol-home__modal-fields--apply,
+  .vol-home__modal-fields--correct {
+    grid-template-columns: 1fr;
   }
 }

@@ -81,6 +81,7 @@
               label="Nova avaliação"
               variant="primary"
               size="small"
+              (clicked)="openNewEvaluation()"
             ></gp-button>
           </div>
         </div>
@@ -159,6 +160,60 @@
       </main>
     </div>
   </div>
+
+  <gp-modal
+    [open]="isNewEvaluationOpen"
+    type="confirmation"
+    title="Nova avaliação"
+    primaryLabel="Salvar"
+    secondaryLabel="Cancelar"
+    width="xl"
+    (primary)="confirmNewEvaluation()"
+    (secondary)="closeNewEvaluation()"
+    (closed)="closeNewEvaluation()"
+  >
+    <ng-template gpModalBody>
+      <div class="vol-home__modal">
+        <div class="vol-home__modal-options" role="radiogroup" aria-label="Tipo de avaliação">
+          <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'apply'">
+            <p-radioButton
+              inputId="new-eval-apply"
+              name="newEvaluationType"
+              value="apply"
+              [(ngModel)]="newEvaluationType"
+            ></p-radioButton>
+            <div class="vol-home__modal-option-text">
+              <span>Aplicar avaliação</span>
+              <small>Incluir um novo avaliado para iniciar a aplicação.</small>
+            </div>
+          </label>
+          <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'correct'">
+            <p-radioButton
+              inputId="new-eval-correct"
+              name="newEvaluationType"
+              value="correct"
+              [(ngModel)]="newEvaluationType"
+            ></p-radioButton>
+            <div class="vol-home__modal-option-text">
+              <span>Corrigir / Novo avaliado</span>
+              <small>Registrar correções com os dados do avaliado.</small>
+            </div>
+          </label>
+        </div>
+
+        <div class="vol-home__modal-fields vol-home__modal-fields--apply" *ngIf="newEvaluationType === 'apply'">
+          <gp-input label="Nome"></gp-input>
+          <gp-input label="CPF"></gp-input>
+          <gp-input label="E-mail"></gp-input>
+        </div>
+
+        <div class="vol-home__modal-fields vol-home__modal-fields--correct" *ngIf="newEvaluationType === 'correct'">
+          <gp-input label="Nome"></gp-input>
+          <gp-input label="CPF"></gp-input>
+        </div>
+      </div>
+    </ng-template>
+  </gp-modal>
 
   <footer class="vol-home__footer">
     <div class="vol-home__footer-inner">
