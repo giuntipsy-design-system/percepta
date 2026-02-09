@@ -94,11 +94,6 @@
   gap: #{tokens.$spacing-layout-sm};
 }
 
-.vol-home__nav-group--help {
-  padding-top: #{tokens.$spacing-layout-md};
-  border-top: 1px solid tokens.$color-border-subtle;
-}
-
 .vol-home__nav-label {
   @include typography.typography-label-md;
   text-transform: uppercase;

@@ -1,8 +1,29 @@
 <div class="gp-input-field">
   <label *ngIf="label" [class]="labelClass" [attr.for]="resolvedId">{{ label }}</label>
-  <ng-container *ngIf="leadingIcon; else plainInput">
-    <span class="p-input-icon-left">
-      <i class="pi" [class]="leadingIconClass" aria-hidden="true"></i>
+  <div
+    class="gp-input-control"
+    [class.gp-input-control--with-trailing]="trailingAction"
+  >
+    <ng-container *ngIf="leadingIcon; else plainInput">
+      <span class="p-input-icon-left gp-input-icon-left">
+        <i class="pi" [class]="leadingIconClass" aria-hidden="true"></i>
+        <input
+          [id]="resolvedId"
+          pInputText
+          [class]="inputClass"
+          [attr.placeholder]="placeholder"
+          [attr.aria-label]="ariaLabel || label"
+          [attr.aria-describedby]="describedBy"
+          [attr.aria-invalid]="isError"
+          [attr.type]="type"
+          [value]="internalValue ?? ''"
+          [disabled]="resolvedDisabled"
+          (input)="handleInput($event)"
+          (blur)="handleBlur()"
+        />
+      </span>
+    </ng-container>
+    <ng-template #plainInput>
       <input
         [id]="resolvedId"
         pInputText
@@ -17,24 +38,11 @@
         (input)="handleInput($event)"
         (blur)="handleBlur()"
       />
-    </span>
-  </ng-container>
-  <ng-template #plainInput>
-    <input
-      [id]="resolvedId"
-      pInputText
-      [class]="inputClass"
-      [attr.placeholder]="placeholder"
-      [attr.aria-label]="ariaLabel || label"
-      [attr.aria-describedby]="describedBy"
-      [attr.aria-invalid]="isError"
-      [attr.type]="type"
-      [value]="internalValue ?? ''"
-      [disabled]="resolvedDisabled"
-      (input)="handleInput($event)"
-      (blur)="handleBlur()"
-    />
-  </ng-template>
+    </ng-template>
+    <div *ngIf="trailingAction" class="gp-input-trailing">
+      <ng-content select="[gpInputTrailing]"></ng-content>
+    </div>
+  </div>
   <p *ngIf="!isError && helperText" [id]="helperId" class="gp-input-helper">{{ helperText }}</p>
   <p *ngIf="isError && errorText" [id]="errorId" class="gp-input-error" role="alert">{{ errorText }}</p>
 </div>

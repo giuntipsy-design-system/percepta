@@ -214,12 +214,51 @@
         </div>
       </div>
     </div>
+    <h4 class="docs-h3">With trailing action</h4>
+    <p class="docs-body">
+      Use trailing actions for quick, contextual controls such as show/hide password or clear input.
+      For password visibility, the icon must represent the action: open eye to show the password,
+      closed eye to hide it. This keeps the affordance focused on the action rather than the current state.
+    </p>
+    <div class="demo-box">
+      <div class="demo-row demo-row--left demo-row--stack">
+        <div class="demo-center">
+          <gp-input
+            label="Password"
+            [type]="showPassword ? 'text' : 'password'"
+            [trailingAction]="true"
+          >
+            <gp-button
+              gpInputTrailing
+              variant="ghost"
+              size="small"
+              [iconOnly]="true"
+              [icon]="showPassword ? 'eye-closed' : 'eye'"
+              [ariaLabel]="showPassword ? 'Hide password' : 'Show password'"
+              (clicked)="togglePasswordVisibility()"
+            ></gp-button>
+          </gp-input>
+        </div>
+      </div>
+    </div>
     <details class="demo-code">
       <summary class="demo-code-toggle"><span class="demo-code-label demo-code-label--closed">Show code</span><span class="demo-code-label demo-code-label--open">Hide code</span></summary>
       <div class="demo-code-panel">
       <pre class="code-block"><code>&lt;gp-input label=&quot;Email&quot; placeholder=&quot;name@company.com&quot; helperText=&quot;We only use this for account updates.&quot; /&gt;
 
-&lt;gp-input leadingIcon=&quot;search&quot; placeholder=&quot;Search&quot; /&gt;</code></pre>
+&lt;gp-input leadingIcon=&quot;search&quot; placeholder=&quot;Search&quot; /&gt;
+
+&lt;gp-input label=&quot;Password&quot; type=&quot;password&quot; [trailingAction]=&quot;true&quot;&gt;
+  &lt;gp-button
+    gpInputTrailing
+    variant=&quot;ghost&quot;
+    size=&quot;small&quot;
+    [iconOnly]=&quot;true&quot;
+    [icon]=&quot;showPassword ? 'eye-closed' : 'eye'&quot;
+    [ariaLabel]=&quot;showPassword ? 'Hide password' : 'Show password'&quot;
+    (clicked)=&quot;togglePasswordVisibility()&quot;
+  &gt;&lt;/gp-button&gt;
+&lt;/gp-input&gt;</code></pre>
       </div>
     </details>
     <h4 class="docs-h3">Documentation layout note</h4>

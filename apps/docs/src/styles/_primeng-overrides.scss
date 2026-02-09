@@ -326,6 +326,8 @@
   position: fixed;
   inset: 0;
   background: tokens.$color-background-overlay;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: var(--gp-overlay-z);
 }
 

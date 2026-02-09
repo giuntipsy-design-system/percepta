@@ -43,13 +43,7 @@ export class GpModalFooterDirective {
 @Component({
   selector: 'gp-modal',
   standalone: true,
-  imports: [
-    CommonModule,
-    GpModalBodyDirective,
-    GpModalFooterDirective,
-    GpButtonComponent,
-    GpIconComponent
-  ],
+  imports: [CommonModule, GpButtonComponent, GpIconComponent],
   templateUrl: './gp-modal.component.html',
   styleUrl: './gp-modal.component.scss'
 })
@@ -82,6 +76,9 @@ export class GpModalComponent implements OnChanges, AfterViewInit, AfterContentI
   private previouslyFocusedElement: HTMLElement | null = null;
   private closeRequested = false;
   private wasOpen = false;
+  private closeTimeoutId?: number;
+
+  isRendered = false;
 
   get effectiveTone(): ModalTone {
     if (this.type === 'destructive') {
@@ -123,6 +120,11 @@ export class GpModalComponent implements OnChanges, AfterViewInit, AfterContentI
     if (changes['open']) {
       if (this.open) {
         this.closeRequested = false;
+        this.isRendered = true;
+        if (this.closeTimeoutId) {
+          window.clearTimeout(this.closeTimeoutId);
+          this.closeTimeoutId = undefined;
+        }
         this.previouslyFocusedElement = document.activeElement as HTMLElement | null;
         this.deferFocus();
       } else if (this.wasOpen) {
@@ -130,6 +132,10 @@ export class GpModalComponent implements OnChanges, AfterViewInit, AfterContentI
           this.closed.emit();
         }
         this.restoreFocus();
+        this.closeTimeoutId = window.setTimeout(() => {
+          this.isRendered = false;
+          this.closeTimeoutId = undefined;
+        }, 180);
       }
       this.wasOpen = this.open;
     }

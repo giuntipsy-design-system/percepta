@@ -33,7 +33,8 @@ export class AppComponent {
       { label: 'Radio Button', route: '/components/radio' },
       { label: 'Select', route: '/components/select' },
       { label: 'Switch', route: '/components/switch' },
-      { label: 'Textarea', route: '/components/textarea' }
+      { label: 'Textarea', route: '/components/textarea' },
+      { label: 'Modal', route: '/components/modal' }
     ],
     planned: [
       'Datepicker',

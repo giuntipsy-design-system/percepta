@@ -6,10 +6,12 @@
     },
     "file": {
       "primary-regular": { "value": "'assets/fonts/NotoSans-Regular.woff2'" },
+      "primary-medium": { "value": "'assets/fonts/NotoSans-Medium.ttf'" },
       "primary-bold": { "value": "'assets/fonts/NotoSans-Bold.woff2'" }
     },
     "weight": {
       "regular": { "value": 400 },
+      "medium": { "value": 500 },
       "bold": { "value": 700 }
     },
     "size": {

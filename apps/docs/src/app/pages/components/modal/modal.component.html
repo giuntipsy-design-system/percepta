@@ -1,0 +1,434 @@
+<section class="page">
+  <header id="overview" class="doc-card doc-card--intro section-anchor">
+    <h2 class="docs-h1">Modal</h2>
+    <p class="overview-lead">
+      This component implements the Modal usage &amp; behavior pattern. Use this component when a
+      flow requires interruption and explicit user decision.
+    </p>
+    <a class="docs-link" [routerLink]="['/patterns', 'modal']">
+      View the Modal usage &amp; behavior pattern
+    </a>
+  </header>
+
+  <nav class="section-tabs">
+    <a
+      href="#overview"
+      (click)="scrollToSection($event, 'overview')"
+      [class.active]="currentSection === 'overview'"
+    >
+      Overview
+    </a>
+    <a
+      href="#preview"
+      (click)="scrollToSection($event, 'preview')"
+      [class.active]="currentSection === 'preview'"
+    >
+      Preview
+    </a>
+    <a
+      href="#variants"
+      (click)="scrollToSection($event, 'variants')"
+      [class.active]="currentSection === 'variants'"
+    >
+      Variants
+    </a>
+    <a
+      href="#sizes"
+      (click)="scrollToSection($event, 'sizes')"
+      [class.active]="currentSection === 'sizes'"
+    >
+      Sizes
+    </a>
+    <a
+      href="#usage"
+      (click)="scrollToSection($event, 'usage')"
+      [class.active]="currentSection === 'usage'"
+    >
+      Usage
+    </a>
+    <a
+      href="#properties"
+      (click)="scrollToSection($event, 'properties')"
+      [class.active]="currentSection === 'properties'"
+    >
+      Properties
+    </a>
+    <a
+      href="#events"
+      (click)="scrollToSection($event, 'events')"
+      [class.active]="currentSection === 'events'"
+    >
+      Events
+    </a>
+    <a
+      href="#interaction"
+      (click)="scrollToSection($event, 'interaction')"
+      [class.active]="currentSection === 'interaction'"
+    >
+      Interaction mapping
+    </a>
+    <a
+      href="#accessibility"
+      (click)="scrollToSection($event, 'accessibility')"
+      [class.active]="currentSection === 'accessibility'"
+    >
+      Accessibility
+    </a>
+    <a
+      href="#related"
+      (click)="scrollToSection($event, 'related')"
+      [class.active]="currentSection === 'related'"
+    >
+      Related patterns
+    </a>
+  </nav>
+
+  <section id="preview" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Preview</h3>
+    <p class="section-lead">
+      Use the controls below to open each modal type. The modal renders as a full overlay.
+    </p>
+    <div class="demo-box demo-box--preview">
+      <div class="demo-row demo-row--stack demo-row--center">
+        <div class="demo-toggle-row">
+          <div class="demo-toggle-group">
+            <p-selectButton
+              [options]="typeOptions"
+              [(ngModel)]="selectedType"
+              optionLabel="label"
+              optionValue="value"
+            ></p-selectButton>
+          </div>
+          <div class="demo-toggle-group">
+            <p-selectButton
+              [options]="sizeOptions"
+              [(ngModel)]="selectedSize"
+              optionLabel="label"
+              optionValue="value"
+            ></p-selectButton>
+          </div>
+        </div>
+        <gp-button label="Show modal" variant="text" (clicked)="openSelected()"></gp-button>
+      </div>
+    </div>
+  </section>
+
+  <section id="variants" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Variants (by type)</h3>
+    <p class="section-lead">
+      Types express intent and risk, not visual themes. Choose the type that matches the
+      user decision required.
+    </p>
+    <div class="variant-grid">
+      <div class="variant-card">
+        <h4 class="docs-h3">Informational</h4>
+        <p class="docs-body">Communicates critical information and expects acknowledgment.</p>
+      </div>
+      <div class="variant-card">
+        <h4 class="docs-h3">Confirmation</h4>
+        <p class="docs-body">Confirms a decision that changes state or workflow.</p>
+      </div>
+      <div class="variant-card">
+        <h4 class="docs-h3">Destructive</h4>
+        <p class="docs-body">Requires explicit approval for irreversible actions.</p>
+      </div>
+    </div>
+    <details class="demo-code">
+      <summary class="demo-code-toggle">
+        <span class="demo-code-label demo-code-label--closed">Show code</span>
+        <span class="demo-code-label demo-code-label--open">Hide code</span>
+      </summary>
+      <div class="demo-code-panel">
+        <pre class="code-block"><code>&lt;gp-modal type="informational" ...&gt;&lt;/gp-modal&gt;
+&lt;gp-modal type="confirmation" ...&gt;&lt;/gp-modal&gt;
+&lt;gp-modal type="destructive" ...&gt;&lt;/gp-modal&gt;</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <section id="sizes" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Sizes</h3>
+    <p class="section-lead">
+      Choose a size based on content length and the decision scope. Sizes are constrained and
+      should not be overridden with custom widths.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th scope="col">Size</th>
+          <th scope="col">When to use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>sm</td>
+          <td>Short confirmations and single-sentence messages.</td>
+        </tr>
+        <tr>
+          <td>md</td>
+          <td>Default size for most modals with short body copy.</td>
+        </tr>
+        <tr>
+          <td>lg</td>
+          <td>Longer explanations or compact forms (1–3 fields).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Usage</h3>
+    <ul class="docs-list">
+      <li>Use gp-modal only for real interruptions that require a decision.</li>
+      <li>Keep content brief and focused on the decision being made.</li>
+      <li>Select the correct type based on risk and intent.</li>
+      <li>Do not use the modal as a generic layout container.</li>
+    </ul>
+  </section>
+
+  <section id="properties" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Properties</h3>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Required</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>open</td>
+          <td>boolean</td>
+          <td>Yes</td>
+          <td>Controls modal visibility (external state).</td>
+        </tr>
+        <tr>
+          <td>type</td>
+          <td>'informational' | 'confirmation' | 'destructive'</td>
+          <td>Yes</td>
+          <td>Defines intent and default behavior.</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>string</td>
+          <td>Yes</td>
+          <td>Primary title for the modal.</td>
+        </tr>
+        <tr>
+          <td>description</td>
+          <td>string</td>
+          <td>No</td>
+          <td>Optional supporting text under the title.</td>
+        </tr>
+        <tr>
+          <td>primaryLabel</td>
+          <td>string</td>
+          <td>Yes</td>
+          <td>Label for the primary action.</td>
+        </tr>
+        <tr>
+          <td>secondaryLabel</td>
+          <td>string</td>
+          <td>No</td>
+          <td>Label for the secondary action.</td>
+        </tr>
+        <tr>
+          <td>tone</td>
+          <td>'default' | 'danger'</td>
+          <td>No</td>
+          <td>Overrides tone when needed.</td>
+        </tr>
+        <tr>
+          <td>dismissible</td>
+          <td>boolean</td>
+          <td>No</td>
+          <td>Allows ESC/backdrop dismissal (type defaults apply).</td>
+        </tr>
+        <tr>
+          <td>loading</td>
+          <td>boolean</td>
+          <td>No</td>
+          <td>Shows loading state on the primary action.</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>boolean</td>
+          <td>No</td>
+          <td>Disables actions without hiding the modal.</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>'sm' | 'md' | 'lg'</td>
+          <td>No</td>
+          <td>Suggested modal size.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="events" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Events</h3>
+    <ul class="docs-list">
+      <li><strong>primary</strong>: emitted when the primary action is triggered.</li>
+      <li><strong>secondary</strong>: emitted when the secondary action is triggered.</li>
+      <li><strong>closed</strong>: emitted whenever the modal closes.</li>
+    </ul>
+    <p class="docs-body">
+      gp-modal only emits events; it does not execute business logic.
+    </p>
+  </section>
+
+  <section id="interaction" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Interaction mapping</h3>
+    <p class="docs-body">
+      This table maps modal surfaces and roles to the system tokens that style them.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th scope="col">Role</th>
+          <th scope="col">Token mapping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Backdrop</td>
+          <td>Background · Overlay</td>
+        </tr>
+        <tr>
+          <td>Surface</td>
+          <td>Background · Default / Border · Subtle / Radius · Md</td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td>Foreground · Default</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>Foreground · Subtle</td>
+        </tr>
+        <tr>
+          <td>Body text</td>
+          <td>Foreground · Default</td>
+        </tr>
+        <tr>
+          <td>Primary action (default)</td>
+          <td>Accent · Moderate / Accent · On-accent</td>
+        </tr>
+        <tr>
+          <td>Primary action (destructive)</td>
+          <td>Background · Danger Primary / Accent · On-accent</td>
+        </tr>
+        <tr>
+          <td>Secondary action</td>
+          <td>Text / Accent · Moderate</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="docs-body">
+      Interaction outcomes are documented below to clarify emitted events.
+    </p>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th scope="col">Interaction</th>
+          <th scope="col">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary action click</td>
+          <td>Emits <strong>primary</strong></td>
+        </tr>
+        <tr>
+          <td>Secondary action click</td>
+          <td>Emits <strong>secondary</strong></td>
+        </tr>
+        <tr>
+          <td>Dismissal (ESC or backdrop, when allowed)</td>
+          <td>Emits <strong>closed</strong></td>
+        </tr>
+        <tr>
+          <td>Programmatic close (open = false)</td>
+          <td>Emits <strong>closed</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="accessibility" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Accessibility</h3>
+    <ul class="docs-list">
+      <li>gp-modal manages focus and blocks background interaction.</li>
+      <li>The title acts as the accessible heading.</li>
+      <li>The component follows the Modal usage &amp; behavior pattern.</li>
+    </ul>
+  </section>
+
+  <section id="related" class="section doc-card section-anchor">
+    <h3 class="docs-h2">Related patterns</h3>
+    <ul class="docs-list">
+      <li>
+        <a class="docs-link" [routerLink]="['/patterns', 'modal']">
+          Modal usage &amp; behavior
+        </a>
+      </li>
+      <li>
+        <a class="docs-link" [routerLink]="['/patterns', 'form-layout-validation']">
+          Form layout &amp; validation
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <gp-modal
+    [open]="isInfoOpen"
+    type="informational"
+    [width]="modalWidth"
+    [title]="'Session updated'"
+    [description]="'Your changes are now active.'"
+    [primaryLabel]="'Got it'"
+    (primary)="closeInfo()"
+    (closed)="closeInfo()"
+  >
+    <ng-template gpModalBody>
+      The system applied your updates successfully.
+    </ng-template>
+  </gp-modal>
+
+  <gp-modal
+    [open]="isConfirmOpen"
+    type="confirmation"
+    [width]="modalWidth"
+    [title]="'Archive project?'"
+    [description]="'You can restore it later from settings.'"
+    [primaryLabel]="'Archive'"
+    [secondaryLabel]="'Cancel'"
+    (primary)="closeConfirm()"
+    (secondary)="closeConfirm()"
+    (closed)="closeConfirm()"
+  >
+    <ng-template gpModalBody>
+      Archiving will remove this project from active lists.
+    </ng-template>
+  </gp-modal>
+
+  <gp-modal
+    [open]="isDestructiveOpen"
+    type="destructive"
+    [width]="modalWidth"
+    [title]="'Delete record?'"
+    [description]="'This action cannot be undone.'"
+    [primaryLabel]="'Delete'"
+    [secondaryLabel]="'Cancel'"
+    (primary)="closeDestructive()"
+    (secondary)="closeDestructive()"
+    (closed)="closeDestructive()"
+  >
+    <ng-template gpModalBody>
+      All associated data will be permanently removed.
+    </ng-template>
+  </gp-modal>
+</section>

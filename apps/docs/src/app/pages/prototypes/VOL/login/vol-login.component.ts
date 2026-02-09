@@ -12,9 +12,15 @@ import { GpInputComponent } from '../../../../../../../shared/components/input/g
   styleUrls: ['./vol-login.component.scss']
 })
 export class VolLoginComponent {
+  showPassword = false;
+
   constructor(private readonly router: Router) {}
 
   goToHome(): void {
     this.router.navigateByUrl('/prototypes/vol/home');
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

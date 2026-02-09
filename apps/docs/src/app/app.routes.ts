@@ -10,13 +10,14 @@ import { IconComponent } from './pages/components/icon/icon.component';
 import { InputComponent } from './pages/components/input/input.component';
 import { RadioComponent } from './pages/components/radio/radio.component';
 import { SelectComponent } from './pages/components/select/select.component';
+import { ModalComponent as ModalDocComponent } from './pages/components/modal/modal.component';
 import { GettingStartedDesignToCodeComponent } from './pages/getting-started/design-to-code/getting-started-design-to-code.component';
 import { GettingStartedOverviewComponent } from './pages/getting-started/overview/getting-started-overview.component';
 import { GettingStartedTypographyTokensComponent } from './pages/getting-started/typography-tokens/getting-started-typography-tokens.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { FormLayoutValidationComponent } from './pages/patterns/form-layout-validation/form-layout-validation.component';
-import { ModalComponent } from './pages/patterns/modal/modal.component';
+import { ModalComponent as ModalPatternComponent } from './pages/patterns/modal/modal.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
 import { PrimeBaselineComponent } from './pages/prime-baseline/prime-baseline.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
@@ -115,6 +116,11 @@ export const routes: Routes = [
         path: 'textarea',
         component: TextareaComponent,
         title: 'Textarea · Percepta'
+      },
+      {
+        path: 'modal',
+        component: ModalDocComponent,
+        title: 'Modal · Percepta'
       }
     ]
   },
@@ -134,7 +140,7 @@ export const routes: Routes = [
       },
       {
         path: 'modal',
-        component: ModalComponent,
+        component: ModalPatternComponent,
         title: 'Modal · Percepta'
       }
     ]

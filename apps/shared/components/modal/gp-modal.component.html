@@ -1,7 +1,13 @@
-<div class="gp-modal-backdrop" *ngIf="open" (click)="onBackdropClick($event)">
+<div
+  class="gp-modal-backdrop"
+  *ngIf="isRendered"
+  [class.is-open]="open"
+  (click)="onBackdropClick($event)"
+>
   <div
     #modalRoot
     class="gp-modal"
+    [class.is-open]="open"
     [class.gp-modal--sm]="width === 'sm'"
     [class.gp-modal--md]="width === 'md'"
     [class.gp-modal--lg]="width === 'lg'"

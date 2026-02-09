@@ -53,9 +53,20 @@
 
         <gp-input
           label="Senha"
-          type="password"
+          [type]="showPassword ? 'text' : 'password'"
           size="large"
-        ></gp-input>
+          [trailingAction]="true"
+        >
+          <gp-button
+            gpInputTrailing
+            variant="ghost"
+            size="small"
+            [iconOnly]="true"
+            [icon]="showPassword ? 'eye-closed' : 'eye'"
+            [ariaLabel]="showPassword ? 'Ocultar senha' : 'Mostrar senha'"
+            (clicked)="togglePasswordVisibility()"
+          ></gp-button>
+        </gp-input>
 
         <div class="vol-login__links">
           <a href="#" class="vol-login__link">

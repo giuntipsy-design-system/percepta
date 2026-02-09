@@ -18,7 +18,7 @@
       "info-contrast": { "value": "{color.blue.600}" },
       "notification": { "value": "{color.red.600}" },
       "disabled": { "value": "{color.gray.100}" },
-      "overlay": { "value": "rgba(22,21,20,0.45)" },
+      "overlay": { "value": "rgba(22,21,20,0.6)" },
       "contrast": { "value": "{color.gray.900}" },
       "danger-primary": { "value": "{color.red.500}" },
       "danger-secondary": { "value": "{color.red.600}" },

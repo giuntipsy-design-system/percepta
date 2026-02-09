@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, OnInit, Optional, Self, SimpleChanges, forwardRef } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, forwardRef, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 
@@ -35,6 +35,7 @@ export class GpInputComponent implements OnInit, OnChanges, ControlValueAccessor
   @Input() errorText = '';
   @Input() error = false;
   @Input() leadingIcon?: LeadingIcon;
+  @Input() trailingAction = false;
   @Input() inputId = '';
   @Input() ariaLabel = '';
   @Input() demo = false;
@@ -45,14 +46,16 @@ export class GpInputComponent implements OnInit, OnChanges, ControlValueAccessor
   private onChange: (value: string | number | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  constructor(@Optional() @Self() public ngControl: NgControl | null) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = this;
-    }
-  }
+  private ngControl: NgControl | null = null;
+
+  constructor(private injector: Injector) {}
 
   ngOnInit(): void {
     this.resolvedId = this.inputId || `gp-input-${++nextId}`;
+    this.ngControl = this.injector.get(NgControl, null);
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
     if (!this.ngControl) {
       this.internalValue = this.value;
       this.internalDisabled = this.disabled;

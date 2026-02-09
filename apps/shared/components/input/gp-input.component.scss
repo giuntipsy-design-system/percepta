@@ -13,6 +13,39 @@
   gap: #{tokens.$spacing-layout-xs};
 }
 
+.gp-input-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.gp-input-icon-left {
+  width: 100%;
+}
+
+.gp-input-trailing {
+  position: absolute;
+  right: #{tokens.$spacing-control-x-sm};
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+}
+
+.gp-input-control--with-trailing .gp-input {
+  padding-right: calc(#{tokens.$spacing-control-x-md} + #{tokens.$spacing-control-icon-only-md});
+}
+
+.gp-input-control--with-trailing .gp-input.p-inputtext-sm {
+  padding-right: calc(#{tokens.$spacing-control-x-sm} + #{tokens.$spacing-control-icon-only-sm});
+}
+
+.gp-input-control--with-trailing .gp-input.p-inputtext-lg {
+  padding-right: calc(#{tokens.$spacing-control-x-lg} + #{tokens.$spacing-control-icon-only-lg});
+}
+
 .gp-input-label {
   @include typography.typography-label-md;
   color: tokens.$color-foreground-default;

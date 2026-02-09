@@ -103,11 +103,6 @@
   gap: #{tokens.$spacing-layout-sm};
 }
 
-.vol-profile__nav-group--help {
-  padding-top: #{tokens.$spacing-layout-md};
-  border-top: 1px solid tokens.$color-border-subtle;
-}
-
 .vol-profile__nav-label {
   @include typography.typography-label-md;
   text-transform: uppercase;

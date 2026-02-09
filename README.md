@@ -41,8 +41,17 @@ It is structured around:
 - **Getting started** – system overview, scope and design → code workflow
 - **Tokens** – token architecture, semantics and theming
 - **Components** – usage and implementation details
+- **Patterns** – interaction and layout guidance (e.g. Modal usage & behavior)
 
 Visual design guidelines are always referenced externally.
+
+---
+
+## Recent additions
+
+- **Modal component** (system-owned) and **Modal usage & behavior** pattern
+- **Modal documentation page** under Components
+- **VOL profile prototype** with unsaved changes confirmation flow
 
 ---
 
@@ -52,6 +61,25 @@ Visual design guidelines are always referenced externally.
 - PrimeNG
 - SCSS
 - Design tokens (JSON)
+
+---
+
+## Token build
+
+When changing tokens, regenerate compiled outputs:
+
+```bash
+npm run build:tokens
+```
+
+---
+
+## Deploy docs
+
+```bash
+npx ng build docs --base-href /percepta/
+npx angular-cli-ghpages --dir=dist/docs/browser
+```
 
 ---
 

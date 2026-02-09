@@ -197,6 +197,20 @@
   border-radius: 999px;
 }
 
+.card-visual--modal span:first-child {
+  width: 54px;
+  height: 26px;
+  border-radius: 10px;
+}
+
+.card-visual--modal span:last-child {
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+  background: tokens.$color-accent-moderate;
+  border: none;
+}
+
 .card-title {
   @include typography.typography-heading-h3;
   margin: 0 0 2px;

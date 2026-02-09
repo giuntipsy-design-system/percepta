@@ -19,6 +19,14 @@
 @font-face {
   font-family: 'Noto Sans';
   font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('#{tokens.$font-file-primary-medium}') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url('#{tokens.$font-file-primary-bold}') format('woff2');
@@ -118,7 +126,7 @@ h3 {
 
 .gp-button {
   @include typography.typography-label-control-md;
-  font-weight: tokens.$font-weight-regular;
+  font-weight: tokens.$font-weight-medium;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,6 +140,10 @@ h3 {
   --gp-button-padding-y: #{tokens.$spacing-control-y-md};
   --gp-button-gap: #{tokens.$spacing-control-x-md};
   --gp-button-radius: 6px;
+}
+
+.gp-button .p-button-label {
+  font-weight: tokens.$font-weight-medium;
 }
 
 .gp-button--primary {

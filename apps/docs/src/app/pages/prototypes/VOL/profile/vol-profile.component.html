@@ -67,9 +67,6 @@
             <a href="#">Importar respostas</a>
             <a href="#">Exportar resultados</a>
           </div>
-          <div class="vol-profile__nav-group vol-profile__nav-group--help">
-            <a href="#">Ajuda</a>
-          </div>
         </nav>
       </aside>
 
@@ -77,7 +74,12 @@
         <div class="vol-profile__content-header">
           <h1>Perfil do usuário</h1>
           <div class="vol-profile__primary-action">
-            <gp-button variant="primary" size="medium" label="Salvar alterações"></gp-button>
+            <gp-button
+              variant="primary"
+              size="medium"
+              label="Salvar alterações"
+              (clicked)="saveChanges()"
+            ></gp-button>
           </div>
         </div>
 
@@ -93,10 +95,10 @@
           </div>
           <div class="vol-section__body">
             <div class="vol-form-grid vol-form-grid--2">
-              <gp-input label="Nome" value="Sergio"></gp-input>
-              <gp-input label="E-mail" value="sortegasa@gmail.com"></gp-input>
-              <gp-input label="Login" value="sortegasa"></gp-input>
-              <gp-input label="Telefone"></gp-input>
+              <gp-input label="Nome" [(ngModel)]="profile.firstName" (ngModelChange)="markDirty()"></gp-input>
+              <gp-input label="E-mail" [(ngModel)]="profile.email" (ngModelChange)="markDirty()"></gp-input>
+              <gp-input label="Login" [(ngModel)]="profile.login" (ngModelChange)="markDirty()"></gp-input>
+              <gp-input label="Telefone" [(ngModel)]="profile.phone" (ngModelChange)="markDirty()"></gp-input>
             </div>
           </div>
         </section>
@@ -121,6 +123,7 @@
                     name="userType"
                     value="Profissional"
                     [(ngModel)]="userType"
+                    (ngModelChange)="markDirty()"
                   ></p-radioButton>
                   <label for="profile-user-type-prof">Profissional</label>
                 </div>
@@ -130,6 +133,7 @@
                     name="userType"
                     value="Profissional Responsável"
                     [(ngModel)]="userType"
+                    (ngModelChange)="markDirty()"
                   ></p-radioButton>
                   <label for="profile-user-type-resp">Profissional Responsável</label>
                 </div>
@@ -143,15 +147,17 @@
                 [options]="regionOptions"
                 optionLabel="label"
                 [(ngModel)]="region"
+                (ngModelChange)="markDirty()"
               ></p-select>
             </div>
-            <gp-input label="CRP" value="123456789"></gp-input>
+            <gp-input label="CRP" [(ngModel)]="profile.crp" (ngModelChange)="markDirty()"></gp-input>
             <div class="vol-field">
               <div class="vol-checkbox-row">
                 <p-checkbox
                   inputId="profile-psychologist"
                   binary="true"
                   [(ngModel)]="psychologist"
+                  (ngModelChange)="markDirty()"
                 ></p-checkbox>
                 <label for="profile-psychologist">
                   Sou psicólogo(a) com registro profissional
@@ -174,9 +180,19 @@
           </div>
           <div class="vol-section__body">
             <div class="vol-form-grid vol-form-grid--2">
-              <gp-input type="password" label="Alterar senha"></gp-input>
+              <gp-input
+                type="password"
+                label="Alterar senha"
+                [(ngModel)]="profile.password"
+                (ngModelChange)="markDirty()"
+              ></gp-input>
 
-              <gp-input type="password" label="Confirmar senha"></gp-input>
+              <gp-input
+                type="password"
+                label="Confirmar senha"
+                [(ngModel)]="profile.confirmPassword"
+                (ngModelChange)="markDirty()"
+              ></gp-input>
             </div>
           </div>
         </section>
@@ -193,12 +209,17 @@
           </div>
           <div class="vol-section__body">
             <div class="vol-form-grid vol-form-grid--2">
-              <gp-input label="API Endpoint"></gp-input>
+              <gp-input
+                label="API Endpoint"
+                [(ngModel)]="profile.apiEndpoint"
+                (ngModelChange)="markDirty()"
+              ></gp-input>
               <div class="vol-field">
                 <div class="vol-switch-row">
                   <p-toggleSwitch
                     inputId="profile-endpoint-auto"
                     [(ngModel)]="endpointAuto"
+                    (ngModelChange)="markDirty()"
                   ></p-toggleSwitch>
                   <label for="profile-endpoint-auto">
                     Acionar endpoint automaticamente
@@ -209,7 +230,12 @@
           </div>
         </section>
         <div class="vol-profile__primary-action vol-profile__primary-action--bottom">
-          <gp-button variant="primary" size="medium" label="Salvar alterações"></gp-button>
+          <gp-button
+            variant="primary"
+            size="medium"
+            label="Salvar alterações"
+            (clicked)="saveChanges()"
+          ></gp-button>
         </div>
       </main>
     </div>
@@ -225,4 +251,19 @@
       <span>© 2026 Giunti Psychometrics</span>
     </div>
   </footer>
+
+  <gp-modal
+    [open]="isLeaveModalOpen"
+    type="confirmation"
+    [title]="'Salvar alterações?'"
+    [primaryLabel]="'Salvar alterações'"
+    [secondaryLabel]="'Sair sem salvar'"
+    (primary)="saveChanges()"
+    (secondary)="discardChanges()"
+    (closed)="closeLeaveModal()"
+  >
+    <ng-template gpModalBody>
+      Você fez alterações no perfil. Se sair agora, essas alterações serão perdidas.
+    </ng-template>
+  </gp-modal>
 </section>

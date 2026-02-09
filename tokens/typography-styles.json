@@ -141,7 +141,7 @@
         "value": {
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.2xs}",
-          "fontWeight": "{font.weight.regular}",
+          "fontWeight": "{font.weight.medium}",
           "lineHeight": "{font.lineHeight.label-control}"
         }
       },
@@ -149,7 +149,7 @@
         "value": {
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.md}",
-          "fontWeight": "{font.weight.regular}",
+          "fontWeight": "{font.weight.medium}",
           "lineHeight": "{font.lineHeight.label-control}"
         }
       },
@@ -157,7 +157,7 @@
         "value": {
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.sm}",
-          "fontWeight": "{font.weight.regular}",
+          "fontWeight": "{font.weight.medium}",
           "lineHeight": "{font.lineHeight.label-control}"
         }
       },
@@ -165,7 +165,7 @@
         "value": {
           "fontFamily": "{font.family.primary}",
           "fontSize": "{font.size.xs}",
-          "fontWeight": "{font.weight.regular}",
+          "fontWeight": "{font.weight.medium}",
           "lineHeight": "{font.lineHeight.label-control}"
         }
       }

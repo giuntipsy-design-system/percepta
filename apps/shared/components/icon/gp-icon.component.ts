@@ -31,7 +31,9 @@ type IconName =
   | 'bell'
   | 'github'
   | 'open-new-window'
-  | 'half-moon';
+  | 'half-moon'
+  | 'eye'
+  | 'eye-closed';
 
 @Component({
   selector: 'gp-icon',
@@ -85,7 +87,9 @@ export class GpIconComponent implements OnChanges {
       bell: 'iconoir-bell',
       github: 'iconoir-github',
       'open-new-window': 'iconoir-open-new-window',
-      'half-moon': 'iconoir-half-moon'
+      'half-moon': 'iconoir-half-moon',
+      eye: 'iconoir-eye',
+      'eye-closed': 'iconoir-eye-closed'
     };
     const iconName = this.name ? iconMap[this.name] : '';
     return ['gp-icon', iconName].filter(Boolean).join(' ');

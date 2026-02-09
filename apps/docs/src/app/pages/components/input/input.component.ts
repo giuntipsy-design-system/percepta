@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { GpButtonComponent } from '../../../../../../shared/components/button/gp-button.component';
 import { GpInputComponent } from '../../../../../../shared/components/input/gp-input.component';
 
 type InputSize = 'small' | 'medium' | 'large';
@@ -8,18 +9,23 @@ type InputSize = 'small' | 'medium' | 'large';
 @Component({
   selector: 'gp-input-doc',
   standalone: true,
-  imports: [FormsModule, SelectButtonModule, GpInputComponent],
+  imports: [FormsModule, SelectButtonModule, GpInputComponent, GpButtonComponent],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'
 })
 export class InputComponent {
   currentSection = 'overview';
+  showPassword = false;
   sizes = [
     { label: 'Small', value: 'small' },
     { label: 'Default', value: 'medium' },
     { label: 'Large', value: 'large' }
   ];
   selectedSize: InputSize = 'medium';
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   scrollToSection(event: Event, id: string): void {
     event.preventDefault();

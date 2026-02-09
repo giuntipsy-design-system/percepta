@@ -6,7 +6,7 @@ import { GpIconComponent } from '../icon/gp-icon.component';
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'text' | 'danger' | 'ghost';
 type ButtonSize = 'small' | 'medium' | 'large';
 type ButtonState = 'default' | 'hover' | 'focus' | 'active';
-type ButtonIcon = 'add' | 'search' | 'filter' | 'delete' | 'arrow-right' | 'half-moon';
+type ButtonIcon = 'add' | 'search' | 'filter' | 'delete' | 'arrow-right' | 'half-moon' | 'eye' | 'eye-closed';
 
 @Component({
   selector: 'gp-button',
