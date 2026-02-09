@@ -36,32 +36,11 @@
       States
     </a>
     <a
-      href="#interaction"
-      (click)="scrollToSection($event, 'interaction')"
-      [class.active]="currentSection === 'interaction'"
+      href="#specs"
+      (click)="scrollToSection($event, 'specs')"
+      [class.active]="currentSection === 'specs'"
     >
-      Interaction mapping
-    </a>
-    <a
-      href="#keyboard"
-      (click)="scrollToSection($event, 'keyboard')"
-      [class.active]="currentSection === 'keyboard'"
-    >
-      Keyboard
-    </a>
-    <a
-      href="#accessibility"
-      (click)="scrollToSection($event, 'accessibility')"
-      [class.active]="currentSection === 'accessibility'"
-    >
-      Accessibility
-    </a>
-    <a
-      href="#properties"
-      (click)="scrollToSection($event, 'properties')"
-      [class.active]="currentSection === 'properties'"
-    >
-      Properties
+      Specifications
     </a>
   </nav>
 
@@ -197,7 +176,8 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <h3 id="specs" class="section-anchor docs-h2">Specifications</h3>
+    <h4 id="interaction" class="docs-h3">Interaction mapping</h4>
     <p class="docs-body">
       This section maps semantic design roles to textarea states without exposing raw values.
     </p>
@@ -244,7 +224,7 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="keyboard" class="section-anchor docs-h2">Keyboard support</h3>
+    <h4 id="keyboard" class="docs-h3">Keyboard support</h4>
     <ul class="docs-list">
       <li>Tab moves focus to the textarea.</li>
       <li>Enter creates new lines inside the field.</li>
@@ -253,7 +233,7 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="accessibility" class="section-anchor docs-h2">Accessibility</h3>
+    <h4 id="accessibility" class="docs-h3">Accessibility</h4>
     <p class="docs-body">
       Ensure each textarea has a visible label and accessible error messaging. Native semantics and
       ARIA are handled by the framework.
@@ -261,7 +241,7 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <h4 id="properties" class="docs-h3">Properties</h4>
     <table class="mapping-table">
       <thead>
         <tr>

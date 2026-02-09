@@ -34,18 +34,11 @@
       Usage
     </a>
     <a
-      href="#properties"
-      (click)="scrollToSection($event, 'properties')"
-      [class.active]="currentSection === 'properties'"
+      href="#specs"
+      (click)="scrollToSection($event, 'specs')"
+      [class.active]="currentSection === 'specs'"
     >
-      Properties
-    </a>
-    <a
-      href="#interaction"
-      (click)="scrollToSection($event, 'interaction')"
-      [class.active]="currentSection === 'interaction'"
-    >
-      Interaction mapping
+      Specifications
     </a>
   </nav>
 
@@ -413,7 +406,8 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="properties" class="section-anchor docs-h2">Properties</h3>
+    <h3 id="specs" class="section-anchor docs-h2">Specifications</h3>
+    <h4 id="properties" class="docs-h3">Properties</h4>
     <table class="mapping-table">
       <thead>
         <tr>
@@ -458,7 +452,7 @@
   </section>
 
   <section class="section doc-card">
-    <h3 id="interaction" class="section-anchor docs-h2">Interaction mapping</h3>
+    <h4 id="interaction" class="docs-h3">Interaction mapping</h4>
     <p class="docs-body">
       This section maps semantic design roles to button variants, states, and sizes without exposing
       visual values or tokens.

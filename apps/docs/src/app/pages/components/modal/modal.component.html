@@ -47,32 +47,11 @@
       Usage
     </a>
     <a
-      href="#properties"
-      (click)="scrollToSection($event, 'properties')"
-      [class.active]="currentSection === 'properties'"
+      href="#specs"
+      (click)="scrollToSection($event, 'specs')"
+      [class.active]="currentSection === 'specs'"
     >
-      Properties
-    </a>
-    <a
-      href="#events"
-      (click)="scrollToSection($event, 'events')"
-      [class.active]="currentSection === 'events'"
-    >
-      Events
-    </a>
-    <a
-      href="#interaction"
-      (click)="scrollToSection($event, 'interaction')"
-      [class.active]="currentSection === 'interaction'"
-    >
-      Interaction mapping
-    </a>
-    <a
-      href="#accessibility"
-      (click)="scrollToSection($event, 'accessibility')"
-      [class.active]="currentSection === 'accessibility'"
-    >
-      Accessibility
+      Specifications
     </a>
     <a
       href="#related"
@@ -190,8 +169,9 @@
     </ul>
   </section>
 
-  <section id="properties" class="section doc-card section-anchor">
-    <h3 class="docs-h2">Properties</h3>
+  <section class="section doc-card">
+    <h3 id="specs" class="section-anchor docs-h2">Specifications</h3>
+    <h4 id="properties" class="docs-h3">Properties</h4>
     <table class="mapping-table">
       <thead>
         <tr>
@@ -272,8 +252,8 @@
     </table>
   </section>
 
-  <section id="events" class="section doc-card section-anchor">
-    <h3 class="docs-h2">Events</h3>
+  <section class="section doc-card">
+    <h4 id="events" class="docs-h3">Events</h4>
     <ul class="docs-list">
       <li><strong>primary</strong>: emitted when the primary action is triggered.</li>
       <li><strong>secondary</strong>: emitted when the secondary action is triggered.</li>
@@ -284,8 +264,8 @@
     </p>
   </section>
 
-  <section id="interaction" class="section doc-card section-anchor">
-    <h3 class="docs-h2">Interaction mapping</h3>
+  <section class="section doc-card">
+    <h4 id="interaction" class="docs-h3">Interaction mapping</h4>
     <p class="docs-body">
       This table maps modal surfaces and roles to the system tokens that style them.
     </p>
@@ -362,8 +342,8 @@
     </table>
   </section>
 
-  <section id="accessibility" class="section doc-card section-anchor">
-    <h3 class="docs-h2">Accessibility</h3>
+  <section class="section doc-card">
+    <h4 id="accessibility" class="docs-h3">Accessibility</h4>
     <ul class="docs-list">
       <li>gp-modal manages focus and blocks background interaction.</li>
       <li>The title acts as the accessible heading.</li>
