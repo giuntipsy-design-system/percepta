@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { SelectModule } from 'primeng/select';
 import { GpButtonComponent } from '../../../../../../../shared/components/button/gp-button.component';
 import { GpIconComponent } from '../../../../../../../shared/components/icon/gp-icon.component';
 import { GpInputComponent } from '../../../../../../../shared/components/input/gp-input.component';
@@ -18,6 +19,7 @@ import {
     CommonModule,
     FormsModule,
     RadioButtonModule,
+    SelectModule,
     GpButtonComponent,
     GpIconComponent,
     GpInputComponent,
@@ -30,6 +32,13 @@ import {
 export class VolHomeComponent {
   newEvaluationType: 'apply' | 'correct' = 'apply';
   isNewEvaluationOpen = false;
+  batchRegisterType: 'batch' | 'simple' = 'simple';
+  isBatchRegisterOpen = false;
+  departmentOptions = [
+    { label: 'Departamento Clínico', value: 'Departamento Clínico' },
+    { label: 'Departamento Educacional', value: 'Departamento Educacional' }
+  ];
+  selectedDepartment = this.departmentOptions[0].value;
 
   constructor(private readonly router: Router) {}
 
@@ -47,5 +56,17 @@ export class VolHomeComponent {
 
   confirmNewEvaluation(): void {
     this.isNewEvaluationOpen = false;
+  }
+
+  openBatchRegister(): void {
+    this.isBatchRegisterOpen = true;
+  }
+
+  closeBatchRegister(): void {
+    this.isBatchRegisterOpen = false;
+  }
+
+  confirmBatchRegister(): void {
+    this.isBatchRegisterOpen = false;
   }
 }

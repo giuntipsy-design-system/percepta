@@ -76,6 +76,7 @@
               label="Cadastrar em lote"
               variant="secondary"
               size="small"
+              (clicked)="openBatchRegister()"
             ></gp-button>
             <gp-button
               label="Nova avaliação"
@@ -174,42 +175,144 @@
   >
     <ng-template gpModalBody>
       <div class="vol-home__modal">
-        <div class="vol-home__modal-options" role="radiogroup" aria-label="Tipo de avaliação">
-          <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'apply'">
-            <p-radioButton
-              inputId="new-eval-apply"
-              name="newEvaluationType"
-              value="apply"
-              [(ngModel)]="newEvaluationType"
-            ></p-radioButton>
-            <div class="vol-home__modal-option-text">
-              <span>Aplicar avaliação</span>
-              <small>Incluir um novo avaliado para iniciar a aplicação.</small>
+        <div class="modal-form">
+          <div class="modal-form__section modal-form__section--choice">
+            <div class="vol-home__modal-options" role="radiogroup" aria-label="Tipo de avaliação">
+              <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'apply'">
+                <p-radioButton
+                  inputId="new-eval-apply"
+                  name="newEvaluationType"
+                  value="apply"
+                  [(ngModel)]="newEvaluationType"
+                ></p-radioButton>
+                <div class="vol-home__modal-option-text">
+                  <span>Aplicar avaliação</span>
+                  <small>Incluir um novo avaliado para iniciar a aplicação.</small>
+                </div>
+              </label>
+              <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'correct'">
+                <p-radioButton
+                  inputId="new-eval-correct"
+                  name="newEvaluationType"
+                  value="correct"
+                  [(ngModel)]="newEvaluationType"
+                ></p-radioButton>
+                <div class="vol-home__modal-option-text">
+                  <span>Corrigir / Novo avaliado</span>
+                  <small>Registrar correções com os dados do avaliado.</small>
+                </div>
+              </label>
             </div>
-          </label>
-          <label class="vol-home__modal-option" [class.is-selected]="newEvaluationType === 'correct'">
-            <p-radioButton
-              inputId="new-eval-correct"
-              name="newEvaluationType"
-              value="correct"
-              [(ngModel)]="newEvaluationType"
-            ></p-radioButton>
-            <div class="vol-home__modal-option-text">
-              <span>Corrigir / Novo avaliado</span>
-              <small>Registrar correções com os dados do avaliado.</small>
+          </div>
+
+          <div class="modal-form__section modal-form__section--fields">
+            <div class="modal-form__row" *ngIf="newEvaluationType === 'apply'">
+              <div class="vol-home__modal-fields vol-home__modal-fields--apply">
+                <gp-input label="Nome" size="large"></gp-input>
+                <gp-input label="CPF" size="large" placeholder="000.000.000-00"></gp-input>
+                <gp-input label="E-mail" size="large"></gp-input>
+              </div>
             </div>
-          </label>
-        </div>
 
-        <div class="vol-home__modal-fields vol-home__modal-fields--apply" *ngIf="newEvaluationType === 'apply'">
-          <gp-input label="Nome"></gp-input>
-          <gp-input label="CPF"></gp-input>
-          <gp-input label="E-mail"></gp-input>
+            <div class="modal-form__row" *ngIf="newEvaluationType === 'correct'">
+              <div class="vol-home__modal-fields vol-home__modal-fields--correct">
+                <gp-input label="Nome" size="large"></gp-input>
+                <gp-input label="CPF" size="large" placeholder="000.000.000-00"></gp-input>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </ng-template>
+  </gp-modal>
 
-        <div class="vol-home__modal-fields vol-home__modal-fields--correct" *ngIf="newEvaluationType === 'correct'">
-          <gp-input label="Nome"></gp-input>
-          <gp-input label="CPF"></gp-input>
+  <gp-modal
+    [open]="isBatchRegisterOpen"
+    type="confirmation"
+    title="Novo avaliado"
+    primaryLabel="Salvar"
+    secondaryLabel="Cancelar"
+    width="xl"
+    (primary)="confirmBatchRegister()"
+    (secondary)="closeBatchRegister()"
+    (closed)="closeBatchRegister()"
+  >
+    <ng-template gpModalBody>
+      <div class="vol-home__modal vol-home__modal--batch">
+        <div class="modal-form">
+          <div class="modal-form__section modal-form__section--choice">
+            <div class="vol-home__modal-options vol-home__modal-options--batch" role="radiogroup" aria-label="Tipo de cadastro">
+              <label class="vol-home__modal-option" [class.is-selected]="batchRegisterType === 'simple'">
+                <p-radioButton
+                  inputId="simple-register"
+                  name="batchRegisterType"
+                  value="simple"
+                  [(ngModel)]="batchRegisterType"
+                ></p-radioButton>
+                <div class="vol-home__modal-option-text">
+                  <span>Cadastro simples</span>
+                  <small>Cadastre manualmente um novo avaliado.</small>
+                </div>
+              </label>
+              <label class="vol-home__modal-option" [class.is-selected]="batchRegisterType === 'batch'">
+                <p-radioButton
+                  inputId="batch-register"
+                  name="batchRegisterType"
+                  value="batch"
+                  [(ngModel)]="batchRegisterType"
+                ></p-radioButton>
+                <div class="vol-home__modal-option-text">
+                  <span>Cadastro em lote</span>
+                  <small>Importe uma lista de avaliados em um único arquivo.</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-form__section modal-form__section--fields">
+            <div class="modal-form__row modal-form__row--two-cols" *ngIf="batchRegisterType === 'batch'">
+              <div class="vol-home__file">
+                <label class="vol-home__file-label">Arquivo</label>
+                <div class="vol-home__file-row">
+                  <gp-button
+                    variant="tertiary"
+                    size="small"
+                    label="Selecionar arquivo"
+                    (clicked)="batchFileInput.click()"
+                  ></gp-button>
+                  <span class="vol-home__file-helper">Nenhum arquivo selecionado</span>
+                  <input
+                    #batchFileInput
+                    id="batch-file"
+                    type="file"
+                    class="vol-home__file-input"
+                    aria-hidden="true"
+                    tabindex="-1"
+                  />
+                </div>
+              </div>
+              <div class="vol-home__field">
+                <label class="vol-home__field-label" for="batch-department">Departamento</label>
+                <p-select
+                  inputId="batch-department"
+                  styleClass="vol-select"
+                  [options]="departmentOptions"
+                  optionLabel="label"
+                  [checkmark]="true"
+                  appendTo="body"
+                  [(ngModel)]="selectedDepartment"
+                ></p-select>
+              </div>
+            </div>
+
+            <div class="modal-form__row" *ngIf="batchRegisterType === 'simple'">
+              <div class="vol-home__modal-fields vol-home__modal-fields--simple">
+                <gp-input label="Nome" size="large"></gp-input>
+                <gp-input label="CPF" size="large" placeholder="000.000.000-00"></gp-input>
+                <gp-input label="E-mail" size="large"></gp-input>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-template>

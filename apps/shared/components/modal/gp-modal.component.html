@@ -18,7 +18,6 @@
     aria-modal="true"
     [attr.aria-labelledby]="titleId"
     [attr.aria-describedby]="description ? descriptionId : null"
-    (click)="$event.stopPropagation()"
   >
     <header class="gp-modal__header">
       <h2 class="gp-modal__title" [id]="titleId">{{ title }}</h2>
