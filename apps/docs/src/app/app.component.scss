@@ -129,8 +129,9 @@
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   column-gap: 32px;
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
 }
 
 .layout-shell--no-nav {
@@ -164,8 +165,8 @@
 .app-nav {
   position: sticky;
   top: var(--app-header-height);
-  height: calc(100vh - var(--app-header-height) - var(--app-footer-height));
-  overflow-y: auto;
+  height: auto;
+  overflow: visible;
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
@@ -214,8 +215,8 @@
   --layout-gutter: max(0px, (100vw - var(--layout-max-width)) / 2);
   padding: 0 calc(var(--layout-gutter) + 48px) 32px 48px;
   margin-right: calc(var(--layout-gutter) * -1);
-  height: calc(100vh - var(--app-header-height) - var(--app-footer-height));
-  overflow-y: auto;
+  height: auto;
+  overflow: visible;
 }
 
 .app-content--home {
@@ -230,12 +231,14 @@
   width: 100%;
   background: transparent;
   color: tokens.$color-foreground-default;
-  padding: 24px;
+  padding: 24px 40px;
   margin-top: calc(#{tokens.$spacing-layout-lg} * 2);
   border-top: 1px solid tokens.$color-border-subtle;
 }
 
 .footer-inner {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -326,14 +329,11 @@
 
 /* Ensure prototype pages use window scroll (avoid nested scroll containers). */
 .app-shell--prototype .layout-shell {
-  height: auto;
-  min-height: 100vh;
-  overflow: visible;
+  padding: 0;
+  max-width: none;
 }
 
 .app-shell--prototype .app-content {
   padding: 0;
   margin-right: 0;
-  height: auto;
-  overflow: visible;
 }
